@@ -43,7 +43,7 @@
       </div>
     </section>
     <section class="landing__fullscreen-content">
-      <img src="/static/assets/images/piano.png">
+      <img src="/static/assets/images/piano.png" class="fullscreen__image">
     </section>
     <section class="landing__description-content">
       <h1 class="description__title-min">Омолаживающие операции на лице, которые я выполняю, чтобы <br> вы могли вдохновлять и вдохновляться своим отражением:</h1>
@@ -92,14 +92,122 @@
       </video>
     </section>
     <section class="landing__description-content">
-      <div class="content-block">
-        <div class="content-wrapper">
-          <h2 class="description__title-min">
-            DEEP PLANE FACELIFT (подтяжка лица в глубокой плоскости) — 
-            <span>это модифицированная расширенная методика подтяжки лица. Она позволяет омолаживать лицо комплексно, без эффекта перетянутости и с меньшей вероятностью рубцов и осложнений. Вы получите лицо правильных пропорций и гармоничной формы.»</span>
-          </h2>
-          <p class="post__sign">—  Олег Викторович Гордиенко, <br> пластический хирург</p>
-        </div>
+      <div class="content-wrapper">
+        <h2 class="description__title-min">
+          DEEP PLANE FACELIFT (подтяжка лица в глубокой плоскости) — 
+          <span>это модифицированная расширенная методика подтяжки лица. Она позволяет омолаживать лицо комплексно, без эффекта перетянутости и с меньшей вероятностью рубцов и осложнений. Вы получите лицо правильных пропорций и гармоничной формы.»</span>
+        </h2>
+        <p class="post__sign">—  Олег Викторович Гордиенко, <br> пластический хирург</p>
+      </div>
+      <div class="numbered-wrapper">
+        <ul class="description__list-numbered">
+          <li>
+            <p class="list__num">01</p>
+            <h1 class="list__title">Самая передовая в мире методика омоложения лица</h1>
+            <h2 class="list__subtitle">разработана в США лидерами пластической хирургии для получения наиболее естественных и долговременных результатов</h2>
+            <p class="list__info">
+              Во время процедуры Deep Plane FaceLift основное внимание уделяется полноценному освобождению всех связок лица, которые прочно удерживают его ткани. 
+              Это позволяет не натягивать, а свободно перемещать и поднимать ткани лица, возвращая их на то место, где они были в молодости.
+            </p>
+          </li>
+          <li>
+            <p class="list__num">02</p>
+            <h1 class="list__title">Никаких перетянутых неестественных шаблонных лиц</h1>
+            <h2 class="list__subtitle">результат будет максимально естественным, но при этом значительным</h2>
+            <p class="list__info">
+              Средняя зона лица мимически очень активна, поэтому с возрастом она начинает стареть и опускаться быстрее остальных областей лица. 
+              Deep Plane FaceLift — единственная методика, которая эффективно воздействует не только на нижнюю треть лица и шею (как при обычной SMAS-подтяжки), 
+              но и на среднюю зону лица. Она сглаживает носогубные складки и добавляет объем в области скул без использования филлеров и липофилинга.
+            </p>
+          </li>
+          <li>
+            <p class="list__num">03</p>
+            <h1 class="list__title">Глубокая плоскость (Deep Plane)</h1>
+            <h2 class="list__subtitle">это анатомическая плоскость в средней зоне лица, которая находится глубоко под кожей и подкожной жировой клетчаткой</h2>
+            <p class="list__info">
+              Средняя зона лица мимически очень активна, поэтому с возрастом она начинает стареть и опускаться быстрее остальных областей лица. 
+              Deep Plane FaceLift — единственная методика, которая эффективно воздействует не только на нижнюю треть лица и шею (как при обычной SMAS-подтяжки), 
+              но и на среднюю зону лица. Она сглаживает носогубные складки и добавляет объем в области скул без использования филлеров и липофилинга.
+            </p>
+          </li>
+          <li>
+            <p class="list__num">04</p>
+            <h1 class="list__title">Deep Plane FaceLift</h1>
+            <h2 class="list__subtitle">намного бережнее и эффективнее SMAS-подтяжки лица</h2>
+            <p class="list__info">
+              Процедура выполняется через скрытые разрезы вокруг уха, оставляя нетронутой естественную линию роста волос. 
+              Рубцы остаются незаметными для окружающих.
+            </p>
+          </li>
+          <li>
+            <p class="list__num">05</p>
+            <h1 class="list__title">Эффект омоложения</h1>
+            <h2 class="list__subtitle">после Deep Plane FaceLift длится 8 лет и более</h2>
+            <p class="list__info">
+              Лицо не опустится через 3-4 года, как после большинства других популярных методик подтяжек лица.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="landing__fullscreen-content">
+      <div class="fullscreen__photos">
+        <img src="/static/assets/images/profilepage1.png">
+        <img src="/static/assets/images/profilepage2.png">
+      </div>
+    </section>
+    <section class="landing__description-content">
+      <ul class="description__list-numbered">
+        <li>
+          <p class="list__num">06</p>
+          <h1 class="list__title">Первичная консультация</h1>
+          <h2 class="list__subtitle">это установление дружеского контакта с первых минут, проявление личного тепла и доверия</h2>
+          <p class="list__info">
+            Я очень люблю консультировать людей. Это огромная радость, когда в процессе консультации удается помочь пациенту справиться со страхом неизвестности  перед операцией. 
+            Моя задача — дать вам как можно больше информации о процедуре, чтобы развеять сомнения и выстроить фундамент для дальнейших потрясающих результатов.
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section class="landing__video-content">
+      <video class="content__video" loop autoplay muted>
+        <source src="/static/assets/video/profilepage3.mp4" type="video/mp4">
+      </video>
+    </section>
+    <section class="landing__description-content">
+      <div class="numbered-wrapper">
+        <ul class="description__list-numbered">
+          <li>
+            <p class="list__num">07</p>
+            <h1 class="list__title">Подготовка к операции</h1>
+            <h2 class="list__subtitle">проводится в нашей клинике</h2>
+            <p class="list__info">
+              Предоперационное обследование включает в себя: анализы крови и мочи, ЭКГ, консультацию флеболога и анестезиолога, УЗИ вен нижних конечностей и флюорографию.
+            </p>
+          </li>
+          <li>
+            <p class="list__num">08</p>
+            <h1 class="list__title">Ограничения перед операцией</h1>
+            <h2 class="list__subtitle">не являются чем-то сложным и трудновыполнимым</h2>
+            <p class="list__info">
+              Я не рекомендую за полгода до операции использовать ботулотоксин, филлеры и нити, а также наращивать ресницы и выполнять любой вид перманентного макияжа глаз и бровей. 
+              За год — не стоит делать ультразвуковых омолаживающих процедур (SMAS-лифтинг типа Ultherapy (Альтерa), Ultraformer (Ультраформер), Face Tite (ФейсТайт) и т.д.
+            </p>
+          </li>
+          <li>
+            <p class="list__num">09</p>
+            <h1 class="list__title">Для иногородних пациентов</h1>
+            <div class="list__popup" v-if="isPopupOpen">
+              <span class="subtitle__popup-btn" style="cursor: default;">?</span>
+              <p class="popup__info">Fly IN - облет, также называемый авиационным собранием, представляет собой заранее организованное собрание самолетов, пилотов и пассажиров в развлекательных и общественных целях.</p>
+            </div>
+            <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»<button class="subtitle__popup-btn" @click="togglePopup">?</button>. Это онлайн-служба заботы о пациентах, предусматривающая полное сопровождение до, во время и после операции</h2>
+            <p class="list__info">
+              В программу входит подбор жилья, встреча с табличкой в аэропорту с табличкой, трансфер в обе стороны, доставка еды и всего, что вам необходимо.<br>
+              Вам будет комфортно находиться в Санкт-Петербурге.
+            </p>
+          </li>
+        </ul>
       </div>
     </section>
   </div>
@@ -134,6 +242,11 @@ function toggleFullscreen() {
   } else if (videoPlayer.value.msRequestFullscreen) {
     videoPlayer.value.msRequestFullscreen();
   }
+}
+
+const isPopupOpen = ref(false)
+function togglePopup() {
+  isPopupOpen.value = !isPopupOpen.value
 }
 </script>
 
@@ -240,6 +353,7 @@ function toggleFullscreen() {
       line-height: 130%;
       margin-left: auto;
       margin-top: 30px;
+      margin-bottom: 178px;
     }
 
     .description__list {
@@ -255,6 +369,109 @@ function toggleFullscreen() {
         font-style: normal;
         font-weight: 300;
         line-height: 150%;
+      }
+    }
+
+    .numbered-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .description__list-numbered {
+      display: flex;
+      flex-direction: column;
+      max-width: 1300px;
+      gap: 130px;
+
+      li {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        .list__num {
+          color: #393939;
+          font-family: Accademico;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 100%;
+          letter-spacing: 0.18px;
+          text-transform: uppercase;
+          margin-bottom: 10px;
+          opacity: 0.6;
+        }
+
+        .list__title {
+          color: #393939;
+          text-align: justify;
+          font-family: Accademico;
+          font-size: 36px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 140%;
+          letter-spacing: 0.36px;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+        }
+
+        .list__subtitle {
+          color: #5493D1;
+          font-family: Accademico;
+          font-size: 26px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 130%;
+          letter-spacing: 0.26px;
+          margin-bottom: 20px;
+          display: inline;
+        }
+
+        .list__popup {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 40px;
+          background: radial-gradient(436.66% 138.04% at 42.87% 56.06%, rgba(84, 147, 209, 0.80) 2%, #A9C8E8 34%, #FFF 79.5%);
+          opacity: 0.85;
+          width: 500px;
+          border-radius: 30px;
+          top: -125px;
+          right: 135px;
+          gap: 20px;
+
+          .popup__info {
+            font-size: 16px;
+            color: #fff;
+          }
+        }
+
+        .subtitle__popup-btn {
+          cursor: pointer;
+          border: none;
+          background: rgba(84, 147, 209, 0.3);
+          border-radius: 50%;
+          color: #fff;
+          width: 20px;
+          height: 20px;
+          font-size: 15px;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: 5px;
+          transform: translateY(-5px);
+        }
+
+        .list__info {
+          color: #393939;
+          text-align: justify;
+          font-family: Accademico;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 130%;
+          opacity: 0.85;
+        }
       }
     }
 
@@ -323,7 +540,20 @@ function toggleFullscreen() {
     height: 1000px;
     overflow: hidden;
 
-    img {
+    .fullscreen__photos {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      gap: 50px;
+
+      img {
+        width: 50%;
+        height: 100%;
+      }
+    }
+
+    .fullscreen__image {
       width: 100%;
       height: 100%;
     }
