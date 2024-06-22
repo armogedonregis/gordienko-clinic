@@ -1,21 +1,17 @@
 <template>
-  <div>
-    <NuxtRouteAnnouncer />
-    <Header/>
-    <NuxtPage>
-      <Index />
-    </NuxtPage>
-    <Footer/>
-    <Cookies/>
-  </div>
+  <NuxtRouteAnnouncer />
+  <Header/>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
+  <Footer/>
+  <Cookies/>
 </template>
 
 <script setup>
 import Header from "./components/Header"
-import Index from "./pages/index";
 import Footer from "./components/Footer.vue";
 import Cookies from "./components/Cookies.vue";
-
 </script>
 
 <style>
@@ -34,6 +30,7 @@ import Cookies from "./components/Cookies.vue";
   padding: 0;
   box-sizing: border-box;
   font-family: Grafitello;
+  text-decoration: none;
 }
 
 body {

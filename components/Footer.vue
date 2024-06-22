@@ -13,7 +13,7 @@
           <ul class="description__list">
             <li><NuxtLink to="#">истории преображений</NuxtLink></li>
             <li><NuxtLink to="#">вопросы и ответы</NuxtLink></li>
-            <li><NuxtLink to="#">доктор гордиенко</NuxtLink></li>
+            <li><NuxtLink to="profile">доктор гордиенко</NuxtLink></li>
             <li><NuxtLink to="#">блог</NuxtLink></li>
           </ul>
           <ul class="description__list">
@@ -25,7 +25,7 @@
           </ul>
           <ul class="description__list">
             <li><NuxtLink to="https://m.vk.com/ovgordienko?reactions_opened=wall-211145946_637" target="_blank">вконтакте</NuxtLink></li>
-            <li><NuxtLink to="#" target="_blank">instagram</NuxtLink></li>
+            <li><NuxtLink to="https://www.instagram.com/gordienko.doctor?igsh=MThscGVwMXJ3NXVxaw==" target="_blank">instagram</NuxtLink></li>
             <li><NuxtLink to="https://dzen.ru/oleggordienko" target="_blank">дзен</NuxtLink></li>
           </ul>
         </div>
@@ -37,9 +37,9 @@
       </div>
     </div>
     <nav class="footer__links">
-      <NuxtLink to="tel:79111224888" class="link">Гордиенко Олег Викторович</NuxtLink>
-      <NuxtLink to="#" class="link">Политика конфиденциальности</NuxtLink>
-      <NuxtLink to="www.igorstepanov.art" class="link"> IGORSTEPANOV.ART ©{{ currentYear }}</NuxtLink>
+      <NuxtLink to="profile" class="link">Гордиенко Олег Викторович</NuxtLink>
+      <NuxtLink to="#" target="_blank" class="link">Политика конфиденциальности</NuxtLink>
+      <NuxtLink to="https://www.igorstepanov.art/" target="_blank" class="link"> IGORSTEPANOV.ART ©{{ currentYear }}</NuxtLink>
     </nav>
   </footer>
 </template>
@@ -159,9 +159,5 @@ const currentYear = ref(new Date().getFullYear())
       }
     }
   }
-}
-
-a {
-  text-decoration: none;
 }
 </style>

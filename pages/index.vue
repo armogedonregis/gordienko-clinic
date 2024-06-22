@@ -1,11 +1,11 @@
 <template>
   <main class="home">
-    <div class="main__content" v-for="block in blocks" :key="block">
+    <NuxtLink :to="block.href" class="main__content" v-for="block in blocks" :key="block">
       <h1 class="content__title">{{ block.title }}</h1>
       <video class="content__video" loop autoplay muted>
         <source :src="block.video" type="video/mp4">
       </video>
-    </div>
+    </NuxtLink>
   </main>
 </template>
 
@@ -23,35 +23,43 @@ import homepage8 from '/static/assets/video/homepage8.mp4';
 const blocks = ref([
   {
     title: 'Полюбите свое отражение вновь',
-    video: homepage1
+    video: homepage1,
+    href: 'hello'
   },
   {
     title: 'Доктор Гордиенко',
-    video: homepage2 
+    video: homepage2,
+    href: 'profile'
   },
   {
     title: 'Deep plane facelift',
-    video: homepage3 
+    video: homepage3,
+    href: ''
   },
   {
     title: 'Губы',
-    video: homepage4 
+    video: homepage4,
+    href: ''
   },
   {
     title: 'Лоб и брови',
-    video: homepage5 
+    video: homepage5,
+    href: ''
   },
   {
     title: 'Шея',
-    video: homepage6
+    video: homepage6,
+    href: ''
   },
   {
     title: 'Глаза',
-    video: homepage7
+    video: homepage7,
+    href: ''
   },
   {
     title: 'Липофилинг',
-    video: homepage8
+    video: homepage8,
+    href: ''
   }
 ])
 </script>
