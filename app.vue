@@ -5,6 +5,7 @@
     <NuxtPage>
       <Index />
     </NuxtPage>
+    <Footer/>
     <Cookies/>
   </div>
 </template>
@@ -12,7 +13,9 @@
 <script setup>
 import Header from "./components/Header"
 import Index from "./pages/index";
+import Footer from "./components/Footer.vue";
 import Cookies from "./components/Cookies.vue";
+
 </script>
 
 <style>

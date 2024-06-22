@@ -1,58 +1,59 @@
 <template>
   <main class="home">
-    <div class="main__content">
-      <h1 class="content__title">Полюбите свое отражение вновь</h1>
+    <div class="main__content" v-for="block in blocks" :key="block">
+      <h1 class="content__title">{{ block.title }}</h1>
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/homepage1.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="main__content">
-      <h1 class="content__title">Доктор Гордиенко</h1>
-      <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/homepage2.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="main__content">
-      <h1 class="content__title">Deep plane facelift</h1>
-      <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/homepage3.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="main__content">
-      <h1 class="content__title">Губы</h1>
-      <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/homepage4.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="main__content">
-      <h1 class="content__title">Лоб и брови</h1>
-      <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/homepage5.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="main__content">
-      <h1 class="content__title">Шея</h1>
-      <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/homepage6.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="main__content">
-      <h1 class="content__title">Глаза</h1>
-      <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/homepage7.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="main__content">
-      <h1 class="content__title">Липофилинг</h1>
-      <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/homepage8.mp4" type="video/mp4">
+        <source :src="block.video" type="video/mp4">
       </video>
     </div>
   </main>
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import homepage1 from '/static/assets/video/homepage1.mp4';
+import homepage2 from '/static/assets/video/homepage2.mp4';
+import homepage3 from '/static/assets/video/homepage3.mp4';
+import homepage4 from '/static/assets/video/homepage4.mp4';
+import homepage5 from '/static/assets/video/homepage5.mp4';
+import homepage6 from '/static/assets/video/homepage6.mp4';
+import homepage7 from '/static/assets/video/homepage7.mp4';
+import homepage8 from '/static/assets/video/homepage8.mp4';
 
+const blocks = ref([
+  {
+    title: 'Полюбите свое отражение вновь',
+    video: homepage1
+  },
+  {
+    title: 'Доктор Гордиенко',
+    video: homepage2 
+  },
+  {
+    title: 'Deep plane facelift',
+    video: homepage3 
+  },
+  {
+    title: 'Губы',
+    video: homepage4 
+  },
+  {
+    title: 'Лоб и брови',
+    video: homepage5 
+  },
+  {
+    title: 'Шея',
+    video: homepage6
+  },
+  {
+    title: 'Глаза',
+    video: homepage7
+  },
+  {
+    title: 'Липофилинг',
+    video: homepage8
+  }
+])
 </script>
 
 <style lang="scss" scoped>
