@@ -70,6 +70,8 @@ const blocks = ref([
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 1728px;
+  width: 100%;
 
   .home__title {
     color: #FFF;

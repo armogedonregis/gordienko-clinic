@@ -28,8 +28,9 @@
 .header-wrapper {
   position: absolute;
   padding: 33px 33px 0 33px;
-  width: 100%;
   z-index: 999;
+  max-width: 1728px;
+  width: 100%;
 
   .header {
     display: flex;

@@ -1,11 +1,13 @@
 <template>
-  <NuxtRouteAnnouncer />
-  <Header/>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
-  <Footer/>
-  <Cookies/>
+  <div class="app">
+    <NuxtRouteAnnouncer />
+    <Header />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+    <Footer />
+    <Cookies />
+  </div>
 </template>
 
 <script setup>
@@ -17,7 +19,7 @@ import Cookies from "./components/Cookies.vue";
 <style>
 @font-face {
   font-family: Grafitello;
-  src: url('/static/assets/fonts/Grafitello.ttf');
+  src: url('/static/assets/fonts/Grafitello.otf');
 }
 
 @font-face {
@@ -31,6 +33,12 @@ import Cookies from "./components/Cookies.vue";
   box-sizing: border-box;
   font-family: Grafitello;
   text-decoration: none;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 body {

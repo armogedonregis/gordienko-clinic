@@ -56,6 +56,8 @@ const currentYear = ref(new Date().getFullYear())
   flex-direction: column;
   justify-content: space-between;
   padding: 250px 0 17px 40px;
+  max-width: 1728px;
+  width: 100%;
 
   .footer__wrapper {
     display: flex;

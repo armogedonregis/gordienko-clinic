@@ -26,6 +26,7 @@ function toggleAgreeCookies() {
   z-index: 999;
   bottom: 0;
   padding: 0 47px 0 30px;
+  max-width: 1728px;
 
   .cookies__title {
     color: #FFF;
@@ -34,7 +35,7 @@ function toggleAgreeCookies() {
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
   }
 
