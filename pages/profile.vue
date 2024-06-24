@@ -1879,7 +1879,7 @@ function togglePopup() {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 700px;
+    height: 100vh;
     overflow: hidden;
     position: relative;
 
@@ -1898,10 +1898,10 @@ function togglePopup() {
 
     .content__video {
       position: absolute;
-      top: -25%;
       left: 0;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
     }
 
     .content-video__control {
