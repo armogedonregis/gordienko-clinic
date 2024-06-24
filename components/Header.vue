@@ -2,18 +2,18 @@
   <div class="header-wrapper">
     <header class="header">
       <nav class="header__nav">
-        <div class="nav__links-wrapper">
-          <NuxtLink class="nav__link" to="#">deep plane facelift</NuxtLink>
-          <NuxtLink class="nav__link" to="blog">блог</NuxtLink>
-          <NuxtLink class="nav__link" to="profile">доктор гордиенко</NuxtLink>
+        <div class="nav__links-wrapper left">
+          <NuxtLink class="nav__link" :class="route.path === '/blog' ? 'link__black' : 'link__white'" to="#">deep plane facelift</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === '/blog' ? 'link__black' : 'link__white'" to="blog">блог</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === '/blog' ? 'link__black' : 'link__white'" to="profile">доктор гордиенко</NuxtLink>
         </div>
         <NuxtLink to="/">
           <img src="/static/assets/images/logo.png" class="nav__logo">
         </NuxtLink>
-        <div class="nav__links-wrapper">
-          <NuxtLink class="nav__link" to="#">результаты</NuxtLink>
-          <NuxtLink class="nav__link" to="#">telegram</NuxtLink>
-          <NuxtLink class="nav__link" to="#">телефон</NuxtLink>
+        <div class="nav__links-wrapper right">
+          <NuxtLink class="nav__link" :class="route.path === 'blog' ? 'link__black' : 'link__white'" to="#">результаты</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === 'blog' ? 'link__black' : 'link__white'" to="#">telegram</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === 'blog' ? 'link__black' : 'link__white'" to="#">телефон</NuxtLink>
         </div>
       </nav>
     </header>
@@ -21,7 +21,9 @@
 </template>
 
 <script setup>
+import { useRoute } from 'vue-router';
 
+const route = useRoute()
 </script>
 
 <style lang="scss" scoped>
@@ -53,7 +55,6 @@
         width: 50%;
 
         .nav__link {
-          color: #FFF;
           font-size: 10px;
           font-style: normal;
           font-weight: 500;
@@ -61,6 +62,9 @@
           letter-spacing: 2px;
           text-transform: uppercase;
         }
+
+        .link__white {color: #FFF;}
+        .link__black {color: #393939;}
       }
 
       .nav__logo {
