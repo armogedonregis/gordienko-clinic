@@ -14,7 +14,7 @@
             <li><NuxtLink to="#">истории преображений</NuxtLink></li>
             <li><NuxtLink to="#">вопросы и ответы</NuxtLink></li>
             <li><NuxtLink to="profile">доктор гордиенко</NuxtLink></li>
-            <li><NuxtLink to="#">блог</NuxtLink></li>
+            <li><NuxtLink to="blog">блог</NuxtLink></li>
           </ul>
           <ul class="description__list">
             <li><NuxtLink to="#">Deep Plane Facelift</NuxtLink></li>

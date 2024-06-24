@@ -4,7 +4,7 @@
       <nav class="header__nav">
         <div class="nav__links-wrapper">
           <NuxtLink class="nav__link" to="#">deep plane facelift</NuxtLink>
-          <NuxtLink class="nav__link" to="#">блог</NuxtLink>
+          <NuxtLink class="nav__link" to="blog">блог</NuxtLink>
           <NuxtLink class="nav__link" to="profile">доктор гордиенко</NuxtLink>
         </div>
         <NuxtLink to="/">

@@ -35,7 +35,7 @@ function toggleAgreeCookies() {
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    letter-spacing: 1px;
+    letter-spacing: 0.22px;
     text-transform: uppercase;
   }
 
