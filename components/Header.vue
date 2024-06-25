@@ -11,7 +11,7 @@
           <img src="/static/assets/images/logo.png" class="nav__logo">
         </NuxtLink>
         <div class="nav__links-wrapper right">
-          <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="#">результаты</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="results">результаты</NuxtLink>
           <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="#">telegram</NuxtLink>
           <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="#">телефон</NuxtLink>
         </div>
