@@ -15,7 +15,7 @@
           <p class="titles__title link__author">АВТОР</p>
           <p class="titles__title link__article">ТЕМА</p>
         </div>
-        <NuxtLink to="/" class="table__link" v-for="article in articles.slice(0, 9)">
+        <NuxtLink :to="`/article-${article.id}`" class="table__link" v-for="article in articles.slice(0, 9)">
           <p class="link link__date">{{ article.date }}</p>
           <p class="link link__author">{{ article.author }}</p>
           <p class="link link__article">{{ article.article }}</p>
@@ -31,7 +31,7 @@
     </div>
     <div class="blog__description">
       <div class="description__table">
-        <NuxtLink to="/" class="table__link" v-for="article in articles.slice(9)">
+        <NuxtLink :to="`/article-${article.id}`" class="table__link" v-for="article in articles.slice(9)">
           <p class="link link__date">{{ article.date }}</p>
           <p class="link link__author">{{ article.author }}</p>
           <p class="link link__article">{{ article.article }}</p>
@@ -46,82 +46,82 @@ import { ref } from 'vue';
 
 const articles = ref([
   {
+    id: 1,
     date: '12.04.24',
     author: 'Олег Викторович Гордиенко',
     article: 'Deep Plane Facelift – новый метод подтяжки лица и шеи. Почему это лучше обычной SMAS-подтяжки?',
-    href: ''
   },
   {
+    id: 2,
     date: '09.03.24',
     author: 'Олег Викторович Гордиенко',
     article: 'Лифтинг лба и бровей',
-    href: ''
   },
   {
+    id: 3,
     date: '14.02.24',
     author: 'Олег Викторович Гордиенко',
     article: 'Преимущества методики Deep Plane FaceLift',
-    href: ''
   },
   {
+    id: 4,
     date: '23.12.23',
     author: 'Олег Викторович Гордиенко',
     article: 'Липофилинг лица',
-    href: ''
   },
   {
+    id: 5,
     date: '12.04.23',
     author: 'Олег Викторович Гордиенко',
     article: 'Если вы приезжаете на операцию в Санкт-Петербург из другого города',
-    href: ''
   },
   {
+    id: 6,
     date: '03.02.23',
     author: 'Олег Викторович Гордиенко',
     article: 'Блефаропластика',
-    href: ''
   },
   {
+    id: 7,
     date: '28.01.23',
     author: 'Олег Викторович Гордиенко',
     article: 'Омоложение и подтяжка шеи',
-    href: ''
   },
   {
+    id: 8,
     date: '28.01.23',
     author: 'Олег Викторович Гордиенко',
     article: 'Подтяжка верхней губы LipLift',
-    href: ''
   },
   {
+    id: 9,
     date: '28.01.23',
     author: 'Олег Викторович Гордиенко',
     article: 'Как проходит операция по подтяжке лица',
-    href: ''
   },
   {
+    id: 10,
     date: '03.02.23',
     author: 'Олег Викторович Гордиенко',
     article: 'Что такое комплексное омоложение?',
-    href: ''
   },
   {
+    id: 11,
     date: '28.01.23',
     author: 'Олег Викторович Гордиенко',
     article: 'Подготовка к операции',
-    href: ''
   },
   {
+    id: 12,
     date: '28.01.23',
     author: 'Олег Викторович Гордиенко',
     article: 'В каком возрасте делать подтяжку лица?',
-    href: ''
   },
   {
+    id: 13,
     date: '28.01.23',
     author: 'Олег Викторович Гордиенко',
     article: 'Консультация пластического хирурга',
-    href: ''
   },
 ])
 </script>

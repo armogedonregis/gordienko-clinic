@@ -3,17 +3,17 @@
     <header class="header">
       <nav class="header__nav">
         <div class="nav__links-wrapper left">
-          <NuxtLink class="nav__link" :class="route.path === '/blog' ? 'link__black' : 'link__white'" to="#">deep plane facelift</NuxtLink>
-          <NuxtLink class="nav__link" :class="route.path === '/blog' ? 'link__black' : 'link__white'" to="blog">блог</NuxtLink>
-          <NuxtLink class="nav__link" :class="route.path === '/blog' ? 'link__black' : 'link__white'" to="profile">доктор гордиенко</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === '/blog' || route.path.includes('/article') ? 'link__black' : 'link__white'" to="#">deep plane facelift</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === '/blog' || route.path.includes('/article') ? 'link__black' : 'link__white'" to="blog">блог</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === '/blog' || route.path.includes('/article') ? 'link__black' : 'link__white'" to="profile">доктор гордиенко</NuxtLink>
         </div>
         <NuxtLink to="/">
           <img src="/static/assets/images/logo.png" class="nav__logo">
         </NuxtLink>
         <div class="nav__links-wrapper right">
-          <NuxtLink class="nav__link" :class="route.path === 'blog' ? 'link__black' : 'link__white'" to="#">результаты</NuxtLink>
-          <NuxtLink class="nav__link" :class="route.path === 'blog' ? 'link__black' : 'link__white'" to="#">telegram</NuxtLink>
-          <NuxtLink class="nav__link" :class="route.path === 'blog' ? 'link__black' : 'link__white'" to="#">телефон</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="#">результаты</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="#">telegram</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="#">телефон</NuxtLink>
         </div>
       </nav>
     </header>
