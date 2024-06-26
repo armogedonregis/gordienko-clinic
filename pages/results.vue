@@ -3,8 +3,8 @@
     <nav class="results__nav">
       <NuxtLink class="nav__link">ИСТОРИИ ПРЕОБРАЖЕНИЯ</NuxtLink>
       <div class="nav__center-links">
-        <NuxtLink class="nav__link" @click="toggleResults">ПОСМОТРЕТЬ</NuxtLink>
-        <NuxtLink class="nav__link" @click="toggleResults">ПОЧИТАТЬ</NuxtLink>
+        <NuxtLink class="nav__link" @click="toggleWatch">ПОСМОТРЕТЬ</NuxtLink>
+        <NuxtLink class="nav__link" @click="toggleRead">ПОЧИТАТЬ</NuxtLink>
       </div>
       <NuxtLink class="nav__link">Deep plane facelift</NuxtLink>
     </nav>
@@ -20,9 +20,13 @@ import WatchResults from '/components/WatchResults';
 
 const isReadActive = ref(true)
 const isWatchActive = ref(false)
-function toggleResults() {
-  isReadActive.value = !isReadActive.value
-  isWatchActive.value = !isWatchActive.value
+function toggleRead() {
+  isReadActive.value = true
+  isWatchActive.value = false
+}
+function toggleWatch() {
+  isReadActive.value = false
+  isWatchActive.value = true
 }
 </script>
 
