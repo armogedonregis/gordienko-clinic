@@ -12,8 +12,8 @@
         </NuxtLink>
         <div class="nav__links-wrapper right">
           <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="results">результаты</NuxtLink>
-          <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="#">telegram</NuxtLink>
-          <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="#">телефон</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="https://t.me/doctor_gordienko" target="_blank">telegram</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="tel:79111224888">телефон</NuxtLink>
         </div>
       </nav>
     </header>

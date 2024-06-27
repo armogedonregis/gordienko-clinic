@@ -44,7 +44,7 @@ function toggleWatch() {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 57px;
+    padding: 57px 33px;
     border-top: 1px solid rgba(138, 138, 138, 0.50);
     border-bottom: 1px solid rgba(138, 138, 138, 0.50);
     margin-top: 138px;
