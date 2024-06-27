@@ -165,7 +165,7 @@ const articles = [
 ]
 
 onMounted(() => {
-  const articleId = parseInt(route.path.split('-')[1])
+  const articleId = parseInt(route.params.id)
   article.value = articles.find(a => a.id === articleId)
 })
 </script>

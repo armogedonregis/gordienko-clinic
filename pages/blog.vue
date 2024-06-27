@@ -15,7 +15,7 @@
           <p class="titles__title link__author">АВТОР</p>
           <p class="titles__title link__article">ТЕМА</p>
         </div>
-        <NuxtLink :to="`/article-${article.id}`" class="table__link" v-for="article in articles.slice(0, 9)">
+        <NuxtLink :to="`/article/${article.id}`" class="table__link" v-for="article in articles.slice(0, 9)">
           <p class="link link__date">{{ article.date }}</p>
           <p class="link link__author">{{ article.author }}</p>
           <p class="link link__article">{{ article.article }}</p>
@@ -31,7 +31,7 @@
     </div>
     <div class="blog__description">
       <div class="description__table">
-        <NuxtLink :to="`/article-${article.id}`" class="table__link" v-for="article in articles.slice(9)">
+        <NuxtLink :to="`/article/${article.id}`" class="table__link" v-for="article in articles.slice(9)">
           <p class="link link__date">{{ article.date }}</p>
           <p class="link link__author">{{ article.author }}</p>
           <p class="link link__article">{{ article.article }}</p>

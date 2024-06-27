@@ -13,8 +13,8 @@
           <ul class="description__list">
             <li><NuxtLink to="#" :class="route.path === '/results' ? 'title__grey' : ''">истории преображений</NuxtLink></li>
             <li><NuxtLink to="#" :class="route.path === '/results' ? 'title__grey' : ''">вопросы и ответы</NuxtLink></li>
-            <li><NuxtLink to="profile" :class="route.path === '/results' ? 'title__grey' : ''">доктор гордиенко</NuxtLink></li>
-            <li><NuxtLink to="blog" :class="route.path === '/results' ? 'title__grey' : ''">блог</NuxtLink></li>
+            <li><NuxtLink to="/profile" :class="route.path === '/results' ? 'title__grey' : ''">доктор гордиенко</NuxtLink></li>
+            <li><NuxtLink to="/blog" :class="route.path === '/results' ? 'title__grey' : ''">блог</NuxtLink></li>
           </ul>
           <ul class="description__list">
             <li><NuxtLink to="#" :class="route.path === '/results' ? 'title__grey' : ''">Deep Plane Facelift</NuxtLink></li>
@@ -38,7 +38,7 @@
       </div>
     </div>
     <nav class="footer__links">
-      <NuxtLink to="profile" class="link">Гордиенко Олег Викторович</NuxtLink>
+      <NuxtLink to="/profile" class="link">Гордиенко Олег Викторович</NuxtLink>
       <NuxtLink to="#" target="_blank" class="link">Политика конфиденциальности</NuxtLink>
       <NuxtLink to="https://www.igorstepanov.art/" target="_blank" class="link"> IGORSTEPANOV.ART ©{{ currentYear }}</NuxtLink>
     </nav>

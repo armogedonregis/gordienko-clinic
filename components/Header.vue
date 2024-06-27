@@ -4,14 +4,14 @@
       <nav class="header__nav">
         <div class="nav__links-wrapper left">
           <NuxtLink class="nav__link" :class="route.path === '/blog' || route.path.includes('/article') ? 'link__black' : 'link__white'" to="#">deep plane facelift</NuxtLink>
-          <NuxtLink class="nav__link" :class="route.path === '/blog' || route.path.includes('/article') ? 'link__black' : 'link__white'" to="blog">блог</NuxtLink>
-          <NuxtLink class="nav__link" :class="route.path === '/blog' || route.path.includes('/article') ? 'link__black' : 'link__white'" to="profile">доктор гордиенко</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === '/blog' || route.path.includes('/article') ? 'link__black' : 'link__white'" to="/blog">блог</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === '/blog' || route.path.includes('/article') ? 'link__black' : 'link__white'" to="/profile">доктор гордиенко</NuxtLink>
         </div>
         <NuxtLink to="/">
           <img src="/static/assets/images/logo.png" class="nav__logo">
         </NuxtLink>
         <div class="nav__links-wrapper right">
-          <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="results">результаты</NuxtLink>
+          <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="/results">результаты</NuxtLink>
           <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="https://t.me/doctor_gordienko" target="_blank">telegram</NuxtLink>
           <NuxtLink class="nav__link" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="tel:79111224888">телефон</NuxtLink>
         </div>
