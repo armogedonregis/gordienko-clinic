@@ -77,10 +77,25 @@ const itemColor = computed(() => {
     justify-content: space-between;
     width: 100%;
 
+    @media (max-width: 1100px) {
+      flex-direction: column;
+      gap: 160px;
+    }
+
     .footer__description {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+
+      @media (max-width: 1100px) {
+        &:first-child {order: 2;}
+        &:last-child {
+          flex-direction: row-reverse;
+          justify-content: space-between;
+          align-items: flex-end;
+          order: 1; 
+        }
+      }
 
       .description__title {
         display: flex;
@@ -117,6 +132,10 @@ const itemColor = computed(() => {
         text-transform: uppercase;
         margin-top: 50px;
 
+        @media (max-width: 1100px) {
+          order: 1;
+        }
+
         &.title__white {color: #fff;}
       }
 
@@ -151,6 +170,10 @@ const itemColor = computed(() => {
         width: 80px;
         height: 80px;
         margin-top: 50px;
+
+        @media (max-width: 1100px) {
+          order: 2;
+        }
       }
     }
   }
@@ -161,6 +184,10 @@ const itemColor = computed(() => {
     justify-content: space-between;
     margin-top: 71px;
     padding-right: 74px;
+
+    @media (max-width: 1100px) {
+      padding-right: 16px;
+    }
 
     .link {
       color: #A3A3A3;

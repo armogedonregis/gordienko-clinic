@@ -28,6 +28,13 @@ function toggleAgreeCookies() {
   padding: 0 47px 0 30px;
   max-width: 1728px;
 
+  @media (max-width: 1700px) {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 40px;
+  }
+
   .cookies__title {
     color: #FFF;
     font-family: Accademico;
@@ -37,6 +44,10 @@ function toggleAgreeCookies() {
     line-height: 120%;
     letter-spacing: 0.22px;
     text-transform: uppercase;
+
+    @media (max-width: 1700px) {
+      font-size: 20px;
+    }
   }
 
   .cookies__agreement {
@@ -56,6 +67,10 @@ function toggleAgreeCookies() {
     font-weight: 400;
     line-height: 95%;
     text-transform: uppercase;
+
+    @media (max-width: 1700px) {
+      width: 300px;
+    }
   }
 }
 </style>

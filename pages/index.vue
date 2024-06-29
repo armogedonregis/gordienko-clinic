@@ -41,6 +41,7 @@ import home from "/server/home.json";
     height: 100vh;
     overflow: hidden;
     position: relative;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.12) 100%);
 
     .content__title {
       color: #FFF;
@@ -53,6 +54,10 @@ import home from "/server/home.json";
       line-height: 120%;
       text-transform: uppercase;
       z-index: 2;
+
+      @media (max-width: 1100px) {
+        font-size: 30px;
+      }
     }
 
     .content__video {
