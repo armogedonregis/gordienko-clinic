@@ -31,12 +31,12 @@
 <script setup>
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import cases from '/server/cases.json'
+import casesData from '/server/cases.json'
 
 const route = useRoute()
 const caseItem = computed(() => {
   const caseId = parseInt(route.params.id)
-  return cases.cases.find(a => a.id === caseId)
+  return casesData.cases.find(a => a.id === caseId)
 })
 </script>
 

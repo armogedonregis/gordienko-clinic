@@ -5,7 +5,7 @@
         <h1 class="text__title">{{ article.capitalBlock.title }}</h1>
         <p class="text__sign">{{ article.capitalBlock.sign }}</p>
       </div>
-      <img src="/static/assets/images/blogpage1.png">
+      <img :src="article.capitalBlock.image">
     </div>
     <div class="article__description">
       <div class="description__table">
@@ -27,12 +27,12 @@
         <span>{{ article.articleContent.articleDescription.secSpan }}</span>
         {{ article.articleContent.articleDescription.otherText }}
       </p>
-      <div class="content__posts" v-for="posts in article.articleContent.contentBlocks" :key="posts">
-        <h1 class="posts__title">{{ posts.title }}</h1>
-        <div class="posts__tight" v-for="point in posts.points" :key="point">
+      <div class="content__posts" v-for="(posts, index) in article.articleContent.contentBlocks" :key="index">
+        <h1 class="posts__title" v-if="posts.title">{{ posts.title }}</h1>
+        <div class="posts__tight" v-for="(point, pointIndex) in posts.points" :key="pointIndex">
           <span>{{ point.subtitle }}</span>
           <p>{{ point.blockText }}</p>
-          <img :src="point.image">
+          <img v-if="point.image" :src="point.image">
         </div>
       </div>
     </div>
@@ -44,13 +44,13 @@
 <script setup>
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import articles from "/server/articles.json"
+import articlesData from '/server/articles.json';
 
 const route = useRoute()
 
 const article = computed(() => {
   const articleId = parseInt(route.params.id)
-  return article.value = articles.articles.find(a => a.id === articleId)
+  return articlesData.articles.find(a => a.id === articleId)
 })
 </script>
 
@@ -89,7 +89,8 @@ const article = computed(() => {
         font-weight: 400;
         line-height: 130%;
         text-transform: uppercase;
-        width: 562px;
+        width: 471px;
+        white-space: pre-wrap;
       }
 
       .text__sign {
@@ -100,6 +101,7 @@ const article = computed(() => {
         font-style: normal;
         font-weight: 400;
         line-height: 130%;
+        white-space: pre-wrap;
       }
 
       .text__description {
@@ -245,6 +247,7 @@ const article = computed(() => {
         line-height: 130%;
         text-transform: uppercase;
         width: 1265px;
+        white-space: pre-wrap;
       }
 
       .posts__tight {
@@ -273,6 +276,7 @@ const article = computed(() => {
           font-style: normal;
           font-weight: 400;
           line-height: 130%;
+          white-space: pre-wrap;
         }
       }
     }

@@ -1,6 +1,6 @@
 <template>
   <div class="read__results">
-    <div class="results__item" v-for="story in cases.cases" :key="story">
+    <div class="results__item" v-for="story in casesData.cases" :key="story">
       <h1 class="item__title">{{ story.title }}</h1>
       <h2 class="item__subtitle">{{ story.subtitle }}</h2>
       <p class="item__text">{{ story.shortStory }}</p>
@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import cases from '/server/cases.json'
+import casesData from '/server/cases.json'
 </script>
 
 <style lang="scss" scoped>

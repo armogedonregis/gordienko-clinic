@@ -1,5 +1,5 @@
 <template>
-  <div class="watch__results"  v-for="(caseItem, index) in cases.cases" :key="index">
+  <div class="watch__results"  v-for="(caseItem, index) in casesData.cases" :key="index">
     <div class="results__item" v-for="(photo, photoIndex) in caseItem.images" :key="photoIndex">
       <img :src="photo" class="results__photo">
     </div>
@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import cases from "/server/cases.json";
+import casesData from "/server/cases.json";
 </script>
 
 <style lang="scss" scoped>
