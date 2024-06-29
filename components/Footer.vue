@@ -1,40 +1,44 @@
 <template>
-  <footer class="footer" :class="route.path === '/results' ? 'footer__black' : ''">
+  <footer class="footer" :class="{ 'footer__black': itemColor }">
     <div class="footer__wrapper">
       <div class="footer__description">
-        <h1 class="description__title" :class="route.path === '/results' ? 'title__white' : ''">Санкт-Петербург, ул. Садовая 35 <span>Клиника GRANDMED</span></h1>
+        <h1 class="description__title" :class="{ 'title__white': itemColor }">
+          Санкт-Петербург, ул. Садовая 35 <span>Клиника GRANDMED</span>
+        </h1>
         <div class="description__lists-wrapper">
           <ul class="description__list">
-            <li><NuxtLink to="mailto:oleg@gordienko.doctor" :class="route.path === '/results' ? 'title__grey' : ''">oleg@gordienko.doctor</NuxtLink></li>
-            <li><NuxtLink to="tel:79111224888" :class="route.path === '/results' ? 'title__grey' : ''">+7 911 122 48 88</NuxtLink></li>
-            <li><NuxtLink to="https://wa.me/79111224888" target="_blank" :class="route.path === '/results' ? 'title__grey' : ''">whatsapp</NuxtLink></li>
-            <li><NuxtLink to="https://t.me/doctor_gordienko" target="_blank" :class="route.path === '/results' ? 'title__grey' : ''">telegram</NuxtLink></li>
+            <li><NuxtLink to="mailto:oleg@gordienko.doctor" :class="{ 'title__grey': itemColor }">oleg@gordienko.doctor</NuxtLink></li>
+            <li><NuxtLink to="tel:79111224888" :class="{ 'title__grey': itemColor }">+7 911 122 48 88</NuxtLink></li>
+            <li><NuxtLink to="https://wa.me/79111224888" target="_blank" :class="{ 'title__grey': itemColor }">whatsapp</NuxtLink></li>
+            <li><NuxtLink to="https://t.me/doctor_gordienko" target="_blank" :class="{ 'title__grey': itemColor }">telegram</NuxtLink></li>
           </ul>
           <ul class="description__list">
-            <li><NuxtLink to="#" :class="route.path === '/results' ? 'title__grey' : ''">истории преображений</NuxtLink></li>
-            <li><NuxtLink to="#" :class="route.path === '/results' ? 'title__grey' : ''">вопросы и ответы</NuxtLink></li>
-            <li><NuxtLink to="/profile" :class="route.path === '/results' ? 'title__grey' : ''">доктор гордиенко</NuxtLink></li>
-            <li><NuxtLink to="/blog" :class="route.path === '/results' ? 'title__grey' : ''">блог</NuxtLink></li>
+            <li><NuxtLink to="#" :class="{ 'title__grey': itemColor }">истории преображений</NuxtLink></li>
+            <li><NuxtLink to="#" :class="{ 'title__grey': itemColor }">вопросы и ответы</NuxtLink></li>
+            <li><NuxtLink to="/profile" :class="{ 'title__grey': itemColor }">доктор гордиенко</NuxtLink></li>
+            <li><NuxtLink to="/blog" :class="{ 'title__grey': itemColor }">блог</NuxtLink></li>
           </ul>
           <ul class="description__list">
-            <li><NuxtLink to="#" :class="route.path === '/results' ? 'title__grey' : ''">Deep Plane Facelift</NuxtLink></li>
-            <li><NuxtLink to="#" :class="route.path === '/results' ? 'title__grey' : ''">лоб и брови</NuxtLink></li>
-            <li><NuxtLink to="#" :class="route.path === '/results' ? 'title__grey' : ''">глаза</NuxtLink></li>
-            <li><NuxtLink to="#" :class="route.path === '/results' ? 'title__grey' : ''">губы</NuxtLink></li>
-            <li><NuxtLink to="#" :class="route.path === '/results' ? 'title__grey' : ''">шея</NuxtLink></li>
+            <li><NuxtLink to="#" :class="{ 'title__grey': itemColor }">Deep Plane Facelift</NuxtLink></li>
+            <li><NuxtLink to="#" :class="{ 'title__grey': itemColor }">лоб и брови</NuxtLink></li>
+            <li><NuxtLink to="#" :class="{ 'title__grey': itemColor }">глаза</NuxtLink></li>
+            <li><NuxtLink to="#" :class="{ 'title__grey': itemColor }">губы</NuxtLink></li>
+            <li><NuxtLink to="#" :class="{ 'title__grey': itemColor }">шея</NuxtLink></li>
           </ul>
           <ul class="description__list">
-            <li><NuxtLink to="https://m.vk.com/ovgordienko?reactions_opened=wall-211145946_637" target="_blank" :class="route.path === '/results' ? 'title__grey' : ''">вконтакте</NuxtLink></li>
-            <li><NuxtLink to="https://www.instagram.com/gordienko.doctor?igsh=MThscGVwMXJ3NXVxaw==" target="_blank" :class="route.path === '/results' ? 'title__grey' : ''">instagram</NuxtLink></li>
-            <li><NuxtLink to="https://dzen.ru/oleggordienko" target="_blank" :class="route.path === '/results' ? 'title__grey' : ''">дзен</NuxtLink></li>
+            <li><NuxtLink to="https://m.vk.com/ovgordienko?reactions_opened=wall-211145946_637" target="_blank" :class="{ 'title__grey': itemColor }">вконтакте</NuxtLink></li>
+            <li><NuxtLink to="https://www.instagram.com/gordienko.doctor?igsh=MThscGVwMXJ3NXVxaw==" target="_blank" :class="{ 'title__grey': itemColor }">instagram</NuxtLink></li>
+            <li><NuxtLink to="https://dzen.ru/oleggordienko" target="_blank" :class="{ 'title__grey': itemColor }">дзен</NuxtLink></li>
           </ul>
         </div>
-        <img src="/static/assets/images/logo-white.png" class="footer__logo" v-if="route.path === '/results'">
-        <img src="/static/assets/images/logo-grey.png" class="footer__logo" v-if="route.path !== '/results'">
+        <NuxtLink to="/">
+          <img src="/static/assets/images/logo-white.png" class="footer__logo" v-if="itemColor">
+          <img src="/static/assets/images/logo-grey.png" class="footer__logo" v-else>
+        </NuxtLink>
       </div>
       <div class="footer__description">
         <img src="/static/assets/images/photo-blog.png">
-        <h1 class="description__blog-title" :class="route.path === '/results' ? 'title__white' : ''">Блог</h1>
+        <h1 class="description__blog-title" :class="{ 'title__white': itemColor }">Блог</h1>
       </div>
     </div>
     <nav class="footer__links">
@@ -46,11 +50,15 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
 
 const currentYear = ref(new Date().getFullYear())
 const route = useRoute()
+
+const itemColor = computed(() => {
+  return route.path === '/results' || route.path.includes('case')
+})
 </script>
 
 <style lang="scss" scoped>

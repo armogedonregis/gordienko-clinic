@@ -171,7 +171,6 @@ const caseItem = computed(() => {
 
     .text__story {
       color: #FFF;
-      font-family: Accademico;
       font-size: 20px;
       font-style: normal;
       font-weight: 400;
