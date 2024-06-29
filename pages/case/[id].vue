@@ -177,6 +177,7 @@ const caseItem = computed(() => {
       line-height: 130%;
       width: 785px;
       margin-top: 28px;
+      text-align: justify;
     }
 
     .text__stories {

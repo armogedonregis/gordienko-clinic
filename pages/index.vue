@@ -1,6 +1,6 @@
 <template>
   <main class="home">
-    <NuxtLink :to="block.href" class="main__content" v-for="block in blocks" :key="block">
+    <NuxtLink :to="block.href" class="main__content" v-for="block in home.home" :key="block">
       <h1 class="content__title">{{ block.title }}</h1>
       <video class="content__video" loop autoplay muted>
         <source :src="block.video" type="video/mp4">
@@ -10,58 +10,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import homepage1 from '/static/assets/video/homepage1.mp4';
-import homepage2 from '/static/assets/video/homepage2.mp4';
-import homepage3 from '/static/assets/video/homepage3.mp4';
-import homepage4 from '/static/assets/video/homepage4.mp4';
-import homepage5 from '/static/assets/video/homepage5.mp4';
-import homepage6 from '/static/assets/video/homepage6.mp4';
-import homepage7 from '/static/assets/video/homepage7.mp4';
-import homepage8 from '/static/assets/video/homepage8.mp4';
-
-const blocks = ref([
-  {
-    title: 'Полюбите свое отражение вновь',
-    video: homepage1,
-    href: 'hello'
-  },
-  {
-    title: 'Доктор Гордиенко',
-    video: homepage2,
-    href: 'profile'
-  },
-  {
-    title: 'Deep plane facelift',
-    video: homepage3,
-    href: ''
-  },
-  {
-    title: 'Губы',
-    video: homepage4,
-    href: ''
-  },
-  {
-    title: 'Лоб и брови',
-    video: homepage5,
-    href: ''
-  },
-  {
-    title: 'Шея',
-    video: homepage6,
-    href: ''
-  },
-  {
-    title: 'Глаза',
-    video: homepage7,
-    href: ''
-  },
-  {
-    title: 'Липофилинг',
-    video: homepage8,
-    href: ''
-  }
-])
+import home from "/server/home.json";
 </script>
 
 <style lang="scss" scoped>

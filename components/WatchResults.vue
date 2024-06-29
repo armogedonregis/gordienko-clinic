@@ -1,13 +1,13 @@
 <template>
-  <div class="watch__results">
-    <div class="results__item" v-for="photo in store.state.facePhotos" :key="photo">
+  <div class="watch__results"  v-for="(caseItem, index) in cases.cases" :key="index">
+    <div class="results__item" v-for="(photo, photoIndex) in caseItem.images" :key="photoIndex">
       <img :src="photo" class="results__photo">
     </div>
   </div>
 </template>
 
 <script setup>
-import store from '/store/index.js';
+import cases from "/server/cases.json";
 </script>
 
 <style lang="scss" scoped>
