@@ -16,6 +16,11 @@
     "sass": "^1.77.6",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3",
-    "vuex": "^4.1.0"
+    "vuex": "^4.1.0",
+    "@mdi/font": "^7.4.47"
+  },
+  "devDependencies": {
+    "vite-plugin-vuetify": "^2.0.3",
+    "vuetify": "^3.6.6"
   }
 }

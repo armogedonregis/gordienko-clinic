@@ -58,6 +58,17 @@ import home from "/server/home.json";
       @media (max-width: 1100px) {
         font-size: 30px;
       }
+
+      @media (max-width: 750px) {
+        font-size: 40px;
+        width: 389px;
+      }
+
+      @media (max-width: 480px) {
+        width: 100%;
+        padding: 0 33px;
+        font-size: 30px;
+      }
     }
 
     .content__video {

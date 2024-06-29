@@ -37,7 +37,7 @@
         </NuxtLink>
       </div>
       <div class="footer__description">
-        <img src="/static/assets/images/photo-blog.png">
+        <img src="/static/assets/images/photo-blog.png" class="description__photo">
         <h1 class="description__blog-title" :class="{ 'title__white': itemColor }">Блог</h1>
       </div>
     </div>
@@ -87,6 +87,18 @@ const itemColor = computed(() => {
       flex-direction: column;
       align-items: flex-start;
 
+      .description__photo {
+
+        @media (max-width: 750px) {
+          width: 302px;
+          height: auto;
+        }
+
+        @media (max-width: 480px) {
+          width: 250px;
+        }
+      }
+
       @media (max-width: 1100px) {
         &:first-child {order: 2;}
         &:last-child {
@@ -109,6 +121,10 @@ const itemColor = computed(() => {
         letter-spacing: 3px;
         text-transform: uppercase;
 
+        @media (max-width: 750px) {
+          font-size: 14px;
+        }
+
         &.title__white {color: #fff;}
 
         span {
@@ -119,6 +135,10 @@ const itemColor = computed(() => {
           line-height: 95%;
           letter-spacing: 3px;
           text-transform: uppercase;
+
+          @media (max-width: 750px) {
+            font-size: 14px;
+          }
         }
       }
 
@@ -134,6 +154,10 @@ const itemColor = computed(() => {
 
         @media (max-width: 1100px) {
           order: 1;
+        }
+
+        @media (max-width: 750px) {
+          font-size: 26px;
         }
 
         &.title__white {color: #fff;}
@@ -161,6 +185,10 @@ const itemColor = computed(() => {
             letter-spacing: 3px;
             text-transform: uppercase;
 
+            @media (max-width: 750px) {
+              font-size: 10px;
+            }
+
             &.title__grey {color: #A3A3A3;}
           }
         }
@@ -173,6 +201,10 @@ const itemColor = computed(() => {
 
         @media (max-width: 1100px) {
           order: 2;
+        }
+
+        @media (max-width: 750px) {
+          display: none;
         }
       }
     }
@@ -187,6 +219,12 @@ const itemColor = computed(() => {
 
     @media (max-width: 1100px) {
       padding-right: 16px;
+    }
+
+    @media (max-width: 750px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
     }
 
     .link {
@@ -204,6 +242,10 @@ const itemColor = computed(() => {
         font-weight: 400;
         line-height: 100%;
         letter-spacing: 3px;
+
+        @media (max-width: 750px) {
+          margin-top: 50px;
+        }
       }
     }
   }

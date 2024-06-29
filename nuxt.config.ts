@@ -10,6 +10,15 @@ export default defineNuxtConfig({
       ]
     },
   },
-  devtools: { enabled: true },
-  plugins: [],
+  devtools: { enabled: false },
+  build: {
+    transpile: ['vuetify'],
+  },
+  plugins: [
+    '~/plugins/vuetify.js'
+  ],
+  css: [
+    'vuetify/lib/styles/main.sass',
+    '@mdi/font/css/materialdesignicons.min.css',
+  ]
 })

@@ -2,24 +2,77 @@
   <div class="header-wrapper">
     <header class="header">
       <nav class="header__nav">
-        <NuxtLink class="nav__link dpl" :class="route.path === '/blog' || route.path.includes('/article') ? 'link__black' : 'link__white'" to="#">deep plane facelift</NuxtLink>
-        <NuxtLink class="nav__link blog" :class="route.path === '/blog' || route.path.includes('/article') ? 'link__black' : 'link__white'" to="/blog">блог</NuxtLink>
-        <NuxtLink class="nav__link profile" :class="route.path === '/blog' || route.path.includes('/article') ? 'link__black' : 'link__white'" to="/profile">доктор гордиенко</NuxtLink>
-        <NuxtLink class="nav__logo-link" to="/">
-          <img src="/static/assets/images/logo.png" class="nav__logo">
+        <NuxtLink 
+          :class="[link.class, getItemColor(link.path)]" 
+          :to="link.path" 
+          v-for="(link, index) in headerLink" 
+          :key="index"
+          :target="link.target"
+        >
+          {{ link.title }}
+          <img src="/static/assets/images/logo.png" class="nav__logo" v-if="link.image">
         </NuxtLink>
-        <NuxtLink class="nav__link results" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="/results">результаты</NuxtLink>
-        <NuxtLink class="nav__link tg" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="https://t.me/doctor_gordienko" target="_blank">telegram</NuxtLink>
-        <NuxtLink class="nav__link phone" :class="route.path === 'blog' || route.path === 'article' ? 'link__black' : 'link__white'" to="tel:79111224888">телефон</NuxtLink>
       </nav>
+      <BaseDropdown class="header__nav-mobile" :headerLink="headerLink"/>
     </header>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import { useRoute } from 'vue-router';
+import BaseDropdown from './BaseDropdown.vue';
 
 const route = useRoute()
+
+const headerLink = ref([
+  {
+    title: 'deep plane facelift',
+    path: '/deep-plane-facelift',
+    class: 'nav__link dpl'
+  },
+  {
+    title: 'блог',
+    path: '/blog',
+    class: 'nav__link blog'
+  },
+  {
+    title: 'доктор гордиенко',
+    path: '/profile',
+    class: 'nav__link profile'
+  },
+  {
+    title: null,
+    image: "/_nuxt/static/assets/images/logo.png",
+    path: '/',
+    class: 'nav__logo-link'
+  },
+  {
+    title: 'результаты',
+    path: '/results',
+    class: 'nav__link results'
+  },
+  {
+    title: 'telegram',
+    path: 'https://t.me/doctor_gordienko',
+    target: '_blank',
+    class: 'nav__link tg'
+  },
+  {
+    title: 'телефон',
+    path: 'tel:79111224888',
+    target: '_blank',
+    class: 'nav__link phone'
+  }
+])
+
+function getItemColor(path) {
+  if (route.path.includes('/article') || route.path.includes('/blog')) {
+    return path === '/deep-plane-facelift' || path === '/blog' || path === '/profile' ? 'link__black' : 'link__white'
+  } else {
+    return 'link__white'
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -38,11 +91,19 @@ const route = useRoute()
     height: 48px;
     background: none;
 
+    @media (max-width: 800px) {
+      flex-direction: row-reverse;
+    }
+
     .header__nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
+
+      @media (max-width: 800px) {
+        justify-content: center;
+      }
 
       .nav__link {
         font-size: 10px;
@@ -54,8 +115,22 @@ const route = useRoute()
         width: 142px;
         text-align: center;
 
-        &:first-child {text-align: left;}
-        &:last-child {text-align: right;}
+        @media (max-width: 800px) {
+          display: none;
+        }
+
+        &:first-child {
+          text-align: left;
+          @media (max-width: 800px) {
+            display: none;
+          }
+        }
+        &:last-child {
+          text-align: right;
+          @media (max-width: 800px) {
+            display: none;
+          }
+        }
       }
 
       @media (max-width: 1100px) {
@@ -90,6 +165,16 @@ const route = useRoute()
           width: 48px;
           height: 48px;
         }
+      }
+    }
+
+    .header__nav-mobile {
+      display: none;
+
+      @media (max-width: 800px) {
+        display: block;
+        position: absolute;
+        left: 30px;
       }
     }
   }
