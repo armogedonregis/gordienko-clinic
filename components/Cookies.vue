@@ -33,6 +33,7 @@ function toggleAgreeCookies() {
     justify-content: center;
     text-align: center;
     gap: 40px;
+    padding: 30px;
   }
 
   .cookies__title {
@@ -47,6 +48,7 @@ function toggleAgreeCookies() {
 
     @media (max-width: 1700px) {
       font-size: 20px;
+      text-align: center;
     }
   }
 

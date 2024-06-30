@@ -42,6 +42,10 @@ function getItemColor(path) {
   max-width: 1728px;
   width: 100%;
 
+  @media (max-width: 480px) {
+    padding: 17px 17px 0 17px;
+  }
+
   .header {
     display: flex;
     align-items: center;
@@ -134,6 +138,10 @@ function getItemColor(path) {
         display: block;
         position: absolute;
         left: 30px;
+      }
+
+      @media (max-width: 480px) {
+        left: 17px;
       }
     }
   }

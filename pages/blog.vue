@@ -5,7 +5,7 @@
         <h1 class="text__title">«В данном разделе вы найдете <br> мои полные статьи и новости об <br> омолаживающей хиругии»</h1>
         <p class="text__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
-      <img src="/assets/images/photo-blog-grey.png">
+      <img src="/assets/images/photo-blog-grey.png" class="titles__photo">
     </div>
     <div class="blog__description">
       <h1 class="description__title">Блог</h1>
@@ -27,7 +27,7 @@
         <p class="text__description">Омолаживающая операция – это таинственное и даже магическое событие, которое проходит за закрытыми дверями операционной. Я c удовольствием приоткрою для вас эти двери и приглашу в удивительное путешествие.</p>
         <button class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</button>
       </div>
-      <img src="/assets/images/blogpage1.png">
+      <img src="/assets/images/blogpage1.png" class="titles__photo">
     </div>
     <div class="blog__description">
       <div class="description__table">
@@ -62,14 +62,26 @@ import articles from '/server/articles.json';
     width: 100%;
     gap: 117px;
 
+    @media (max-width: 1750px) {
+      gap: 72px;
+    }
+
     &.last-titles {
       align-items: flex-start;
+
+      @media (max-width: 1750px) {
+        padding-left: 144px;
+      }
     }
 
     .titles__text {
       display: flex;
       flex-direction: column;
       gap: 50px;
+
+      @media (max-width: 1350px) {
+        gap: 40px;
+      }
 
       .text__title {
         color: #5493D1;
@@ -81,6 +93,15 @@ import articles from '/server/articles.json';
         line-height: 130%;
         text-transform: uppercase;
         width: 562px;
+
+        @media (max-width: 1350px) {
+          font-size: 20px;
+          width: auto;
+        }
+
+        @media (max-width: 1050px) {
+          font-size: 16px;
+        }
       }
 
       .text__sign {
@@ -91,6 +112,10 @@ import articles from '/server/articles.json';
         font-style: normal;
         font-weight: 400;
         line-height: 130%;
+
+        @media (max-width: 1050px) {
+          font-size: 8px;
+        }
       }
 
       .text__description {
@@ -100,6 +125,10 @@ import articles from '/server/articles.json';
         font-style: normal;
         font-weight: 400;
         line-height: 130%;
+
+        @media (max-width: 1350px) {
+          font-size: 14px;
+        }
       }
 
       .text__more-btn {
@@ -117,6 +146,18 @@ import articles from '/server/articles.json';
         font-weight: 400;
         line-height: 95%;
         text-transform: uppercase;
+
+        @media (max-width: 1750px) {
+          width: 300px;
+        }
+      }
+    }
+
+    .titles__photo {
+
+      @media (max-width: 1750px) {
+        width: 52.82vw;
+        height: auto;
       }
     }
   }
@@ -128,6 +169,10 @@ import articles from '/server/articles.json';
     width: 100%;
     gap: 93px;
 
+    @media (max-width: 1350px) {
+      gap: 70px;
+    }
+
     .description__title {
       color: #393939;
       font-family: Accademico;
@@ -136,6 +181,11 @@ import articles from '/server/articles.json';
       font-weight: 400;
       line-height: 98%;
       margin-left: 144px;
+
+      @media (max-width: 1350px) {
+        margin-left: 63px;
+        font-size: 45px;
+      }
     }
 
     .description__table {
@@ -146,6 +196,10 @@ import articles from '/server/articles.json';
       .table__titles {
         display: flex;
         align-items: center;
+
+        @media (max-width: 1700px) {
+          padding: 10px;
+        }
 
         .titles__title {
           color: #5493D1;
@@ -165,6 +219,11 @@ import articles from '/server/articles.json';
         width: 100%;
         border-bottom: 1px solid rgba(57, 57, 57, 0.60);
 
+        @media (max-width: 1700px) {
+          min-height: 85px;
+          padding: 10px;
+        }
+
         &:last-child {
           border-bottom: none;
         }
@@ -180,12 +239,46 @@ import articles from '/server/articles.json';
           font-weight: 400;
           line-height: 98%;
           text-align: left;
+        
+          @media (max-width: 1350px) {
+            font-size: 12px;
+          }
         }
       }
 
-      .link__date {padding-left: 144px; width: 310px;}
-      .link__author {width: 440px;}
-      .link__article {width: auto;}
+      .link__date {
+        padding-left: 144px; 
+        width: 310px;
+      
+        @media (max-width: 1700px) {
+          padding-right: 50px;
+        }
+
+        @media (max-width: 1350px) {
+          padding-left: 63px;
+        }
+      }
+      .link__author {
+        width: 440px;
+      
+        @media (max-width: 1700px) {
+          padding-right: 50px;
+          width: 300px;
+        }
+      }
+      .link__article {
+        width: auto;
+
+        @media (max-width: 1700px) {
+          width: 1300px;
+          padding-right: 50px;
+        }
+
+        @media (max-width: 1350px) {
+          width: 800px;
+          padding-right: 50px;
+        }
+      }
     }
   }
 }
