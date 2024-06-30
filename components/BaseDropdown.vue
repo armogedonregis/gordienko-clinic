@@ -20,18 +20,12 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-
-const props = defineProps({
-  headerLink: {
-    type: Array,
-    required: true
-  }
-})
+import headerData from '/server/header.json';
 
 const location = ref('end');
 
 const filteredHeaderLinks = computed(() => {
-  return props.headerLink.filter(item => item.title !== null)
+  return headerData.links.filter(item => item.title !== null)
 })
 </script>
 

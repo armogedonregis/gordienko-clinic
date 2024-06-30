@@ -3,7 +3,7 @@
     <NuxtLink :to="block.href" class="main__content" v-for="block in home.home" :key="block">
       <div class="content__overlay"></div>
       <h1 class="content__title">{{ block.title }}</h1>
-      <video class="content__video" loop autoplay muted playsinline>
+      <video class="content__video" loop autoplay muted playsinline ref="mobileAutoplay">
         <source :src="block.video" type="video/mp4">
       </video>
     </NuxtLink>
@@ -11,7 +11,17 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
 import home from "/server/home.json";
+
+const mobileAutoplay = ref([])
+onMounted(() => {
+  mobileAutoplay.value.forEach(video => {
+    if(video) {
+      video.addEventListener('canplaythrough', video.play())
+    }
+  })
+})
 </script>
 
 <style lang="scss" scoped>

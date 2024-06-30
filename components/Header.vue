@@ -3,68 +3,27 @@
     <header class="header">
       <nav class="header__nav">
         <NuxtLink 
-          :class="[link.class, getItemColor(link.path)]" 
+          :class="[link.class, getItemColor(link.path)]"
+          v-for="(link, index) in headerData.links"
           :to="link.path" 
-          v-for="(link, index) in headerLink" 
           :key="index"
           :target="link.target"
         >
           {{ link.title }}
-          <img src="/static/assets/images/logo.png" class="nav__logo" v-if="link.image">
+          <img src="/assets/images/logo.png" class="nav__logo" v-if="link.image">
         </NuxtLink>
       </nav>
-      <BaseDropdown class="header__nav-mobile" :headerLink="headerLink"/>
+      <BaseDropdown class="header__nav-mobile"/>
     </header>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import BaseDropdown from './BaseDropdown.vue';
+import headerData from '/server/header.json';
 
 const route = useRoute()
-
-const headerLink = ref([
-  {
-    title: 'deep plane facelift',
-    path: '/deep-plane-facelift',
-    class: 'nav__link dpl'
-  },
-  {
-    title: 'блог',
-    path: '/blog',
-    class: 'nav__link blog'
-  },
-  {
-    title: 'доктор гордиенко',
-    path: '/profile',
-    class: 'nav__link profile'
-  },
-  {
-    title: null,
-    image: "/assets/images/logo.png",
-    path: '/',
-    class: 'nav__logo-link'
-  },
-  {
-    title: 'результаты',
-    path: '/results',
-    class: 'nav__link results'
-  },
-  {
-    title: 'telegram',
-    path: 'https://t.me/doctor_gordienko',
-    target: '_blank',
-    class: 'nav__link tg'
-  },
-  {
-    title: 'телефон',
-    path: 'tel:79111224888',
-    target: '_blank',
-    class: 'nav__link phone'
-  }
-])
 
 function getItemColor(path) {
   if (route.path.includes('/article') || route.path.includes('/blog')) {

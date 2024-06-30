@@ -32,12 +32,12 @@
           </ul>
         </div>
         <NuxtLink to="/">
-          <img src="/static/assets/images/logo-white.png" class="footer__logo" v-if="itemColor">
-          <img src="/static/assets/images/logo-grey.png" class="footer__logo" v-else>
+          <img src="/assets/images/logo-white.png" class="footer__logo" v-if="itemColor">
+          <img src="/assets/images/logo-grey.png" class="footer__logo" v-else>
         </NuxtLink>
       </div>
       <div class="footer__description">
-        <img src="/static/assets/images/photo-blog.png" class="description__photo">
+        <img src="/assets/images/photo-blog.png" class="description__photo">
         <h1 class="description__blog-title" :class="{ 'title__white': itemColor }">Блог</h1>
       </div>
     </div>
@@ -123,6 +123,10 @@ const itemColor = computed(() => {
 
         @media (max-width: 750px) {
           font-size: 14px;
+        }
+
+        @media (max-width: 480px) {
+          padding-right: 10px;
         }
 
         &.title__white {color: #fff;}

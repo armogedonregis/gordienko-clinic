@@ -5,7 +5,7 @@
         <h1 class="text__title">«В данном разделе вы найдете <br> мои полные статьи и новости об <br> омолаживающей хиругии»</h1>
         <p class="text__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
-      <img src="/static/assets/images/photo-blog-grey.png">
+      <img src="/assets/images/photo-blog-grey.png">
     </div>
     <div class="blog__description">
       <h1 class="description__title">Блог</h1>
@@ -27,7 +27,7 @@
         <p class="text__description">Омолаживающая операция – это таинственное и даже магическое событие, которое проходит за закрытыми дверями операционной. Я c удовольствием приоткрою для вас эти двери и приглашу в удивительное путешествие.</p>
         <button class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</button>
       </div>
-      <img src="/static/assets/images/blogpage1.png">
+      <img src="/assets/images/blogpage1.png">
     </div>
     <div class="blog__description">
       <div class="description__table">
