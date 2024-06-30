@@ -49,7 +49,7 @@ import home from "/server/home.json";
       position: absolute;
       width: 100%;
       height: 100%;
-      z-index: 1;
+      z-index: 2;
       background: linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.12) 100%);
     }
 
@@ -60,7 +60,7 @@ import home from "/server/home.json";
       align-items: center;
       width: 100%;
       height: 100%;
-      z-index: 2;
+      z-index: 3;
       
       .content__title {
         color: #FFF;
@@ -71,7 +71,6 @@ import home from "/server/home.json";
         font-weight: 400;
         line-height: 120%;
         text-transform: uppercase;
-        z-index: 2;
 
         @media (max-width: 1100px) {
           font-size: 30px;
@@ -92,10 +91,12 @@ import home from "/server/home.json";
 
     .content__video {
       position: absolute;
+      top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      z-index: 1;
     }
   }
 }
