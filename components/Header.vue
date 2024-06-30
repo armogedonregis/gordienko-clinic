@@ -43,7 +43,7 @@ const headerLink = ref([
   },
   {
     title: null,
-    image: "/_nuxt/static/assets/images/logo.png",
+    image: "/assets/images/logo.png",
     path: '/',
     class: 'nav__logo-link'
   },

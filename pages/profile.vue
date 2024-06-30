@@ -2,18 +2,18 @@
   <div class="landing">
     <section class="landing__video-content">
       <video ref="videoPlayer" class="content__video" :muted="isMuted">
-        <source src="/static/assets/video/homepage2.mp4" type="video/mp4">
+        <source src="/assets/video/homepage2.mp4" type="video/mp4">
       </video>
       <div class="content-video__control">
         <button class="control__btn" @click="togglePlay">
-          <img src="/static/assets/icons/play.png">
+          <img src="/assets/icons/play.png">
         </button>
         <div class="control__buttons-wrapper">
           <button class="control__btn" @click="toggleMute">
-            <img src="/static/assets/icons/volume.png">
+            <img src="/assets/icons/volume.png">
           </button>
           <button class="control__btn" @click="toggleFullscreen">
-            <img src="/static/assets/icons/fullscreen.png">
+            <img src="/assets/icons/fullscreen.png">
           </button>
         </div>
       </div>
@@ -33,10 +33,10 @@
         <div class="content-wrapper">
           <div class="content-wrapper">
             <div class="description__logo">
-              <img src="/static/assets/images/logo1.png">
-              <img src="/static/assets/images/logo2.png">
-              <img src="/static/assets/images/logo3.png">
-              <img src="/static/assets/images/logo4.png">
+              <img src="/assets/images/logo1.png">
+              <img src="/assets/images/logo2.png">
+              <img src="/assets/images/logo3.png">
+              <img src="/assets/images/logo4.png">
             </div>
           </div>
           <h2 class="description__subtitle">«Я - “художник-реставратор”. Тот, кто работает с редкими и очень дорогими
@@ -56,7 +56,7 @@
       </div>
     </section>
     <section class="landing__fullscreen-content">
-      <img src="/static/assets/images/piano.png" class="fullscreen__image">
+      <img src="/assets/images/piano.png" class="fullscreen__image">
     </section>
     <section class="landing__description-content">
       <h1 class="description__title-min">Омолаживающие операции на лице, которые я выполняю, чтобы <br> вы могли
@@ -75,7 +75,7 @@
     </section>
     <section class="landing__video-content">
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/profilepage1.mp4" type="video/mp4">
+        <source src="/assets/video/profilepage1.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -95,7 +95,7 @@
     </section>
     <section class="landing__video-content">
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/profilepage2.mp4" type="video/mp4">
+        <source src="/assets/video/profilepage2.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -116,7 +116,7 @@
     <section class="landing__video-content">
       <h1 class="content__title">Deep plane facelift</h1>
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/homepage3.mp4" type="video/mp4">
+        <source src="/assets/video/homepage3.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -193,8 +193,8 @@
     </section>
     <section class="landing__fullscreen-content">
       <div class="fullscreen__photos">
-        <img src="/static/assets/images/profilepage1.png">
-        <img src="/static/assets/images/profilepage2.png">
+        <img src="/assets/images/profilepage1.png">
+        <img src="/assets/images/profilepage2.png">
       </div>
     </section>
     <section class="landing__description-content">
@@ -215,7 +215,7 @@
     </section>
     <section class="landing__video-content">
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/profilepage3.mp4" type="video/mp4">
+        <source src="/assets/video/profilepage3.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -262,7 +262,7 @@
       </div>
     </section>
     <section class="landing__fullscreen-content">
-      <img src="/static/assets/images/profilepage3.png" class="fullscreen__image">
+      <img src="/assets/images/profilepage3.png" class="fullscreen__image">
     </section>
     <section class="landing__description-content">
       <div class="numbered-wrapper">
@@ -301,8 +301,8 @@
     </section>
     <section class="landing__fullscreen-content">
       <div class="fullscreen__photos">
-        <img src="/static/assets/images/profilepage4.png">
-        <img src="/static/assets/images/profilepage5.png">
+        <img src="/assets/images/profilepage4.png">
+        <img src="/assets/images/profilepage5.png">
       </div>
     </section>
     <section class="landing__description-content">
@@ -336,40 +336,40 @@
     <section class="fullscreen-wrapper">
       <div class="grid__photos">
         <div class="photo__item">
-          <img src="/static/assets/images/face1.png">
+          <img src="/assets/images/face1.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2.png">
+          <img src="/assets/images/face2.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3.png">
+          <img src="/assets/images/face3.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face4.png">
+          <img src="/assets/images/face4.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face5.png">
+          <img src="/assets/images/face5.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face6.png">
+          <img src="/assets/images/face6.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face7.png">
+          <img src="/assets/images/face7.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face8.png">
+          <img src="/assets/images/face8.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face9.png">
+          <img src="/assets/images/face9.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face10.png">
+          <img src="/assets/images/face10.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face11.png">
+          <img src="/assets/images/face11.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face12.png">
+          <img src="/assets/images/face12.png">
         </div>
       </div>
       <div class="padding-for-wrapper">
@@ -431,7 +431,7 @@
     <section class="landing__video-content">
       <h1 class="content__title">Губы</h1>
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/homepage8.mp4" type="video/mp4">
+        <source src="/assets/video/homepage8.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -473,8 +473,8 @@
     </section>
     <section class="landing__fullscreen-content">
       <div class="fullscreen__photos">
-        <img src="/static/assets/images/profilepage6.png">
-        <img src="/static/assets/images/profilepage7.png">
+        <img src="/assets/images/profilepage6.png">
+        <img src="/assets/images/profilepage7.png">
       </div>
     </section>
     <section class="landing__description-content">
@@ -496,7 +496,7 @@
     </section>
     <section class="landing__video-content">
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/profilepage4.mp4" type="video/mp4">
+        <source src="/assets/video/profilepage4.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -531,7 +531,7 @@
       </div>
     </section>
     <section class="landing__fullscreen-content">
-      <img src="/static/assets/images/profilepage3.png" class="fullscreen__image">
+      <img src="/assets/images/profilepage3.png" class="fullscreen__image">
     </section>
     <section class="landing__description-content">
       <div class="numbered-wrapper">
@@ -585,7 +585,7 @@
     </section>
     <section class="landing__video-content">
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/profilepage5.mp4" type="video/mp4">
+        <source src="/assets/video/profilepage5.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -615,40 +615,40 @@
     <section class="fullscreen-wrapper">
       <div class="grid__photos">
         <div class="photo__item">
-          <img src="/static/assets/images/face2-1.png">
+          <img src="/assets/images/face2-1.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2-2.png">
+          <img src="/assets/images/face2-2.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2-3.png">
+          <img src="/assets/images/face2-3.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2-4.png">
+          <img src="/assets/images/face2-4.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2-5.png">
+          <img src="/assets/images/face2-5.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2-6.png">
+          <img src="/assets/images/face2-6.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2-7.png">
+          <img src="/assets/images/face2-7.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2-8.png">
+          <img src="/assets/images/face2-8.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2-9.png">
+          <img src="/assets/images/face2-9.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2-10.png">
+          <img src="/assets/images/face2-10.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2-11.png">
+          <img src="/assets/images/face2-11.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2-12.png">
+          <img src="/assets/images/face2-12.png">
         </div>
       </div>
       <div class="padding-for-wrapper">
@@ -707,7 +707,7 @@
     <section class="landing__video-content">
       <h1 class="content__title">Лоб и брови</h1>
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/homepage5.mp4" type="video/mp4">
+        <source src="/assets/video/homepage5.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -747,8 +747,8 @@
     </section>
     <section class="landing__fullscreen-content">
       <div class="fullscreen__photos">
-        <img src="/static/assets/images/profilepage8.png">
-        <img src="/static/assets/images/profilepage9.png">
+        <img src="/assets/images/profilepage8.png">
+        <img src="/assets/images/profilepage9.png">
       </div>
     </section>
     <section class="landing__description-content">
@@ -769,7 +769,7 @@
     </section>
     <section class="landing__video-content">
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/profilepage6.mp4" type="video/mp4">
+        <source src="/assets/video/profilepage6.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -801,7 +801,7 @@
       </div>
     </section>
     <section class="landing__fullscreen-content">
-      <img src="/static/assets/images/profilepage3.png" class="fullscreen__image">
+      <img src="/assets/images/profilepage3.png" class="fullscreen__image">
     </section>
     <section class="landing__description-content">
       <div class="numbered-wrapper">
@@ -862,8 +862,8 @@
     </section>
     <section class="landing__fullscreen-content">
       <div class="fullscreen__photos">
-        <img src="/static/assets/images/profilepage10.png">
-        <img src="/static/assets/images/profilepage11.png">
+        <img src="/assets/images/profilepage10.png">
+        <img src="/assets/images/profilepage11.png">
       </div>
     </section>
     <section class="landing__description-content">
@@ -889,40 +889,40 @@
     <section class="fullscreen-wrapper">
       <div class="grid__photos">
         <div class="photo__item">
-          <img src="/static/assets/images/face3-1.png">
+          <img src="/assets/images/face3-1.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-2.png">
+          <img src="/assets/images/face3-2.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-3.png">
+          <img src="/assets/images/face3-3.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-4.png">
+          <img src="/assets/images/face3-4.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-5.png">
+          <img src="/assets/images/face3-5.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-6.png">
+          <img src="/assets/images/face3-6.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-7.png">
+          <img src="/assets/images/face3-7.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-8.png">
+          <img src="/assets/images/face3-8.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-9.png">
+          <img src="/assets/images/face3-9.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-10.png">
+          <img src="/assets/images/face3-10.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-11.png">
+          <img src="/assets/images/face3-11.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-12.png">
+          <img src="/assets/images/face3-12.png">
         </div>
       </div>
       <div class="padding-for-wrapper">
@@ -982,7 +982,7 @@
     <section class="landing__video-content">
       <h1 class="content__title">Шея</h1>
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/homepage6.mp4" type="video/mp4">
+        <source src="/assets/video/homepage6.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -1022,8 +1022,8 @@
     </section>
     <section class="landing__fullscreen-content">
       <div class="fullscreen__photos">
-        <img src="/static/assets/images/profilepage12.png">
-        <img src="/static/assets/images/profilepage13.png">
+        <img src="/assets/images/profilepage12.png">
+        <img src="/assets/images/profilepage13.png">
       </div>
     </section>
     <section class="landing__description-content">
@@ -1044,7 +1044,7 @@
     </section>
     <section class="landing__video-content">
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/profilepage7.mp4" type="video/mp4">
+        <source src="/assets/video/profilepage7.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -1086,7 +1086,7 @@
       </div>
     </section>
     <section class="landing__fullscreen-content">
-      <img src="/static/assets/images/profilepage3.png" class="fullscreen__image">
+      <img src="/assets/images/profilepage3.png" class="fullscreen__image">
     </section>
     <section class="landing__description-content">
       <div class="numbered-wrapper">
@@ -1140,7 +1140,7 @@
     </section>
     <section class="landing__video-content">
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/profilepage8.mp4" type="video/mp4">
+        <source src="/assets/video/profilepage8.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -1168,40 +1168,40 @@
     <section class="fullscreen-wrapper">
       <div class="grid__photos">
         <div class="photo__item">
-          <img src="/static/assets/images/face4-1.png">
+          <img src="/assets/images/face4-1.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face4-2.png">
+          <img src="/assets/images/face4-2.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face4-3.png">
+          <img src="/assets/images/face4-3.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face4-4.png">
+          <img src="/assets/images/face4-4.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face4-5.png">
+          <img src="/assets/images/face4-5.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face4-6.png">
+          <img src="/assets/images/face4-6.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face4-7.png">
+          <img src="/assets/images/face4-7.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face4-8.png">
+          <img src="/assets/images/face4-8.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face4-9.png">
+          <img src="/assets/images/face4-9.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face4-10.png">
+          <img src="/assets/images/face4-10.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face4-11.png">
+          <img src="/assets/images/face4-11.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face4-12.png">
+          <img src="/assets/images/face4-12.png">
         </div>
       </div>
       <div class="padding-for-wrapper">
@@ -1261,7 +1261,7 @@
     <section class="landing__video-content">
       <h1 class="content__title">Глаза</h1>
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/profilepage9.mp4" type="video/mp4">
+        <source src="/assets/video/profilepage9.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -1299,8 +1299,8 @@
     </section>
     <section class="landing__fullscreen-content">
       <div class="fullscreen__photos">
-        <img src="/static/assets/images/profilepage14.png">
-        <img src="/static/assets/images/profilepage15.png">
+        <img src="/assets/images/profilepage14.png">
+        <img src="/assets/images/profilepage15.png">
       </div>
     </section>
     <section class="landing__description-content">
@@ -1320,7 +1320,7 @@
       </div>
     </section>
     <section class="landing__fullscreen-content">
-      <img src="/static/assets/images/profilepage16.png" class="fullscreen__image">
+      <img src="/assets/images/profilepage16.png" class="fullscreen__image">
     </section>
     <section class="landing__description-content">
       <div class="numbered-wrapper">
@@ -1362,7 +1362,7 @@
       </div>
     </section>
     <section class="landing__fullscreen-content">
-      <img src="/static/assets/images/profilepage3.png" class="fullscreen__image">
+      <img src="/assets/images/profilepage3.png" class="fullscreen__image">
     </section>
     <section class="landing__description-content">
       <div class="numbered-wrapper">
@@ -1424,7 +1424,7 @@
     </section>
     <section class="landing__video-content">
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/profilepage10.mp4" type="video/mp4">
+        <source src="/assets/video/profilepage10.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -1450,40 +1450,40 @@
     <section class="fullscreen-wrapper">
       <div class="grid__photos">
         <div class="photo__item">
-          <img src="/static/assets/images/face5.png">
+          <img src="/assets/images/face5.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face6.png">
+          <img src="/assets/images/face6.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face7.png">
+          <img src="/assets/images/face7.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face8.png">
+          <img src="/assets/images/face8.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2-5.png">
+          <img src="/assets/images/face2-5.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2-6.png">
+          <img src="/assets/images/face2-6.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2-7.png">
+          <img src="/assets/images/face2-7.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2-8.png">
+          <img src="/assets/images/face2-8.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-5.png">
+          <img src="/assets/images/face3-5.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-6.png">
+          <img src="/assets/images/face3-6.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-7.png">
+          <img src="/assets/images/face3-7.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-8.png">
+          <img src="/assets/images/face3-8.png">
         </div>
       </div>
       <div class="padding-for-wrapper">
@@ -1543,7 +1543,7 @@
     <section class="landing__video-content">
       <h1 class="content__title">ЛИПОФИЛИНГ</h1>
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/homepage8.mp4" type="video/mp4">
+        <source src="/assets/video/homepage8.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -1586,8 +1586,8 @@
     </section>
     <section class="landing__fullscreen-content">
       <div class="fullscreen__photos">
-        <img src="/static/assets/images/profilepage17.png">
-        <img src="/static/assets/images/profilepage18.png">
+        <img src="/assets/images/profilepage17.png">
+        <img src="/assets/images/profilepage18.png">
       </div>
     </section>
     <section class="landing__description-content">
@@ -1619,7 +1619,7 @@
     </section>
     <section class="landing__video-content">
       <video class="content__video" loop autoplay muted>
-        <source src="/static/assets/video/profilepage11.mp4" type="video/mp4">
+        <source src="/assets/video/profilepage11.mp4" type="video/mp4">
       </video>
     </section>
     <section class="landing__description-content">
@@ -1661,7 +1661,7 @@
       </div>
     </section>
     <section class="landing__fullscreen-content">
-      <img src="/static/assets/images/profilepage3.png" class="fullscreen__image">
+      <img src="/assets/images/profilepage3.png" class="fullscreen__image">
     </section>
     <section class="landing__description-content">
       <div class="numbered-wrapper">
@@ -1711,8 +1711,8 @@
     </section>
     <section class="landing__fullscreen-content">
       <div class="fullscreen__photos">
-        <img src="/static/assets/images/profilepage19.png">
-        <img src="/static/assets/images/profilepage20.png">
+        <img src="/assets/images/profilepage19.png">
+        <img src="/assets/images/profilepage20.png">
       </div>
     </section>
     <section class="landing__description-content">
@@ -1740,40 +1740,40 @@
     <section class="fullscreen-wrapper">
       <div class="grid__photos">
         <div class="photo__item">
-          <img src="/static/assets/images/face1.png">
+          <img src="/assets/images/face1.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face2.png">
+          <img src="/assets/images/face2.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3.png">
+          <img src="/assets/images/face3.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face4.png">
+          <img src="/assets/images/face4.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-1.png">
+          <img src="/assets/images/face3-1.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-2.png">
+          <img src="/assets/images/face3-2.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-3.png">
+          <img src="/assets/images/face3-3.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-4.png">
+          <img src="/assets/images/face3-4.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-9.png">
+          <img src="/assets/images/face3-9.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-10.png">
+          <img src="/assets/images/face3-10.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-11.png">
+          <img src="/assets/images/face3-11.png">
         </div>
         <div class="photo__item">
-          <img src="/static/assets/images/face3-12.png">
+          <img src="/assets/images/face3-12.png">
         </div>
       </div>
       <div class="padding-for-wrapper">
