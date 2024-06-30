@@ -1,11 +1,14 @@
 <template>
   <main class="home">
-    <NuxtLink :to="block.href" class="main__content" v-for="block in home.home" :key="block">
-      <h1 class="content__title">{{ block.title }}</h1>
+    <div class="main__content" v-for="block in home.home" :key="block">
+      <div class="content__overlay"></div>
+      <NuxtLink :to="block.href" class="content__link">
+        <h1 class="content__title">{{ block.title }}</h1>
+      </NuxtLink>
       <video class="content__video" loop autoplay muted>
         <source :src="block.video" type="video/mp4">
       </video>
-    </NuxtLink>
+    </div>
   </main>
 </template>
 
@@ -41,33 +44,49 @@ import home from "/server/home.json";
     height: 100vh;
     overflow: hidden;
     position: relative;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.12) 100%);
 
-    .content__title {
-      color: #FFF;
-      text-align: center;
-      font-feature-settings: 'liga' off;
-      font-family: Accademico;
-      font-size: 50px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 120%;
-      text-transform: uppercase;
+    .content__overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.12) 100%);
+    }
+
+    .content__link {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
       z-index: 2;
+      
+      .content__title {
+        color: #FFF;
+        text-align: center;
+        font-family: Accademico;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        text-transform: uppercase;
+        z-index: 2;
 
-      @media (max-width: 1100px) {
-        font-size: 30px;
-      }
+        @media (max-width: 1100px) {
+          font-size: 30px;
+        }
 
-      @media (max-width: 750px) {
-        font-size: 40px;
-        width: 389px;
-      }
+        @media (max-width: 750px) {
+          font-size: 40px;
+          width: 389px;
+        }
 
-      @media (max-width: 480px) {
-        width: 100%;
-        padding: 0 33px;
-        font-size: 30px;
+        @media (max-width: 480px) {
+          width: 100%;
+          padding: 0 33px;
+          font-size: 30px;
+        }
       }
     }
 
