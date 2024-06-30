@@ -2,42 +2,42 @@
   "home": [
     {
       "title": "Полюбите свое отражение вновь",
-      "video": "/static/assets/video/homepage1.mp4",
+      "video": "/assets/video/homepage1.mp4",
       "href": "/"
     },
     {
       "title": "Доктор Гордиенко",
-      "video": "/static/assets/video/homepage2.mp4",
+      "video": "/assets/video/homepage2.mp4",
       "href": "/profile"
     },
     {
       "title": "Deep plane facelift",
-      "video": "/static/assets/video/homepage3.mp4",
+      "video": "/assets/video/homepage3.mp4",
       "href": "/"
     },
     {
       "title": "Губы",
-      "video": "/static/assets/video/homepage4.mp4",
+      "video": "/assets/video/homepage4.mp4",
       "href": "/"
     },
     {
       "title": "Лоб и брови",
-      "video": "/static/assets/video/homepage5.mp4",
+      "video": "/assets/video/homepage5.mp4",
       "href": "/"
     },
     {
       "title": "Шея",
-      "video": "/static/assets/video/homepage6.mp4",
+      "video": "/assets/video/homepage6.mp4",
       "href": "/"
     },
     {
       "title": "Глаза",
-      "video": "/static/assets/video/homepage7.mp4",
+      "video": "/assets/video/homepage7.mp4",
       "href": "/"
     },
     {
       "title": "Липофилинг",
-      "video": "/static/assets/video/homepage8.mp4",
+      "video": "/assets/video/homepage8.mp4",
       "href": "/"
     }
   ]

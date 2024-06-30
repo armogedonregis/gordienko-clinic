@@ -19,12 +19,12 @@ import Cookies from "./components/Cookies.vue";
 <style>
 @font-face {
   font-family: Grafitello;
-  src: url('/static/assets/fonts/Grafitello.otf');
+  src: url('/assets/fonts/Grafitello.otf');
 }
 
 @font-face {
   font-family: Accademico;
-  src: url('/static/assets/fonts/Accademico.otf');
+  src: url('/assets/fonts/Accademico.otf');
 }
 
 * {

@@ -10,6 +10,7 @@ export default defineNuxtConfig({
       ]
     },
   },
+  target: 'static',
   devtools: { enabled: false },
   build: {
     transpile: ['vuetify'],
