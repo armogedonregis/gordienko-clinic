@@ -4,7 +4,7 @@
       <div class="content__overlay"></div>
       <h1 class="content__title">{{ block.title }}</h1>
       <video class="content__video" loop autoplay muted>
-        <source :src="block.video" type="video/mp4">
+        <source :src="`/_nuxt/${block.video}`" type="video/mp4">
       </video>
     </NuxtLink>
   </main>
