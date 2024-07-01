@@ -70,6 +70,10 @@ function switchNextStory() {
     width: 100%;
     height: 853px;
 
+    @media (max-width: 1720px) {
+      height: auto;
+    }
+
     .swiper__nav {
       position: absolute;
       display: flex;
@@ -110,10 +114,18 @@ function switchNextStory() {
         height: 100%;
         overflow: hidden;
 
+        @media (max-width: 1720px) {
+          width: 49.36vw;
+        }
+
         .item__photo {
           width: auto;
           height: auto;
           object-fit: cover;
+
+          @media (max-width: 1720px) {
+            max-width: 100%;
+          }
         }
       }
     }
@@ -129,14 +141,26 @@ function switchNextStory() {
       height: 191px;
       background: #000;
 
+      @media (max-width: 1720px) {
+        height: auto;
+      }
+
       .photos__item {
         width: 216px;
         height: 100%;
 
+        @media (max-width: 1720px) {
+          width: 12.5vw;
+        }
+
         img {
           width: 100%;
           height: 100%;
-          object-fit: cover
+          object-fit: cover;
+          
+          @media (max-width: 1500px) {
+            height: auto;
+          }
         }
       }
     }
@@ -149,6 +173,14 @@ function switchNextStory() {
     width: 1146px;
     padding: 150px 0 245px;
 
+    @media (max-width: 1500px) {
+      padding: 76px 0;
+    }
+
+    @media (max-width: 1150px) {
+      width: 660px;
+    }
+
     .text__title {
       color: #FFF;
       text-align: center;
@@ -158,6 +190,10 @@ function switchNextStory() {
       font-weight: 400;
       line-height: 130%;
       text-transform: uppercase;
+
+      @media (max-width: 900px) {
+        font-size: 40px;
+      }
     }
 
     .text__sign {
@@ -171,6 +207,10 @@ function switchNextStory() {
       margin-top: 80px;
       margin-left: auto;
       margin-right: 180px;
+
+      @media (max-width: 1150px) {
+        margin-right: 0;
+      }
     }
 
     .text__name {
@@ -184,6 +224,11 @@ function switchNextStory() {
       margin-top: 74px;
       margin-right: auto;
       margin-left: 180px;
+
+      @media (max-width: 900px) {
+        margin-left: 80px;
+        width: 500px;
+      }
     }
 
     .text__story {
@@ -195,6 +240,10 @@ function switchNextStory() {
       width: 785px;
       margin-top: 28px;
       text-align: justify;
+
+      @media (max-width: 900px) {
+        width: 500px;
+      }
     }
 
     .text__stories {
@@ -211,6 +260,12 @@ function switchNextStory() {
       line-height: 95%;
       text-transform: uppercase;
       margin-top: 80px;
+
+      @media (max-width: 900px) {
+        width: 300px;
+        font-size: 10px;
+        height: 40px;
+      }
     }
   }
 }

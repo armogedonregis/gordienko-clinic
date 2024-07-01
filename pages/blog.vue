@@ -62,7 +62,7 @@ import articles from '/server/articles.json';
     width: 100%;
     gap: 117px;
 
-    @media (max-width: 1750px) {
+    @media (max-width: 1700px) {
       gap: 72px;
     }
 
@@ -77,7 +77,7 @@ import articles from '/server/articles.json';
     &.last-titles {
       align-items: flex-start;
       
-      @media (max-width: 1750px) {
+      @media (max-width: 1700px) {
         padding-left: 50px;
       }
 
@@ -205,7 +205,7 @@ import articles from '/server/articles.json';
         line-height: 95%;
         text-transform: uppercase;
 
-        @media (max-width: 1750px) {
+        @media (max-width: 1700px) {
           width: 300px;
         }
 
@@ -219,7 +219,7 @@ import articles from '/server/articles.json';
 
     .titles__photo {
 
-      @media (max-width: 1750px) {
+      @media (max-width: 1700px) {
         width: 52.82vw;
         height: auto;
       }
