@@ -23,11 +23,11 @@
       </div>
     </div>
     <div class="blog__titles last-titles">
-      <div class="titles__text">
+      <div class="titles__text last-titles-section">
         <p class="text__description">Омолаживающая операция – это таинственное и даже магическое событие, которое проходит за закрытыми дверями операционной. Я c удовольствием приоткрою для вас эти двери и приглашу в удивительное путешествие.</p>
         <button class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</button>
       </div>
-      <img src="/assets/images/blogpage1.png" class="titles__photo">
+      <img src="/assets/images/blogpage1.png" class="titles__photo last-titles-photo">
     </div>
     <div class="blog__description">
       <div class="description__table">
@@ -66,11 +66,27 @@ import articles from '/server/articles.json';
       gap: 72px;
     }
 
+    @media (max-width: 800px) {
+      gap: 30px;
+    }
+
+    @media (max-width: 700px) {
+      flex-direction: column;
+    }
+
     &.last-titles {
       align-items: flex-start;
-
+      
       @media (max-width: 1750px) {
-        padding-left: 144px;
+        padding-left: 50px;
+      }
+
+      @media (max-width: 1050px) {
+        justify-content: space-between;
+      }
+
+      @media (max-width: 700px) {
+        padding-left: 0;
       }
     }
 
@@ -81,6 +97,29 @@ import articles from '/server/articles.json';
 
       @media (max-width: 1350px) {
         gap: 40px;
+        width: 300px;
+      }
+
+      @media (max-width: 1050px) {
+        width: 233px;
+      }
+
+      @media (max-width: 700px) {
+        order: 2;
+        width: 100%;
+        padding: 0 30px;
+      }
+
+      &.last-titles-section {
+        
+        @media (max-width: 1050px) {
+          width: 300px;
+        }
+
+        @media (max-width: 700px) {
+          align-items: center;
+          width: 100%;
+        }
       }
 
       .text__title {
@@ -97,10 +136,19 @@ import articles from '/server/articles.json';
         @media (max-width: 1350px) {
           font-size: 20px;
           width: auto;
+          
+          br {
+            display: none;
+          }
         }
 
         @media (max-width: 1050px) {
           font-size: 16px;
+        }
+
+        @media (max-width: 700px) {
+          order: 2;
+          width: 100%;
         }
       }
 
@@ -116,6 +164,10 @@ import articles from '/server/articles.json';
         @media (max-width: 1050px) {
           font-size: 8px;
         }
+
+        @media (max-width: 700px) {
+          order: 3;
+        }
       }
 
       .text__description {
@@ -128,6 +180,11 @@ import articles from '/server/articles.json';
 
         @media (max-width: 1350px) {
           font-size: 14px;
+        }
+
+        @media (max-width: 700px) {
+          font-size: 30px;
+          text-align: center;
         }
       }
 
@@ -150,6 +207,12 @@ import articles from '/server/articles.json';
         @media (max-width: 1750px) {
           width: 300px;
         }
+
+        @media (max-width: 700px) {
+          width: 260px;
+          height: 40px;
+          font-size: 12px;
+        }
       }
     }
 
@@ -158,6 +221,21 @@ import articles from '/server/articles.json';
       @media (max-width: 1750px) {
         width: 52.82vw;
         height: auto;
+      }
+
+      @media (max-width: 700px) {
+        width: 100%;
+      }
+
+      &.last-titles-photo {
+
+        @media (max-width: 1050px) {
+          width: 45vw;
+        }
+
+        @media (max-width: 700px) {
+          width: 100%;
+        }
       }
     }
   }
@@ -173,6 +251,10 @@ import articles from '/server/articles.json';
       gap: 70px;
     }
 
+    @media (max-width: 700px) {
+      gap: 40px;
+    }
+
     .description__title {
       color: #393939;
       font-family: Accademico;
@@ -185,6 +267,11 @@ import articles from '/server/articles.json';
       @media (max-width: 1350px) {
         margin-left: 63px;
         font-size: 45px;
+      }
+
+      @media (max-width: 700px) {
+        font-size: 26px;
+        margin-left: 40px;
       }
     }
 
@@ -201,6 +288,10 @@ import articles from '/server/articles.json';
           padding: 10px;
         }
 
+        @media (max-width: 700px) {
+          display: none;
+        }
+
         .titles__title {
           color: #5493D1;
           font-size: 10px;
@@ -209,6 +300,14 @@ import articles from '/server/articles.json';
           line-height: 98%;
           letter-spacing: 2px;
           text-transform: uppercase;
+
+          @media (max-width: 1700px) {
+            padding-right: 50px;
+          }
+
+          @media (max-width: 1050px) {
+            padding-right: 30px;
+          }
         }
       }
 
@@ -222,6 +321,14 @@ import articles from '/server/articles.json';
         @media (max-width: 1700px) {
           min-height: 85px;
           padding: 10px;
+        }
+
+        @media (max-width: 700px) {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 25px 40px;
+          gap: 20px;
+          height: auto;
         }
 
         &:last-child {
@@ -239,9 +346,22 @@ import articles from '/server/articles.json';
           font-weight: 400;
           line-height: 98%;
           text-align: left;
+
+          @media (max-width: 1700px) {
+            padding-right: 50px;
+          }
         
           @media (max-width: 1350px) {
             font-size: 12px;
+          }
+
+          @media (max-width: 1050px) {
+            padding-right: 30px;
+          }
+
+          @media (max-width: 700px) {
+            padding: 0;
+            width: 100%;
           }
         }
       }
@@ -249,34 +369,33 @@ import articles from '/server/articles.json';
       .link__date {
         padding-left: 144px; 
         width: 310px;
-      
-        @media (max-width: 1700px) {
-          padding-right: 50px;
-        }
 
         @media (max-width: 1350px) {
           padding-left: 63px;
+          width: 170px;
         }
       }
       .link__author {
         width: 440px;
       
         @media (max-width: 1700px) {
-          padding-right: 50px;
           width: 300px;
         }
+
+        @media (max-width: 1350px) {
+          width: 250px;
+        }
       }
+
       .link__article {
         width: auto;
 
         @media (max-width: 1700px) {
           width: 1300px;
-          padding-right: 50px;
         }
 
         @media (max-width: 1350px) {
-          width: 800px;
-          padding-right: 50px;
+          width: 500px;
         }
       }
     }
