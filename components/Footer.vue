@@ -70,6 +70,10 @@ const itemColor = computed(() => {
   max-width: 1728px;
   width: 100%;
 
+  @media (max-width: 700px) {
+    padding: 150px 0 17px 40px;
+  }
+
   &.footer__black {background: #000;}
 
   .footer__wrapper {

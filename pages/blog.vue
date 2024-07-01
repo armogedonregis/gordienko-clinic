@@ -107,7 +107,7 @@ import articles from '/server/articles.json';
       @media (max-width: 700px) {
         order: 2;
         width: 100%;
-        padding: 0 30px;
+        padding: 0 40px;
       }
 
       &.last-titles-section {
@@ -149,6 +149,7 @@ import articles from '/server/articles.json';
         @media (max-width: 700px) {
           order: 2;
           width: 100%;
+          font-size: 25px;
         }
       }
 

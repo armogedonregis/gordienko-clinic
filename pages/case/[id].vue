@@ -2,8 +2,8 @@
   <div class="case">
     <div class="case__swiper">
       <nav class="swiper__nav">
-        <NuxtLink to="#" class="nav__link">Предыдущая история</NuxtLink>
-        <NuxtLink to="#" class="nav__link">Следующая история</NuxtLink>
+        <button :class="['nav__link', { 'nav__link-active': hasPrevStory }]" @click="switchPrevStory">Предыдущая история</button>
+        <button :class="['nav__link', { 'nav__link-active': hasNextStory }]" @click="switchNextStory">Следующая история</button>
       </nav>
       <div class="swiper__item-wrapper">
         <div class="swiper__item" v-for="(photo, index) in caseItem.imagesBig" :key="index">
@@ -34,10 +34,24 @@ import { useRoute } from 'vue-router';
 import casesData from '/server/cases.json'
 
 const route = useRoute()
+const router = useRouter()
+const caseId = parseInt(route.params.id)
 const caseItem = computed(() => {
-  const caseId = parseInt(route.params.id)
   return casesData.cases.find(a => a.id === caseId)
 })
+
+const hasPrevStory = computed(() => caseId > 1)
+const hasNextStory = computed(() => caseId < Math.max(...casesData.cases.map(c => c.id)))
+function switchPrevStory() {
+  if (hasPrevStory.value) {
+    router.push(`/case/${caseId - 1}`)
+  }
+}
+function switchNextStory() {
+  if (hasNextStory.value) {
+    router.push(`/case/${caseId + 1}`)
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -74,10 +88,13 @@ const caseItem = computed(() => {
         text-transform: uppercase;
         transform: rotate(-90deg);
         margin-left: -40px;
+        opacity: 0.5;
 
         &:last-child {
           margin-right: -35px;
         }
+
+        &.nav__link-active {opacity: 1;}
       }
     }
 
