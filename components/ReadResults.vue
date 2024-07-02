@@ -30,6 +30,11 @@ import casesData from '/server/cases.json'
     height: 100vh;
     border-bottom: 1px solid rgba(57, 57, 57, 0.80);
 
+    @media (max-width: 700px) {
+      padding: 130px 20px;
+      height: auto;
+    }
+
     .item__title {
       color: #FFF;
       text-align: center;
@@ -41,6 +46,17 @@ import casesData from '/server/cases.json'
       text-transform: uppercase;
       margin-bottom: 40px;
       width: 854px;
+
+      @media (max-width: 900px) {
+        font-size: 38px;
+        width: 660px;
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 700px) {
+        width: 100%;
+        font-size: 26px;
+      }
     }
 
     .item__title-center {
@@ -62,6 +78,16 @@ import casesData from '/server/cases.json'
       letter-spacing: 4px;
       text-transform: uppercase;
       margin-bottom: 80px;
+
+      @media (max-width: 900px) {
+        font-size: 18px;
+        width: 660px;
+      }
+
+      @media (max-width: 700px) {
+        font-size: 18px;
+        width: 100%;
+      }
     }
 
     .item__text {
@@ -73,6 +99,15 @@ import casesData from '/server/cases.json'
       line-height: 130%;
       margin-bottom: 60px;
       width: 562px;
+
+      @media (max-width: 900px) {
+        font-size: 18px;
+        width: 450px;
+      }
+
+      @media (max-width: 700px) {
+        width: 100%;
+      }
     }
 
     .item__more-btn {
@@ -90,6 +125,11 @@ import casesData from '/server/cases.json'
       line-height: 95%;
       text-transform: uppercase;
       background: none;
+
+      @media (max-width: 900px) {
+        width: 300px;
+        height: 40px;
+      }
     }
   }
 }

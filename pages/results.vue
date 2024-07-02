@@ -1,12 +1,13 @@
 <template>
   <div class="results">
     <nav class="results__nav">
-      <NuxtLink class="nav__link">ИСТОРИИ ПРЕОБРАЖЕНИЯ</NuxtLink>
+      <NuxtLink class="nav__link mobile-first-link">ИСТОРИИ ПРЕОБРАЖЕНИЯ</NuxtLink>
       <div class="nav__center-links">
         <NuxtLink class="nav__link" @click="toggleWatch">ПОСМОТРЕТЬ</NuxtLink>
         <NuxtLink class="nav__link" @click="toggleRead">ПОЧИТАТЬ</NuxtLink>
       </div>
-      <NuxtLink class="nav__link">Deep plane facelift</NuxtLink>
+      <NuxtLink class="nav__link desktop">Deep plane facelift</NuxtLink>
+      <NuxtLink class="nav__link mobile">Истории преображения</NuxtLink>
     </nav>
     <ReadResults v-if="isReadActive"/>
     <WatchResults v-if="isWatchActive"/>
@@ -49,6 +50,16 @@ function toggleWatch() {
     border-bottom: 1px solid rgba(138, 138, 138, 0.50);
     margin-top: 138px;
 
+    @media (max-width: 900px) {
+      padding: 0 33px;
+      height: 91px;
+    }
+
+    @media (max-width: 700px) {
+      height: 51px;
+      padding: 0 20px;
+    }
+
     .nav__link {
       cursor: pointer;
       color: #FFF;
@@ -58,12 +69,52 @@ function toggleWatch() {
       line-height: 98%;
       letter-spacing: 3px;
       text-transform: uppercase;
+
+      @media (max-width: 700px) {
+        font-size: 8px;
+      }
+
+      &.mobile-first-link {
+        display: flex;
+
+        @media (max-width: 800px) {
+          display: none;
+        }
+      }
+
+      &.desktop {
+        display: flex;
+
+        @media (max-width: 900px) {
+          display: none;
+        }
+
+        @media (max-width: 800px) {
+          display: flex;
+        }
+      }
+
+      &.mobile {
+        display: none;
+
+        @media (max-width: 900px) {
+          display: flex;
+        }
+
+        @media (max-width: 800px) {
+          display: none;
+        }
+      }
     }
 
     .nav__center-links {
       display: flex;
       align-items: center;
       gap: 48px;
+
+      @media (max-width: 700px) {
+        gap: 23px;
+      }
     }
   }
 }
