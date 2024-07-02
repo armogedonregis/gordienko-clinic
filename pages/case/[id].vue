@@ -21,8 +21,10 @@
     <div class="case__text">
       <h1 class="text__title">{{ caseItem.title }}</h1>
       <p class="text__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
-      <p class="text__name">{{ caseItem.name }}</p>
-      <p class="text__story">{{ caseItem.story }}</p>
+      <div class="text__story-wrapper">
+        <p class="text__name">{{ caseItem.name }}</p>
+        <p class="text__story">{{ caseItem.story }}</p>
+      </div>
       <NuxtLink to="/results" class="text__stories">Все истории</NuxtLink>
     </div>
   </div>
@@ -94,8 +96,18 @@ function switchNextStory() {
         margin-left: -40px;
         opacity: 0.5;
 
+        @media (max-width: 700px) {
+          font-size: 16px;
+          margin-left: -80px;
+        }
+
         &:last-child {
           margin-right: -35px;
+
+          @media (max-width: 700px) {
+            font-size: 16px;
+            margin-right: -75px;
+          }
         }
 
         &.nav__link-active {opacity: 1;}
@@ -105,6 +117,10 @@ function switchNextStory() {
     .swiper__item-wrapper {
       display: flex;
       width: 100%;
+
+      @media (max-width: 700px) {
+        flex-direction: column;
+      }
 
       .swiper__item {
         display: flex;
@@ -116,6 +132,11 @@ function switchNextStory() {
 
         @media (max-width: 1720px) {
           width: 49.36vw;
+        }
+
+        @media (max-width: 700px) {
+          width: 100%;
+          height: 100%;
         }
 
         .item__photo {
@@ -135,6 +156,10 @@ function switchNextStory() {
     display: flex;
     width: 100%;
 
+    @media (max-width: 700px) {
+      flex-direction: column;
+    }
+
     .case__photos {
       display: flex;
       width: 100%;
@@ -145,12 +170,22 @@ function switchNextStory() {
         height: auto;
       }
 
+      @media (max-width: 700px) {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+      }
+
       .photos__item {
         width: 216px;
         height: 100%;
 
         @media (max-width: 1720px) {
           width: 12.5vw;
+        }
+
+        @media (max-width: 700px) {
+          width: 100%;
+          height: auto;
         }
 
         img {
@@ -181,6 +216,11 @@ function switchNextStory() {
       width: 660px;
     }
 
+    @media (max-width: 700px) {
+      width: 100%;
+      padding: 70px 25px 0;
+    }
+
     .text__title {
       color: #FFF;
       text-align: center;
@@ -193,6 +233,10 @@ function switchNextStory() {
 
       @media (max-width: 900px) {
         font-size: 40px;
+      }
+
+      @media (max-width: 700px) {
+        font-size: 27px;
       }
     }
 
@@ -211,38 +255,52 @@ function switchNextStory() {
       @media (max-width: 1150px) {
         margin-right: 0;
       }
-    }
 
-    .text__name {
-      color: #FFF;
-      font-family: Accademico;
-      font-size: 30px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 95%;
-      text-transform: uppercase;
-      margin-top: 74px;
-      margin-right: auto;
-      margin-left: 180px;
-
-      @media (max-width: 900px) {
-        margin-left: 80px;
-        width: 500px;
+      @media (max-width: 700px) {
+        font-size: 12px;
+        margin-top: 40px;
       }
     }
 
-    .text__story {
-      color: #FFF;
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 130%;
+    .text__story-wrapper {
+      display: flex; 
+      flex-direction: column;
+      align-items: center; 
       width: 785px;
-      margin-top: 28px;
-      text-align: justify;
 
       @media (max-width: 900px) {
         width: 500px;
+      }
+
+      @media (max-width: 700px) {
+        width: 100%;
+      }
+
+      .text__name {
+        color: #FFF;
+        font-family: Accademico;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 95%;
+        text-transform: uppercase;
+        margin-top: 74px;
+        margin-right: auto;
+
+        @media (max-width: 700px) {
+          font-size: 25px;
+        }
+      }
+
+      .text__story {
+        color: #FFF;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 130%;
+        margin-top: 28px;
+        text-align: justify;
+        width: 100%;
       }
     }
 
