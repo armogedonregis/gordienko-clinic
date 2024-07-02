@@ -3,8 +3,8 @@
     <nav class="results__nav">
       <NuxtLink class="nav__link mobile-first-link">ИСТОРИИ ПРЕОБРАЖЕНИЯ</NuxtLink>
       <div class="nav__center-links">
-        <NuxtLink class="nav__link" @click="toggleWatch">ПОСМОТРЕТЬ</NuxtLink>
-        <NuxtLink class="nav__link" @click="toggleRead">ПОЧИТАТЬ</NuxtLink>
+        <NuxtLink :class="isReadActive ? 'nav__link' : 'nav__link-active'" @click="toggleWatch">ПОСМОТРЕТЬ</NuxtLink>
+        <NuxtLink :class="isWatchActive ? 'nav__link' : 'nav__link-active'" @click="toggleRead">ПОЧИТАТЬ</NuxtLink>
       </div>
       <NuxtLink class="nav__link desktop">Deep plane facelift</NuxtLink>
       <NuxtLink class="nav__link mobile">Истории преображения</NuxtLink>
@@ -69,6 +69,7 @@ function toggleWatch() {
       line-height: 98%;
       letter-spacing: 3px;
       text-transform: uppercase;
+      opacity: 0.5;
 
       @media (max-width: 700px) {
         font-size: 8px;
@@ -105,6 +106,18 @@ function toggleWatch() {
           display: none;
         }
       }
+    }
+
+    .nav__link-active {
+      cursor: pointer;
+      color: #FFF;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 98%;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 1;
     }
 
     .nav__center-links {

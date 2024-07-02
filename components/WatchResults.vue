@@ -18,6 +18,14 @@ import casesData from "/server/cases.json";
 
   @media (max-width: 700px) {
     grid-template-columns: repeat(2, auto);
+
+    .results__item:nth-last-child(1) {
+      grid-row: 3;
+    }
+
+    .results__item:last-child {
+      grid-row: 2;
+    }
   }
 
   .results__item {
