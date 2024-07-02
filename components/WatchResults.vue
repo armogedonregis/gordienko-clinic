@@ -16,6 +16,10 @@ import casesData from "/server/cases.json";
   grid-template-columns: repeat(4, auto);
   width: 100%;
 
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(2, auto);
+  }
+
   .results__item {
     display: flex;
     align-items: flex-end;
@@ -25,10 +29,25 @@ import casesData from "/server/cases.json";
     height: 469px;
     overflow: hidden;
 
+    @media (max-width: 1728px) {
+      width: 25vw;
+      height: auto;
+    }
+
+    @media (max-width: 700px) {
+      width: 100%;
+      height: auto;
+    }
+
     .results__photo {
       width: auto;
       height: auto;
       object-fit: cover;
+
+      @media (max-width: 1728px) {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
