@@ -1,6 +1,7 @@
 <template>
   <div class="landing">
     <section class="landing__video-content title-video-block">
+      <h1 class="content__title mobile">доктор гордиенко</h1>
       <video ref="videoPlayer" class="content__video" :muted="isMuted">
         <source src="/assets/video/homepage2.mp4" type="video/mp4">
       </video>
@@ -245,12 +246,14 @@
             <p class="list__num">09</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
             <div class="list__popup" v-if="isPopupOpen">
-              <span class="subtitle__popup-btn" style="cursor: default;">?</span>
+              <img src="/public/assets/icons/question.svg">
               <p class="popup__info">Fly IN - облет, также называемый авиационным собранием, представляет собой заранее
                 организованное собрание самолетов, пилотов и пассажиров в развлекательных и общественных целях.</p>
             </div>
-            <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»<button
-                class="subtitle__popup-btn" @click="togglePopup">?</button>. Это онлайн-служба заботы о пациентах,
+            <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»
+              <button class="subtitle__popup-btn" @click="togglePopup">
+                <img src="/public/assets/icons/close.svg">
+              </button>. Это онлайн-служба заботы о пациентах,
               предусматривающая полное сопровождение до, во время и после операции</h2>
             <p class="list__info">
               В программу входит подбор жилья, встреча с табличкой в аэропорту с табличкой, трансфер в обе стороны,
@@ -515,12 +518,14 @@
             <p class="list__num">05</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
             <div class="list__popup" v-if="isPopupOpen">
-              <span class="subtitle__popup-btn" style="cursor: default;">?</span>
+              <img src="/public/assets/icons/question.svg">
               <p class="popup__info">Fly IN - облет, также называемый авиационным собранием, представляет собой заранее
                 организованное собрание самолетов, пилотов и пассажиров в развлекательных и общественных целях.</p>
             </div>
-            <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»<button
-                class="subtitle__popup-btn" @click="togglePopup">?</button>. Это онлайн-служба заботы о пациентах,
+            <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»
+              <button class="subtitle__popup-btn" @click="togglePopup">
+                <img src="/public/assets/icons/close.svg">
+              </button>. Это онлайн-служба заботы о пациентах,
               предусматривающая полное сопровождение до, во время и после операции</h2>
             <p class="list__info">
               В программу входит подбор жилья, встреча с табличкой в аэропорту с табличкой, трансфер в обе стороны,
@@ -1070,12 +1075,14 @@
             <p class="list__num">06</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
             <div class="list__popup" v-if="isPopupOpen">
-              <span class="subtitle__popup-btn" style="cursor: default;">?</span>
+              <img src="/public/assets/icons/question.svg">
               <p class="popup__info">Fly IN - облет, также называемый авиационным собранием, представляет собой заранее
                 организованное собрание самолетов, пилотов и пассажиров в развлекательных и общественных целях.</p>
             </div>
-            <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»<button
-                class="subtitle__popup-btn" @click="togglePopup">?</button>. Это онлайн-служба заботы о пациентах,
+            <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»
+              <button class="subtitle__popup-btn" @click="togglePopup">
+                <img src="/public/assets/icons/close.svg">
+              </button>. Это онлайн-служба заботы о пациентах,
               предусматривающая полное сопровождение до, во время и после операции</h2>
             <p class="list__info">
               В программу входит подбор жилья, встреча с табличкой в аэропорту, трансфер в обе стороны, доставка еды и
@@ -1346,12 +1353,14 @@
             <p class="list__num">06</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
             <div class="list__popup" v-if="isPopupOpen">
-              <span class="subtitle__popup-btn" style="cursor: default;">?</span>
+              <img src="/public/assets/icons/question.svg">
               <p class="popup__info">Fly IN - облет, также называемый авиационным собранием, представляет собой заранее
                 организованное собрание самолетов, пилотов и пассажиров в развлекательных и общественных целях.</p>
             </div>
-            <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»<button
-                class="subtitle__popup-btn" @click="togglePopup">?</button>. Это онлайн-служба заботы о пациентах,
+            <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»
+              <button class="subtitle__popup-btn" @click="togglePopup">
+                <img src="/public/assets/icons/close.svg">
+              </button>. Это онлайн-служба заботы о пациентах,
               предусматривающая полное сопровождение до, во время и после операции</h2>
             <p class="list__info">
               В программу входит подбор жилья, встреча с табличкой в аэропорту, трансфер в обе стороны, доставка еды и
@@ -1645,12 +1654,14 @@
             <p class="list__num">07</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
             <div class="list__popup" v-if="isPopupOpen">
-              <span class="subtitle__popup-btn" style="cursor: default;">?</span>
+              <img src="/public/assets/icons/question.svg">
               <p class="popup__info">Fly IN - облет, также называемый авиационным собранием, представляет собой заранее
                 организованное собрание самолетов, пилотов и пассажиров в развлекательных и общественных целях.</p>
             </div>
-            <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»<button
-                class="subtitle__popup-btn" @click="togglePopup">?</button>. Это онлайн-служба заботы о пациентах,
+            <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»
+              <button class="subtitle__popup-btn" @click="togglePopup">
+                <img src="/public/assets/icons/close.svg">
+              </button>. Это онлайн-служба заботы о пациентах,
               предусматривающая полное сопровождение до, во время и после операции</h2>
             <p class="list__info">
               В программу входит подбор жилья, встреча с табличкой в аэропорту, трансфер в обе стороны, доставка еды и
@@ -1813,7 +1824,7 @@
         </ul>
       </div>
     </section>
-    <section class="landing__description-content" style="padding-top: 0;">
+    <section class="landing__description-content" style="padding-top: 0; padding-bottom: 0;">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
           <li>
@@ -1889,6 +1900,12 @@ function togglePopup() {
       &.title-video-block {height: 978px;}
     }
 
+    @media (max-width: 700px) {
+      height: 612px;
+
+      &.title-video-block {height: 868px;}
+    }
+
     .content__title {
       color: #FFF;
       text-align: center;
@@ -1903,6 +1920,14 @@ function togglePopup() {
 
       @media (max-width: 1350px) {
         font-size: 30px;
+      }
+
+      &.mobile {
+        display: none;
+      
+        @media (max-width: 700px) {
+          display: flex;
+        }
       }
     }
 
@@ -1953,6 +1978,10 @@ function togglePopup() {
       padding: 150px 45px;
     }
 
+    @media (max-width: 700px) {
+      padding: 120px 20px;
+    }
+
     .description__title {
       color: #393939;
       font-family: Accademico;
@@ -1966,6 +1995,14 @@ function togglePopup() {
       @media (max-width: 1350px) {
         font-size: 70px;
         width: 100%;
+      }
+
+      @media (max-width: 700px) {
+        font-size: 50px;
+      }
+
+      @media (max-width: 450px) {
+        font-size: 45px;
       }
     }
 
@@ -1985,6 +2022,10 @@ function togglePopup() {
         br {
           display: none;
         }
+      }
+
+      @media (max-width: 700px) {
+        font-size: 20px;
       }
 
       span {
@@ -2008,6 +2049,10 @@ function togglePopup() {
       @media (max-width: 1350px) {
         font-size: 16px;
       }
+
+      @media (max-width: 700px) {
+        font-size: 14px;
+      }
     }
 
     .description__list {
@@ -2026,6 +2071,10 @@ function togglePopup() {
 
         @media (max-width: 1350px) {
           font-size: 20px;
+        }
+
+        @media (max-width: 700px) {
+          font-size: 18px;
         }
       }
 
@@ -2065,6 +2114,11 @@ function togglePopup() {
           width: 82px;
           height: 82px;
         }
+
+        @media (max-width: 500px) {
+          width: 42px;
+          height: 42px;
+        }
       }
     }
 
@@ -2083,6 +2137,10 @@ function togglePopup() {
         font-size: 35px;
         width: 100%;
       }
+
+      @media (max-width: 700px) {
+        font-size: 30px;
+      }
     }
 
     .description__text {
@@ -2096,6 +2154,10 @@ function togglePopup() {
 
       @media (max-width: 1350px) {
         font-size: 24px;
+      }
+
+      @media (max-width: 700px) {
+        font-size: 20px;
       }
     }
   }
@@ -2127,6 +2189,10 @@ function togglePopup() {
         text-transform: uppercase;
         margin-bottom: 10px;
         opacity: 0.6;
+
+        @media (max-width: 700px) {
+          font-size: 14px;
+        }
       }
 
       .list__date {
@@ -2153,6 +2219,11 @@ function togglePopup() {
         @media (max-width: 1350px) {
           font-size: 30px;
         }
+
+        @media (max-width: 700px) {
+          font-size: 18px;
+          line-height: 130%;
+        }
       }
 
       .list__subtitle {
@@ -2169,6 +2240,10 @@ function togglePopup() {
         @media (max-width: 1350px) {
           font-size: 20px;
         }
+
+        @media (max-width: 700px) {
+          font-size: 18px;
+        }
       }
 
       .list__popup {
@@ -2181,9 +2256,14 @@ function togglePopup() {
         opacity: 0.85;
         width: 500px;
         border-radius: 30px;
-        top: -125px;
-        right: 135px;
+        top: -160px;
+        right: 70px;
         gap: 20px;
+
+        @media (max-width: 1350px) {
+          top: -170px;
+          right: 0;
+        }
 
         .popup__info {
           font-size: 16px;
@@ -2194,17 +2274,16 @@ function togglePopup() {
       .subtitle__popup-btn {
         cursor: pointer;
         border: none;
-        background: rgba(84, 147, 209, 0.3);
+        background: none;
         border-radius: 50%;
-        color: #fff;
         width: 20px;
         height: 20px;
         font-size: 15px;
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        margin-left: 5px;
-        transform: translateY(-5px);
+        margin: 0 5px 0 0;
+        transform: translateY(8px);
       }
 
       .list__info {
@@ -2255,9 +2334,19 @@ function togglePopup() {
     height: 100%;
     gap: 50px;
 
+    @media (max-width: 700px) {
+      flex-direction: column;
+    }
+
     img {
       width: 50%;
       height: auto;
+
+      @media (max-width: 700px) {
+        width: 100%;
+
+        &:first-child {padding: 70px;}
+      }
     }
   }
 
@@ -2266,6 +2355,10 @@ function togglePopup() {
     grid-template-columns: repeat(4, auto);
     width: 100%;
     overflow: hidden;
+
+    @media (max-width: 700px) {
+      grid-template-columns: repeat(2, auto);
+    }
 
     .photo__item {
       display: flex;
@@ -2283,12 +2376,28 @@ function togglePopup() {
           height: auto;
         }
       }
+
+      @media (max-width: 700px) {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 
   .fullscreen__image {
     width: 100%;
     height: 100%;
+
+    @media (max-width: 700px) {
+      width: auto;
+      height: 500px;
+    }
+
+    @media (max-width: 500px) {
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+    }
   }
 
   .padding-for-wrapper {
@@ -2296,6 +2405,17 @@ function togglePopup() {
 
     @media (max-width: 1350px) {
       padding-left: 100px;
+    }
+
+    @media (max-width: 900px) {
+      padding-left: 45px;
+    }
+
+    @media (max-width: 700px) {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      padding-left: 0;
     }
   }
 
@@ -2319,6 +2439,12 @@ function togglePopup() {
     @media (max-width: 1350px) {
       width: 300px;
       font-size: 10px;
+    }
+
+    @media (max-width: 700px) {
+      height: 40px;
+      width: 260px;
+      font-size: 12px;
     }
   }
 }
