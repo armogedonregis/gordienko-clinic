@@ -1,6 +1,6 @@
 <template>
   <div class="landing">
-    <section class="landing__video-content">
+    <section class="landing__video-content title-video-block">
       <video ref="videoPlayer" class="content__video" :muted="isMuted">
         <source src="/assets/video/homepage2.mp4" type="video/mp4">
       </video>
@@ -61,7 +61,7 @@
     <section class="landing__description-content">
       <h1 class="description__title-min">Омолаживающие операции на лице, которые я выполняю, чтобы <br> вы могли
         вдохновлять и вдохновляться своим отражением:</h1>
-      <ul class="description__list">
+      <ul class="description__list list-margin">
         <li>Deep Plane FaceLift (инновационная подтяжка лица и шеи)</li>
         <li>Все виды подтяжек лба и бровей</li>
         <li>Блефаропластика</li>
@@ -113,7 +113,7 @@
         </div>
       </div>
     </section>
-    <section class="landing__video-content">
+    <section class="landing__video-content title-video-block">
       <h1 class="content__title">Deep plane facelift</h1>
       <video class="content__video" loop autoplay muted>
         <source src="/assets/video/homepage3.mp4" type="video/mp4">
@@ -428,7 +428,7 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content">
+    <section class="landing__video-content title-video-block">
       <h1 class="content__title">Губы</h1>
       <video class="content__video" loop autoplay muted>
         <source src="/assets/video/homepage8.mp4" type="video/mp4">
@@ -704,7 +704,7 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content">
+    <section class="landing__video-content title-video-block">
       <h1 class="content__title">Лоб и брови</h1>
       <video class="content__video" loop autoplay muted>
         <source src="/assets/video/homepage5.mp4" type="video/mp4">
@@ -979,7 +979,7 @@
       </div>
     </section>
 
-    <section class="landing__video-content">
+    <section class="landing__video-content title-video-block">
       <h1 class="content__title">Шея</h1>
       <video class="content__video" loop autoplay muted>
         <source src="/assets/video/homepage6.mp4" type="video/mp4">
@@ -1258,7 +1258,7 @@
       </div>
     </section>
 
-    <section class="landing__video-content">
+    <section class="landing__video-content title-video-block">
       <h1 class="content__title">Глаза</h1>
       <video class="content__video" loop autoplay muted>
         <source src="/assets/video/profilepage9.mp4" type="video/mp4">
@@ -1540,7 +1540,7 @@
       </div>
     </section>
 
-    <section class="landing__video-content">
+    <section class="landing__video-content title-video-block">
       <h1 class="content__title">ЛИПОФИЛИНГ</h1>
       <video class="content__video" loop autoplay muted>
         <source src="/assets/video/homepage8.mp4" type="video/mp4">
@@ -1883,6 +1883,12 @@ function togglePopup() {
     overflow: hidden;
     position: relative;
 
+    @media (max-width: 1350px) {
+      height: 470px;
+      
+      &.title-video-block {height: 978px;}
+    }
+
     .content__title {
       color: #FFF;
       text-align: center;
@@ -1894,6 +1900,10 @@ function togglePopup() {
       line-height: 120%;
       text-transform: uppercase;
       z-index: 2;
+
+      @media (max-width: 1350px) {
+        font-size: 30px;
+      }
     }
 
     .content__video {
@@ -1935,6 +1945,14 @@ function togglePopup() {
     padding: 200px 146px;
     gap: 20px;
 
+    @media (max-width: 1350px) {
+      padding: 150px 100px;
+    }
+
+    @media (max-width: 900px) {
+      padding: 150px 45px;
+    }
+
     .description__title {
       color: #393939;
       font-family: Accademico;
@@ -1944,6 +1962,11 @@ function togglePopup() {
       line-height: 120%;
       letter-spacing: 1.05px;
       text-transform: uppercase;
+
+      @media (max-width: 1350px) {
+        font-size: 70px;
+        width: 100%;
+      }
     }
 
     .description__title-min {
@@ -1955,6 +1978,14 @@ function togglePopup() {
       line-height: 120%;
       letter-spacing: 0.36px;
       text-transform: uppercase;
+
+      @media (max-width: 1350px) {
+        font-size: 22px;
+
+        br {
+          display: none;
+        }
+      }
 
       span {
         color: #8A8A8A;
@@ -1973,6 +2004,10 @@ function togglePopup() {
       margin-left: auto;
       margin-top: 30px;
       margin-bottom: 178px;
+
+      @media (max-width: 1350px) {
+        font-size: 16px;
+      }
     }
 
     .description__list {
@@ -1988,6 +2023,14 @@ function togglePopup() {
         font-style: normal;
         font-weight: 300;
         line-height: 150%;
+
+        @media (max-width: 1350px) {
+          font-size: 20px;
+        }
+      }
+
+      &.list-margin {
+        margin-top: 0;
       }
     }
 
@@ -2017,6 +2060,11 @@ function togglePopup() {
       img {
         width: 130px;
         height: 130px;
+
+        @media (max-width: 1350px) {
+          width: 82px;
+          height: 82px;
+        }
       }
     }
 
@@ -2030,6 +2078,11 @@ function togglePopup() {
       line-height: 130%;
       text-transform: uppercase;
       width: 1000px;
+
+      @media (max-width: 1350px) {
+        font-size: 35px;
+        width: 100%;
+      }
     }
 
     .description__text {
@@ -2040,6 +2093,10 @@ function togglePopup() {
       font-style: normal;
       font-weight: 400;
       line-height: 150%;
+
+      @media (max-width: 1350px) {
+        font-size: 24px;
+      }
     }
   }
 
@@ -2084,7 +2141,6 @@ function togglePopup() {
 
       .list__title {
         color: #393939;
-        text-align: justify;
         font-family: Accademico;
         font-size: 36px;
         font-style: normal;
@@ -2093,6 +2149,10 @@ function togglePopup() {
         letter-spacing: 0.36px;
         text-transform: uppercase;
         margin-bottom: 20px;
+
+        @media (max-width: 1350px) {
+          font-size: 30px;
+        }
       }
 
       .list__subtitle {
@@ -2105,6 +2165,10 @@ function togglePopup() {
         letter-spacing: 0.26px;
         margin-bottom: 20px;
         display: inline;
+
+        @media (max-width: 1350px) {
+          font-size: 20px;
+        }
       }
 
       .list__popup {
@@ -2152,6 +2216,10 @@ function togglePopup() {
         font-weight: 400;
         line-height: 130%;
         opacity: 0.85;
+
+        @media (max-width: 1350px) {
+          font-size: 14px;
+        }
       }
     }
   }
@@ -2174,6 +2242,10 @@ function togglePopup() {
     flex-direction: column;
     width: 100%;
     gap: 150px;
+
+    @media (max-width: 1350px) {
+      gap: 70px;
+    }
   }
 
   .fullscreen__photos {
@@ -2201,6 +2273,16 @@ function togglePopup() {
       background: #000;
       height: 510px;
       width: 450px;
+
+      @media (max-width: 1720px) {
+        width: 25vw;
+        height: auto;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
     }
   }
 
@@ -2211,6 +2293,10 @@ function togglePopup() {
 
   .padding-for-wrapper {
     padding-left: 146px;
+
+    @media (max-width: 1350px) {
+      padding-left: 100px;
+    }
   }
 
   .show__more-btn {
@@ -2229,6 +2315,11 @@ function togglePopup() {
     text-transform: uppercase;
     border: 0.7px solid #393939;
     background: none;
+
+    @media (max-width: 1350px) {
+      width: 300px;
+      font-size: 10px;
+    }
   }
 }
 </style>

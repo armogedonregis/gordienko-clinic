@@ -38,6 +38,11 @@ const filteredHeaderLinks = computed(() => {
   box-shadow: none;
 }
 
+.v-btn {
+  margin: 0;
+  padding: 0;
+}
+
 .dropdown__link {
   font-size: 10px;
   font-style: normal;

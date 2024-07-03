@@ -1,17 +1,17 @@
 <template>
   <div class="case">
     <div class="case__swiper">
-      <nav class="swiper__nav">
+      <nav class="swiper__nav" v-if="caseItem.images.length > 0">
         <button :class="['nav__link', { 'nav__link-active': hasPrevStory }]" @click="switchPrevStory">Предыдущая история</button>
         <button :class="['nav__link', { 'nav__link-active': hasNextStory }]" @click="switchNextStory">Следующая история</button>
       </nav>
-      <div class="swiper__item-wrapper">
+      <div class="swiper__item-wrapper" v-if="caseItem.images.length > 0">
         <div class="swiper__item" v-for="(photo, index) in caseItem.imagesBig" :key="index">
           <img :src="photo" class="item__photo">
         </div>
       </div>
     </div>
-    <div class="case__photos-wrapper">
+    <div class="case__photos-wrapper" v-if="caseItem.images.length > 0">
       <div class="case__photos" v-for="item in 2" :key="item">
         <div class="photos__item" v-for="(photo, index) in caseItem.imagesLit" :key="index">
           <img :src="photo">
@@ -54,6 +54,7 @@ function switchNextStory() {
     router.push(`/case/${caseId + 1}`)
   }
 }
+console.log(caseItem.value.images.length)
 </script>
 
 <style lang="scss" scoped>

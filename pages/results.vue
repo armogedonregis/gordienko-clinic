@@ -118,6 +118,10 @@ function toggleWatch() {
       letter-spacing: 3px;
       text-transform: uppercase;
       opacity: 1;
+
+      @media (max-width: 700px) {
+        font-size: 8px;
+      }
     }
 
     .nav__center-links {
