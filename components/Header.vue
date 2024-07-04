@@ -2,15 +2,18 @@
   <div class="header-wrapper">
     <header class="header">
       <nav class="header__nav">
-        <NuxtLink 
-          :class="[link.class, getItemColor(link.path)]"
-          v-for="(link, index) in headerData.links"
-          :to="link.path" 
-          :key="index"
-          :target="link.target"
-        >
-          {{ link.title }}
-          <img src="/assets/images/logo.png" class="nav__logo" v-if="link.image">
+        <NuxtLink to="/" :class="getItemColor('/deep-plane-facelift')" class="nav__link dp">Deep plane facelift</NuxtLink>
+        <NuxtLink to="/blog" :class="getItemColor('/blog')" class="nav__link blog">Блог</NuxtLink>
+        <NuxtLink to="/profile" :class="getItemColor('/profile')" class="nav__link profile">Доктор Гордиенко</NuxtLink>
+        <NuxtLink to="/" class="nav__logo-link"><img src="/assets/images/logo.png" class="nav__logo"></NuxtLink>
+        <NuxtLink to="/results" :class="getItemColor('/results')" class="nav__link results">Результаты</NuxtLink>
+        <NuxtLink to="https://t.me/+79111224888" target="_blank" :class="getItemColor('https://t.me/79111224888')" class="nav__link tg">
+          <span class="phone__title">Telegram</span>
+          <span class="phone__number">Oleg Gordienko</span>
+        </NuxtLink>
+        <NuxtLink to="tel:79111224888" :class="getItemColor('tel:79111224888')" class="nav__link phone">
+          <span class="phone__title">Телефон</span>
+          <span class="phone__number">+7 (911) 122-48-88</span>
         </NuxtLink>
       </nav>
       <BaseDropdown class="header__nav-mobile"/>
@@ -21,12 +24,13 @@
 <script setup>
 import { useRoute } from 'vue-router';
 import BaseDropdown from './BaseDropdown.vue';
-import headerData from '/server/header.json';
 
 const route = useRoute()
 
 function getItemColor(path) {
-  if (route.path.includes('/article') || route.path.includes('/blog')) {
+  if (route.path === '/') {
+    return 'link__white'
+  } else if (route.path.includes('/article') || route.path.includes('/blog')) {
     return path === '/deep-plane-facelift' || path === '/blog' || path === '/profile' ? 'link__black' : 'link__white'
   } else {
     return 'link__white'
@@ -77,32 +81,55 @@ function getItemColor(path) {
         text-transform: uppercase;
         width: 142px;
         text-align: center;
+        position: relative;
 
         @media (max-width: 800px) {
-          display: none;
+          opacity: 0;
         }
 
-        &:first-child {
-          text-align: left;
-          @media (max-width: 800px) {
-            display: none;
-          }
+        &.dp {display: flex; justify-content: flex-start;}
+        &.blog {display: flex; justify-content: center;}
+        &.profile {display: flex; justify-content: flex-start;}
+        &.results {display: flex; justify-content: flex-end;}
+        &.tg {display: flex; justify-content: flex-end;}
+        &.phone {display: flex; justify-content: flex-end;}
+
+
+        .phone__title {
+          opacity: 1;
+          visibility: visible;
+          transition: opacity 0.4s ease, visibility 0.4s ease;
+          position: absolute;
+          margin-right: auto;
         }
-        &:last-child {
+        
+        .phone__number {
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.4s ease, visibility 0.4s ease;
           text-align: right;
-          @media (max-width: 800px) {
-            display: none;
+        }
+
+        @media (max-width: 1100px) {
+          &.dp {order: 1;}
+          &.blog {display: none;}
+          &.profile {order: 5;}
+          &.results {display: none;}
+          &.tg {order: 2; justify-content: center;}
+          &.phone {order: 4; display: flex; justify-content: center;}
+        }
+
+        @media (hover: hover) {
+          &:hover .phone__title {
+            opacity: 0;
+            visibility: hidden;
+          }
+          
+          &:hover .phone__number {
+            opacity: 1;
+            visibility: visible;
           }
         }
-      }
-
-      @media (max-width: 1100px) {
-        .dpl {order: 1;}
-        .blog {display: none;}
-        .profile {order: 5;}
-        .results {display: none;}
-        .tg {order: 2;}
-        .phone {order: 4; display: flex; justify-content: center;}
       }
 
       .link__white {color: #FFF;}

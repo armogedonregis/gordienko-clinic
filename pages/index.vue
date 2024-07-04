@@ -87,6 +87,10 @@ onMounted(() => {
         padding: 0 33px;
         font-size: 30px;
       }
+
+      @media (hover: hover) {
+        &:hover {color: #3d3d3d; transition: .4s;}
+      }
     }
 
     .content__video {
