@@ -37,8 +37,12 @@
         </NuxtLink>
       </div>
       <div class="footer__description">
-        <img src="/assets/images/photo-blog.png" class="description__photo">
-        <h1 class="description__blog-title" :class="{ 'title__white': itemColor }">Блог</h1>
+        <NuxtLink to="/blog">
+          <img src="/assets/images/photo-blog.png" class="description__photo">
+        </NuxtLink>
+        <NuxtLink to="/blog">
+          <h1 class="description__blog-title" :class="{ 'title__white': itemColor }">Блог</h1>
+        </NuxtLink>
       </div>
     </div>
     <nav class="footer__links">
@@ -92,6 +96,8 @@ const itemColor = computed(() => {
       align-items: flex-start;
 
       .description__photo {
+        width: 563px;
+        height: 793px;
 
         @media (max-width: 750px) {
           width: 302px;
@@ -100,6 +106,13 @@ const itemColor = computed(() => {
 
         @media (max-width: 480px) {
           width: 250px;
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            filter: grayscale(100%);
+            transition: .4s;
+          }
         }
       }
 
