@@ -6,11 +6,11 @@
       </template>
       <v-list>
         <v-list-item
-          v-for="(item, index) in filteredHeaderLinks"
+          v-for="(item, index) in home.home"
           :key="index"
         >
           <v-list-item-title>
-            <NuxtLink :to="item.path" class="dropdown__link">{{ item.title }}</NuxtLink>
+            <NuxtLink :to="item.href" class="dropdown__link">{{ item.title }}</NuxtLink>
           </v-list-item-title>
         </v-list-item>
       </v-list>
@@ -19,14 +19,10 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
-import headerData from '/server/header.json';
+import { ref } from 'vue';
+import home from '/server/home.json';
 
 const location = ref('end');
-
-const filteredHeaderLinks = computed(() => {
-  return headerData.links.filter(item => item.title !== null)
-})
 </script>
 
 <style scoped>
