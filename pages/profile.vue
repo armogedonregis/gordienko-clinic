@@ -41,17 +41,17 @@
             </div>
           </div>
           <h2 class="description__subtitle">{{ animatedTitles[0] }}</h2>
-          <p class="description__text">Экспертная эстетическая хирургия лица — это удивительный синтез науки и
-            искусства. Здесь законы художественной композиции не менее важны, чем в живописи, музыке или скульптуре. Я
-            убежден, что пластический хирург должен обладать высоким эстетическим интеллектом, который он должен
-            тренировать всю свою профессиональную жизнь, как тренирует свое тело спортсмен. Также важно иметь
-            художественный взгляд и безупречное эстетическое чутье. Я оттачиваю свое мастерство не только в
-            операционной: работая в студии со скульптурной глиной, я тренирую “чувство меры” и учусь видеть пропорции.
-            Только у меня, в отличие от скульптора, нет права на ошибку. Я не имею морального права творить на лице как
-            мне вздумается и делать с лицом то, чего никогда у человека не было. Я - не “скульптор”. Я -
-            “художник-реставратор”. Тот, кто работает с редкими и очень дорогими произведениями искусства. Я не являюсь
-            “арбитром” красоты, но ее дух безусловно руководит мной, когда я работаю в операционной с лицами людей.
-            Таким образом, я становлюсь лишь соавтором вашей красоты.</p>
+          <p class="description__text" :class="{ 'animate': isVisible[0] }">Экспертная эстетическая хирургия лица — это удивительный синтез науки и
+          искусства. Здесь законы художественной композиции не менее важны, чем в живописи, музыке или скульптуре. Я
+          убежден, что пластический хирург должен обладать высоким эстетическим интеллектом, который он должен
+          тренировать всю свою профессиональную жизнь, как тренирует свое тело спортсмен. Также важно иметь
+          художественный взгляд и безупречное эстетическое чутье. Я оттачиваю свое мастерство не только в
+          операционной: работая в студии со скульптурной глиной, я тренирую “чувство меры” и учусь видеть пропорции.
+          Только у меня, в отличие от скульптора, нет права на ошибку. Я не имею морального права творить на лице как
+          мне вздумается и делать с лицом то, чего никогда у человека не было. Я - не “скульптор”. Я -
+          “художник-реставратор”. Тот, кто работает с редкими и очень дорогими произведениями искусства. Я не являюсь
+          “арбитром” красоты, но ее дух безусловно руководит мной, когда я работаю в операционной с лицами людей.
+          Таким образом, я становлюсь лишь соавтором вашей красоты.</p>
         </div>
       </div>
     </section>
@@ -81,7 +81,7 @@
     <section class="landing__description-content">
       <div class="content-block">
         <div class="content-wrapper">
-          <p class="description__text">Омолаживающая операция — это таинственное и даже магическое событие. Наша
+          <p class="description__text" :class="{ 'animate': isVisible[1] }">Омолаживающая операция — это таинственное и даже магическое событие. Наша
             операционная бригада, как актерская труппа перед спектаклем, заперта в своем герметичном маленьком мире —
             операционной. Каждый готовится к своей роли, но главное действующее лицо здесь — вы. Мне важно создать в
             операционной условия для комфорта пациента и спокойного сосредоточенного внимания всей команды.
@@ -101,7 +101,7 @@
     <section class="landing__description-content">
       <div class="content-block">
         <div class="content-wrapper">
-          <p class="description__text">Я вижу, как часто старение лица лишает женщину радости и эмоциональной
+          <p class="description__text" :class="{ 'animate': isVisible[2] }">Я вижу, как часто старение лица лишает женщину радости и эмоциональной
             стабильности. Современная эстетическая хирургия лица способна изменить качество вашей жизни и ваше отношение
             к себе. Здесь не может быть компромиссов: только правильная хирургическая техника и филигранно выполненная
             операция смогут обеспечить естественный внешний вид и замедлить старение на долгие годы. Я знаю, что
@@ -1879,20 +1879,21 @@ const blueTitles = [
   '«Каждый готовится к своей роли, но главное действующее лицо здесь — вы»',
   '«Современная эстетическая хирургия лица способна изменить качество вашей жизни и ваше отношение к себе.»'
 ]
-const animatedTitles = reactive(blueTitles.map(() => ''))
-const currentCharIndices = reactive(blueTitles.map(() => 0))
+const animatedTitles = blueTitles.map(() => ref(''))
+const currentCharIndices = blueTitles.map(() => ref(0))
 const intervals = []
+const isVisible = blueTitles.map(() => ref(false))
 function typeTitle(index) {
-  if (currentCharIndices[index] < blueTitles[index].length) {
-    animatedTitles[index] += blueTitles[index][currentCharIndices[index]]
-    currentCharIndices[index]++
+  if (currentCharIndices[index].value < blueTitles[index].length) {
+    animatedTitles[index].value += blueTitles[index][currentCharIndices[index].value]
+    currentCharIndices[index].value++
   } else {
     stopTypingAnimation(index)
     setTimeout(() => {
-      animatedTitles[index] = ''
-      currentCharIndices[index] = 0
+      animatedTitles[index].value = ''
+      currentCharIndices[index].value = 0
       startTypingAnimation(index)
-    }, 5000);
+    }, 5000)
   }
 }
 function startTypingAnimation(index) {
@@ -1904,14 +1905,23 @@ function stopTypingAnimation(index) {
   clearInterval(intervals[index])
   intervals[index] = null
 }
-function createObserver() {
-  const options = {
+function createObserver(callback, options) {
+  return new IntersectionObserver(callback, options)
+}
+
+onMounted(() => {
+  const subtitleOptions = {
     root: null,
     rootMargin: '0px',
     threshold: 0.1
   }
+  const textOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.3
+  }
 
-  function handleIntersect(entries) {
+  function handleSubtitleIntersect(entries) {
     entries.forEach(entry => {
       const index = parseInt(entry.target.getAttribute('data-index'), 10)
       if (entry.isIntersecting) {
@@ -1921,15 +1931,27 @@ function createObserver() {
       }
     })
   }
-  return new IntersectionObserver(handleIntersect, options)
-}
+  function handleTextIntersect(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate')
+      } else {
+        entry.target.classList.remove('animate')
+      }
+    })
+  }
 
-onMounted(() => {
-  const observer = createObserver()
-  const elements = document.querySelectorAll('.description__subtitle')
-  elements.forEach((el, index) => {
+  const subtitleObserver = createObserver(handleSubtitleIntersect, subtitleOptions)
+  const textObserver = createObserver(handleTextIntersect, textOptions)
+  const subtitleElements = document.querySelectorAll('.description__subtitle')
+  subtitleElements.forEach((el, index) => {
     el.setAttribute('data-index', index)
-    observer.observe(el)
+    subtitleObserver.observe(el)
+  })
+  const textElements = document.querySelectorAll('.description__text')
+  textElements.forEach((el, index) => {
+    el.setAttribute('data-index', index)
+    textObserver.observe(el)
   })
 })
 onUnmounted(() => {
@@ -2165,6 +2187,10 @@ onUnmounted(() => {
       margin-top: 207px;
       width: 100%;
 
+      @media (max-width: 900px) {
+        margin-top: 100px;
+      }
+
       img {
         cursor: pointer;
         width: 130px;
@@ -2206,6 +2232,10 @@ onUnmounted(() => {
         width: 100%;
       }
 
+      @media (max-width: 1050px) {
+        height: auto;
+      }
+
       @media (max-width: 700px) {
         font-size: 30px;
       }
@@ -2219,6 +2249,9 @@ onUnmounted(() => {
       font-style: normal;
       font-weight: 400;
       line-height: 150%;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 
       @media (max-width: 1350px) {
         font-size: 24px;
@@ -2226,6 +2259,11 @@ onUnmounted(() => {
 
       @media (max-width: 700px) {
         font-size: 20px;
+      }
+
+      &.animate {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   }
