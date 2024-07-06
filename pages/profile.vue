@@ -40,8 +40,7 @@
               <img src="/assets/images/logo4.png">
             </div>
           </div>
-          <h2 class="description__subtitle">«Я - “художник-реставратор”. Тот, кто работает с редкими и очень дорогими
-            произведениями искусства»</h2>
+          <h2 class="description__subtitle">{{ animatedTitles[0] }}</h2>
           <p class="description__text">Экспертная эстетическая хирургия лица — это удивительный синтез науки и
             искусства. Здесь законы художественной композиции не менее важны, чем в живописи, музыке или скульптуре. Я
             убежден, что пластический хирург должен обладать высоким эстетическим интеллектом, который он должен
@@ -90,7 +89,7 @@
             уже ничто не должно отвлекать меня. Я знаю анатомию лица досконально и всегда помню, что, оперируя, ступаю
             на глубоко личную территорию. Но все эти усилия окупаются сполна, когда я вижу, как счастливы мои пациенты.
             Потому что каждая женщина прекрасна. Каждое лицо достойно чутких и талантливых рук мастера.</p>
-          <h2 class="description__subtitle">«Каждый готовится к своей роли, но главное действующее лицо здесь — вы»</h2>
+          <h2 class="description__subtitle">{{ animatedTitles[1] }}</h2>
         </div>
       </div>
     </section>
@@ -109,8 +108,7 @@
             эстетическая хирургия лица — это не простое решение. Это путешествие. Личное и важное. Каждый мой пациент
             нуждается в эмоциональной поддержке и заботе на всех этапах этого пути. Именно это бережно обеспечиваем я и
             моя команда.</p>
-          <h2 class="description__subtitle">«Современная эстетическая хирургия лица способна изменить качество вашей
-            жизни и ваше отношение к себе.»</h2>
+          <h2 class="description__subtitle">{{ animatedTitles[2] }}</h2>
         </div>
       </div>
     </section>
@@ -1548,7 +1546,6 @@
         </ul>
       </div>
     </section>
-
     <section class="landing__video-content title-video-block">
       <h1 class="content__title">ЛИПОФИЛИНГ</h1>
       <video class="content__video" loop autoplay muted>
@@ -1842,7 +1839,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 const videoPlayer = ref(null);
 const isPlaying = ref(false);
@@ -1876,6 +1873,67 @@ const isPopupOpen = ref(false)
 function togglePopup() {
   isPopupOpen.value = !isPopupOpen.value
 }
+
+
+const blueTitles = [
+  '«Я - “художник-реставратор”. Тот, кто работает с редкими и очень дорогими произведениями искусства»',
+  '«Каждый готовится к своей роли, но главное действующее лицо здесь — вы»',
+  '«Современная эстетическая хирургия лица способна изменить качество вашей жизни и ваше отношение к себе.»'
+];
+
+const animatedTitles = reactive(blueTitles.map(() => ''));
+const currentCharIndices = reactive(blueTitles.map(() => 0));
+const intervals = [];
+
+function startTypingAnimation(index) {
+  intervals[index] = setInterval(() => {
+    if (currentCharIndices[index] < blueTitles[index].length) {
+      animatedTitles[index] += blueTitles[index][currentCharIndices[index]];
+      currentCharIndices[index]++;
+    } else {
+      animatedTitles[index] = ''; // Reset to animate indefinitely
+      currentCharIndices[index] = 0;
+    }
+  }, 100);
+}
+
+function stopTypingAnimation(index) {
+  clearInterval(intervals[index]);
+}
+
+function createObserver() {
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  function handleIntersect(entries) {
+    entries.forEach(entry => {
+      const index = parseInt(entry.target.getAttribute('data-index'), 10);
+      if (entry.isIntersecting) {
+        startTypingAnimation(index);
+      } else {
+        stopTypingAnimation(index);
+      }
+    });
+  }
+
+  return new IntersectionObserver(handleIntersect, options);
+}
+
+onMounted(() => {
+  const observer = createObserver();
+  const elements = document.querySelectorAll('.description__subtitle');
+  elements.forEach((el, index) => {
+    el.setAttribute('data-index', index);
+    observer.observe(el);
+  });
+});
+
+onUnmounted(() => {
+  intervals.forEach(interval => clearInterval(interval));
+});
 </script>
 
 <style lang="scss" scoped>
@@ -2107,6 +2165,7 @@ function togglePopup() {
       width: 100%;
 
       img {
+        cursor: pointer;
         width: 130px;
         height: 130px;
 
@@ -2118,6 +2177,13 @@ function togglePopup() {
         @media (max-width: 500px) {
           width: 42px;
           height: 42px;
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            transform: scale(1.25);
+            transition: .4s;
+          }
         }
       }
     }
