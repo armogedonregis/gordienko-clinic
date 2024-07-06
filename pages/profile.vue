@@ -41,7 +41,7 @@
             </div>
           </div>
           <h2 class="description__subtitle" v-html="animatedTitles[0].value"></h2>
-          <p class="description__text" :class="{ 'animate': isVisible[0] }">Экспертная эстетическая хирургия лица — это удивительный синтез науки и
+          <p class="description__text" :class="{ 'animate': isVisible }">Экспертная эстетическая хирургия лица — это удивительный синтез науки и
           искусства. Здесь законы художественной композиции не менее важны, чем в живописи, музыке или скульптуре. Я
           убежден, что пластический хирург должен обладать высоким эстетическим интеллектом, который он должен
           тренировать всю свою профессиональную жизнь, как тренирует свое тело спортсмен. Также важно иметь
@@ -61,7 +61,7 @@
     <section class="landing__description-content">
       <h1 class="description__title-min">Омолаживающие операции на лице, которые я выполняю, чтобы <br> вы могли
         вдохновлять и вдохновляться своим отражением:</h1>
-      <ul class="description__list list-margin">
+      <ul class="description__list list-margin" :class="{ 'animate': isVisible }">
         <li>Deep Plane FaceLift (инновационная подтяжка лица и шеи)</li>
         <li>Все виды подтяжек лба и бровей</li>
         <li>Блефаропластика</li>
@@ -81,7 +81,7 @@
     <section class="landing__description-content">
       <div class="content-block">
         <div class="content-wrapper">
-          <p class="description__text" :class="{ 'animate': isVisible[1] }">Омолаживающая операция — это таинственное и даже магическое событие. Наша
+          <p class="description__text" :class="{ 'animate': isVisible }">Омолаживающая операция — это таинственное и даже магическое событие. Наша
             операционная бригада, как актерская труппа перед спектаклем, заперта в своем герметичном маленьком мире —
             операционной. Каждый готовится к своей роли, но главное действующее лицо здесь — вы. Мне важно создать в
             операционной условия для комфорта пациента и спокойного сосредоточенного внимания всей команды.
@@ -101,7 +101,7 @@
     <section class="landing__description-content">
       <div class="content-block">
         <div class="content-wrapper">
-          <p class="description__text" :class="{ 'animate': isVisible[2] }">Я вижу, как часто старение лица лишает женщину радости и эмоциональной
+          <p class="description__text" :class="{ 'animate': isVisible }">Я вижу, как часто старение лица лишает женщину радости и эмоциональной
             стабильности. Современная эстетическая хирургия лица способна изменить качество вашей жизни и ваше отношение
             к себе. Здесь не может быть компромиссов: только правильная хирургическая техника и филигранно выполненная
             операция смогут обеспечить естественный внешний вид и замедлить старение на долгие годы. Я знаю, что
@@ -122,9 +122,11 @@
       <div class="content-wrapper">
         <h2 class="description__title-min">
           DEEP PLANE FACELIFT (подтяжка лица в глубокой плоскости) —
-          <span>это модифицированная расширенная методика подтяжки лица. Она позволяет омолаживать лицо комплексно, без
+          <span>
+            это модифицированная расширенная методика подтяжки лица. Она позволяет омолаживать лицо комплексно, без
             эффекта перетянутости и с меньшей вероятностью рубцов и осложнений. Вы получите лицо правильных пропорций и
-            гармоничной формы.»</span>
+            гармоничной формы.»
+          </span>
         </h2>
         <p class="post__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
@@ -1877,7 +1879,8 @@ function togglePopup() {
 const blueTitles = [
   '«Я - “художник-реставратор”. Тот, кто работает с редкими и очень дорогими произведениями искусства»',
   '«Каждый готовится к своей роли, но главное действующее лицо здесь — вы»',
-  '«Современная эстетическая хирургия лица способна изменить качество вашей жизни и ваше отношение к себе.»'
+  '«Современная эстетическая хирургия лица способна изменить качество вашей жизни и ваше отношение к себе.»',
+  'DEEP PLANE FACELIFT (подтяжка лица в глубокой плоскости) — это модифицированная расширенная методика подтяжки лица. Она позволяет омолаживать лицо комплексно, без эффекта перетянутости и с меньшей вероятностью рубцов и осложнений. Вы получите лицо правильных пропорций и гармоничной формы.»'
 ]
 const animatedTitles = blueTitles.map(() => ref(''))
 const currentCharIndices = blueTitles.map(() => ref(0))
@@ -1920,38 +1923,43 @@ onMounted(() => {
     rootMargin: '0px',
     threshold: 0.3
   }
-
+  const subtitleObserver = createObserver(handleSubtitleIntersect, subtitleOptions)
+  const textObserver = createObserver(handleTextIntersect, textOptions)
   function handleSubtitleIntersect(entries) {
     entries.forEach(entry => {
       const index = parseInt(entry.target.getAttribute('data-index'), 10)
       if (entry.isIntersecting) {
+        isVisible[index].value = true
         startTypingAnimation(index)
       } else {
+        isVisible[index].value = false
         stopTypingAnimation(index)
       }
     })
   }
   function handleTextIntersect(entries) {
     entries.forEach(entry => {
+      const index = parseInt(entry.target.getAttribute('data-index'), 10)
       if (entry.isIntersecting) {
         entry.target.classList.add('animate')
+        isVisible[index].value = true
       } else {
         entry.target.classList.remove('animate')
+        isVisible[index].value = false
       }
     })
   }
-
-  const subtitleObserver = createObserver(handleSubtitleIntersect, subtitleOptions)
-  const textObserver = createObserver(handleTextIntersect, textOptions)
-  const subtitleElements = document.querySelectorAll('.description__subtitle')
-  subtitleElements.forEach((el, index) => {
-    el.setAttribute('data-index', index)
-    subtitleObserver.observe(el)
-  })
-  const textElements = document.querySelectorAll('.description__text')
-  textElements.forEach((el, index) => {
-    el.setAttribute('data-index', index)
-    textObserver.observe(el)
+  const observerMap = {
+    '.description__subtitle': subtitleObserver,
+    '.description__text': textObserver,
+    '.description__list': textObserver,
+  }
+  Object.keys(observerMap).forEach(className => {
+    const elements = document.querySelectorAll(className)
+    elements.forEach((el, index) => {
+      el.setAttribute('data-index', index)
+      observerMap[className].observe(el)
+    })
   })
 })
 onUnmounted(() => {
@@ -2141,6 +2149,9 @@ onUnmounted(() => {
       flex-direction: column;
       margin-top: 105px;
       padding-left: 25px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 
       li {
         color: #393939;
@@ -2161,6 +2172,11 @@ onUnmounted(() => {
 
       &.list-margin {
         margin-top: 0;
+      }
+
+      &.animate {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
