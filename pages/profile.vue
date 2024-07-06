@@ -1841,31 +1841,31 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
-const videoPlayer = ref(null);
-const isPlaying = ref(false);
-const isMuted = ref(true);
+const videoPlayer = ref(null)
+const isPlaying = ref(false)
+const isMuted = ref(true)
 function togglePlay() {
   if (videoPlayer.value.paused || videoPlayer.value.ended) {
-    videoPlayer.value.play();
-    isPlaying.value = true;
+    videoPlayer.value.play()
+    isPlaying.value = true
   } else {
-    videoPlayer.value.pause();
-    isPlaying.value = false;
+    videoPlayer.value.pause()
+    isPlaying.value = false
   }
 }
 function toggleMute() {
-  videoPlayer.value.muted = !videoPlayer.value.muted;
-  isMuted.value = videoPlayer.value.muted;
+  videoPlayer.value.muted = !videoPlayer.value.muted
+  isMuted.value = videoPlayer.value.muted
 }
 function toggleFullscreen() {
   if (videoPlayer.value.requestFullscreen) {
-    videoPlayer.value.requestFullscreen();
+    videoPlayer.value.requestFullscreen()
   } else if (videoPlayer.value.mozRequestFullScreen) {
-    videoPlayer.value.mozRequestFullScreen();
+    videoPlayer.value.mozRequestFullScreen()
   } else if (videoPlayer.value.webkitRequestFullscreen) {
-    videoPlayer.value.webkitRequestFullscreen();
+    videoPlayer.value.webkitRequestFullscreen()
   } else if (videoPlayer.value.msRequestFullscreen) {
-    videoPlayer.value.msRequestFullscreen();
+    videoPlayer.value.msRequestFullscreen()
   }
 }
 
@@ -1874,66 +1874,67 @@ function togglePopup() {
   isPopupOpen.value = !isPopupOpen.value
 }
 
-
 const blueTitles = [
   '«Я - “художник-реставратор”. Тот, кто работает с редкими и очень дорогими произведениями искусства»',
   '«Каждый готовится к своей роли, но главное действующее лицо здесь — вы»',
   '«Современная эстетическая хирургия лица способна изменить качество вашей жизни и ваше отношение к себе.»'
-];
-
-const animatedTitles = reactive(blueTitles.map(() => ''));
-const currentCharIndices = reactive(blueTitles.map(() => 0));
-const intervals = [];
-
+]
+const animatedTitles = reactive(blueTitles.map(() => ''))
+const currentCharIndices = reactive(blueTitles.map(() => 0))
+const intervals = []
+function typeTitle(index) {
+  if (currentCharIndices[index] < blueTitles[index].length) {
+    animatedTitles[index] += blueTitles[index][currentCharIndices[index]]
+    currentCharIndices[index]++
+  } else {
+    stopTypingAnimation(index)
+    setTimeout(() => {
+      animatedTitles[index] = ''
+      currentCharIndices[index] = 0
+      startTypingAnimation(index)
+    }, 5000);
+  }
+}
 function startTypingAnimation(index) {
-  intervals[index] = setInterval(() => {
-    if (currentCharIndices[index] < blueTitles[index].length) {
-      animatedTitles[index] += blueTitles[index][currentCharIndices[index]];
-      currentCharIndices[index]++;
-    } else {
-      animatedTitles[index] = ''; // Reset to animate indefinitely
-      currentCharIndices[index] = 0;
-    }
-  }, 100);
+  if (!intervals[index]) {
+    intervals[index] = setInterval(() => typeTitle(index), 100)
+  }
 }
-
 function stopTypingAnimation(index) {
-  clearInterval(intervals[index]);
+  clearInterval(intervals[index])
+  intervals[index] = null
 }
-
 function createObserver() {
   const options = {
     root: null,
     rootMargin: '0px',
     threshold: 0.1
-  };
+  }
 
   function handleIntersect(entries) {
     entries.forEach(entry => {
-      const index = parseInt(entry.target.getAttribute('data-index'), 10);
+      const index = parseInt(entry.target.getAttribute('data-index'), 10)
       if (entry.isIntersecting) {
-        startTypingAnimation(index);
+        startTypingAnimation(index)
       } else {
-        stopTypingAnimation(index);
+        stopTypingAnimation(index)
       }
-    });
+    })
   }
-
-  return new IntersectionObserver(handleIntersect, options);
+  return new IntersectionObserver(handleIntersect, options)
 }
 
 onMounted(() => {
-  const observer = createObserver();
-  const elements = document.querySelectorAll('.description__subtitle');
+  const observer = createObserver()
+  const elements = document.querySelectorAll('.description__subtitle')
   elements.forEach((el, index) => {
-    el.setAttribute('data-index', index);
-    observer.observe(el);
-  });
-});
-
+    el.setAttribute('data-index', index)
+    observer.observe(el)
+  })
+})
 onUnmounted(() => {
-  intervals.forEach(interval => clearInterval(interval));
-});
+  intervals.forEach(interval => clearInterval(interval))
+})
 </script>
 
 <style lang="scss" scoped>
@@ -2198,6 +2199,7 @@ onUnmounted(() => {
       line-height: 130%;
       text-transform: uppercase;
       width: 1000px;
+      height: 150px;
 
       @media (max-width: 1350px) {
         font-size: 35px;
