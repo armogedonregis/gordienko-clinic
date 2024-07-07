@@ -40,7 +40,7 @@
               <img src="/assets/images/logo4.png">
             </div>
           </div>
-          <h2 class="description__subtitle" v-html="animatedTitles[0].value"></h2>
+          <h2 class="description__subtitle" id="0" v-html="animatedTitles[0].value"></h2>
           <p class="description__text" :class="{ 'animate': isVisible }">Экспертная эстетическая хирургия лица — это удивительный синтез науки и
           искусства. Здесь законы художественной композиции не менее важны, чем в живописи, музыке или скульптуре. Я
           убежден, что пластический хирург должен обладать высоким эстетическим интеллектом, который он должен
@@ -89,7 +89,7 @@
             уже ничто не должно отвлекать меня. Я знаю анатомию лица досконально и всегда помню, что, оперируя, ступаю
             на глубоко личную территорию. Но все эти усилия окупаются сполна, когда я вижу, как счастливы мои пациенты.
             Потому что каждая женщина прекрасна. Каждое лицо достойно чутких и талантливых рук мастера.</p>
-          <h2 class="description__subtitle" v-html="animatedTitles[1].value"></h2>
+          <h2 class="description__subtitle" id="1" v-html="animatedTitles[1].value"></h2>
         </div>
       </div>
     </section>
@@ -108,7 +108,7 @@
             эстетическая хирургия лица — это не простое решение. Это путешествие. Личное и важное. Каждый мой пациент
             нуждается в эмоциональной поддержке и заботе на всех этапах этого пути. Именно это бережно обеспечиваем я и
             моя команда.</p>
-          <h2 class="description__subtitle" v-html="animatedTitles[2].value"></h2>
+          <h2 class="description__subtitle" id="2" v-html="animatedTitles[2].value"></h2>
         </div>
       </div>
     </section>
@@ -120,19 +120,12 @@
     </section>
     <section class="landing__description-content">
       <div class="content-wrapper">
-        <h2 class="description__title-min">
-          DEEP PLANE FACELIFT (подтяжка лица в глубокой плоскости) —
-          <span>
-            это модифицированная расширенная методика подтяжки лица. Она позволяет омолаживать лицо комплексно, без
-            эффекта перетянутости и с меньшей вероятностью рубцов и осложнений. Вы получите лицо правильных пропорций и
-            гармоничной формы.»
-          </span>
-        </h2>
+        <h2 class="description__title-min" id="3" v-html="animatedTitles[3].value"></h2>
         <p class="post__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">01</p>
             <h1 class="list__title">Самая передовая в мире методика омоложения лица</h1>
             <h2 class="list__subtitle">разработана в США лидерами пластической хирургии для получения наиболее
@@ -144,7 +137,7 @@
               они были в молодости.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">02</p>
             <h1 class="list__title">Никаких перетянутых неестественных шаблонных лиц</h1>
             <h2 class="list__subtitle">результат будет максимально естественным, но при этом значительным</h2>
@@ -157,7 +150,7 @@
               использования филлеров и липофилинга.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">03</p>
             <h1 class="list__title">Глубокая плоскость (Deep Plane)</h1>
             <h2 class="list__subtitle">это анатомическая плоскость в средней зоне лица, которая находится глубоко под
@@ -171,7 +164,7 @@
               использования филлеров и липофилинга.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">04</p>
             <h1 class="list__title">Deep Plane FaceLift</h1>
             <h2 class="list__subtitle">намного бережнее и эффективнее SMAS-подтяжки лица</h2>
@@ -181,7 +174,7 @@
               Рубцы остаются незаметными для окружающих.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">05</p>
             <h1 class="list__title">Эффект омоложения</h1>
             <h2 class="list__subtitle">после Deep Plane FaceLift длится 8 лет и более</h2>
@@ -1925,9 +1918,10 @@ onMounted(() => {
   }
   const subtitleObserver = createObserver(handleSubtitleIntersect, subtitleOptions)
   const textObserver = createObserver(handleTextIntersect, textOptions)
+
   function handleSubtitleIntersect(entries) {
     entries.forEach(entry => {
-      const index = parseInt(entry.target.getAttribute('data-index'), 10)
+      const index = parseInt(entry.target.id, 10)
       if (entry.isIntersecting) {
         isVisible[index].value = true
         startTypingAnimation(index)
@@ -1939,25 +1933,28 @@ onMounted(() => {
   }
   function handleTextIntersect(entries) {
     entries.forEach(entry => {
-      const index = parseInt(entry.target.getAttribute('data-index'), 10)
       if (entry.isIntersecting) {
         entry.target.classList.add('animate')
-        isVisible[index].value = true
       } else {
         entry.target.classList.remove('animate')
-        isVisible[index].value = false
       }
     })
   }
+
   const observerMap = {
     '.description__subtitle': subtitleObserver,
+    '.description__title-min': subtitleObserver,
     '.description__text': textObserver,
     '.description__list': textObserver,
+    '.list__lists': textObserver
   }
+
   Object.keys(observerMap).forEach(className => {
     const elements = document.querySelectorAll(className)
     elements.forEach((el, index) => {
-      el.setAttribute('data-index', index)
+      if (className === '.description__subtitle' || className === '.description__title-min') {
+        el.setAttribute('data-id', index.toString())
+      }
       observerMap[className].observe(el)
     })
   })
@@ -2270,7 +2267,7 @@ onUnmounted(() => {
       transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 
       @media (max-width: 1350px) {
-        font-size: 24px;
+      font-size: 24px;
       }
 
       @media (max-width: 700px) {
@@ -2295,10 +2292,13 @@ onUnmounted(() => {
     max-width: 1300px;
     gap: 100px;
 
-    li {
+    .list__lists {
       position: relative;
       display: flex;
       flex-direction: column;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 
       .list__num {
         color: #393939;
@@ -2422,6 +2422,11 @@ onUnmounted(() => {
           font-size: 14px;
         }
       }
+
+      &.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
     }
   }
 
