@@ -2459,7 +2459,7 @@ onUnmounted(() => {
       @media (max-width: 700px) {
         width: 100%;
 
-        &:first-child {padding: 70px; height: auto;}
+        &:first-child {padding: 70px; height: 100%; background-size: cover;}
       }
     }
   }
