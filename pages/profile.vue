@@ -74,7 +74,7 @@
       </ul>
     </section>
     <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false" >
         <source src="/assets/video/profilepage1.mp4" type="video/mp4">
       </video>
     </section>
@@ -94,7 +94,7 @@
       </div>
     </section>
     <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false" >
         <source src="/assets/video/profilepage2.mp4" type="video/mp4">
       </video>
     </section>
@@ -114,7 +114,7 @@
     </section>
     <section class="landing__video-content title-video-block">
       <h1 class="content__title">Deep plane facelift</h1>
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false" >
         <source src="/assets/video/homepage3.mp4" type="video/mp4">
       </video>
     </section>
@@ -208,7 +208,7 @@
       </ul>
     </section>
     <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false" >
         <source src="/assets/video/profilepage3.mp4" type="video/mp4">
       </video>
     </section>
@@ -426,7 +426,7 @@
     </section>
     <section class="landing__video-content title-video-block">
       <h1 class="content__title">Губы</h1>
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false">
         <source src="/assets/video/homepage8.mp4" type="video/mp4">
       </video>
     </section>
@@ -486,7 +486,7 @@
       </div>
     </section>
     <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false">
         <source src="/assets/video/profilepage4.mp4" type="video/mp4">
       </video>
     </section>
@@ -577,7 +577,7 @@
       </div>
     </section>
     <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false">
         <source src="/assets/video/profilepage5.mp4" type="video/mp4">
       </video>
     </section>
@@ -699,7 +699,7 @@
     </section>
     <section class="landing__video-content title-video-block">
       <h1 class="content__title">Лоб и брови</h1>
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false">
         <source src="/assets/video/homepage5.mp4" type="video/mp4">
       </video>
     </section>
@@ -757,7 +757,7 @@
       </div>
     </section>
     <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false">
         <source src="/assets/video/profilepage6.mp4" type="video/mp4">
       </video>
     </section>
@@ -969,7 +969,7 @@
     </section>
     <section class="landing__video-content title-video-block">
       <h1 class="content__title">Шея</h1>
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false">
         <source src="/assets/video/homepage6.mp4" type="video/mp4">
       </video>
     </section>
@@ -1028,7 +1028,7 @@
       </div>
     </section>
     <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false">
         <source src="/assets/video/profilepage7.mp4" type="video/mp4">
       </video>
     </section>
@@ -1126,7 +1126,7 @@
       </div>
     </section>
     <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false">
         <source src="/assets/video/profilepage8.mp4" type="video/mp4">
       </video>
     </section>
@@ -1246,7 +1246,7 @@
     </section>
     <section class="landing__video-content title-video-block">
       <h1 class="content__title">Глаза</h1>
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false">
         <source src="/assets/video/profilepage9.mp4" type="video/mp4">
       </video>
     </section>
@@ -1407,7 +1407,7 @@
       </div>
     </section>
     <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false">
         <source src="/assets/video/profilepage10.mp4" type="video/mp4">
       </video>
     </section>
@@ -1525,7 +1525,7 @@
     </section>
     <section class="landing__video-content title-video-block">
       <h1 class="content__title">ЛИПОФИЛИНГ</h1>
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false">
         <source src="/assets/video/homepage8.mp4" type="video/mp4">
       </video>
     </section>
@@ -1596,7 +1596,7 @@
       </div>
     </section>
     <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop autoplay muted controls="false">
         <source src="/assets/video/profilepage11.mp4" type="video/mp4">
       </video>
     </section>
