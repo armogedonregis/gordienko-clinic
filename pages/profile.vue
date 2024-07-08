@@ -193,7 +193,7 @@
     </section>
     <section class="landing__description-content">
       <ul class="description__list-numbered">
-        <li>
+        <li class="list__lists" :class="{ 'animate': isVisible }">
           <p class="list__num">06</p>
           <h1 class="list__title">Первичная консультация</h1>
           <h2 class="list__subtitle">это установление дружеского контакта с первых минут, проявление личного тепла и
@@ -215,7 +215,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">07</p>
             <h1 class="list__title">Подготовка к операции</h1>
             <h2 class="list__subtitle">проводится в нашей клинике</h2>
@@ -224,7 +224,7 @@
               анестезиолога, УЗИ вен нижних конечностей и флюорографию.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">08</p>
             <h1 class="list__title">Ограничения перед операцией</h1>
             <h2 class="list__subtitle">не являются чем-то сложным и трудновыполнимым</h2>
@@ -235,7 +235,7 @@
               Ultraformer (Ультраформер), Face Tite (ФейсТайт) и т.д.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">09</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
             <div class="list__popup" v-if="isPopupOpen">
@@ -263,7 +263,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">10</p>
             <h1 class="list__title">Операция</h1>
             <h2 class="list__subtitle">выполняется под медикаментозным сном: это безопасно и безболезненно</h2>
@@ -273,7 +273,7 @@
               Под нашим тщательным контролем в клинике вы будете находиться всего 2 дня.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">11</p>
             <h1 class="list__title">объединение нескольких операций</h1>
             <h2 class="list__subtitle">это удобно: вы получаете комплексный эффект омоложения за меньшее время, сокращая
@@ -283,7 +283,7 @@
               верхней губы
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">12</p>
             <h1 class="list__title">Восстановление после операции</h1>
             <h2 class="list__subtitle">проходит легко и безболезненно</h2>
@@ -304,7 +304,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">13</p>
             <h1 class="list__title">Квалификация хирурга</h1>
             <h2 class="list__subtitle">это самое важное условие и гарантия успешного результата и безопасности</h2>
@@ -316,7 +316,7 @@
               лица, отработать навыки и получить драгоценный опыт для выполнения качественной современной подтяжки лица.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">14</p>
             <h1 class="list__title">Истории преображения</h1>
             <h2 class="list__subtitle">это самое ценное в моей работе</h2>
@@ -375,7 +375,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">15</p>
             <h1 class="list__title">Стоимость услуг</h1>
             <h2 class="list__subtitle">стандартна, но может варьироваться в зависимости от сложности вмешательства,
@@ -384,7 +384,7 @@
               Подтяжка лица и шеи (Deep Plane Facelift) — от 850 000 ₽.<br>Глубокая подтяжка шеи — от 250 000 ₽.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">16</p>
             <h1 class="list__title">Стоимость анестезии, анализов, размещения</h1>
             <h2 class="list__subtitle">рассчитывается дополнительно к стоимости операции</h2>
@@ -395,7 +395,7 @@
               Необходимая панель анализов перед операцией — 13 400 ₽.<br>
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">17</p>
             <h1 class="list__title">ответы на вопросы</h1>
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
@@ -412,7 +412,7 @@
     <section class="landing__description-content" style="padding-top: 0;">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <h1 class="list__title">БЛОГ</h1>
             <p class="list__date">12.04.24</p>
             <h2 class="list__subtitle" style="color: #393939;">Deep Plane Facelift – новый метод подтяжки лица и шеи.
@@ -442,7 +442,7 @@
       </div>
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">01</p>
             <h1 class="list__title">Естественный гармоничный результат</h1>
             <h2 class="list__subtitle">никакой вульгарности, шаблонности и видимых рубцов</h2>
@@ -451,7 +451,7 @@
               расчеты удаляемых тканей, так как каждый миллиметр в этой операции имеет значение.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">02</p>
             <h1 class="list__title">Восстановление баланса и пропорций лица</h1>
             <h2 class="list__subtitle">если верхняя губа тонкая и невыраженная, а расстояние от основания носа до губы -
@@ -476,7 +476,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">03</p>
             <h1 class="list__title">Первичная консультация</h1>
             <h2 class="list__subtitle">это установление дружеского контакта с первых минут, проявление личного тепла и
@@ -498,7 +498,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">04</p>
             <h1 class="list__title">Подготовка к операции</h1>
             <h2 class="list__subtitle">проводится в нашей клинике</h2>
@@ -507,7 +507,7 @@
               перед операцией нет.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">05</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
             <div class="list__popup" v-if="isPopupOpen">
@@ -534,7 +534,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">06</p>
             <h1 class="list__title">Операция</h1>
             <h2 class="list__subtitle">Подтяжка верхней губы LipLift — это улучшенная модифицированная версия
@@ -548,7 +548,7 @@
               обезболивающими. Вы сможете вернуться домой в тот же вечер.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">07</p>
             <h1 class="list__title">Преимущества подтяжки верхней губы LipLift</h1>
             <h2 class="list__subtitle">очевидны для любого возраста</h2>
@@ -559,7 +559,7 @@
               с потерей объема губ и снижает потребность в филлерах.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">08</p>
             <h1 class="list__title">Объединение нескольких операций</h1>
             <h2 class="list__subtitle">это удобно: вы получаете комплексный эффект омоложения за меньшее время, сокращая
@@ -569,7 +569,7 @@
               областях, такими как подтяжка лица и/или коррекция области глаз, лба и бровей.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">09</p>
             <h1 class="list__title">Восстановление после операции</h1>
             <h2 class="list__subtitle">швы снимаются на 6-е сутки, а отек будет спадать 2-3 недели</h2>
@@ -589,7 +589,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">10</p>
             <h1 class="list__title">Квалификация хирурга</h1>
             <h2 class="list__subtitle">это самое важное условие и гарантия успешного результата и безопасности</h2>
@@ -598,7 +598,7 @@
               совершенстве должен владеть методикой проведения таких операций. Поэтому у меня нет права на ошибку.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">11</p>
             <h1 class="list__title">Истории преображения</h1>
             <h2 class="list__subtitle">это самое ценное в моей работе</h2>
@@ -656,14 +656,14 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">12</p>
             <h1 class="list__title">Стоимость услуг</h1>
             <h2 class="list__subtitle">стандартна, но может варьироваться в зависимости от сложности вмешательства,
               которую оценивает хирург на консультации</h2>
             <p class="list__info">Хейлопластика (подтяжка верхней губы) — 100 000 ₽.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">13</p>
             <h1 class="list__title">Стоимость анестезии, анализов, размещения</h1>
             <h2 class="list__subtitle">рассчитывается дополнительно к стоимости операции</h2>
@@ -674,7 +674,7 @@
               Необходимая панель анализов перед операцией — 13 400 ₽.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">14</p>
             <h1 class="list__title">Ответы на вопросы</h1>
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
@@ -691,7 +691,7 @@
     <section class="landing__description-content" style="padding-top: 0;">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <h1 class="list__title">БЛОГ</h1>
             <p class="list__date">28.01.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Подтяжка верхней губы LipLift</h2>
@@ -719,7 +719,7 @@
       </div>
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">01</p>
             <h1 class="list__title">Молодой и свежий вид верхней трети лица</h1>
             <h2 class="list__subtitle">вы получите в результате лифтинга лба и бровей</h2>
@@ -730,7 +730,7 @@
               моложе и видеть подтверждение этому в зеркале и в реакции окружающих.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">02</p>
             <h1 class="list__title">Незаметность внешних последствий коррекции</h1>
             <h2 class="list__subtitle">отсутствие видимых рубцов — важное преимущество процедуры</h2>
@@ -752,7 +752,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">03</p>
             <h1 class="list__title">Первичная консультация</h1>
             <h2 class="list__subtitle">это установление дружеского контакта с первых минут, проявление личного тепла и
@@ -773,21 +773,21 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">04</p>
             <h1 class="list__title">Подготовка к операции</h1>
             <h2 class="list__subtitle">проводится в нашей клинике</h2>
             <p class="list__info">Предоперационное обследование включает в себя: анализы крови и мочи, ЭКГ, консультацию
               флеболога и анестезиолога, УЗИ вен нижних конечностей и флюорографию.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">05</p>
             <h1 class="list__title">Ограничения перед операцией</h1>
             <h2 class="list__subtitle">не являются чем-то сложным и трудновыполнимым</h2>
             <p class="list__info">За полгода я не рекомендую использовать ботулотоксин, филлеры и нити в области глаз, а
               также наращивать ресницы и выполнять любой вид перманентного макияжа глаз и бровей.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">06</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
             <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN» . Это онлайн-служба заботы о
@@ -804,7 +804,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">07</p>
             <h1 class="list__title">Операция</h1>
             <h2 class="list__subtitle">занимает 40-60 минут; вы отправитесь домой в тот же день</h2>
@@ -812,7 +812,7 @@
               не будет. В течение трех недель после процедуры воздержитесь от физических упражнений и других
               активностей, чтобы уменьшить отек и предотвратить риск образования гематомы.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">08</p>
             <h1 class="list__title">Эстетические операции лба и бровей</h1>
             <h2 class="list__subtitle">дают натуральный и естественный результат, который невозможно получить с помощью
@@ -821,7 +821,7 @@
               вместе с бровью, а некоторые — только наружную часть брови. Все эти процедуры высокотехнологичны и
               проводятся с помощью современного эндовидеохирургического оборудования.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">09</p>
             <h1 class="list__title">Эндоскопический лифтинг</h1>
             <h2 class="list__subtitle">поднимает всю бровь целиком, разглаживая глубокие морщины в области переносицы и
@@ -830,14 +830,14 @@
               Может применяться в качестве гармонизирующей операции, визуально увеличивая расстояние от бровей до линии
               роста волос.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">10</p>
             <h1 class="list__title">Латеральный височный лифтинг</h1>
             <h2 class="list__subtitle">это малотравматичная процедура и основная методика в моей практике</h2>
             <p class="list__info">Коррекция направлена на мягкий подъем только «хвоста» брови и височной области, а
               также нависающего «капюшона» у наружного угла глаза. Никакого эффекта слишком высоко задранных бровей.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">11</p>
             <h1 class="list__title">Объединение нескольких операций</h1>
             <h2 class="list__subtitle">это удобно: вы получаете комплексный эффект омоложения за меньшее время, сокращая
@@ -845,7 +845,7 @@
             <p class="list__info">Для полного комплексного омоложения лица подтяжку лба и бровей можно сочетать с
               операциями в смежных областях, такими как подтяжка лица и/или коррекция области глаз.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">12</p>
             <h1 class="list__title">Восстановление после операции</h1>
             <h2 class="list__subtitle">швы снимаются на 10-ые сутки, а отек полностью спадет через 4-5 недель</h2>
@@ -867,14 +867,14 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">13</p>
             <h1 class="list__title">Квалификация хирурга</h1>
             <h2 class="list__subtitle">это самое важное условие и гарантия успешного результата и безопасности</h2>
             <p class="list__info">Пластический хирург должен быть опытным, обладать чувством меры и иметь художественный
               взгляд. У него нет права на ошибку.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">14</p>
             <h1 class="list__title">Истории преображения</h1>
             <h2 class="list__subtitle">это самое ценное в моей работе</h2>
@@ -930,7 +930,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">15</p>
             <h1 class="list__title">Стоимость услуг</h1>
             <h2 class="list__subtitle">стандартна, но может варьироваться в зависимости от сложности вмешательства,
@@ -938,7 +938,7 @@
             <p class="list__info">Эндоскопический лифтинг лба и бровей — от 300 000 ₽.<br>
               Латеральный височный лифтинг — 190 000 ₽.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">16</p>
             <h1 class="list__title">Стоимость анестезии, анализов, размещения</h1>
             <h2 class="list__subtitle">рассчитывается дополнительно к стоимости операции</h2>
@@ -948,7 +948,7 @@
               Размещение в двухместной палате (питание включено) — 6 000 ₽.<br>
               Необходимая панель анализов перед операцией — 13 400 ₽.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">17</p>
             <h1 class="list__title">Ответы на вопросы</h1>
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
@@ -965,7 +965,7 @@
     <section class="landing__description-content" style="padding-top: 0;">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <h1 class="list__title">БЛОГ</h1>
             <p class="list__date">09.03.24</p>
             <h2 class="list__subtitle" style="color: #393939;">Лифтинг лба и бровей</h2>
@@ -976,7 +976,6 @@
         </ul>
       </div>
     </section>
-
     <section class="landing__video-content title-video-block">
       <h1 class="content__title">Шея</h1>
       <video class="content__video" loop autoplay muted>
@@ -993,7 +992,7 @@
       </div>
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">01</p>
             <h1 class="list__title">Эстетика области шеи</h1>
             <h2 class="list__subtitle">часто утрачивается с возрастом</h2>
@@ -1004,7 +1003,7 @@
               ухоженном лице и часто становится причиной недовольства своей внешностью.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">02</p>
             <h1 class="list__title">Молодой вид шеи и линии нижней челюсти</h1>
             <h2 class="list__subtitle">вы получите после подтяжки шеи</h2>
@@ -1027,7 +1026,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">03</p>
             <h1 class="list__title">Первичная консультация</h1>
             <h2 class="list__subtitle">это установление дружеского контакта с первых минут, проявление личного тепла и
@@ -1048,14 +1047,14 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">04</p>
             <h1 class="list__title">Подготовка к операции</h1>
             <h2 class="list__subtitle">проводится в нашей клинике</h2>
             <p class="list__info">Предоперационное обследование включает в себя: анализы крови и мочи, ЭКГ, консультацию
               флеболога и анестезиолога, УЗИ вен нижних конечностей и флюорографию.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">05</p>
             <h1 class="list__title">Ограничения перед операцией</h1>
             <h2 class="list__subtitle">не являются чем-то сложным и трудновыполнимым</h2>
@@ -1064,7 +1063,7 @@
               Ultraformer (Ультраформер), Face Tite (ФейсТайт).
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">06</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
             <div class="list__popup" v-if="isPopupOpen">
@@ -1091,7 +1090,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">07</p>
             <h1 class="list__title">Операция</h1>
             <h2 class="list__subtitle">по платизмопластике занимает 1-1,5 часа и выполняется под общей анестезией</h2>
@@ -1099,7 +1098,7 @@
               удаление излишков жира и кожи, а также подтягивание платизмы. В клинике под наблюдением вам нужно будет
               провести сутки.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">08</p>
             <h1 class="list__title">В некоторых случаях</h1>
             <h2 class="list__subtitle">классическая платизмопластика не дает эффективных результатов</h2>
@@ -1109,7 +1108,7 @@
               шее гармоничный вид и обеспечить четкий шейно-подбородочный угол. В таких случаях я рекомендую глубокую
               плоскостную подтяжку шеи.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">09</p>
             <h1 class="list__title">Глубокая плоскостная подтяжка шеи</h1>
             <h2 class="list__subtitle">это особый вид платизмопластики, способный помочь большинству пациентов</h2>
@@ -1118,7 +1117,7 @@
               операция, требующая от хирурга высочайшего уровня подготовки.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">10</p>
             <h1 class="list__title">Оптимальный вариант коррекции</h1>
             <h2 class="list__subtitle">определяется на консультации</h2>
@@ -1127,7 +1126,7 @@
               платизмопластика или подтяжка шеи в глубокой плоскости.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">11</p>
             <h1 class="list__title">Восстановление после операции</h1>
             <h2 class="list__subtitle">швы снимаются на 6-е сутки, а отек начнет спадать через 10 дней</h2>
@@ -1146,7 +1145,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">12</p>
             <h1 class="list__title">Квалификация хирурга</h1>
             <h2 class="list__subtitle">это самое важное условие и гарантия успешного результата и безопасности</h2>
@@ -1154,7 +1153,7 @@
               взгляд. У него нет права на ошибку. Я имею большой опыт в области глубокой хирургии и с уверенностью могу
               сказать, что верну вашей шее молодой привлекательный вид.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">13</p>
             <h1 class="list__title">Истории преображения</h1>
             <h2 class="list__subtitle">это самое ценное в моей работе</h2>
@@ -1211,7 +1210,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">14</p>
             <h1 class="list__title">Стоимость услуг</h1>
             <h2 class="list__subtitle">стандартна, но может варьироваться в зависимости от сложности вмешательства,
@@ -1219,7 +1218,7 @@
             <p class="list__info">Классическая подтяжка шеи (платизмопластика) — от 91 000 рублей.<br>
               Глубокая плоскостная подтяжка шеи — от 200 000 рублей.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">15</p>
             <h1 class="list__title">Стоимость анестезии, анализов, размещения</h1>
             <h2 class="list__subtitle">рассчитывается дополнительно к стоимости операции</h2>
@@ -1229,7 +1228,7 @@
               Размещение в двухместной палате (питание включено) — 6 000 ₽.<br>
               Необходимая панель анализов перед операцией — 13 400 ₽.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">16</p>
             <h1 class="list__title">Ответы на вопросы</h1>
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
@@ -1246,7 +1245,7 @@
     <section class="landing__description-content" style="padding-top: 0;">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <h1 class="list__title">БЛОГ</h1>
             <p class="list__date">28.01.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Омоложение и подтяжка шеи</h2>
@@ -1257,7 +1256,6 @@
         </ul>
       </div>
     </section>
-
     <section class="landing__video-content title-video-block">
       <h1 class="content__title">Глаза</h1>
       <video class="content__video" loop autoplay muted>
@@ -1275,7 +1273,7 @@
       </div>
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">01</p>
             <h1 class="list__title">Открытый свежий взгляд</h1>
             <h2 class="list__subtitle">вы вернете его себе, не меняя свою внешность радикально</h2>
@@ -1284,7 +1282,7 @@
               Мне важно сохранить вашу индивидуальность. Преображение должно быть гармоничным.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">02</p>
             <h1 class="list__title">Несоответствие внешнего и внутреннего возраста</h1>
             <h2 class="list__subtitle">это больше не про вас</h2>
@@ -1306,7 +1304,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">03</p>
             <h1 class="list__title">Первичная консультация</h1>
             <h2 class="list__subtitle">это установление дружеского контакта с первых минут, проявление личного тепла и
@@ -1325,14 +1323,14 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">04</p>
             <h1 class="list__title">Подготовка к операции</h1>
             <h2 class="list__subtitle">проводится в нашей клинике</h2>
             <p class="list__info">Предоперационное обследование включает в себя: анализы крови и мочи, ЭКГ, консультацию
               флеболога и анестезиолога, УЗИ вен нижних конечностей и флюорографию.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">05</p>
             <h1 class="list__title">Ограничения перед операцией</h1>
             <h2 class="list__subtitle">не являются чем-то сложным и трудновыполнимым</h2>
@@ -1342,7 +1340,7 @@
               (SMAS-лифтинг типа Ultherapy (Альтерa), Ultraformer (Ультраформер), Face Tite (ФейсТайт).
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">06</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
             <div class="list__popup" v-if="isPopupOpen">
@@ -1369,7 +1367,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">07</p>
             <h1 class="list__title">Операция</h1>
             <h2 class="list__subtitle">выполняется под медикаментозным сном (внутривенной анестезией), поэтому это
@@ -1377,7 +1375,7 @@
             <p class="list__info">В зависимости от проблемы и запроса, операции в области верхних и нижних век бывают
               разные. Ниже мы рассмотрим вкратце каждую, чтобы вам было легче сориентироваться.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">08</p>
             <h1 class="list__title">Пластика верхних век</h1>
             <h2 class="list__subtitle">позволяет убрать нависающую избыточную кожу, придать глазам отдохнувший вид,
@@ -1385,7 +1383,7 @@
             <p class="list__info">
               Это безопасная операция, которая длится 40 минут и имеет достаточно короткий срок восстановления.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">09</p>
             <h1 class="list__title">Пластика нижних век</h1>
             <h2 class="list__subtitle">помогает устранить мешки под глазами, глубокие морщины и носослезные борозды</h2>
@@ -1393,7 +1391,7 @@
               Она выполняется либо через разрез на коже, либо через внутренний разрез внутри века (через конъюнктиву).
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">10</p>
             <h1 class="list__title">Трансконъюнктивальная блефаропластика</h1>
             <h2 class="list__subtitle">это пластика нижних век без разреза на коже</h2>
@@ -1402,7 +1400,7 @@
               накладываются, а конъюнктива заживает самостоятельно без следа.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">11</p>
             <h1 class="list__title">Объединение нескольких операций</h1>
             <h2 class="list__subtitle">это удобно: вы получаете комплексный эффект омоложения за меньшее время, сокращая
@@ -1412,7 +1410,7 @@
               можно успешно сочетать с операциями в смежных областях, такими как подтяжка лица и/или бровей.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">12</p>
             <h1 class="list__title">Восстановление после операции</h1>
             <h2 class="list__subtitle">занимает неделю, а швы снимаются на 6-ые сутки</h2>
@@ -1432,14 +1430,14 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">13</p>
             <h1 class="list__title">Квалификация хирурга</h1>
             <h2 class="list__subtitle">это самое важное условие и гарантия успешного результата и безопасности</h2>
             <p class="list__info">Пластический хирург должен быть опытным, обладать чувством меры и иметь художественный
               взгляд. У него нет права на ошибку.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">14</p>
             <h1 class="list__title">Истории преображения</h1>
             <h2 class="list__subtitle">это самое ценное в моей работе</h2>
@@ -1495,7 +1493,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">15</p>
             <h1 class="list__title">Стоимость услуг</h1>
             <h2 class="list__subtitle">стандартна, но может варьироваться в зависимости от сложности вмешательства,
@@ -1503,7 +1501,7 @@
             <p class="list__info">Блефаропластика (верхние веки) — от 110 000 ₽.<br>
               Блефаропластика (нижние веки) — от 140 000 ₽.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">16</p>
             <h1 class="list__title">Стоимость анестезии, анализов, размещения</h1>
             <h2 class="list__subtitle">рассчитывается дополнительно к стоимости операции</h2>
@@ -1513,7 +1511,7 @@
               Размещение в двухместной палате (питание включено) — 6 000 ₽.<br>
               Необходимая панель анализов перед операцией — 13 400 ₽.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">17</p>
             <h1 class="list__title">Ответы на вопросы</h1>
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
@@ -1530,7 +1528,7 @@
     <section class="landing__description-content" style="padding-top: 0;">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <h1 class="list__title">БЛОГ</h1>
             <p class="list__date">03.02.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Блефаропластика</h2>
@@ -1559,7 +1557,7 @@
       </div>
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">01</p>
             <h1 class="list__title">Исхудалый вид с уплощением щек и углублением слезных впадин</h1>
             <h2 class="list__subtitle">может произойти при потере объема лица</h2>
@@ -1569,7 +1567,7 @@
               теряются молодые очертания лица и уверенность в своей красоте.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">02</p>
             <h1 class="list__title">Добавить лицу объем и замаскировать неровности</h1>
             <h2 class="list__subtitle">помогают передовые методики липофилинга, которые я использую в своей практике
@@ -1594,7 +1592,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">03</p>
             <h1 class="list__title">Источник жировой ткани (донорское место)</h1>
             <h2 class="list__subtitle">это чаще всего передняя брюшная стенка, внутренняя поверхность бедер и колени
@@ -1604,7 +1602,7 @@
               различные слои ткани, поэтому трансплантат лучше приживается, а риск возникновения неровностей значительно
               снижается.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">04</p>
             <h1 class="list__title">Первичная консультация</h1>
             <h2 class="list__subtitle">это установление дружеского контакта с первых минут, проявление личного тепла и
@@ -1626,14 +1624,14 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">05</p>
             <h1 class="list__title">Подготовка к операции</h1>
             <h2 class="list__subtitle">проводится в нашей клинике</h2>
             <p class="list__info">Предоперационное обследование включает в себя: анализы крови и мочи, ЭКГ, консультацию
               флеболога и анестезиолога, УЗИ вен нижних конечностей и флюорографию.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">06</p>
             <h1 class="list__title">Ограничения перед операцией</h1>
             <h2 class="list__subtitle">не являются чем-то сложным и трудновыполнимым</h2>
@@ -1642,7 +1640,7 @@
               всего, что вам необходимо. Вам будет комфортно находиться в Санкт-Петербурге.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">07</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
             <div class="list__popup" v-if="isPopupOpen">
@@ -1669,7 +1667,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">08</p>
             <h1 class="list__title">Операция</h1>
             <h2 class="list__subtitle">по многоуровневой пересадке жира по технологии Coleman — наиболее часто
@@ -1679,7 +1677,7 @@
               проводятся с помощью современного эндовидеохирургического оборудования.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">09</p>
             <h1 class="list__title">Повторные процедуры липофилинга</h1>
             <h2 class="list__subtitle">могут быть необходимы в ряде случаев</h2>
@@ -1688,7 +1686,7 @@
               этапов (повторных процедур). Процент «приживления» жира зависит не только от техники проведения операции,
               но и от индивидуальных особенностей пациента.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">10</p>
             <h1 class="list__title">Объединение нескольких операций</h1>
             <h2 class="list__subtitle">это удобно: вы получаете комплексный эффект омоложения за меньшее время, сокращая
@@ -1698,7 +1696,7 @@
               Для полного комплексного омоложения лица липофилинг можно сочетать с другими омолаживающими операциями.
             </p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">11</p>
             <h1 class="list__title">Восстановление после операции</h1>
             <h2 class="list__subtitle">не потребует снятия швов. Отек спадет в течение 15 дней</h2>
@@ -1721,7 +1719,7 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">12</p>
             <h1 class="list__title">Квалификация хирурга</h1>
             <h2 class="list__subtitle">это самое важное условие и гарантия успешного результата и безопасности</h2>
@@ -1729,7 +1727,7 @@
               взгляд. Он в совершенстве должен владеть методикой проведения таких процедур. У хирурга нет права на
               ошибку.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">13</p>
             <h1 class="list__title">Истории преображения</h1>
             <h2 class="list__subtitle">это самое ценное в моей работе</h2>
@@ -1786,13 +1784,13 @@
     <section class="landing__description-content">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">14</p>
             <h1 class="list__title">Стоимость услуг</h1>
             <h2 class="list__subtitle">определяется количеством корректируемых областей</h2>
             <p class="list__info">Липофилинг лица — от 50 000 рублей.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">15</p>
             <h1 class="list__title">Стоимость анестезии, анализов, размещения</h1>
             <h2 class="list__subtitle">рассчитывается дополнительно к стоимости операции</h2>
@@ -1802,7 +1800,7 @@
               Размещение в двухместной палате (питание включено) — 6 000 ₽.<br>
               Необходимая панель анализов перед операцией — 13 400 ₽.</p>
           </li>
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">16</p>
             <h1 class="list__title">Ответы на вопросы</h1>
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
@@ -1819,7 +1817,7 @@
     <section class="landing__description-content" style="padding-top: 0; padding-bottom: 0;">
       <div class="numbered-wrapper">
         <ul class="description__list-numbered">
-          <li>
+          <li class="list__lists" :class="{ 'animate': isVisible }">
             <h1 class="list__title">БЛОГ</h1>
             <p class="list__date">23.12.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Липофилинг лица</h2>
@@ -2424,9 +2422,9 @@ onUnmounted(() => {
       }
 
       &.animate {
-      opacity: 1;
-      transform: translateY(0);
-    }
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   }
 
