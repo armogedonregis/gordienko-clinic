@@ -1894,6 +1894,9 @@ function stopTypingAnimation(index) {
 function createObserver(callback, options) {
   return new IntersectionObserver(callback, options)
 }
+function preventFullscreen(event) {
+  event.preventDefault()
+}
 
 onMounted(() => {
   const subtitleOptions = {
@@ -1948,6 +1951,17 @@ onMounted(() => {
       }
       observerMap[className].observe(el)
     })
+  })
+
+  const videos = document.querySelectorAll('video')
+  videos.forEach((video, index) => {
+    if (index !== 0) {
+      video.removeAttribute('controls')
+      video.autoplay = true
+      video.load()
+      video.play()
+      video.addEventListener('click', preventFullscreen)
+    }
   })
 })
 onUnmounted(() => {
