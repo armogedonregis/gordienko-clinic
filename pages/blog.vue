@@ -5,7 +5,9 @@
         <h1 class="text__title" id="0" v-html="animatedTitles[0].value"></h1>
         <p class="text__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
-      <img src="/assets/images/photo-blog-grey.png" class="titles__photo">
+      <div class="titles__photo-wrapper">
+        <img src="/assets/images/photo-blog-grey.png" class="titles__photo">
+      </div>
     </div>
     <div class="blog__description">
       <h1 class="description__title">Блог</h1>
@@ -301,6 +303,10 @@ onUnmounted(() => {
       }
     }
 
+    .titles__photo-wrapper {
+      overflow: hidden;
+    }
+
     .titles__photo {
 
       @media (max-width: 1700px) {
@@ -320,6 +326,21 @@ onUnmounted(() => {
 
         @media (max-width: 700px) {
           width: 100%;
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            cursor: auto;
+            transform: none;
+          }
+        }
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.2);
+          transition: .4s;
         }
       }
     }
