@@ -432,12 +432,7 @@
     </section>
     <section class="landing__description-content">
       <div class="content-wrapper">
-        <h2 class="description__title-min">
-          Подтяжка верхней губы
-          <span> — невероятно элегантная и тонкая процедура. Эта простая операция способна вернуть
-            молодость, объем и чувственность вашим губам. Операция дает действительно естественные гармоничные
-            результаты, а рубец под носом будет незаметен для окружающих.</span>
-        </h2>
+        <h2 class="description__title-min" id="4" v-html="animatedTitles[4].value"></h2>
         <p class="post__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
       <div class="numbered-wrapper">
@@ -710,11 +705,7 @@
     </section>
     <section class="landing__description-content">
       <div class="content-wrapper">
-        <h2 class="description__title-min">
-          Лифтинг лба и бровей
-          <span> — это высокоэффективная эстетическая операция, которая устраняет нависание бровей и
-            разглаживает морщины в области лба, переносицы и наружных углов глаз.</span>
-        </h2>
+        <h2 class="description__title-min" id="5" v-html="animatedTitles[5].value"></h2>
         <p class="post__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
       <div class="numbered-wrapper">
@@ -984,10 +975,7 @@
     </section>
     <section class="landing__description-content">
       <div class="content-wrapper">
-        <h2 class="description__title-min">
-          Платизмопластика (цервикопластика)
-          <span> — это хирургическая процедура, направленная на омоложение шеи.</span>
-        </h2>
+        <h2 class="description__title-min" id="6" v-html="animatedTitles[6].value"></h2>
         <p class="post__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
       <div class="numbered-wrapper">
@@ -1264,11 +1252,7 @@
     </section>
     <section class="landing__description-content">
       <div class="content-wrapper">
-        <h2 class="description__title-min">
-          Блефаропластика
-          <span> — это хирургическая процедура, в ходе которой устраняются возрастные изменения и эстетические
-            недостатки в области верхних и нижних век.</span>
-        </h2>
+        <h2 class="description__title-min" id="7" v-html="animatedTitles[7].value"></h2>
         <p class="post__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
       <div class="numbered-wrapper">
@@ -1547,12 +1531,7 @@
     </section>
     <section class="landing__description-content">
       <div class="content-wrapper">
-        <h2 class="description__title-min">
-          Липофилинг (пересадка жира)
-          <span> — это малоинвазивная процедура добавления или восстановления объема в определенных
-            областях на лице, во время которой используется ваш собственный жир, взятый из бедер, коленей или
-            живота.</span>
-        </h2>
+        <h2 class="description__title-min" id="8" v-html="animatedTitles[8].value"></h2>
         <p class="post__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
       <div class="numbered-wrapper">
@@ -1867,20 +1846,33 @@ function togglePopup() {
   isPopupOpen.value = !isPopupOpen.value
 }
 
-const blueTitles = [
+const titles = [
   '«Я - “художник-реставратор”. Тот, кто работает с редкими и очень дорогими произведениями искусства»',
   '«Каждый готовится к своей роли, но главное действующее лицо здесь — вы»',
   '«Современная эстетическая хирургия лица способна изменить качество вашей жизни и ваше отношение к себе.»',
-  'DEEP PLANE FACELIFT (подтяжка лица в глубокой плоскости) — это модифицированная расширенная методика подтяжки лица. Она позволяет омолаживать лицо комплексно, без эффекта перетянутости и с меньшей вероятностью рубцов и осложнений. Вы получите лицо правильных пропорций и гармоничной формы.»'
+  'DEEP PLANE FACELIFT (подтяжка лица в глубокой плоскости) <span style="color: #8A8A8A; font-family: Accademico;">— это модифицированная расширенная методика подтяжки лица. Она позволяет омолаживать лицо комплексно, без эффекта перетянутости и с меньшей вероятностью рубцов и осложнений. Вы получите лицо правильных пропорций и гармоничной формы.»</span>',
+  'Подтяжка верхней губы <span style="color: #8A8A8A; font-family: Accademico;"> — невероятно элегантная и тонкая процедура. Эта простая операция способна вернуть молодость, объем и чувственность вашим губам. Операция дает действительно естественные гармоничные результаты, а рубец под носом будет незаметен для окружающих.</span>',
+  'Лифтинг лба и бровей <span style="color: #8A8A8A; font-family: Accademico;"> — это высокоэффективная эстетическая операция, которая устраняет нависание бровей и разглаживает морщины в области лба, переносицы и наружных углов глаз.</span>',
+  'Платизмопластика (цервикопластика) <span style="color: #8A8A8A; font-family: Accademico;"> — это хирургическая процедура, направленная на омоложение шеи.</span>',
+  'Блефаропластика <span style="color: #8A8A8A; font-family: Accademico;"> — это хирургическая процедура, в ходе которой устраняются возрастные изменения и эстетические недостатки в области верхних и нижних век.</span>',
+  'Липофилинг (пересадка жира) <span style="color: #8A8A8A; font-family: Accademico;"> — это малоинвазивная процедура добавления или восстановления объема в определенных областях на лице, во время которой используется ваш собственный жир, взятый из бедер, коленей или живота.</span>'
 ]
-const animatedTitles = blueTitles.map(() => ref(''))
-const currentCharIndices = blueTitles.map(() => ref(0))
+const animatedTitles = titles.map(() => ref(''))
+const currentCharIndices = titles.map(() => ref(0))
 const intervals = []
-const isVisible = blueTitles.map(() => ref(false))
+const isVisible = titles.map(() => ref(false))
+
 function typeTitle(index) {
-  if (currentCharIndices[index].value < blueTitles[index].length) {
-    animatedTitles[index].value += blueTitles[index][currentCharIndices[index].value]
-    currentCharIndices[index].value++
+  if (currentCharIndices[index].value < titles[index].length) {
+    const char = titles[index][currentCharIndices[index].value]
+    if (char === '<') {
+      const closeTagIndex = titles[index].indexOf('>', currentCharIndices[index].value)
+      animatedTitles[index].value += titles[index].slice(currentCharIndices[index].value, closeTagIndex + 1)
+      currentCharIndices[index].value = closeTagIndex + 1
+    } else {
+      animatedTitles[index].value += char
+      currentCharIndices[index].value++
+    }
   } else {
     stopTypingAnimation(index)
     setTimeout(() => {
@@ -1929,6 +1921,7 @@ onMounted(() => {
       }
     })
   }
+
   function handleTextIntersect(entries) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -2099,6 +2092,7 @@ onUnmounted(() => {
       line-height: 120%;
       letter-spacing: 0.36px;
       text-transform: uppercase;
+      max-width: 1400px;
 
       @media (max-width: 1350px) {
         font-size: 22px;
@@ -2110,11 +2104,6 @@ onUnmounted(() => {
 
       @media (max-width: 700px) {
         font-size: 20px;
-      }
-
-      span {
-        color: #8A8A8A;
-        font-family: Accademico;
       }
     }
 
