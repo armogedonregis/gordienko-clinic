@@ -3,7 +3,7 @@
     <NuxtLink :to="block.href" class="main__content" v-for="block in home.home" :key="block">
       <div class="content__overlay"></div>
       <h1 class="content__title">{{ block.title }}</h1>
-      <video class="content__video" loop autoplay muted playsinline ref="mobileAutoplay" controls="false">
+      <video class="content__video" loop autoplay muted playsinline ref="mobileAutoplay">
         <source :src="block.video" type="video/mp4">
       </video>
     </NuxtLink>
