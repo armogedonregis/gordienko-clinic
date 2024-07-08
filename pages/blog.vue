@@ -2,7 +2,7 @@
   <div class="blog">
     <div class="blog__titles">
       <div class="titles__text">
-        <h1 class="text__title">«В данном разделе вы найдете <br> мои полные статьи и новости об <br> омолаживающей хиругии»</h1>
+        <h1 class="text__title" id="0" v-html="animatedTitles[0].value"></h1>
         <p class="text__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
       <img src="/assets/images/photo-blog-grey.png" class="titles__photo">
@@ -42,7 +42,88 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
 import articles from '/server/articles.json';
+
+const titles = [
+  '«В данном разделе вы найдете мои полные статьи и новости об омолаживающей хиругии»'
+]
+const animatedTitles = titles.map(() => ref(''))
+const currentCharIndices = titles.map(() => ref(0))
+const intervals = []
+const isVisible = titles.map(() => ref(false))
+
+function typeTitle(index) {
+  if (currentCharIndices[index].value < titles[index].length) {
+    const char = titles[index][currentCharIndices[index].value]
+    if (char === '<') {
+      const closeTagIndex = titles[index].indexOf('>', currentCharIndices[index].value)
+      animatedTitles[index].value += titles[index].slice(currentCharIndices[index].value, closeTagIndex + 1)
+      currentCharIndices[index].value = closeTagIndex + 1
+    } else {
+      animatedTitles[index].value += char
+      currentCharIndices[index].value++
+    }
+  } else {
+    stopTypingAnimation(index)
+    setTimeout(() => {
+      animatedTitles[index].value = ''
+      currentCharIndices[index].value = 0
+      startTypingAnimation(index)
+    }, 5000)
+  }
+}
+function startTypingAnimation(index) {
+  if (!intervals[index]) {
+    intervals[index] = setInterval(() => typeTitle(index), 100)
+  }
+}
+function stopTypingAnimation(index) {
+  clearInterval(intervals[index])
+  intervals[index] = null
+}
+function createObserver(callback, options) {
+  return new IntersectionObserver(callback, options)
+}
+
+onMounted(() => {
+  const subtitleOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  }
+  const subtitleObserver = createObserver(handleSubtitleIntersect, subtitleOptions)
+
+  function handleSubtitleIntersect(entries) {
+    entries.forEach(entry => {
+      const index = parseInt(entry.target.id, 10)
+      if (entry.isIntersecting) {
+        isVisible[index].value = true
+        startTypingAnimation(index)
+      } else {
+        isVisible[index].value = false
+        stopTypingAnimation(index)
+      }
+    })
+  }
+
+  const observerMap = {
+    '.text__title': subtitleObserver,
+  }
+
+  Object.keys(observerMap).forEach(className => {
+    const elements = document.querySelectorAll(className)
+    elements.forEach((el, index) => {
+      if (className === '.description__subtitle' || className === '.description__title-min') {
+        el.setAttribute('data-id', index.toString())
+      }
+      observerMap[className].observe(el)
+    })
+  })
+})
+onUnmounted(() => {
+  intervals.forEach(interval => clearInterval(interval))
+})
 </script>
 
 <style lang="scss" scoped>
@@ -105,6 +186,7 @@ import articles from '/server/articles.json';
       }
 
       @media (max-width: 700px) {
+        align-items: center;
         order: 2;
         width: 100%;
         padding: 0 40px;
@@ -131,25 +213,26 @@ import articles from '/server/articles.json';
         font-weight: 400;
         line-height: 130%;
         text-transform: uppercase;
-        width: 562px;
+        max-width: 483px;
+        height: 94px;
 
         @media (max-width: 1350px) {
           font-size: 20px;
           width: auto;
-          
-          br {
-            display: none;
-          }
+          height: auto;
+          min-height: 130px;
         }
 
         @media (max-width: 1050px) {
           font-size: 16px;
+          min-height: 100px;
         }
 
         @media (max-width: 700px) {
           order: 2;
           width: 100%;
           font-size: 25px;
+          height: auto;
         }
       }
 
@@ -167,6 +250,7 @@ import articles from '/server/articles.json';
         }
 
         @media (max-width: 700px) {
+          margin-left: auto;
           order: 3;
         }
       }
