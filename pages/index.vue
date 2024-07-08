@@ -18,7 +18,8 @@ const mobileAutoplay = ref([])
 onMounted(() => {
   mobileAutoplay.value.forEach(video => {
     if(video) {
-      video.addEventListener('canplaythrough', video.play()).removeAttribute('controls')
+      video.addEventListener('canplaythrough', video.play())
+      video.removeAttribute('controls')
     }
   })
 })
