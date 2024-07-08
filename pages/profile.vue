@@ -2092,7 +2092,8 @@ onUnmounted(() => {
       line-height: 120%;
       letter-spacing: 0.36px;
       text-transform: uppercase;
-      max-width: 1400px;
+      max-width: 1418px;
+      min-height: 260px;
 
       @media (max-width: 1350px) {
         font-size: 22px;
@@ -2104,6 +2105,7 @@ onUnmounted(() => {
 
       @media (max-width: 700px) {
         font-size: 20px;
+        min-height: 150px;
       }
     }
 
@@ -2372,6 +2374,13 @@ onUnmounted(() => {
         @media (max-width: 1350px) {
           top: -170px;
           right: 0;
+        }
+
+        @media (max-width: 550px) {
+          width: 90%;
+          left: 50%;
+          top: 0;
+          transform: translate(-50%, -80%);
         }
 
         .popup__info {
