@@ -211,6 +211,10 @@ const itemColor = computed(() => {
             }
 
             &.title__grey {color: #A3A3A3;}
+
+            @media (hover: hover) {
+              &:hover {opacity: 0.5; transition: .4s;}
+            }
           }
         }
       }
