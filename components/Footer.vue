@@ -13,7 +13,7 @@
             <li><NuxtLink to="https://t.me/doctor_gordienko" target="_blank" :class="{ 'title__grey': itemColor }">telegram</NuxtLink></li>
           </ul>
           <ul class="description__list">
-            <li><NuxtLink to="#" :class="{ 'title__grey': itemColor }">истории преображений</NuxtLink></li>
+            <li><NuxtLink to="/results" :class="{ 'title__grey': itemColor }">истории преображений</NuxtLink></li>
             <li><NuxtLink to="#" :class="{ 'title__grey': itemColor }">вопросы и ответы</NuxtLink></li>
             <li><NuxtLink to="/profile" :class="{ 'title__grey': itemColor }">доктор гордиенко</NuxtLink></li>
             <li><NuxtLink to="/blog" :class="{ 'title__grey': itemColor }">блог</NuxtLink></li>
