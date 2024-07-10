@@ -14,7 +14,7 @@
           </ul>
           <ul class="description__list">
             <li><NuxtLink to="/results" :class="{ 'title__grey': itemColor }">истории преображений</NuxtLink></li>
-            <li><NuxtLink to="#" :class="{ 'title__grey': itemColor }">вопросы и ответы</NuxtLink></li>
+            <li><NuxtLink :class="{ 'title__grey': itemColor }" @click="openFaqPopup">вопросы и ответы</NuxtLink></li>
             <li><NuxtLink to="/profile" :class="{ 'title__grey': itemColor }">доктор гордиенко</NuxtLink></li>
             <li><NuxtLink to="/blog" :class="{ 'title__grey': itemColor }">блог</NuxtLink></li>
           </ul>
@@ -50,12 +50,15 @@
       <NuxtLink to="#" target="_blank" class="link">Политика конфиденциальности</NuxtLink>
       <NuxtLink to="https://www.igorstepanov.art/" target="_blank" class="link"> IGORSTEPANOV.ART ©{{ currentYear }}</NuxtLink>
     </nav>
+    <FaqPopup v-if="store.state.isFaqPopupOpen"/>
   </footer>
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
+import FaqPopup from "./FaqPopup.vue";
+import store from "/store/index.js";
 
 const currentYear = ref(new Date().getFullYear())
 const route = useRoute()
@@ -63,6 +66,10 @@ const route = useRoute()
 const itemColor = computed(() => {
   return route.path === '/results' || route.path.includes('case')
 })
+
+function openFaqPopup() {
+  store.commit('openFaqPopup')
+}
 </script>
 
 <style lang="scss" scoped>
@@ -198,6 +205,7 @@ const itemColor = computed(() => {
           list-style-type: none;
 
           li a{
+            cursor: pointer;
             color: #000;
             font-size: 10px;
             font-style: normal;
