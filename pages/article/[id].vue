@@ -160,7 +160,7 @@ onUnmounted(() => {
         font-size: 25px;
         height: auto;
         max-width: 100%;
-        padding: 0 63px;
+        padding: 0 20px;
         order: 1;
         gap: 45px;
       }
@@ -193,7 +193,7 @@ onUnmounted(() => {
 
         @media (max-width: 700px) {
           order: 2;
-          font-size: 25px;
+          font-size: 30px;
         }
       }
 
@@ -319,7 +319,7 @@ onUnmounted(() => {
         @media (max-width: 700px) {
           flex-direction: column;
           align-items: flex-start;
-          padding: 25px 40px;
+          padding: 25px 20px;
           gap: 30px;
           height: auto;
         }
@@ -374,6 +374,10 @@ onUnmounted(() => {
         @media (max-width: 1350px) {
           width: 350px;
         }
+
+        @media (max-width: 700px) {
+          width: auto;
+        }
       }
 
       .link__article {
@@ -403,6 +407,10 @@ onUnmounted(() => {
       gap: 127px;
     }
 
+    @media (max-width: 700px) {
+      padding: 0 20px;
+    }
+
     .content__wide {
       color: #393939;
       font-family: Accademico;
@@ -422,6 +430,10 @@ onUnmounted(() => {
         font-size: 24px;
       }
 
+      @media (max-width: 700px) {
+        font-size: 18px;
+      }
+
       .titular {
         font-family: Accademico;
         font-size: 90px;
@@ -433,6 +445,10 @@ onUnmounted(() => {
 
         @media (max-width: 1350px) {
           font-size: 100px;
+        }
+
+        @media (max-width: 700px) {
+          font-size: 50px;
         }
       }
 
@@ -473,6 +489,11 @@ onUnmounted(() => {
           white-space: normal;
           font-size: 40px;
         }
+
+        @media (max-width: 700px) {
+          font-size: 30px;
+          white-space: normal;
+        }
       }
 
       .posts__tight {
@@ -499,6 +520,11 @@ onUnmounted(() => {
           font-weight: 400;
           line-height: 130%;
           text-transform: uppercase;
+
+          @media (max-width: 700px) {
+            text-align: left;
+            font-size: 25px;
+          }
         }
 
         p {
@@ -510,6 +536,10 @@ onUnmounted(() => {
           font-weight: 400;
           line-height: 130%;
           white-space: pre-wrap;
+
+          @media (max-width: 700px) {
+            font-size: 20px;
+          }
         }
 
         img {
@@ -549,6 +579,12 @@ onUnmounted(() => {
     line-height: 95%;
     text-transform: uppercase;
     border: 1px solid #5493D1;
+
+    @media (max-width: 900px) {
+      width: 300px;
+      height: 40px;
+      font-size: 12px;
+    }
   }
 }
 </style>
