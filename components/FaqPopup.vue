@@ -2,11 +2,15 @@
   <div class="faq__popup">
     <div class="popup__overlay"></div>
     <div class="popup__modal">
-      <button class="close" @click="closeFaqPopup">
-        <img src="/public/assets/icons/close-popup.svg">
-      </button>
-      <img src="/public/assets/images/faqpopup.png" class="modal__photo">
-      <h1 class="modal__title">вопросы и ответы</h1>
+      <div class="modal__title-wrapper">
+        <button class="close" @click="closeFaqPopup">
+          <img src="/public/assets/icons/cross.svg">
+        </button>
+        <div class="modal__photo-wrapper">
+          <img src="/public/assets/images/faqpopup.png" class="modal__photo">
+          <h1 class="modal__title">вопросы и ответы</h1>
+        </div>
+      </div>
       <div class="modal__accordion">
         <BaseAccordion/>
       </div>
@@ -52,50 +56,105 @@ function closeFaqPopup() {
     flex-direction: column;
     align-items: center;
     background: #fff;
-    width: 1605px;
+    width: 90%;
     height: auto;
     max-height: calc(100% - 142px);
     border-radius: 50px;
     z-index: 9;
     margin: 71px 0;
+    max-width: 1605px;
 
-    .close {
-      position: absolute;
-      top: 53px;
-      right: 53px;
-      cursor: pointer;
+    .modal__title-wrapper {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      background: none;
-      border: none;
-      width: 45px;
-      height: 45px;
-    }
-
-    .modal__photo {
-      width: 100%;
+      position: relative;
       height: 945px;
-    }
 
-    .modal__title {
-      position: absolute;
-      bottom: 0;
-      color: #FFF;
-      font-family: Accademico;
-      font-size: 100px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 120%;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      text-align: center;
-      bottom: 20px;
+      @media (max-width: 1100px) {
+        height: auto;
+      }
+
+      .close {
+        position: absolute;
+        top: 53px;
+        right: 53px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: none;
+        border: none;
+        width: 45px;
+        height: 45px;
+
+        @media (max-width: 1350px) {
+          top: 15px;
+          right: 15px;
+
+          img {
+            width: 40px;
+            height: 40px
+          }
+        }
+      }
+
+      .modal__photo-wrapper {
+        display: flex;
+        justify-content: center;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px; 
+        overflow: hidden;
+
+        .modal__photo {
+          width: 100%;
+          height: 100%;
+
+          @media (max-width: 850px) {
+            height: 500px;
+            overflow: hidden;
+            object-fit: cover;
+          }
+        }
+
+        .modal__title {
+          position: absolute;
+          color: #FFF;
+          font-family: Accademico;
+          font-size: 100px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 120%;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          text-align: center;
+          bottom: 20px;
+          z-index: 999;
+
+          @media (max-width: 1350px) {
+            font-size: 60px;
+          }
+
+          @media (max-width: 850px) {
+            font-size: 28px;
+          }
+        }
+      }
     }
     
     .modal__accordion {
       padding: 87px;
       background: #fff;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+
+      @media (max-width: 1350px) {
+        padding: 36px;
+      }
+
+      @media (max-width: 850px) {
+        padding: 16px;
+      }
     }
   }
 }

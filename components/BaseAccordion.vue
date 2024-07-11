@@ -54,7 +54,29 @@ import faq from '/server/faq.json';
   font-family: Accademico !important;
 }
 
-::v-deep.v-expansion-panel-title__overlay {
+::v-deep .v-expansion-panel-title__overlay {
   display: none !important;
+}
+
+@media (max-width: 1350px) {
+  ::v-deep .v-expansion-panel-title {
+    font-size: 15px !important;
+    padding: 0;
+  }
+
+  ::v-deep .v-expansion-panel-text {
+    font-size: 12px !important;
+  }
+
+  ::v-deep .v-expansion-panel-text__wrapper {
+    padding: 0 !important;
+    padding-right: 50px !important;
+  }
+}
+
+@media (max-width: 850px) {
+  ::v-deep .v-expansion-panel-title {
+    font-size: 10px !important;
+  }
 }
 </style>
