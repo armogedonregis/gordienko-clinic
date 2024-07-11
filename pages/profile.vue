@@ -238,7 +238,7 @@
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">09</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
-            <div class="list__popup" v-if="isPopupOpen">
+            <div class="list__popup" v-if="isPopupOpen" v-click-outside="closePopup">
               <img src="/public/assets/icons/question.svg">
               <p class="popup__info">Fly IN - облет, также называемый авиационным собранием, представляет собой заранее
                 организованное собрание самолетов, пилотов и пассажиров в развлекательных и общественных целях.</p>
@@ -505,7 +505,7 @@
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">05</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
-            <div class="list__popup" v-if="isPopupOpen">
+            <div class="list__popup" v-if="isPopupOpen" v-click-outside="closePopup">
               <img src="/public/assets/icons/question.svg">
               <p class="popup__info">Fly IN - облет, также называемый авиационным собранием, представляет собой заранее
                 организованное собрание самолетов, пилотов и пассажиров в развлекательных и общественных целях.</p>
@@ -1054,7 +1054,7 @@
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">06</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
-            <div class="list__popup" v-if="isPopupOpen">
+            <div class="list__popup" v-if="isPopupOpen" v-click-outside="closePopup">
               <img src="/public/assets/icons/question.svg">
               <p class="popup__info">Fly IN - облет, также называемый авиационным собранием, представляет собой заранее
                 организованное собрание самолетов, пилотов и пассажиров в развлекательных и общественных целях.</p>
@@ -1327,7 +1327,7 @@
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">06</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
-            <div class="list__popup" v-if="isPopupOpen">
+            <div class="list__popup" v-if="isPopupOpen" v-click-outside="closePopup">
               <img src="/public/assets/icons/question.svg">
               <p class="popup__info">Fly IN - облет, также называемый авиационным собранием, представляет собой заранее
                 организованное собрание самолетов, пилотов и пассажиров в развлекательных и общественных целях.</p>
@@ -1622,7 +1622,7 @@
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">07</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
-            <div class="list__popup" v-if="isPopupOpen">
+            <div class="list__popup" v-if="isPopupOpen" v-click-outside="closePopup">
               <img src="/public/assets/icons/question.svg">
               <p class="popup__info">Fly IN - облет, также называемый авиационным собранием, представляет собой заранее
                 организованное собрание самолетов, пилотов и пассажиров в развлекательных и общественных целях.</p>
@@ -1844,6 +1844,9 @@ function toggleFullscreen() {
 const isPopupOpen = ref(false)
 function togglePopup() {
   isPopupOpen.value = !isPopupOpen.value
+}
+function closePopup() {
+  isPopupOpen.value = false;
 }
 
 const titles = [
