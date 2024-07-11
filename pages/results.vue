@@ -1,12 +1,12 @@
 <template>
   <div class="results">
     <nav class="results__nav">
-      <NuxtLink class="nav__link mobile-first-link">ИСТОРИИ ПРЕОБРАЖЕНИЯ</NuxtLink>
+      <NuxtLink class="nav__link mobile-first-link" @click="toggleRead">ИСТОРИИ ПРЕОБРАЖЕНИЯ</NuxtLink>
       <div class="nav__center-links">
         <NuxtLink :class="isReadActive ? 'nav__link' : 'nav__link-active'" @click="toggleWatch">ПОСМОТРЕТЬ</NuxtLink>
         <NuxtLink :class="isWatchActive ? 'nav__link' : 'nav__link-active'" @click="toggleRead">ПОЧИТАТЬ</NuxtLink>
       </div>
-      <NuxtLink class="nav__link desktop">Deep plane facelift</NuxtLink>
+      <NuxtLink to="/profile#deep-plane-faceLift" class="nav__link desktop">Deep plane facelift</NuxtLink>
       <NuxtLink class="nav__link mobile">Истории преображения</NuxtLink>
     </nav>
     <ReadResults v-if="isReadActive"/>
