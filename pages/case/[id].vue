@@ -19,9 +19,9 @@
       </div>
     </div>
     <div class="case__text">
-      <h1 class="text__title">{{ caseItem.title }}</h1>
+      <h1 class="text__title">{{ displayedTitle }}</h1>
       <p class="text__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
-      <div class="text__story-wrapper">
+      <div class="text__story-wrapper" :class="{ 'animate': isVisible }">
         <p class="text__name">{{ caseItem.name }}</p>
         <p class="text__story">{{ caseItem.story }}</p>
       </div>
@@ -54,7 +54,53 @@ function switchNextStory() {
     router.push(`/case/${caseId + 1}`)
   }
 }
-console.log(caseItem.value.images.length)
+
+const displayedTitle = ref('')
+let typingInterval = null
+let textObserver = null
+const startTypingAnimation = () => {
+  let index = 0
+  const title = caseItem.value.title
+  typingInterval = setInterval(() => {
+    if (index < title.length) {
+      displayedTitle.value += title[index]
+      index++
+    } else {
+      clearInterval(typingInterval)
+      setTimeout(() => {
+        displayedTitle.value = ''
+        startTypingAnimation()
+      }, 5000)
+    }
+  }, 100)
+}
+const handleTextIntersect = (entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate')
+    } else {
+      entry.target.classList.remove('animate')
+    }
+  })
+}
+
+onMounted(() => {
+  startTypingAnimation()
+  const textOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.3
+  }
+  textObserver = new IntersectionObserver(handleTextIntersect, textOptions)
+
+  const textElements = document.querySelectorAll('.text__story-wrapper')
+  textElements.forEach(el => {
+    textObserver.observe(el)
+  })
+})
+onUnmounted(() => {
+  clearInterval(typingInterval)
+})
 </script>
 
 <style lang="scss" scoped>
@@ -97,6 +143,10 @@ console.log(caseItem.value.images.length)
         margin-left: -40px;
         opacity: 0.5;
 
+        @media (hover: hover) {
+          &:hover {opacity: 1; transition: .4s;}
+        }
+
         @media (max-width: 700px) {
           font-size: 16px;
           margin-left: -80px;
@@ -111,7 +161,13 @@ console.log(caseItem.value.images.length)
           }
         }
 
-        &.nav__link-active {opacity: 1;}
+        &.nav__link-active {
+          opacity: 1;
+
+          @media (hover: hover) {
+            &:hover {opacity: 0.5; transition: .4s;}
+          }
+        }
       }
     }
 
@@ -231,6 +287,7 @@ console.log(caseItem.value.images.length)
       font-weight: 400;
       line-height: 130%;
       text-transform: uppercase;
+      min-height: 215px;
 
       @media (max-width: 900px) {
         font-size: 40px;
@@ -238,6 +295,7 @@ console.log(caseItem.value.images.length)
 
       @media (max-width: 700px) {
         font-size: 27px;
+        min-height: 110px;
       }
     }
 
@@ -268,6 +326,9 @@ console.log(caseItem.value.images.length)
       flex-direction: column;
       align-items: center; 
       width: 785px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 
       @media (max-width: 900px) {
         width: 500px;
@@ -302,6 +363,11 @@ console.log(caseItem.value.images.length)
         margin-top: 28px;
         text-align: justify;
         width: 100%;
+      }
+
+      &.animate {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
