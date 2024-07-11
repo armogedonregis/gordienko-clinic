@@ -2,7 +2,7 @@
   <div class="header-wrapper">
     <header class="header">
       <nav class="header__nav">
-        <NuxtLink to="/" :class="getItemColor('/deep-plane-facelift')" class="nav__link dp">Deep plane facelift</NuxtLink>
+        <NuxtLink to="/profile#deep-plane-faceLift" :class="getItemColor('/deep-plane-facelift')" class="nav__link dp">Deep plane facelift</NuxtLink>
         <NuxtLink to="/blog" :class="getItemColor('/blog')" class="nav__link blog">Блог</NuxtLink>
         <NuxtLink to="/profile" :class="getItemColor('/profile')" class="nav__link profile">Доктор Гордиенко</NuxtLink>
         <NuxtLink to="/" class="nav__logo-link"><img src="/assets/images/logo.png" class="nav__logo"></NuxtLink>

@@ -19,11 +19,11 @@
             <li><NuxtLink to="/blog" :class="{ 'title__grey': itemColor }">блог</NuxtLink></li>
           </ul>
           <ul class="description__list">
-            <li><NuxtLink to="#" :class="{ 'title__grey': itemColor }">Deep Plane Facelift</NuxtLink></li>
-            <li><NuxtLink to="#" :class="{ 'title__grey': itemColor }">лоб и брови</NuxtLink></li>
-            <li><NuxtLink to="#" :class="{ 'title__grey': itemColor }">глаза</NuxtLink></li>
-            <li><NuxtLink to="#" :class="{ 'title__grey': itemColor }">губы</NuxtLink></li>
-            <li><NuxtLink to="#" :class="{ 'title__grey': itemColor }">шея</NuxtLink></li>
+            <li><NuxtLink to="/profile#deep-plane-faceLift" :class="{ 'title__grey': itemColor }">Deep Plane Facelift</NuxtLink></li>
+            <li><NuxtLink to="/profile#forehead-n-eyebrows" :class="{ 'title__grey': itemColor }">лоб и брови</NuxtLink></li>
+            <li><NuxtLink to="/profile#eyes" :class="{ 'title__grey': itemColor }">глаза</NuxtLink></li>
+            <li><NuxtLink to="/profile#lips" :class="{ 'title__grey': itemColor }">губы</NuxtLink></li>
+            <li><NuxtLink to="/profile#neck" :class="{ 'title__grey': itemColor }">шея</NuxtLink></li>
           </ul>
           <ul class="description__list">
             <li><NuxtLink to="https://m.vk.com/ovgordienko?reactions_opened=wall-211145946_637" target="_blank" :class="{ 'title__grey': itemColor }">вконтакте</NuxtLink></li>

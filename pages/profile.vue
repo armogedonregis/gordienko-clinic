@@ -112,7 +112,7 @@
         </div>
       </div>
     </section>
-    <section class="landing__video-content title-video-block">
+    <section class="landing__video-content title-video-block" id="deep-plane-faceLift">
       <h1 class="content__title">Deep plane facelift</h1>
       <video class="content__video" loop autoplay muted>
         <source src="/assets/video/homepage3.mp4" type="video/mp4">
@@ -424,7 +424,7 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content title-video-block">
+    <section class="landing__video-content title-video-block" id="lips">
       <h1 class="content__title">Губы</h1>
       <video class="content__video" loop autoplay muted>
         <source src="/assets/video/homepage8.mp4" type="video/mp4">
@@ -697,7 +697,7 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content title-video-block">
+    <section class="landing__video-content title-video-block" id="forehead-n-eyebrows">
       <h1 class="content__title">Лоб и брови</h1>
       <video class="content__video" loop autoplay muted>
         <source src="/assets/video/homepage5.mp4" type="video/mp4">
@@ -967,7 +967,7 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content title-video-block">
+    <section class="landing__video-content title-video-block" id="neck">
       <h1 class="content__title">Шея</h1>
       <video class="content__video" loop autoplay muted>
         <source src="/assets/video/homepage6.mp4" type="video/mp4">
@@ -1244,7 +1244,7 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content title-video-block">
+    <section class="landing__video-content title-video-block" id="eyes">
       <h1 class="content__title">Глаза</h1>
       <video class="content__video" loop autoplay muted>
         <source src="/assets/video/profilepage9.mp4" type="video/mp4">
@@ -1523,7 +1523,7 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content title-video-block">
+    <section class="landing__video-content title-video-block" id="lipofilling">
       <h1 class="content__title">ЛИПОФИЛИНГ</h1>
       <video class="content__video" loop autoplay muted>
         <source src="/assets/video/homepage8.mp4" type="video/mp4">
