@@ -10,7 +10,33 @@
 </template>
 
 <script setup>
-import casesData from '/server/cases.json'
+import casesData from '/server/cases.json';
+
+let typingInterval = null
+let textObserver = null
+const handleTextIntersect = (entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate')
+    } else {
+      entry.target.classList.remove('animate')
+    }
+  })
+}
+
+onMounted(() => {
+  const textOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.6
+  }
+  textObserver = new IntersectionObserver(handleTextIntersect, textOptions)
+
+  const textElements = document.querySelectorAll('.results__item')
+  textElements.forEach(el => {
+    textObserver.observe(el)
+  })
+})
 </script>
 
 <style lang="scss" scoped>
@@ -29,6 +55,8 @@ import casesData from '/server/cases.json'
     width: 100%;
     height: 100vh;
     border-bottom: 1px solid rgba(57, 57, 57, 0.80);
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 
     @media (max-width: 700px) {
       padding: 130px 20px;
@@ -130,6 +158,11 @@ import casesData from '/server/cases.json'
         width: 300px;
         height: 40px;
       }
+    }
+
+    &.animate {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
