@@ -2,42 +2,58 @@
   "home": [
     {
       "title": "Полюбите свое отражение вновь",
-      "video": "/assets/video/homepage1.mp4",
+      "videoDesktop": "/assets/video/homepage1.mp4",
+      "videoPad": "",
+      "videoMobile": "",
       "href": "/"
     },
     {
       "title": "Доктор Гордиенко",
-      "video": "/assets/video/homepage2.mp4",
+      "videoDesktop": "/assets/video/homepage2.mp4",
+      "videoPad": "",
+      "videoMobile": "",
       "href": "/profile"
     },
     {
       "title": "Deep plane facelift",
-      "video": "/assets/video/homepage3.mp4",
+      "videoDesktop": "/assets/video/homepage3.mp4",
+      "videoPad": "",
+      "videoMobile": "",
       "href": "/profile#deep-plane-faceLift"
     },
     {
       "title": "Губы",
-      "video": "/assets/video/homepage4.mp4",
+      "videoDesktop": "/assets/video/homepage4.mp4",
+      "videoPad": "",
+      "videoMobile": "",
       "href": "/profile#lips"
     },
     {
       "title": "Лоб и брови",
-      "video": "/assets/video/homepage5.mp4",
+      "videoDesktop": "/assets/video/homepage5.mp4",
+      "videoPad": "",
+      "videoMobile": "",
       "href": "/profile#forehead-n-eyebrows"
     },
     {
       "title": "Шея",
-      "video": "/assets/video/homepage6.mp4",
+      "videoDesktop": "/assets/video/homepage6.mp4",
+      "videoPad": "",
+      "videoMobile": "",
       "href": "/profile#neck"
     },
     {
       "title": "Глаза",
-      "video": "/assets/video/homepage7.mp4",
+      "videoDesktop": "/assets/video/homepage7.mp4",
+      "videoPad": "",
+      "videoMobile": "",
       "href": "/profile#eyes"
     },
     {
       "title": "Липофилинг",
-      "video": "/assets/video/homepage8.mp4",
+      "videoDesktop": "/assets/video/homepage8.mp4",
+      "videoPad": "",
+      "videoMobile": "",
       "href": "/profile#lipofilling"
     }
   ]

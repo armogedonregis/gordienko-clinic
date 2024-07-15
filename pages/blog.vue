@@ -2,8 +2,10 @@
   <div class="blog">
     <div class="blog__titles">
       <div class="titles__text">
-        <h1 class="text__title" id="0" v-html="animatedTitles[0].value"></h1>
-        <p class="text__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
+        <div class="text-wrapper">
+          <h1 class="text__title" id="0" v-html="animatedTitles[0].value"></h1>
+          <p class="text__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
+        </div>
       </div>
       <div class="titles__photo-wrapper">
         <img src="/assets/images/photo-blog-grey.png" class="titles__photo">
@@ -29,7 +31,9 @@
         <p class="text__description">Омолаживающая операция – это таинственное и даже магическое событие, которое проходит за закрытыми дверями операционной. Я c удовольствием приоткрою для вас эти двери и приглашу в удивительное путешествие.</p>
         <button class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</button>
       </div>
-      <img src="/assets/images/blogpage1.png" class="titles__photo last-titles-photo">
+      <div class="titles__photo-wrapper">
+        <img src="/assets/images/blogpage1.png" class="titles__photo">
+      </div>
     </div>
     <div class="blog__description">
       <div class="description__table">
@@ -134,24 +138,14 @@ onUnmounted(() => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 1728px;
   width: 100%;
   gap: 97px;
 
   .blog__titles {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     width: 100%;
-    gap: 117px;
-
-    @media (max-width: 1700px) {
-      gap: 72px;
-    }
-
-    @media (max-width: 800px) {
-      gap: 30px;
-    }
 
     @media (max-width: 700px) {
       flex-direction: column;
@@ -176,16 +170,9 @@ onUnmounted(() => {
     .titles__text {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      width: 100%;
       gap: 50px;
-
-      @media (max-width: 1350px) {
-        gap: 40px;
-        width: 300px;
-      }
-
-      @media (max-width: 1050px) {
-        width: 233px;
-      }
 
       @media (max-width: 700px) {
         align-items: center;
@@ -195,14 +182,42 @@ onUnmounted(() => {
       }
 
       &.last-titles-section {
-        
+        padding-left: 97px;
+
+        @media (max-width: 1350px) {
+          padding-left: 20px;
+        }
+
         @media (max-width: 1050px) {
-          width: 300px;
+          width: 100%;
         }
 
         @media (max-width: 700px) {
           align-items: center;
           width: 100%;
+          padding: 40px;
+        }
+      }
+
+      .text-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        width: 483px;
+
+        @media (max-width: 1350px) {
+          gap: 0;
+        }
+
+        @media (max-width: 1050px) {
+          width: 300px;
+        }
+
+        @media (max-width: 700px) {
+          width: 100%;
+          gap: 50px;
+          margin-top: 46px;
         }
       }
 
@@ -215,7 +230,6 @@ onUnmounted(() => {
         font-weight: 400;
         line-height: 130%;
         text-transform: uppercase;
-        max-width: 483px;
         height: 94px;
 
         @media (max-width: 1350px) {
@@ -246,6 +260,7 @@ onUnmounted(() => {
         font-style: normal;
         font-weight: 400;
         line-height: 130%;
+        margin-left: auto;
 
         @media (max-width: 1050px) {
           font-size: 8px;
@@ -264,14 +279,23 @@ onUnmounted(() => {
         font-style: normal;
         font-weight: 400;
         line-height: 130%;
+        max-width: 562px;
+        margin-right: auto;
 
         @media (max-width: 1350px) {
           font-size: 14px;
+          max-width: 400px;
+        }
+
+        @media (max-width: 1050px) {
+          font-size: 14px;
+          max-width: 300px;
         }
 
         @media (max-width: 700px) {
           font-size: 30px;
           text-align: center;
+          max-width: 100%;
         }
       }
 
@@ -290,6 +314,7 @@ onUnmounted(() => {
         font-weight: 400;
         line-height: 95%;
         text-transform: uppercase;
+        margin-right: auto;
 
         @media (max-width: 1700px) {
           width: 300px;
@@ -299,50 +324,18 @@ onUnmounted(() => {
           width: 260px;
           height: 40px;
           font-size: 12px;
+          margin-right: 0;
         }
       }
     }
 
     .titles__photo-wrapper {
       overflow: hidden;
+      width: 100%;
     }
 
     .titles__photo {
-
-      @media (max-width: 1700px) {
-        width: 52.82vw;
-        height: auto;
-      }
-
-      @media (max-width: 700px) {
-        width: 100%;
-      }
-
-      &.last-titles-photo {
-
-        @media (max-width: 1050px) {
-          width: 45vw;
-        }
-
-        @media (max-width: 700px) {
-          width: 100%;
-        }
-
-        @media (hover: hover) {
-          &:hover {
-            cursor: auto;
-            transform: none;
-          }
-        }
-      }
-
-      @media (hover: hover) {
-        &:hover {
-          cursor: pointer;
-          transform: scale(1.2);
-          transition: .4s;
-        }
-      }
+      width: 100%;
     }
   }
 

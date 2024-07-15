@@ -3,8 +3,14 @@
     <NuxtLink :to="block.href" class="main__content" v-for="block in home.home" :key="block">
       <div class="content__overlay"></div>
       <h1 class="content__title">{{ block.title }}</h1>
-      <video class="content__video" loop autoplay muted playsinline ref="mobileAutoplay">
-        <source :src="block.video" type="video/mp4">
+      <video class="content__video desktop" loop autoplay muted playsinline ref="mobileAutoplay">
+        <source :src="block.videoDesktop" type="video/mp4">
+      </video>
+      <video class="content__video pad" loop autoplay muted playsinline ref="mobileAutoplay">
+        <source :src="block.videoPad" type="video/mp4">
+      </video>
+      <video class="content__video mobile" loop autoplay muted playsinline ref="mobileAutoplay">
+        <source :src="block.videoMobile" type="video/mp4">
       </video>
     </NuxtLink>
   </main>
@@ -31,7 +37,6 @@ onMounted(() => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 1728px;
   width: 100%;
 
   .home__title {
@@ -65,7 +70,6 @@ onMounted(() => {
     .content__title {
       color: #FFF;
       text-align: center;
-      font-feature-settings: 'liga' off;
       font-family: Accademico;
       font-size: 50px;
       font-style: normal;
@@ -100,6 +104,21 @@ onMounted(() => {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .pad {display: none;}
+    .mobile {display: none;}
+
+    @media (max-width: 900px) {
+      .desktop {display: none;}
+      .mobile {display: none;}
+      .pad {display: flex;}
+    }
+
+    @media (max-width: 480px) {
+      .desktop {display: none;}
+      .pad {display: none;}
+      .mobile {display: flex;}
     }
   }
 }

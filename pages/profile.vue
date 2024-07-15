@@ -1961,7 +1961,6 @@ onUnmounted(() => {
 .landing {
   display: flex;
   flex-direction: column;
-  max-width: 1728px;
   width: 100%;
   
   .landing__video-content {
@@ -1988,7 +1987,6 @@ onUnmounted(() => {
     .content__title {
       color: #FFF;
       text-align: center;
-      font-feature-settings: 'liga' off;
       font-family: Accademico;
       font-size: 50px;
       font-style: normal;

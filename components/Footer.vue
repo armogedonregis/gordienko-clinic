@@ -37,10 +37,10 @@
         </NuxtLink>
       </div>
       <div class="footer__description">
-        <NuxtLink to="/blog">
+        <NuxtLink to="/blog" class="blog__link">
           <img src="/assets/images/photo-blog.png" class="description__photo">
         </NuxtLink>
-        <NuxtLink to="/blog">
+        <NuxtLink to="/blog" class="blog__link">
           <h1 class="description__blog-title" :class="{ 'title__white': itemColor }">Блог</h1>
         </NuxtLink>
       </div>
@@ -78,7 +78,6 @@ function openFaqPopup() {
   flex-direction: column;
   justify-content: space-between;
   padding: 250px 0 17px 40px;
-  max-width: 1728px;
   width: 100%;
 
   @media (max-width: 700px) {
@@ -102,23 +101,23 @@ function openFaqPopup() {
       flex-direction: column;
       align-items: flex-start;
 
-      .description__photo {
-        width: 563px;
-        height: 793px;
 
-        @media (max-width: 750px) {
-          width: 302px;
+      .blog__link {
+
+        @media (max-width: 1100px) {
+          width: 100%;
+        }
+
+        img {
+          width: 100%;
           height: auto;
+          margin-top: 0;
         }
 
-        @media (max-width: 480px) {
-          width: 250px;
-        }
+        &:last-child {
 
-        @media (hover: hover) {
-          &:hover {
-            filter: grayscale(100%);
-            transition: .4s;
+          @media (max-width: 700px) {
+            width: 50%;
           }
         }
       }
@@ -178,7 +177,7 @@ function openFaqPopup() {
         font-weight: 400;
         line-height: 98%;
         text-transform: uppercase;
-        margin-top: 50px;
+        margin-top: 90px;
 
         @media (max-width: 1100px) {
           order: 1;

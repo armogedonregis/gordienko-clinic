@@ -26,7 +26,6 @@ function toggleAgreeCookies() {
   z-index: 999;
   bottom: 0;
   padding: 0 47px 0 30px;
-  max-width: 1728px;
 
   @media (max-width: 1700px) {
     flex-direction: column;
