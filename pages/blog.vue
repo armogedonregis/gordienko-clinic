@@ -171,7 +171,7 @@ onUnmounted(() => {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100%;
+      width: 90%;
       gap: 50px;
 
       @media (max-width: 700px) {
@@ -279,8 +279,9 @@ onUnmounted(() => {
         font-style: normal;
         font-weight: 400;
         line-height: 130%;
-        max-width: 562px;
+        max-width: 600px;
         margin-right: auto;
+        padding-right: 40px;
 
         @media (max-width: 1350px) {
           font-size: 14px;
@@ -290,6 +291,7 @@ onUnmounted(() => {
         @media (max-width: 1050px) {
           font-size: 14px;
           max-width: 300px;
+          padding-right: 0;
         }
 
         @media (max-width: 700px) {

@@ -2,10 +2,14 @@
   <div class="article">
     <div class="article__titles">
       <div class="titles__text">
-        <h1 class="text__title">{{ displayedTitle }}</h1>
-        <p class="text__sign">{{ article.capitalBlock.sign }}</p>
+        <div class="text-wrapper">
+          <h1 class="text__title">{{ displayedTitle }}</h1>
+          <p class="text__sign">{{ article.capitalBlock.sign }}</p>
+        </div>
       </div>
-      <img :src="article.capitalBlock.image" class="titles__photo">
+      <div class="titles__photo-wrapper">
+        <img :src="article.capitalBlock.image" class="titles__photo">
+      </div>
     </div>
     <div class="article__description">
       <div class="description__table">
@@ -119,17 +123,8 @@ onUnmounted(() => {
   .article__titles {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     width: 100%;
-    gap: 117px;
-
-    @media (max-width: 1700px) {
-      gap: 72px;
-    }
-
-    @media (max-width: 800px) {
-      gap: 30px;
-    }
 
     @media (max-width: 700px) {
       flex-direction: column;
@@ -142,15 +137,12 @@ onUnmounted(() => {
     .titles__text {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      width: 90%;
       gap: 50px;
 
-      @media (max-width: 1350px) {
-        max-width: 400px;
-        width: auto;
-      }
-
       @media (max-width: 1050px) {
-        max-width: 270px;
+        max-width: 100%;
       }
 
       @media (max-width: 700px) {
@@ -162,6 +154,28 @@ onUnmounted(() => {
         padding: 0 20px;
         order: 1;
         gap: 45px;
+      }
+
+      .text-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        width: 483px;
+
+        @media (max-width: 1350px) {
+          gap: 0;
+        }
+
+        @media (max-width: 1050px) {
+          width: 300px;
+        }
+
+        @media (max-width: 700px) {
+          width: 100%;
+          gap: 50px;
+          margin-top: 46px;
+        }
       }
 
       .text__title {
@@ -205,6 +219,7 @@ onUnmounted(() => {
         font-weight: 400;
         line-height: 130%;
         white-space: pre-wrap;
+        margin-left: auto;
 
         @media (max-width: 1050px) {
           font-size: 12px;
@@ -243,16 +258,13 @@ onUnmounted(() => {
       }
     }
 
+    .titles__photo-wrapper {
+      overflow: hidden;
+      width: 100%;
+    }
+
     .titles__photo {
-
-      @media (max-width: 1700px) {
-        width: 52.82vw;
-        height: auto;
-      }
-
-      @media (max-width: 700px) {
-        width: 100%;
-      }
+      width: 100%;
 
       &.last-titles-photo {
 
