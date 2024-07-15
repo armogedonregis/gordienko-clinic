@@ -40,13 +40,46 @@ const location = ref('end');
 }
 
 .dropdown__link {
-  font-size: 10px;
+  font-size: 25px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 95%;
   letter-spacing: 2px;
   text-align: center;
   text-transform: uppercase;
-  color: #393939;
+  color: #FFF;
+}
+
+::v-deep .v-overlay__content {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: 100%;
+  height: 100%;
+  top: 0 !important;
+  left: 0 !important;
+  backdrop-filter: blur(10px);
+}
+
+.v-list-item-title {
+  display: flex;
+  justify-content: center;
+}
+
+.v-menu > .v-overlay__content > .v-card, .v-menu > .v-overlay__content > .v-sheet, .v-menu > .v-overlay__content > .v-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: none;
+  gap: 80px;
+}
+
+@media (max-width: 500px) {
+  .dropdown__link {font-size: 14px}
+  .v-menu > .v-overlay__content > .v-card, .v-menu > .v-overlay__content > .v-sheet, .v-menu > .v-overlay__content > .v-list {
+    gap: 35px;
+  }
 }
 </style>
