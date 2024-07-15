@@ -69,7 +69,7 @@ const startTypingAnimation = () => {
         startTypingAnimation()
       }, 5000)
     }
-  }, 100)
+  }, 50)
 }
 const handleTextIntersect = (entries) => {
   entries.forEach(entry => {

@@ -1887,7 +1887,7 @@ function typeTitle(index) {
 }
 function startTypingAnimation(index) {
   if (!intervals[index]) {
-    intervals[index] = setInterval(() => typeTitle(index), 100)
+    intervals[index] = setInterval(() => typeTitle(index), 50)
   }
 }
 function stopTypingAnimation(index) {
@@ -1924,7 +1924,6 @@ onMounted(() => {
       }
     })
   }
-
   function handleTextIntersect(entries) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
