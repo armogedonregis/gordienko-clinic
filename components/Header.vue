@@ -9,7 +9,7 @@
         <NuxtLink to="/results" :class="getItemColor('/results')" class="nav__link results">Результаты</NuxtLink>
         <NuxtLink to="https://t.me/+79111224888" target="_blank" :class="getItemColor('https://t.me/79111224888')" class="nav__link tg">
           <span class="phone__title">Telegram</span>
-          <span class="phone__number">Oleg Gordienko</span>
+          <span class="phone__number">@Oleg Gordienko</span>
         </NuxtLink>
         <NuxtLink to="tel:79111224888" :class="getItemColor('tel:79111224888')" class="nav__link phone">
           <span class="phone__title">Телефон</span>
@@ -94,20 +94,20 @@ function getItemColor(path) {
         &.tg {display: flex; justify-content: flex-end;}
         &.phone {display: flex; justify-content: flex-end;}
 
+        .phone__title, .phone__number {
+          transition: transform 0.8s ease, opacity 0.8s ease;
+          position: absolute;
+          right: 0;
+          opacity: 1;
+        }
 
         .phone__title {
-          opacity: 1;
-          visibility: visible;
-          transition: opacity 0.4s ease, visibility 0.4s ease;
-          position: absolute;
-          margin-right: auto;
+          transform: translateY(0);
         }
-        
+
         .phone__number {
+          transform: translateY(-100%);
           opacity: 0;
-          visibility: hidden;
-          transition: opacity 0.4s ease, visibility 0.4s ease;
-          text-align: right;
         }
 
         @media (max-width: 1100px) {
@@ -121,13 +121,13 @@ function getItemColor(path) {
 
         @media (hover: hover) {
           &:hover .phone__title {
+            transform: translateY(100%);
             opacity: 0;
-            visibility: hidden;
           }
-          
+
           &:hover .phone__number {
+            transform: translateY(0);
             opacity: 1;
-            visibility: visible;
           }
         }
       }
