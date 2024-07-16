@@ -72,6 +72,14 @@ function toggleAgreeCookies() {
     @media (max-width: 1700px) {
       width: 300px;
     }
+
+    @media (hover: hover) {
+      &:hover {
+        background: #fff;
+        color: rgba(160, 160, 160, 0.63);
+        transition: .4s;
+      }
+    }
   }
 }
 </style>
