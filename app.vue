@@ -48,7 +48,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 8px;
+  width: 3px;
   background-color: var(--scrollbar-background);
 }
 

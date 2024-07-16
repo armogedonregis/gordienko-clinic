@@ -2,7 +2,7 @@
   <div class="landing">
     <section class="landing__video-content title-video-block">
       <h1 class="content__title mobile">доктор гордиенко</h1>
-      <video ref="videoPlayer" class="content__video" :muted="isMuted">
+      <video ref="videoPlayer" class="content__video" loop autoplay :muted="isMuted">
         <source src="/assets/video/homepage2.mp4" type="video/mp4">
       </video>
       <div class="content-video__control">
@@ -119,8 +119,11 @@
       </video>
     </section>
     <section class="landing__description-content">
-      <div class="content-wrapper">
-        <h2 class="description__title-min" id="3" v-html="animatedTitles[3].value"></h2>
+      <div class="content-wrapper sign-animate" :class="{ 'animate': isVisible }">
+        <h2 class="description__title-min">
+          DEEP PLANE FACELIFT (подтяжка лица в глубокой плоскости) 
+          <span>— это модифицированная расширенная методика подтяжки лица. Она позволяет омолаживать лицо комплексно, без эффекта перетянутости и с меньшей вероятностью рубцов и осложнений. Вы получите лицо правильных пропорций и гармоничной формы.»</span>
+        </h2>
         <p class="post__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
       <div class="numbered-wrapper">
@@ -431,8 +434,11 @@
       </video>
     </section>
     <section class="landing__description-content">
-      <div class="content-wrapper">
-        <h2 class="description__title-min" id="4" v-html="animatedTitles[4].value"></h2>
+      <div class="content-wrapper sign-animate" :class="{ 'animate': isVisible }">
+        <h2 class="description__title-min">
+          Подтяжка верхней губы 
+          <span> — невероятно элегантная и тонкая процедура. Эта простая операция способна вернуть молодость, объем и чувственность вашим губам. Операция дает действительно естественные гармоничные результаты, а рубец под носом будет незаметен для окружающих.</span>
+        </h2>
         <p class="post__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
       <div class="numbered-wrapper">
@@ -704,8 +710,11 @@
       </video>
     </section>
     <section class="landing__description-content">
-      <div class="content-wrapper">
-        <h2 class="description__title-min" id="5" v-html="animatedTitles[5].value"></h2>
+      <div class="content-wrapper sign-animate" :class="{ 'animate': isVisible }">
+        <h2 class="description__title-min">
+          Лифтинг лба и бровей 
+          <span> — это высокоэффективная эстетическая операция, которая устраняет нависание бровей и разглаживает морщины в области лба, переносицы и наружных углов глаз.</span>
+        </h2>
         <p class="post__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
       <div class="numbered-wrapper">
@@ -974,8 +983,10 @@
       </video>
     </section>
     <section class="landing__description-content">
-      <div class="content-wrapper">
-        <h2 class="description__title-min" id="6" v-html="animatedTitles[6].value"></h2>
+      <div class="content-wrapper sign-animate" :class="{ 'animate': isVisible }">
+        <h2 class="description__title-min">Платизмопластика (цервикопластика) 
+          <span> — это хирургическая процедура, направленная на омоложение шеи.</span>
+        </h2>
         <p class="post__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
       <div class="numbered-wrapper">
@@ -1251,8 +1262,11 @@
       </video>
     </section>
     <section class="landing__description-content">
-      <div class="content-wrapper">
-        <h2 class="description__title-min" id="7" v-html="animatedTitles[7].value"></h2>
+      <div class="content-wrapper sign-animate" :class="{ 'animate': isVisible }">
+        <h2 class="description__title-min">
+          Блефаропластика 
+          <span> — это хирургическая процедура, в ходе которой устраняются возрастные изменения и эстетические недостатки в области верхних и нижних век.</span>
+        </h2>
         <p class="post__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
       <div class="numbered-wrapper">
@@ -1530,8 +1544,11 @@
       </video>
     </section>
     <section class="landing__description-content">
-      <div class="content-wrapper">
-        <h2 class="description__title-min" id="8" v-html="animatedTitles[8].value"></h2>
+      <div class="content-wrapper sign-animate" :class="{ 'animate': isVisible }">
+        <h2 class="description__title-min">
+          Липофилинг (пересадка жира)
+          <span> — это малоинвазивная процедура добавления или восстановления объема в определенных областях на лице, во время которой используется ваш собственный жир, взятый из бедер, коленей или живота.</span>
+        </h2>
         <p class="post__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       </div>
       <div class="numbered-wrapper">
@@ -1939,7 +1956,8 @@ onMounted(() => {
     '.description__title-min': subtitleObserver,
     '.description__text': textObserver,
     '.description__list': textObserver,
-    '.list__lists': textObserver
+    '.list__lists': textObserver,
+    '.content-wrapper': textObserver
   }
 
   Object.keys(observerMap).forEach(className => {
@@ -2092,8 +2110,6 @@ onUnmounted(() => {
       line-height: 120%;
       letter-spacing: 0.36px;
       text-transform: uppercase;
-      max-width: 1418px;
-      min-height: 260px;
 
       @media (max-width: 1350px) {
         font-size: 22px;
@@ -2106,6 +2122,11 @@ onUnmounted(() => {
       @media (max-width: 700px) {
         font-size: 20px;
         min-height: 150px;
+      }
+
+      span {
+        color: #8A8A8A; 
+        font-family: Accademico;
       }
     }
 
@@ -2179,6 +2200,17 @@ onUnmounted(() => {
         width: 100%;
         max-width: 1400px;
         gap: 150px;
+      }
+    }
+
+    .sign-animate {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+      &.animate {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
@@ -2486,23 +2518,19 @@ onUnmounted(() => {
     .photo__item {
       display: flex;
       align-items: flex-end;
+      justify-content: center;
       background: #000;
       height: 510px;
-      width: 450px;
+      width: 100%;
 
       @media (max-width: 1720px) {
-        width: 25vw;
+        width: 100%;
         height: auto;
 
         img {
           width: 100%;
           height: auto;
         }
-      }
-
-      @media (max-width: 700px) {
-        width: 100%;
-        height: auto;
       }
     }
   }
