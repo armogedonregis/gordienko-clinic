@@ -43,7 +43,7 @@ function handleMouseLeave() {
     align-items: flex-end;
     justify-content: center;
     background: #000;
-    width: 432px;
+    width: 100%;
     height: 469px;
     overflow: hidden;
 

@@ -248,7 +248,8 @@
             </div>
             <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»
               <button class="subtitle__popup-btn" @click="togglePopup">
-                <img src="/public/assets/icons/close.svg">
+                <img src="/public/assets/icons/close.svg" v-if="isPopupOpen">
+                <img src="/public/assets/icons/question-background.svg" v-if="!isPopupOpen">
               </button>. Это онлайн-служба заботы о пациентах,
               предусматривающая полное сопровождение до, во время и после операции</h2>
             <p class="list__info">
@@ -372,7 +373,7 @@
         </div>
       </div>
       <div class="padding-for-wrapper">
-        <button class="show__more-btn">смотреть все работы</button>
+        <button class="show__more-btn black">смотреть все работы</button>
       </div>
     </section>
     <section class="landing__description-content">
@@ -421,7 +422,7 @@
             <h2 class="list__subtitle" style="color: #393939;">Deep Plane Facelift – новый метод подтяжки лица и шеи.
               Почему это лучше обычной SMAS-подтяжки?</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <button class="show__more-btn" style="color: #5493D1; border: 1px solid #5493D1; margin-top: 20px;">смотреть
+            <button class="show__more-btn blue">смотреть
               все работы</button>
           </li>
         </ul>
@@ -518,7 +519,8 @@
             </div>
             <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»
               <button class="subtitle__popup-btn" @click="togglePopup">
-                <img src="/public/assets/icons/close.svg">
+                <img src="/public/assets/icons/close.svg" v-if="isPopupOpen">
+                <img src="/public/assets/icons/question-background.svg" v-if="!isPopupOpen">
               </button>. Это онлайн-служба заботы о пациентах,
               предусматривающая полное сопровождение до, во время и после операции</h2>
             <p class="list__info">
@@ -651,7 +653,7 @@
         </div>
       </div>
       <div class="padding-for-wrapper">
-        <button class="show__more-btn">смотреть все работы</button>
+        <button class="show__more-btn black">смотреть все работы</button>
       </div>
     </section>
     <section class="landing__description-content">
@@ -697,7 +699,7 @@
             <p class="list__date">28.01.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Подтяжка верхней губы LipLift</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <button class="show__more-btn" style="color: #5493D1; border: 1px solid #5493D1; margin-top: 20px;">ЧИТАТЬ
+            <button class="show__more-btn blue">ЧИТАТЬ
               ПОЛНУЮ СТАТЬЮ</button>
           </li>
         </ul>
@@ -790,7 +792,16 @@
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">06</p>
             <h1 class="list__title">Для иногородних пациентов</h1>
-            <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN» . Это онлайн-служба заботы о
+            <div class="list__popup" v-if="isPopupOpen" v-click-outside="closePopup">
+              <img src="/public/assets/icons/question.svg">
+              <p class="popup__info">Fly IN - облет, также называемый авиационным собранием, представляет собой заранее
+                организованное собрание самолетов, пилотов и пассажиров в развлекательных и общественных целях.</p>
+            </div>
+            <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN» 
+              <button class="subtitle__popup-btn" @click="togglePopup">
+                <img src="/public/assets/icons/close.svg" v-if="isPopupOpen">
+                <img src="/public/assets/icons/question-background.svg" v-if="!isPopupOpen">
+              </button>. Это онлайн-служба заботы о
               пациентах, предусматривающая полное сопровождение до, во время и после операции</h2>
             <p class="list__info">В программу входит подбор жилья, встреча с табличкой в аэропорту, трансфер в обе
               стороны, доставка еды и всего, что вам необходимо. Вам будет комфортно находиться в Санкт-Петербурге.</p>
@@ -924,7 +935,7 @@
         </div>
       </div>
       <div class="padding-for-wrapper">
-        <button class="show__more-btn">смотреть все работы</button>
+        <button class="show__more-btn black">смотреть все работы</button>
       </div>
     </section>
     <section class="landing__description-content">
@@ -970,7 +981,7 @@
             <p class="list__date">09.03.24</p>
             <h2 class="list__subtitle" style="color: #393939;">Лифтинг лба и бровей</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <button class="show__more-btn" style="color: #5493D1; border: 1px solid #5493D1; margin-top: 20px;">ЧИТАТЬ
+            <button class="show__more-btn blue">ЧИТАТЬ
               ПОЛНУЮ СТАТЬЮ</button>
           </li>
         </ul>
@@ -1072,7 +1083,8 @@
             </div>
             <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»
               <button class="subtitle__popup-btn" @click="togglePopup">
-                <img src="/public/assets/icons/close.svg">
+                <img src="/public/assets/icons/close.svg" v-if="isPopupOpen">
+                <img src="/public/assets/icons/question-background.svg" v-if="!isPopupOpen">
               </button>. Это онлайн-служба заботы о пациентах,
               предусматривающая полное сопровождение до, во время и после операции</h2>
             <p class="list__info">
@@ -1203,7 +1215,7 @@
         </div>
       </div>
       <div class="padding-for-wrapper">
-        <button class="show__more-btn">смотреть все работы</button>
+        <button class="show__more-btn black">смотреть все работы</button>
       </div>
     </section>
     <section class="landing__description-content">
@@ -1249,7 +1261,7 @@
             <p class="list__date">28.01.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Омоложение и подтяжка шеи</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <button class="show__more-btn" style="color: #5493D1; border: 1px solid #5493D1; margin-top: 20px;">ЧИТАТЬ
+            <button class="show__more-btn blue">ЧИТАТЬ
               ПОЛНУЮ СТАТЬЮ</button>
           </li>
         </ul>
@@ -1348,7 +1360,8 @@
             </div>
             <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»
               <button class="subtitle__popup-btn" @click="togglePopup">
-                <img src="/public/assets/icons/close.svg">
+                <img src="/public/assets/icons/close.svg" v-if="isPopupOpen">
+                <img src="/public/assets/icons/question-background.svg" v-if="!isPopupOpen">
               </button>. Это онлайн-служба заботы о пациентах,
               предусматривающая полное сопровождение до, во время и после операции</h2>
             <p class="list__info">
@@ -1485,7 +1498,7 @@
         </div>
       </div>
       <div class="padding-for-wrapper">
-        <button class="show__more-btn">смотреть все работы</button>
+        <button class="show__more-btn black">смотреть все работы</button>
       </div>
     </section>
     <section class="landing__description-content">
@@ -1531,7 +1544,7 @@
             <p class="list__date">03.02.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Блефаропластика</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <button class="show__more-btn" style="color: #5493D1; border: 1px solid #5493D1; margin-top: 20px;">ЧИТАТЬ
+            <button class="show__more-btn blue">ЧИТАТЬ
               ПОЛНУЮ СТАТЬЮ</button>
           </li>
         </ul>
@@ -1646,7 +1659,8 @@
             </div>
             <h2 class="list__subtitle">я разработал программу медицинского туризма «Fly IN»
               <button class="subtitle__popup-btn" @click="togglePopup">
-                <img src="/public/assets/icons/close.svg">
+                <img src="/public/assets/icons/close.svg" v-if="isPopupOpen">
+                <img src="/public/assets/icons/question-background.svg" v-if="!isPopupOpen">
               </button>. Это онлайн-служба заботы о пациентах,
               предусматривающая полное сопровождение до, во время и после операции</h2>
             <p class="list__info">
@@ -1774,7 +1788,7 @@
         </div>
       </div>
       <div class="padding-for-wrapper">
-        <button class="show__more-btn">смотреть все работы</button>
+        <button class="show__more-btn black">смотреть все работы</button>
       </div>
     </section>
     <section class="landing__description-content">
@@ -1818,7 +1832,7 @@
             <p class="list__date">23.12.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Липофилинг лица</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <button class="show__more-btn" style="color: #5493D1; border: 1px solid #5493D1; margin-top: 20px;">ЧИТАТЬ
+            <button class="show__more-btn blue">ЧИТАТЬ
               ПОЛНУЮ СТАТЬЮ</button>
           </li>
         </ul>
@@ -2577,14 +2591,12 @@ onUnmounted(() => {
     height: 50px;
     justify-content: center;
     align-items: center;
-    color: #393939;
     font-family: Grafitello;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 95%;
     text-transform: uppercase;
-    border: 0.7px solid #393939;
     background: none;
 
     @media (max-width: 1350px) {
@@ -2596,6 +2608,33 @@ onUnmounted(() => {
       height: 40px;
       width: 260px;
       font-size: 12px;
+    }
+
+    &.black {
+      color: #393939;
+      border: 0.7px solid #393939;
+
+      @media (hover: hover) {
+        &:hover {
+          background: #393939;
+          color: #fff;
+          transition: .8s;
+        }
+      }
+    }
+
+    &.blue {
+      color: #5493D1;
+      border: 1px solid #5493D1;
+      margin-top: 20px;
+
+      @media (hover: hover) {
+        &:hover {
+          background: #5493D1;
+          color: #fff;
+          transition: .8s;
+        }
+      }
     }
   }
 }
