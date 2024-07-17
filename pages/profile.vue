@@ -373,7 +373,7 @@
         </div>
       </div>
       <div class="padding-for-wrapper">
-        <button class="show__more-btn black">смотреть все работы</button>
+        <NuxtLink :to="{ path: '/results', query: { view: 'watch' } }" class="show__more-btn black">смотреть все работы</NuxtLink>
       </div>
     </section>
     <section class="landing__description-content">
@@ -405,9 +405,9 @@
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
             </h2>
             <p class="list__info">
-              Если ответа на ваш вопрос там нет, смело пишите/звоните.<br>
-              +7 911 122 48 88<br>
-              oleg@gordienko.doctor<br>
+              <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
+              <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
+              <NuxtLink to="mailto:oleg@gordienko.doctor">oleg@gordienko.doctor</NuxtLink><br>
             </p>
           </li>
         </ul>
@@ -422,8 +422,7 @@
             <h2 class="list__subtitle" style="color: #393939;">Deep Plane Facelift – новый метод подтяжки лица и шеи.
               Почему это лучше обычной SMAS-подтяжки?</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <button class="show__more-btn blue">смотреть
-              все работы</button>
+            <NuxtLink to="/article/1" class="show__more-btn blue">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
           </li>
         </ul>
       </div>
@@ -653,7 +652,7 @@
         </div>
       </div>
       <div class="padding-for-wrapper">
-        <button class="show__more-btn black">смотреть все работы</button>
+        <NuxtLink :to="{ path: '/results', query: { view: 'watch' } }" class="show__more-btn black">смотреть все работы</NuxtLink>
       </div>
     </section>
     <section class="landing__description-content">
@@ -683,9 +682,9 @@
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
             </h2>
             <p class="list__info">
-              Если ответа на ваш вопрос там нет, смело пишите/звоните.<br>
-              +7 911 122 48 88<br>
-              oleg@gordienko.doctor
+              <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
+              <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
+              <NuxtLink to="mailto:oleg@gordienko.doctor">oleg@gordienko.doctor</NuxtLink><br>
             </p>
           </li>
         </ul>
@@ -699,8 +698,7 @@
             <p class="list__date">28.01.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Подтяжка верхней губы LipLift</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <button class="show__more-btn blue">ЧИТАТЬ
-              ПОЛНУЮ СТАТЬЮ</button>
+            <NuxtLink to="/article/8" class="show__more-btn blue">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
           </li>
         </ul>
       </div>
@@ -935,7 +933,7 @@
         </div>
       </div>
       <div class="padding-for-wrapper">
-        <button class="show__more-btn black">смотреть все работы</button>
+        <NuxtLink :to="{ path: '/results', query: { view: 'watch' } }" class="show__more-btn black">смотреть все работы</NuxtLink>
       </div>
     </section>
     <section class="landing__description-content">
@@ -965,9 +963,9 @@
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
             </h2>
             <p class="list__info">
-              Если ответа на ваш вопрос там нет, смело пишите/звоните.<br>
-              +7 911 122 48 88<br>
-              oleg@gordienko.doctor
+              <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
+              <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
+              <NuxtLink to="mailto:oleg@gordienko.doctor">oleg@gordienko.doctor</NuxtLink><br>
             </p>
           </li>
         </ul>
@@ -981,8 +979,7 @@
             <p class="list__date">09.03.24</p>
             <h2 class="list__subtitle" style="color: #393939;">Лифтинг лба и бровей</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <button class="show__more-btn blue">ЧИТАТЬ
-              ПОЛНУЮ СТАТЬЮ</button>
+            <NuxtLink to="/article/2" class="show__more-btn blue">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
           </li>
         </ul>
       </div>
@@ -1215,7 +1212,7 @@
         </div>
       </div>
       <div class="padding-for-wrapper">
-        <button class="show__more-btn black">смотреть все работы</button>
+        <NuxtLink :to="{ path: '/results', query: { view: 'watch' } }" class="show__more-btn black">смотреть все работы</NuxtLink>
       </div>
     </section>
     <section class="landing__description-content">
@@ -1245,9 +1242,9 @@
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
             </h2>
             <p class="list__info">
-              Если ответа на ваш вопрос там нет, смело пишите/звоните.<br>
-              +7 911 122 48 88<br>
-              oleg@gordienko.doctor
+              <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
+              <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
+              <NuxtLink to="mailto:oleg@gordienko.doctor">oleg@gordienko.doctor</NuxtLink><br>
             </p>
           </li>
         </ul>
@@ -1261,8 +1258,7 @@
             <p class="list__date">28.01.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Омоложение и подтяжка шеи</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <button class="show__more-btn blue">ЧИТАТЬ
-              ПОЛНУЮ СТАТЬЮ</button>
+            <NuxtLink to="/article/7" class="show__more-btn blue">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
           </li>
         </ul>
       </div>
@@ -1498,7 +1494,7 @@
         </div>
       </div>
       <div class="padding-for-wrapper">
-        <button class="show__more-btn black">смотреть все работы</button>
+        <NuxtLink :to="{ path: '/results', query: { view: 'watch' } }" class="show__more-btn black">смотреть все работы</NuxtLink>
       </div>
     </section>
     <section class="landing__description-content">
@@ -1528,9 +1524,9 @@
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
             </h2>
             <p class="list__info">
-              Если ответа на ваш вопрос там нет, смело пишите/звоните.<br>
-              +7 911 122 48 88<br>
-              oleg@gordienko.doctor
+              <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
+              <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
+              <NuxtLink to="mailto:oleg@gordienko.doctor">oleg@gordienko.doctor</NuxtLink><br>
             </p>
           </li>
         </ul>
@@ -1544,8 +1540,7 @@
             <p class="list__date">03.02.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Блефаропластика</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <button class="show__more-btn blue">ЧИТАТЬ
-              ПОЛНУЮ СТАТЬЮ</button>
+            <NuxtLink to="/article/6" class="show__more-btn blue">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
           </li>
         </ul>
       </div>
@@ -1788,7 +1783,7 @@
         </div>
       </div>
       <div class="padding-for-wrapper">
-        <button class="show__more-btn black">смотреть все работы</button>
+        <NuxtLink :to="{ path: '/results', query: { view: 'watch' } }" class="show__more-btn black">смотреть все работы</NuxtLink>
       </div>
     </section>
     <section class="landing__description-content">
@@ -1816,9 +1811,9 @@
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
             </h2>
             <p class="list__info">
-              Если ответа на ваш вопрос там нет, смело пишите/звоните.<br>
-              +7 911 122 48 88<br>
-              oleg@gordienko.doctor
+              <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
+              <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
+              <NuxtLink to="mailto:oleg@gordienko.doctor">oleg@gordienko.doctor</NuxtLink><br>
             </p>
           </li>
         </ul>
@@ -1832,8 +1827,7 @@
             <p class="list__date">23.12.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Липофилинг лица</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <button class="show__more-btn blue">ЧИТАТЬ
-              ПОЛНУЮ СТАТЬЮ</button>
+            <NuxtLink to="/article/4" class="show__more-btn blue">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
           </li>
         </ul>
       </div>
@@ -2459,6 +2453,17 @@ onUnmounted(() => {
         font-weight: 400;
         line-height: 130%;
         opacity: 0.85;
+
+        span, a {
+          color: #393939;
+          text-align: justify;
+          font-family: Accademico;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 130%;
+          opacity: 0.85;
+        }
 
         @media (max-width: 1350px) {
           font-size: 14px;

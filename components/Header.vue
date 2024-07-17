@@ -6,7 +6,7 @@
         <NuxtLink to="/blog" :class="getItemColor('/blog')" class="nav__link blog">Блог</NuxtLink>
         <NuxtLink to="/profile" :class="getItemColor('/profile')" class="nav__link profile">Доктор Гордиенко</NuxtLink>
         <NuxtLink to="/" class="nav__logo-link"><img src="/assets/images/logo.png" class="nav__logo"></NuxtLink>
-        <NuxtLink to="/results" :class="getItemColor('/results')" class="nav__link results">Результаты</NuxtLink>
+        <NuxtLink :to="{ path: '/results', query: { view: 'read' } }" :class="getItemColor('/results')" class="nav__link results">Результаты</NuxtLink>
         <NuxtLink to="https://t.me/+79111224888" target="_blank" :class="getItemColor('https://t.me/79111224888')" class="nav__link tg">
           <span class="phone__title">Telegram</span>
           <span class="phone__number">@Oleg Gordienko</span>

@@ -3,8 +3,8 @@
     <nav class="results__nav">
       <NuxtLink class="nav__link mobile-first-link" @click="toggleRead">ИСТОРИИ ПРЕОБРАЖЕНИЯ</NuxtLink>
       <div class="nav__center-links">
-        <NuxtLink :class="isReadActive ? 'nav__link' : 'nav__link-active'" @click="toggleWatch">ПОСМОТРЕТЬ</NuxtLink>
-        <NuxtLink :class="isWatchActive ? 'nav__link' : 'nav__link-active'" @click="toggleRead">ПОЧИТАТЬ</NuxtLink>
+        <NuxtLink :to="{ path: '/results', query: { view: 'watch' } }" :class="isReadActive ? 'nav__link' : 'nav__link-active'">ПОСМОТРЕТЬ</NuxtLink>
+        <NuxtLink :to="{ path: '/results', query: { view: 'read' } }" :class="isWatchActive ? 'nav__link' : 'nav__link-active'">ПОЧИТАТЬ</NuxtLink>
       </div>
       <NuxtLink to="/profile#deep-plane-faceLift" class="nav__link desktop">Deep plane facelift</NuxtLink>
       <NuxtLink class="nav__link mobile">Истории преображения</NuxtLink>
@@ -15,20 +15,24 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import ReadResults from '/components/ReadResults';
 import WatchResults from '/components/WatchResults';
 
+const route = useRoute()
 const isReadActive = ref(true)
 const isWatchActive = ref(false)
-function toggleRead() {
-  isReadActive.value = true
-  isWatchActive.value = false
-}
-function toggleWatch() {
-  isReadActive.value = false
-  isWatchActive.value = true
-}
+
+watch(() => route.query, (newQuery) => {
+  if (newQuery.view === 'watch') {
+    isWatchActive.value = true
+    isReadActive.value = false
+  } else if (newQuery.view === 'read') {
+    isReadActive.value = true
+    isWatchActive.value = false
+  }
+}, { immediate: true })
 </script>
 
 <style lang="scss" scoped>

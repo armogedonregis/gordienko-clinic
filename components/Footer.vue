@@ -108,10 +108,17 @@ function openFaqPopup() {
           width: 100%;
         }
 
-        img {
+        .description__photo {
           width: 100%;
           height: auto;
           margin-top: 0;
+
+          @media (hover: hover) {
+            &:hover {
+              filter: grayscale(100%);
+              transition: .8s;
+            }
+          }
         }
 
         &:last-child {
