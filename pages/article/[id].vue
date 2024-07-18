@@ -33,9 +33,9 @@
       </p>
       <div class="content__posts" v-for="(posts, index) in article.articleContent.contentBlocks" :key="index">
         <h1 class="posts__title" v-if="posts.title">{{ posts.title }}</h1>
-        <div class="posts__tight" v-for="(point, pointIndex) in posts.points" :key="pointIndex">
-          <span>{{ point.subtitle }}</span>
-          <p>{{ point.blockText }}</p>
+        <div class="posts__tight" :class="{ 'animate': isVisible }" v-for="(point, pointIndex) in posts.points" :key="pointIndex">
+          <span v-if="point.subtitle">{{ point.subtitle }}</span>
+          <p v-if="point.blockText">{{ point.blockText }}</p>
           <img v-if="point.image" :src="point.image">
         </div>
       </div>
@@ -90,10 +90,14 @@ onMounted(() => {
   const textOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.3
+    threshold: 0
   }
   textObserver = new IntersectionObserver(handleTextIntersect, textOptions)
 
+  const blockElements = document.querySelectorAll('.posts__tight')
+  blockElements.forEach(el => {
+    textObserver.observe(el)
+  })
   const textElements = document.querySelectorAll('.content__wide')
   textElements.forEach(el => {
     textObserver.observe(el)
@@ -512,6 +516,9 @@ onUnmounted(() => {
         flex-direction: column;
         gap: 20px;
         width: 756px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 
         @media (max-width: 900px) {
           width: 660px;
@@ -561,6 +568,11 @@ onUnmounted(() => {
             object-fit: cover;
           }
         }
+
+        &.animate {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     }
   }
@@ -595,6 +607,14 @@ onUnmounted(() => {
       width: 300px;
       height: 40px;
       font-size: 12px;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background: #5493D1;
+        color: #FFF;
+        transition: .8s;
+      }
     }
   }
 }

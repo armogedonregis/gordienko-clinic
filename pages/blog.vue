@@ -328,6 +328,14 @@ onUnmounted(() => {
           font-size: 12px;
           margin-right: 0;
         }
+
+        @media (hover: hover) {
+          &:hover {
+            background: #5493D1;
+            color: #FFF;
+            transition: .8s;
+          }
+        }
       }
     }
 
