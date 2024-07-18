@@ -1,5 +1,5 @@
 <template>
-  <div class="watch__results"  v-for="(caseItem, index) in casesData.cases" :key="index">
+  <div class="watch__results" v-for="(caseItem, index) in casesData.cases" :key="index">
     <div class="results__item" v-for="(photo, photoIndex) in caseItem.images" :key="photoIndex" @mouseenter="handleMouseEnter(index, photoIndex)" @mouseleave="handleMouseLeave">
       <img :src="photo" class="results__photo" :class="{'grayscale': activeIndex !== null && activeIndex !== `${index}-${photoIndex}`}">
     </div>
@@ -22,8 +22,9 @@ function handleMouseLeave() {
 <style lang="scss" scoped>
 .watch__results {
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(4, 1fr);
   width: 100%;
+  gap: 0;
 
   @media (max-width: 700px) {
     grid-template-columns: repeat(2, auto);
@@ -46,9 +47,9 @@ function handleMouseLeave() {
     width: 100%;
     height: 469px;
     overflow: hidden;
+    border: 1px solid rgba(138, 138, 138, 0.50);
 
     @media (max-width: 1728px) {
-      width: 25vw;
       height: auto;
     }
 
@@ -60,16 +61,25 @@ function handleMouseLeave() {
     .results__photo {
       width: auto;
       height: auto;
-      object-fit: cover;
+      overflow: hidden;
 
       @media (max-width: 1728px) {
         width: 100%;
-        height: 100%;
       }
 
       &.grayscale {
         filter: grayscale(100%);
         transition: .8s;
+      }
+    }
+
+    &:nth-last-child(-n+4) {
+      border-bottom: none;
+    }
+
+    @media (max-width: 700px) {
+      &:nth-last-child(-n+2) {
+        border-bottom: none;
       }
     }
   }

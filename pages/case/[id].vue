@@ -116,7 +116,8 @@ onUnmounted(() => {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 853px;
+    height: 850px;
+    overflow: hidden;
 
     @media (max-width: 1720px) {
       height: auto;
@@ -182,13 +183,11 @@ onUnmounted(() => {
         display: flex;
         align-items: flex-end;
         justify-content: center;
-        width: 853px;
+        width: 100%;
         height: 100%;
+        max-height: 850px;
         overflow: hidden;
-
-        @media (max-width: 1720px) {
-          width: 49.36vw;
-        }
+        border: 1px solid rgba(138, 138, 138, 0.50);
 
         @media (max-width: 700px) {
           width: 100%;
@@ -219,7 +218,8 @@ onUnmounted(() => {
     .case__photos {
       display: flex;
       width: 100%;
-      height: 191px;
+      height: 100%;
+      max-height: 250px;
       background: #000;
 
       @media (max-width: 1720px) {
@@ -229,18 +229,19 @@ onUnmounted(() => {
       @media (max-width: 700px) {
         display: grid;
         grid-template-columns: repeat(2, auto);
+        max-height: 100%;
       }
 
       .photos__item {
-        width: 216px;
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
         height: 100%;
-
-        @media (max-width: 1720px) {
-          width: 12.5vw;
-        }
+        border: 1px solid rgba(138, 138, 138, 0.50);
+        border-top: none;
+        overflow: hidden;
 
         @media (max-width: 700px) {
-          width: 100%;
           height: auto;
         }
 

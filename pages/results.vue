@@ -1,7 +1,7 @@
 <template>
   <div class="results">
     <nav class="results__nav">
-      <NuxtLink class="nav__link mobile-first-link" @click="toggleRead">ИСТОРИИ ПРЕОБРАЖЕНИЯ</NuxtLink>
+      <h1 class="nav__link mobile-first-link" style="cursor: default;">ИСТОРИИ ПРЕОБРАЖЕНИЯ</h1>
       <div class="nav__center-links">
         <NuxtLink :to="{ path: '/results', query: { view: 'watch' } }" :class="isReadActive ? 'nav__link' : 'nav__link-active'">ПОСМОТРЕТЬ</NuxtLink>
         <NuxtLink :to="{ path: '/results', query: { view: 'read' } }" :class="isWatchActive ? 'nav__link' : 'nav__link-active'">ПОЧИТАТЬ</NuxtLink>

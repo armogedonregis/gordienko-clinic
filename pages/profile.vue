@@ -2529,7 +2529,7 @@ onUnmounted(() => {
     grid-template-columns: repeat(4, auto);
     width: 100%;
     overflow: hidden;
-
+    
     @media (max-width: 700px) {
       grid-template-columns: repeat(2, auto);
     }
@@ -2539,8 +2539,9 @@ onUnmounted(() => {
       align-items: flex-end;
       justify-content: center;
       background: #000;
-      height: 510px;
+      height: 520px;
       width: 100%;
+      border: 1px solid rgba(138, 138, 138, 0.50);
 
       @media (max-width: 1720px) {
         width: 100%;
