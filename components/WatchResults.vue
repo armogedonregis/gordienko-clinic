@@ -1,7 +1,7 @@
 <template>
   <div class="watch__results" v-for="(caseItem, index) in casesData.cases" :key="index">
     <div class="results__item" v-for="(photo, photoIndex) in caseItem.images" :key="photoIndex" @mouseenter="handleMouseEnter(index, photoIndex)" @mouseleave="handleMouseLeave">
-      <img :src="photo" class="results__photo" :class="{'grayscale': activeIndex !== null && activeIndex !== `${index}-${photoIndex}`}">
+      <img :src="photo" class="results__photo" :class="{'grayscale': activeRow === index}">
     </div>
   </div>
 </template>
@@ -10,12 +10,12 @@
 import { ref } from 'vue';
 import casesData from "/server/cases.json";
 
-const activeIndex = ref(null)
-const handleMouseEnter = (caseIndex, photoIndex) => {
-  activeIndex.value = `${caseIndex}-${photoIndex}`
+const activeRow = ref(null)
+const handleMouseEnter = (caseIndex) => {
+  activeRow.value = caseIndex
 }
 function handleMouseLeave() {
-  activeIndex.value = null
+  activeRow.value = null
 }
 </script>
 
