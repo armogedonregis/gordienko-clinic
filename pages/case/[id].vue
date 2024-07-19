@@ -1,9 +1,9 @@
 <template>
   <div class="case">
-    <div class="case__swiper">
+    <div class="case__swiper" >
       <nav class="swiper__nav" v-if="caseItem.images.length > 0">
-        <button :class="['nav__link', { 'nav__link-active': hasPrevStory }]" @click="switchPrevStory">Предыдущая история</button>
-        <button :class="['nav__link', { 'nav__link-active': hasNextStory }]" @click="switchNextStory">Следующая история</button>
+        <button class="nav__link" @click="switchPrevStory">Предыдущая история</button>
+        <button class="nav__link" @click="switchNextStory">Следующая история</button>
       </nav>
       <div class="swiper__item-wrapper" v-if="caseItem.images.length > 0">
         <div class="swiper__item" v-for="(photo, index) in caseItem.imagesBig" :key="index">
@@ -31,8 +31,8 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { computed, ref, onMounted, onUnmounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import casesData from '/server/cases.json'
 
 const route = useRoute()
@@ -42,17 +42,16 @@ const caseItem = computed(() => {
   return casesData.cases.find(a => a.id === caseId)
 })
 
-const hasPrevStory = computed(() => caseId > 1)
-const hasNextStory = computed(() => caseId < Math.max(...casesData.cases.map(c => c.id)))
 function switchPrevStory() {
-  if (hasPrevStory.value) {
-    router.push(`/case/${caseId - 1}`)
-  }
+  const casesLength = casesData.cases.length;
+  const newId = caseId - 1 < 1 ? casesLength : caseId - 1;
+  router.push(`/case/${newId}`);
 }
+
 function switchNextStory() {
-  if (hasNextStory.value) {
-    router.push(`/case/${caseId + 1}`)
-  }
+  const casesLength = casesData.cases.length;
+  const newId = caseId + 1 > casesLength ? 1 : caseId + 1;
+  router.push(`/case/${newId}`);
 }
 
 const displayedTitle = ref('')
@@ -141,7 +140,6 @@ onUnmounted(() => {
         text-transform: uppercase;
         transform: rotate(-90deg);
         margin-left: -40px;
-        opacity: 0.5;
 
         @media (hover: hover) {
           &:hover {opacity: 1; transition: .4s;}
@@ -158,14 +156,6 @@ onUnmounted(() => {
           @media (max-width: 700px) {
             font-size: 16px;
             margin-right: -75px;
-          }
-        }
-
-        &.nav__link-active {
-          opacity: 1;
-
-          @media (hover: hover) {
-            &:hover {opacity: 0.5; transition: .4s;}
           }
         }
       }
