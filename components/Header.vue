@@ -86,6 +86,8 @@ function getItemColor(path) {
         }
 
         &::before, &::after {
+          display: flex;
+          justify-content: flex-end;
           content: '';
           position: absolute;
           width: 100%;
@@ -112,6 +114,7 @@ function getItemColor(path) {
           &.results { display: none; }
           &.tg { order: 2; }
           &.phone { order: 4; }
+          &.tg::before, &.tg::after, &.phone::before, &.phone::after { justify-content: center; }
         }
 
         @media (hover: hover) {
