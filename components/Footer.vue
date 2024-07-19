@@ -50,9 +50,12 @@
       <NuxtLink to="#" target="_blank" class="link">Политика конфиденциальности</NuxtLink>
       <NuxtLink to="https://www.igorstepanov.art/" target="_blank" class="link"> IGORSTEPANOV.ART ©{{ currentYear }}</NuxtLink>
     </nav>
-    <Transition name="slide-fade">
-      <FaqPopup v-if="store.state.isFaqPopupOpen"/>
-    </Transition>
+    <div class="footer__popup-wrapper">
+      <div class="popup__overlay" v-if="store.state.isOverlayOpen"></div>
+      <Transition name="slide-fade">
+        <FaqPopup v-if="store.state.isFaqPopupOpen"/>
+      </Transition>
+    </div>
   </footer>
 </template>
 
@@ -291,16 +294,31 @@ function openFaqPopup() {
     }
   }
 
-  .slide-fade-enter-active, .slide-fade-leave-active {
-    transition: transform 0.5s ease, opacity 0.5s ease;
-  }
-  .slide-fade-enter-from, .slide-fade-leave-to {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  .slide-fade-enter-to, .slide-fade-leave-from {
-    transform: translateY(0);
-    opacity: 1;
+  .footer__popup-wrapper {
+
+    .popup__overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba(160, 160, 160, 0.59);
+      z-index: 8;
+      left: 0;
+      top: 0;
+    }
+    
+    .slide-fade-enter-active, .slide-fade-leave-active {
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .slide-fade-enter-from, .slide-fade-leave-to {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+
+    .slide-fade-enter-to, .slide-fade-leave-from {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 }
 </style>

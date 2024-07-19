@@ -1,6 +1,5 @@
 <template>
   <div class="faq__popup">
-    <div class="popup__overlay"></div>
     <div class="popup__modal">
       <div class="modal__title-wrapper">
         <button class="close" @click="closeFaqPopup">
@@ -41,14 +40,6 @@ function closeFaqPopup() {
   overflow-y: scroll;
   --scrollbar-background: #f9fbfc;
   --scrollbar-thumb: #d4d4d4;
-
-  .popup__overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(160, 160, 160, 0.59);
-    z-index: 8;
-  }
 
   .popup__modal {
     position: relative;
