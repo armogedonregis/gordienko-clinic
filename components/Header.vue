@@ -7,14 +7,8 @@
         <NuxtLink to="/profile" :class="getItemColor('/profile')" class="nav__link profile">Доктор Гордиенко</NuxtLink>
         <NuxtLink to="/" class="nav__logo-link"><img src="/assets/images/logo.png" class="nav__logo"></NuxtLink>
         <NuxtLink :to="{ path: '/results', query: { view: 'read' } }" :class="getItemColor('/results')" class="nav__link results">Результаты</NuxtLink>
-        <NuxtLink to="https://t.me/+79111224888" target="_blank" :class="getItemColor('https://t.me/79111224888')" class="nav__link tg">
-          <span class="phone__title">Telegram</span>
-          <span class="phone__number">@Oleg Gordienko</span>
-        </NuxtLink>
-        <NuxtLink to="tel:79111224888" :class="getItemColor('tel:79111224888')" class="nav__link phone">
-          <span class="phone__title">Телефон</span>
-          <span class="phone__number">+7 (911) 122-48-88</span>
-        </NuxtLink>
+        <NuxtLink to="https://t.me/+79111224888" target="_blank" :class="getItemColor('https://t.me/79111224888')" class="nav__link tg" data-title="Telegram" data-number="@Oleg Gordienko"></NuxtLink>
+        <NuxtLink to="tel:79111224888" :class="getItemColor('tel:79111224888')" class="nav__link phone" data-title="Телефон" data-number="+7 (911) 122-48-88"></NuxtLink>
       </nav>
       <BaseDropdown class="header__nav-mobile"/>
     </header>
@@ -81,50 +75,52 @@ function getItemColor(path) {
         width: 142px;
         text-align: center;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
 
         @media (max-width: 800px) {
           opacity: 0;
         }
 
-        &.dp {display: flex; justify-content: flex-start;}
-        &.blog {display: flex; justify-content: center;}
-        &.profile {display: flex; justify-content: flex-start;}
-        &.results {display: flex; justify-content: flex-end;}
-        &.tg {display: flex; justify-content: flex-end;}
-        &.phone {display: flex; justify-content: flex-end;}
-
-        .phone__title, .phone__number {
-          transition: transform 0.8s ease, opacity 0.8s ease;
+        &::before, &::after {
+          content: '';
           position: absolute;
-          right: 0;
+          width: 100%;
+          text-align: center;
+          transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        &::before {
+          content: attr(data-title);
+          transform: translateY(0);
           opacity: 1;
         }
 
-        .phone__title {
-          transform: translateY(0);
-        }
-
-        .phone__number {
+        &::after {
+          content: attr(data-number);
           transform: translateY(-100%);
           opacity: 0;
         }
 
         @media (max-width: 1100px) {
-          &.dp {order: 1;}
-          &.blog {display: none;}
-          &.profile {order: 5;}
-          &.results {display: none;}
-          &.tg {order: 2; justify-content: center;}
-          &.phone {order: 4; display: flex; justify-content: center;}
+          &.dp { order: 1; }
+          &.blog { display: none; }
+          &.profile { order: 5; }
+          &.results { display: none; }
+          &.tg { order: 2; }
+          &.phone { order: 4; }
         }
 
         @media (hover: hover) {
-          &:hover .phone__title {
+          &:hover::before {
             transform: translateY(100%);
             opacity: 0;
           }
 
-          &:hover .phone__number {
+          &:hover::after {
             transform: translateY(0);
             opacity: 1;
           }
