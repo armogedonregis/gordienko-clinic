@@ -1,9 +1,9 @@
 <template>
   <div class="case">
-    <div class="case__swiper" >
+    <div class="case__swiper">
       <nav class="swiper__nav" v-if="caseItem.images.length > 0">
-        <button class="nav__link" @click="switchPrevStory">Предыдущая история</button>
-        <button class="nav__link" @click="switchNextStory">Следующая история</button>
+        <button class="nav__link" @mouseenter="hoverPrev = true" @mouseleave="hoverPrev = false" @click="switchPrevStory" :style="{ opacity: hoverNext ? 0.5 : 1 }">Предыдущая история</button>
+        <button class="nav__link" @mouseenter="hoverNext = true" @mouseleave="hoverNext = false" @click="switchNextStory" :style="{ opacity: hoverPrev ? 0.5 : 1 }">Следующая история</button>
       </nav>
       <div class="swiper__item-wrapper" v-if="caseItem.images.length > 0">
         <div class="swiper__item" v-for="(photo, index) in caseItem.imagesBig" :key="index">
@@ -34,6 +34,9 @@
 import { computed, ref, onMounted, onUnmounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import casesData from '/server/cases.json'
+
+const hoverPrev = ref(false)
+const hoverNext = ref(false)
 
 const route = useRoute()
 const router = useRouter()
@@ -141,8 +144,8 @@ onUnmounted(() => {
         transform: rotate(-90deg);
         margin-left: -40px;
 
-        @media (hover: hover) {
-          &:hover {opacity: 1; transition: .4s;}
+        @media (max-width: 1050px) {
+          font-size: 6px;
         }
 
         @media (max-width: 700px) {
@@ -152,6 +155,10 @@ onUnmounted(() => {
 
         &:last-child {
           margin-right: -35px;
+
+          @media (max-width: 1050px) {
+            font-size: 6px;
+          }
 
           @media (max-width: 700px) {
             font-size: 16px;
