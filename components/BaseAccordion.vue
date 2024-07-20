@@ -9,8 +9,8 @@
         <v-expansion-panel-title>
           {{ item.question }}
           <template v-slot:actions>
-            <img v-if="openPanel !== index" src="/public/assets/icons/plus.svg">
-            <img v-if="openPanel === index" src="/public/assets/icons/cross-thin.svg">
+            <img v-if="openPanel !== index" src="/public/assets/icons/plus.svg" class="plus">
+            <img v-if="openPanel === index" src="/public/assets/icons/cross-thin.svg" class="cross">
           </template>
         </v-expansion-panel-title>
         <v-expansion-panel-text>
@@ -71,6 +71,8 @@ const openPanel = ref(null)
   display: none !important;
 }
 
+.plus, .cross {margin-left: 20px;}
+
 @media (max-width: 1350px) {
   ::v-deep .v-expansion-panel-title {
     font-size: 15px !important;
@@ -85,11 +87,15 @@ const openPanel = ref(null)
     padding: 0 !important;
     padding-right: 50px !important;
   }
+
+  .plus, .cross {width: 30px; height: 30px;}
 }
 
 @media (max-width: 850px) {
   ::v-deep .v-expansion-panel-title {
     font-size: 10px !important;
   }
+
+  .plus, .cross {width: 24px; height: 24px;}
 }
 </style>
