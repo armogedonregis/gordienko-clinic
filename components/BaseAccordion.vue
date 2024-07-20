@@ -1,18 +1,31 @@
 <template>
   <div>
-    <v-expansion-panels variant="accordion" style="width: 100%;">
+    <v-expansion-panels style="width: 100%;" v-model="openPanel">
       <v-expansion-panel
-        v-for="item in faq.faq"
-        :key="item"
-        :text="item.answer"
-        :title="item.question"
-      ></v-expansion-panel>
+        v-for="(item, index) in faq.faq"
+        :key="index"
+        :value="index"
+      >
+        <v-expansion-panel-title>
+          {{ item.question }}
+          <template v-slot:actions>
+            <img v-if="openPanel !== index" src="/public/assets/icons/plus.svg">
+            <img v-if="openPanel === index" src="/public/assets/icons/cross-thin.svg">
+          </template>
+        </v-expansion-panel-title>
+        <v-expansion-panel-text>
+          {{ item.answer }}
+        </v-expansion-panel-text>
+      </v-expansion-panel>
     </v-expansion-panels>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import faq from '/server/faq.json';
+
+const openPanel = ref(null)
 </script>
 
 <style lang="scss" scoped>
