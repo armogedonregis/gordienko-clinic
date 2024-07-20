@@ -1,11 +1,11 @@
 <template>
   <div class="read__results">
-    <div class="results__item" v-for="story in casesData.cases" :key="story">
-      <div class="item__container">
+    <div class="results__item" v-for="(story, index) in casesData.cases" :key="index">
+      <div class="item__container" :class="{ animate: isVisible[index] }" ref="items">
         <h1 class="item__title">{{ story.title }}</h1>
         <h2 class="item__subtitle">{{ story.subtitle }}</h2>
         <p class="item__text">{{ story.shortStory }}</p>
-        <NuxtLink :to="`/case/${story.id}`" class="item__more-btn">читать  далее</NuxtLink>
+        <NuxtLink :to="`/case/${story.id}`" class="item__more-btn">читать далее</NuxtLink>
       </div>
     </div>
   </div>
@@ -13,30 +13,36 @@
 
 <script setup>
 import casesData from '/server/cases.json';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
-let textObserver = null
-const handleTextIntersect = (entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animate')
-    } else {
-      entry.target.classList.remove('animate')
-    }
-  })
+const items = ref([])
+const isVisible = ref([])
+const observeItems = () => {
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const index = items.value.indexOf(entry.target)
+        if (index !== -1) {
+          isVisible.value[index] = entry.isIntersecting
+        }
+      })
+    }, { threshold: 0.1 })
+
+    items.value.forEach((item, index) => {
+      isVisible.value[index] = false
+      observer.observe(item)
+    })
+
+    onBeforeUnmount(() => {
+      items.value.forEach((item) => {
+        observer.unobserve(item)
+      })
+    })
+  }
 }
 
 onMounted(() => {
-  const textOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0
-  }
-  textObserver = new IntersectionObserver(handleTextIntersect, textOptions)
-
-  const textElements = document.querySelectorAll('.item__container')
-  textElements.forEach(el => {
-    textObserver.observe(el)
-  })
+  observeItems()
 })
 </script>
 
@@ -70,7 +76,13 @@ onMounted(() => {
       height: 100%;
       width: 100%;
       transform: translateY(70px);
+      opacity: 0;
       transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+      &.animate {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
       .item__title {
         color: #FFF;
@@ -167,11 +179,6 @@ onMounted(() => {
           width: 300px;
           height: 40px;
         }
-      }
-
-      &.animate {
-        opacity: 1;
-        transform: translateY(0);
       }
     }
   }
