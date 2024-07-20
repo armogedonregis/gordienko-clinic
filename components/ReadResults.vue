@@ -23,10 +23,14 @@ const observeItems = () => {
       entries.forEach((entry) => {
         const index = items.value.indexOf(entry.target)
         if (index !== -1) {
-          isVisible.value[index] = entry.isIntersecting
+          if (entry.isIntersecting) {
+            isVisible.value[index] = true
+          } else if (entry.boundingClientRect.top > 0) {
+            isVisible.value[index] = false
+          }
         }
       })
-    }, { threshold: 0.1 })
+    }, { threshold: [0, 0.1, 0.9, 1] })
 
     items.value.forEach((item, index) => {
       isVisible.value[index] = false
