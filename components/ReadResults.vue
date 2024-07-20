@@ -28,8 +28,8 @@ const handleTextIntersect = (entries) => {
 onMounted(() => {
   const textOptions = {
     root: null,
-    rootMargin: '150px',
-    threshold: 0.3
+    rootMargin: '0px',
+    threshold: 0
   }
   textObserver = new IntersectionObserver(handleTextIntersect, textOptions)
 
