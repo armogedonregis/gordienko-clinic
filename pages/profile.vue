@@ -1871,7 +1871,7 @@ function togglePopup() {
   isPopupOpen.value = !isPopupOpen.value
 }
 function closePopup() {
-  isPopupOpen.value = false;
+  isPopupOpen.value = false
 }
 
 const titles = [
@@ -1903,11 +1903,6 @@ function typeTitle(index) {
     }
   } else {
     stopTypingAnimation(index)
-    setTimeout(() => {
-      animatedTitles[index].value = ''
-      currentCharIndices[index].value = 0
-      startTypingAnimation(index)
-    }, 5000)
   }
 }
 function startTypingAnimation(index) {
