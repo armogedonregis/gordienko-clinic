@@ -6,14 +6,14 @@
         <button class="nav__link" @mouseenter="hoverNext = true" @mouseleave="hoverNext = false" @click="switchNextStory" :style="{ opacity: hoverPrev ? 0.5 : 1 }">Следующая история</button>
       </nav>
       <div class="swiper__item-wrapper" v-if="caseItem.images.length > 0">
-        <div class="swiper__item" v-for="(photo, index) in caseItem.imagesHead.slice(0, 2)" :key="index">
+        <div class="swiper__item" v-for="(photo, index) in activeImages" :key="index">
           <img :src="photo" class="item__photo">
         </div>
       </div>
     </div>
     <div class="case__photos-wrapper" v-if="caseItem.images.length > 0">
       <div class="case__photos">
-        <div class="photos__item" v-for="(photo, index) in caseItem.imagesHead.slice(2, 12)" :key="index">
+        <div class="photos__item" v-for="(photo, index) in photos" :key="index" @click="handlePhotoClick(index + 2)">
           <img :src="photo">
         </div>
       </div>
@@ -54,6 +54,22 @@ function switchNextStory() {
   const casesLength = casesData.cases.length
   const newId = caseId + 1 > casesLength ? 1 : caseId + 1
   router.push(`/case/${newId}`)
+}
+
+const activeImages = ref(caseItem.value.imagesHead.slice(0, 2))
+const photos = ref(caseItem.value.imagesHead.slice(2, 12))
+function handlePhotoClick(index) {
+  let startIndex = index - (index % 2)
+  let endIndex = startIndex + 2
+  if (startIndex < 2) {
+    startIndex = 2
+    endIndex = startIndex + 2
+  } else if (endIndex > caseItem.value.imagesHead.length) {
+    endIndex = caseItem.value.imagesHead.length
+    startIndex = endIndex - 2
+  }
+  const newImages = caseItem.value.imagesHead.slice(startIndex, endIndex)
+  activeImages.value = newImages
 }
 
 const displayedTitle = ref('')
@@ -170,6 +186,7 @@ onUnmounted(() => {
     .swiper__item-wrapper {
       display: flex;
       width: 100%;
+      height: 100%;
 
       @media (max-width: 700px) {
         flex-direction: column;
@@ -191,7 +208,7 @@ onUnmounted(() => {
         }
 
         .item__photo {
-          width: auto;
+          width: 100%;
           height: auto;
           object-fit: cover;
 
@@ -229,6 +246,7 @@ onUnmounted(() => {
       }
 
       .photos__item {
+        cursor: pointer;
         display: flex;
         align-items: flex-end;
         width: 100%;
