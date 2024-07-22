@@ -208,7 +208,7 @@ onUnmounted(() => {
         }
 
         .item__photo {
-          width: 100%;
+          width: 90%;
           height: auto;
           object-fit: cover;
 
