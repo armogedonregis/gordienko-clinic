@@ -20,7 +20,7 @@
     </div>
     <div class="case__text">
       <h1 class="text__title">{{ displayedTitle }}</h1>
-      <p class="text__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
+      <p class="text__sign hidden">— Олег Викторович Гордиенко, <br> пластический хирург</p>
       <div class="text__story-wrapper" :class="{ 'animate': isVisible }">
         <p class="text__name">{{ caseItem.name }}</p>
         <p class="text__story">{{ caseItem.story }}</p>
@@ -46,15 +46,14 @@ const caseItem = computed(() => {
 })
 
 function switchPrevStory() {
-  const casesLength = casesData.cases.length;
-  const newId = caseId - 1 < 1 ? casesLength : caseId - 1;
-  router.push(`/case/${newId}`);
+  const casesLength = casesData.cases.length
+  const newId = caseId - 1 < 1 ? casesLength : caseId - 1
+  router.push(`/case/${newId}`)
 }
-
 function switchNextStory() {
-  const casesLength = casesData.cases.length;
-  const newId = caseId + 1 > casesLength ? 1 : caseId + 1;
-  router.push(`/case/${newId}`);
+  const casesLength = casesData.cases.length
+  const newId = caseId + 1 > casesLength ? 1 : caseId + 1
+  router.push(`/case/${newId}`)
 }
 
 const displayedTitle = ref('')
@@ -70,9 +69,9 @@ const startTypingAnimation = () => {
     } else {
       clearInterval(typingInterval)
       setTimeout(() => {
-        displayedTitle.value = ''
-        startTypingAnimation()
-      }, 5000)
+        document.querySelector(".text__sign").classList.remove("hidden")
+        document.querySelector(".text__sign").classList.add("visible")
+      }, 300)
     }
   }, 50)
 }
@@ -307,6 +306,9 @@ onUnmounted(() => {
       margin-top: 80px;
       margin-left: auto;
       margin-right: 180px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
 
       @media (max-width: 1150px) {
         margin-right: 0;
@@ -315,6 +317,17 @@ onUnmounted(() => {
       @media (max-width: 700px) {
         font-size: 12px;
         margin-top: 40px;
+      }
+
+      &.text__sign.hidden {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      &.text__sign.visible {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
