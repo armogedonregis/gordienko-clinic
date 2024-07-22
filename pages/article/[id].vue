@@ -4,7 +4,7 @@
       <div class="titles__text">
         <div class="text-wrapper">
           <h1 class="text__title">{{ displayedTitle }}</h1>
-          <p class="text__sign">{{ article.capitalBlock.sign }}</p>
+          <p class="text__sign hidden">{{ article.capitalBlock.sign }}</p>
         </div>
       </div>
       <div class="titles__photo-wrapper">
@@ -69,9 +69,9 @@ const startTypingAnimation = () => {
     } else {
       clearInterval(typingInterval)
       setTimeout(() => {
-        displayedTitle.value = ''
-        startTypingAnimation()
-      }, 5000)
+        document.querySelector(".text__sign").classList.remove("hidden")
+        document.querySelector(".text__sign").classList.add("visible")
+      }, 300)
     }
   }, 50)
 }
@@ -224,6 +224,9 @@ onUnmounted(() => {
         line-height: 130%;
         white-space: pre-wrap;
         margin-left: auto;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
 
         @media (max-width: 1050px) {
           font-size: 12px;
@@ -232,6 +235,17 @@ onUnmounted(() => {
         @media (max-width: 700px) {
           margin-left: auto;
           order: 3;
+        }
+
+        &.text__sign.hidden {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        &.text__sign.visible {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
 
