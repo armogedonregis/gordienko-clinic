@@ -73,16 +73,13 @@ function typeTitle(index) {
     }
   } else {
     stopTypingAnimation(index)
-    if (!hasAnimated.value) {
-      document.querySelector('.text__sign').classList.add('visible')
-      localStorage.setItem('hasAnimated', 'true')
-      hasAnimated.value = true
-    }
+    document.querySelector('.text__sign').classList.add('visible')
   }
 }
 function startTypingAnimation(index) {
-  if (!intervals[index]) {
+  if (!intervals[index] && !hasAnimated.value) {
     intervals[index] = setInterval(() => typeTitle(index), 50)
+    hasAnimated.value = true
   }
 }
 function stopTypingAnimation(index) {
@@ -92,12 +89,8 @@ function stopTypingAnimation(index) {
 function createObserver(callback, options) {
   return new IntersectionObserver(callback, options)
 }
-onMounted(() => {
-  if (localStorage.getItem('hasAnimated') === 'true') {
-    document.querySelector('.text__sign').classList.add('visible')
-    return
-  }
 
+onMounted(() => {
   const subtitleOptions = {
     root: null,
     rootMargin: '0px',
