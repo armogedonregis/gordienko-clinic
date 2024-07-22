@@ -4,7 +4,7 @@
       <div class="titles__text">
         <div class="text-wrapper">
           <h1 class="text__title" id="0" v-html="animatedTitles[0].value"></h1>
-          <p class="text__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
+          <p class="text__sign hidden">— Олег Викторович Гордиенко, <br> пластический хирург</p>
         </div>
       </div>
       <div class="titles__photo-wrapper">
@@ -58,6 +58,7 @@ const animatedTitles = titles.map(() => ref(''))
 const currentCharIndices = titles.map(() => ref(0))
 const intervals = []
 const isVisible = titles.map(() => ref(false))
+const hasAnimated = ref(false)
 
 function typeTitle(index) {
   if (currentCharIndices[index].value < titles[index].length) {
@@ -72,11 +73,11 @@ function typeTitle(index) {
     }
   } else {
     stopTypingAnimation(index)
-    setTimeout(() => {
-      animatedTitles[index].value = ''
-      currentCharIndices[index].value = 0
-      startTypingAnimation(index)
-    }, 5000)
+    if (!hasAnimated.value) {
+      document.querySelector('.text__sign').classList.add('visible')
+      localStorage.setItem('hasAnimated', 'true')
+      hasAnimated.value = true
+    }
   }
 }
 function startTypingAnimation(index) {
@@ -91,8 +92,12 @@ function stopTypingAnimation(index) {
 function createObserver(callback, options) {
   return new IntersectionObserver(callback, options)
 }
-
 onMounted(() => {
+  if (localStorage.getItem('hasAnimated') === 'true') {
+    document.querySelector('.text__sign').classList.add('visible')
+    return
+  }
+
   const subtitleOptions = {
     root: null,
     rootMargin: '0px',
@@ -127,6 +132,7 @@ onMounted(() => {
     })
   })
 })
+
 onUnmounted(() => {
   intervals.forEach(interval => clearInterval(interval))
 })
@@ -269,6 +275,17 @@ onUnmounted(() => {
         @media (max-width: 700px) {
           margin-left: auto;
           order: 3;
+        }
+
+        &.text__sign.hidden {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        &.text__sign.visible {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
 
