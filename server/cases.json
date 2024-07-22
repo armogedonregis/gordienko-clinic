@@ -13,15 +13,17 @@
         "/assets/images/faces/belitskaya/face1-3.png",
         "/assets/images/faces/belitskaya/face1-4.png"
       ],
-      "imagesBig": [
+      "imagesHead": [
         "/assets/images/faces/belitskaya/face1-1-big.png",
-        "/assets/images/faces/belitskaya/face1-2-big.png"
-      ],
-      "imagesLit": [
+        "/assets/images/faces/belitskaya/face1-2-big.png",
         "/assets/images/faces/belitskaya/face1-1-lit.png",
         "/assets/images/faces/belitskaya/face1-2-lit.png",
         "/assets/images/faces/belitskaya/face1-3-lit.png",
-        "/assets/images/faces/belitskaya/face1-4-lit.png"
+        "/assets/images/faces/belitskaya/face1-4-lit.png",
+        "/assets/images/faces/belitskaya/face1-1-lit.png",
+        "/assets/images/faces/belitskaya/face1-4-lit.png",
+        "/assets/images/faces/belitskaya/face1-3-lit.png",
+        "/assets/images/faces/belitskaya/face1-2-lit.png"
       ]
     },
     {

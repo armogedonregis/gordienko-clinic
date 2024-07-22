@@ -6,14 +6,14 @@
         <button class="nav__link" @mouseenter="hoverNext = true" @mouseleave="hoverNext = false" @click="switchNextStory" :style="{ opacity: hoverPrev ? 0.5 : 1 }">Следующая история</button>
       </nav>
       <div class="swiper__item-wrapper" v-if="caseItem.images.length > 0">
-        <div class="swiper__item" v-for="(photo, index) in caseItem.imagesBig" :key="index">
+        <div class="swiper__item" v-for="(photo, index) in caseItem.imagesHead.slice(0, 2)" :key="index">
           <img :src="photo" class="item__photo">
         </div>
       </div>
     </div>
     <div class="case__photos-wrapper" v-if="caseItem.images.length > 0">
-      <div class="case__photos" v-for="item in 2" :key="item">
-        <div class="photos__item" v-for="(photo, index) in caseItem.imagesLit" :key="index">
+      <div class="case__photos">
+        <div class="photos__item" v-for="(photo, index) in caseItem.imagesHead.slice(2, 12)" :key="index">
           <img :src="photo">
         </div>
       </div>
