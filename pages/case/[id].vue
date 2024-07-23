@@ -5,11 +5,13 @@
         <button class="nav__link" @mouseenter="hoverPrev = true" @mouseleave="hoverPrev = false" @click="switchPrevStory" :style="{ opacity: hoverNext ? 0.5 : 1 }">Предыдущая история</button>
         <button class="nav__link" @mouseenter="hoverNext = true" @mouseleave="hoverNext = false" @click="switchNextStory" :style="{ opacity: hoverPrev ? 0.5 : 1 }">Следующая история</button>
       </nav>
-      <div class="swiper__item-wrapper" v-if="caseItem.images.length > 0">
-        <div class="swiper__item" v-for="(photo, index) in activeImages" :key="index">
-          <img :src="photo" class="item__photo">
+      <transition name="fade" mode="out-in">
+        <div class="swiper__item-wrapper" v-if="caseItem.images.length > 0" :key="activeImages.join('-')">
+          <div class="swiper__item" v-for="(photo, index) in activeImages" :key="index">
+            <img :src="photo" class="item__photo">
+          </div>
         </div>
-      </div>
+      </transition>
     </div>
     <div class="case__photos-wrapper" v-if="caseItem.images.length > 0">
       <div class="case__photos">
@@ -56,8 +58,8 @@ function switchNextStory() {
   router.push(`/case/${newId}`)
 }
 
-const activeImages = ref(caseItem.value.imagesHead.slice(0, 2))
-const photos = ref(caseItem.value.imagesHead.slice(2, 12))
+const activeImages = ref(caseItem.value?.imagesHead?.slice(0, 2) || [])
+const photos = ref(caseItem.value?.imagesHead?.slice(2, 12) || [])
 function handlePhotoClick(index) {
   let startIndex = index - (index % 2)
   let endIndex = startIndex + 2
@@ -421,5 +423,12 @@ onUnmounted(() => {
       }
     }
   }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>
