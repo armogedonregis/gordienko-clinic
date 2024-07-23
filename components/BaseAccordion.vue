@@ -7,14 +7,25 @@
         :value="index"
       >
         <v-expansion-panel-title>
-          {{ item.question }}
+          {{ item.question || Object.keys(item)[0] }}
           <template v-slot:actions>
             <img v-if="openPanel !== index" src="/public/assets/icons/plus.svg" class="plus">
             <img v-if="openPanel === index" src="/public/assets/icons/cross-thin.svg" class="cross">
           </template>
         </v-expansion-panel-title>
         <v-expansion-panel-text>
-          {{ item.answer }}
+          <div v-if="item.answer !== 'textarea'">
+            {{ item.answer }}
+          </div>
+          <div v-else>
+            <textarea
+              v-model="userQuestion"
+              placeholder="Введите ваш вопрос здесь..."
+              rows="4"
+              cols="50"
+              class="question__place"
+            ></textarea>
+          </div>
         </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -26,6 +37,7 @@ import { ref } from 'vue';
 import faq from '/server/faq.json';
 
 const openPanel = ref(null)
+const userQuestion = ref('')
 </script>
 
 <style lang="scss" scoped>
@@ -72,6 +84,15 @@ const openPanel = ref(null)
 }
 
 .plus, .cross {margin-left: 20px;}
+
+.question__place {
+  width: 100%; 
+  padding: 10px;
+  border-radius: 5px; 
+  border: 1px solid #ccc;
+  resize: none;
+  outline: none;
+}
 
 @media (max-width: 1350px) {
   ::v-deep .v-expansion-panel-title {
