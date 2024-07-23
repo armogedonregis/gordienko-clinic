@@ -57,7 +57,6 @@ const titles = [
 const animatedTitles = titles.map(() => ref(''))
 const currentCharIndices = titles.map(() => ref(0))
 const intervals = []
-const isVisible = titles.map(() => ref(false))
 const hasAnimated = ref(false)
 
 function typeTitle(index) {
@@ -86,46 +85,10 @@ function stopTypingAnimation(index) {
   clearInterval(intervals[index])
   intervals[index] = null
 }
-function createObserver(callback, options) {
-  return new IntersectionObserver(callback, options)
-}
 
 onMounted(() => {
-  const subtitleOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  }
-  const subtitleObserver = createObserver(handleSubtitleIntersect, subtitleOptions)
-
-  function handleSubtitleIntersect(entries) {
-    entries.forEach(entry => {
-      const index = parseInt(entry.target.id, 10)
-      if (entry.isIntersecting) {
-        isVisible[index].value = true
-        startTypingAnimation(index)
-      } else {
-        isVisible[index].value = false
-        stopTypingAnimation(index)
-      }
-    })
-  }
-
-  const observerMap = {
-    '.text__title': subtitleObserver,
-  }
-
-  Object.keys(observerMap).forEach(className => {
-    const elements = document.querySelectorAll(className)
-    elements.forEach((el, index) => {
-      if (className === '.description__subtitle' || className === '.description__title-min') {
-        el.setAttribute('data-id', index.toString())
-      }
-      observerMap[className].observe(el)
-    })
-  })
+  startTypingAnimation(0)
 })
-
 onUnmounted(() => {
   intervals.forEach(interval => clearInterval(interval))
 })
