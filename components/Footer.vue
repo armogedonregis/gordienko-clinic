@@ -7,28 +7,29 @@
         </h1>
         <div class="description__lists-wrapper">
           <ul class="description__list">
-            <li><NuxtLink to="mailto:oleg@gordienko.doctor" :class="{ 'title__grey': itemColor }">oleg@gordienko.doctor</NuxtLink></li>
-            <li><NuxtLink to="tel:79111224888" :class="{ 'title__grey': itemColor }">+7 911 122 48 88</NuxtLink></li>
-            <li><NuxtLink to="https://wa.me/79111224888" target="_blank" :class="{ 'title__grey': itemColor }">whatsapp</NuxtLink></li>
-            <li><NuxtLink to="https://t.me/doctor_gordienko" target="_blank" :class="{ 'title__grey': itemColor }">telegram</NuxtLink></li>
-          </ul>
-          <ul class="description__list">
-            <li><NuxtLink to="/results" :class="{ 'title__grey': itemColor }">истории преображений</NuxtLink></li>
-            <li><NuxtLink :class="{ 'title__grey': itemColor }" @click="openFaqPopup">вопросы и ответы</NuxtLink></li>
-            <li><NuxtLink to="/profile" :class="{ 'title__grey': itemColor }">доктор гордиенко</NuxtLink></li>
-            <li><NuxtLink to="/blog" :class="{ 'title__grey': itemColor }">блог</NuxtLink></li>
-          </ul>
-          <ul class="description__list">
-            <li><NuxtLink to="/profile#deep-plane-faceLift" :class="{ 'title__grey': itemColor }">Deep Plane Facelift</NuxtLink></li>
-            <li><NuxtLink to="/profile#forehead-n-eyebrows" :class="{ 'title__grey': itemColor }">лоб и брови</NuxtLink></li>
-            <li><NuxtLink to="/profile#eyes" :class="{ 'title__grey': itemColor }">глаза</NuxtLink></li>
-            <li><NuxtLink to="/profile#lips" :class="{ 'title__grey': itemColor }">губы</NuxtLink></li>
-            <li><NuxtLink to="/profile#neck" :class="{ 'title__grey': itemColor }">шея</NuxtLink></li>
-          </ul>
-          <ul class="description__list">
-            <li><NuxtLink to="https://m.vk.com/ovgordienko?reactions_opened=wall-211145946_637" target="_blank" :class="{ 'title__grey': itemColor }">вконтакте</NuxtLink></li>
-            <li><NuxtLink to="https://www.instagram.com/gordienko.doctor?igsh=MThscGVwMXJ3NXVxaw==" target="_blank" :class="{ 'title__grey': itemColor }">instagram</NuxtLink></li>
-            <li><NuxtLink to="https://dzen.ru/oleggordienko" target="_blank" :class="{ 'title__grey': itemColor }">дзен</NuxtLink></li>
+            <li v-for="(list, index) in lists" :key="index">
+              <button
+                v-if="list.click"
+                @click="list.click"
+                @mouseenter="handleMouseEnter(index)"
+                @mouseleave="handleMouseLeave"
+                :class="{ 'title__grey': itemColor }"
+                :style="{ opacity: hoveredIndex !== null && hoveredIndex !== index ? 0.3 : 1 }"
+              >
+                {{ list.title }}
+              </button>
+              <NuxtLink
+                v-else
+                :to="list.link"
+                :target="list.target"
+                @mouseenter="handleMouseEnter(index)"
+                @mouseleave="handleMouseLeave"
+                :class="{ 'title__grey': itemColor }"
+                :style="{ opacity: hoveredIndex !== null && hoveredIndex !== index ? 0.3 : 1 }"
+              >
+                {{ list.title }}
+              </NuxtLink>
+            </li>
           </ul>
         </div>
         <NuxtLink to="/">
@@ -74,6 +75,85 @@ const itemColor = computed(() => {
 
 function openFaqPopup() {
   store.commit('openFaqPopup')
+}
+
+const lists = ref([
+  {
+    title: 'oleg@gordienko.doctor',
+    link: 'mailto:oleg@gordienko.doctor'
+  },
+  {
+    title: '+7 911 122 48 88',
+    link: 'tel:79111224888'
+  },
+  {
+    title: 'whatsapp',
+    link: 'https://wa.me/79111224888',
+    target: '_blank'
+  },
+  {
+    title: 'telegram',
+    link: 'https://t.me/doctor_gordienko',
+    target: '_blank'
+  },
+  {
+    title: 'истории преображений',
+    link: '/results'
+  },
+  {
+    title: 'вопросы и ответы',
+    click: openFaqPopup
+  },
+  {
+    title: 'доктор гордиенко',
+    link: 'profile'
+  },
+  {
+    title: 'блог',
+    link: '/blog'
+  },
+  {
+    title: 'Deep Plane Facelift',
+    link: '/profile#deep-plane-faceLift'
+  },
+  {
+    title: 'лоб и брови',
+    link: '/profile#forehead-n-eyebrows'
+  },
+  {
+    title: 'глаза',
+    link: '/profile#eyes'
+  },
+  {
+    title: 'губы',
+    link: '/profile#lips'
+  },
+  {
+    title: 'шея',
+    link: '/profile#neck'
+  },
+  {
+    title: 'вконтакте',
+    link: 'https://m.vk.com/ovgordienko?reactions_opened=wall-211145946_637',
+    target: '_blank'
+  },
+  {
+    title: 'instagram',
+    link: 'https://www.instagram.com/gordienko.doctor?igsh=MThscGVwMXJ3NXVxaw==',
+    target: '_blank'
+  },
+  {
+    title: 'дзен',
+    link: 'https://dzen.ru/oleggordienko',
+    target: '_blank'
+  }
+])
+const hoveredIndex = ref(null)
+function handleMouseEnter(index) {
+  hoveredIndex.value = index
+}
+function handleMouseLeave() {
+  hoveredIndex.value = null
 }
 </script>
 
@@ -215,7 +295,7 @@ function openFaqPopup() {
           gap: 15px;
           list-style-type: none;
 
-          li a{
+          li a, li button {
             cursor: pointer;
             color: #000;
             font-size: 10px;
@@ -224,16 +304,13 @@ function openFaqPopup() {
             line-height: 95%;
             letter-spacing: 3px;
             text-transform: uppercase;
+            transition: .8s;
 
             @media (max-width: 750px) {
               font-size: 10px;
             }
 
-            &.title__grey {color: #A3A3A3;}
-
-            @media (hover: hover) {
-              &:hover {opacity: 0.5; transition: .4s;}
-            }
+            &.title__grey {color: #fff;}
           }
         }
       }
