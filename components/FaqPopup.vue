@@ -106,6 +106,10 @@ function closeFaqPopup() {
             overflow: hidden;
             object-fit: cover;
           }
+
+          @media (max-width: 500px) {
+            height: 350px;
+          }
         }
 
         .modal__title {
@@ -128,6 +132,10 @@ function closeFaqPopup() {
 
           @media (max-width: 850px) {
             font-size: 28px;
+          }
+
+          @media (max-width: 500px) {
+            font-size: 25px;
           }
         }
       }
