@@ -29,7 +29,7 @@
     <div class="blog__titles last-titles">
       <div class="titles__text last-titles-section">
         <p class="text__description">Омолаживающая операция – это таинственное и даже магическое событие, которое проходит за закрытыми дверями операционной. Я c удовольствием приоткрою для вас эти двери и приглашу в удивительное путешествие.</p>
-        <button class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</button>
+        <NuxtLink to="/article/9" class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
       </div>
       <div class="titles__photo-wrapper">
         <img src="/assets/images/blogpage1.png" class="titles__photo">
