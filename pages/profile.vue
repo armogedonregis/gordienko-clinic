@@ -384,7 +384,7 @@
             <h1 class="list__title">Стоимость услуг</h1>
             <h2 class="list__subtitle">стандартна, но может варьироваться в зависимости от сложности вмешательства,
               которую оценивает хирург на консультации</h2>
-            <p class="list__info">
+            <p class="list__info lh200">
               Подтяжка лица и шеи (Deep Plane Facelift) — от 850 000 ₽.<br>Глубокая подтяжка шеи — от 250 000 ₽.
             </p>
           </li>
@@ -392,7 +392,7 @@
             <p class="list__num">16</p>
             <h1 class="list__title">Стоимость анестезии, анализов, размещения</h1>
             <h2 class="list__subtitle">рассчитывается дополнительно к стоимости операции</h2>
-            <p class="list__info">
+            <p class="list__info lh200">
               1 час общей анестезии — 20 000 ₽.<br>
               Размещение в палате (питание включено) — 8 000 ₽.<br>
               Размещение в двухместной палате (питание включено) — 6 000 ₽.<br>
@@ -404,7 +404,7 @@
             <h1 class="list__title">ответы на вопросы</h1>
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
             </h2>
-            <p class="list__info">
+            <p class="list__info lh200">
               <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
               <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
               <NuxtLink to="mailto:oleg@gordienko.doctor">oleg@gordienko.doctor</NuxtLink><br>
@@ -663,13 +663,13 @@
             <h1 class="list__title">Стоимость услуг</h1>
             <h2 class="list__subtitle">стандартна, но может варьироваться в зависимости от сложности вмешательства,
               которую оценивает хирург на консультации</h2>
-            <p class="list__info">Хейлопластика (подтяжка верхней губы) — 100 000 ₽.</p>
+            <p class="list__info lh200">Хейлопластика (подтяжка верхней губы) — 100 000 ₽.</p>
           </li>
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">13</p>
             <h1 class="list__title">Стоимость анестезии, анализов, размещения</h1>
             <h2 class="list__subtitle">рассчитывается дополнительно к стоимости операции</h2>
-            <p class="list__info">
+            <p class="list__info lh200">
               1 час общей анестезии — 20 000 ₽.<br>
               Размещение в палате (питание включено) — 8 000 ₽.<br>
               Размещение в двухместной палате (питание включено) — 6 000 ₽.<br>
@@ -681,7 +681,7 @@
             <h1 class="list__title">Ответы на вопросы</h1>
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
             </h2>
-            <p class="list__info">
+            <p class="list__info lh200">
               <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
               <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
               <NuxtLink to="mailto:oleg@gordienko.doctor">oleg@gordienko.doctor</NuxtLink><br>
@@ -944,14 +944,14 @@
             <h1 class="list__title">Стоимость услуг</h1>
             <h2 class="list__subtitle">стандартна, но может варьироваться в зависимости от сложности вмешательства,
               которую оценивает хирург на консультации</h2>
-            <p class="list__info">Эндоскопический лифтинг лба и бровей — от 300 000 ₽.<br>
+            <p class="list__info lh200">Эндоскопический лифтинг лба и бровей — от 300 000 ₽.<br>
               Латеральный височный лифтинг — 190 000 ₽.</p>
           </li>
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">16</p>
             <h1 class="list__title">Стоимость анестезии, анализов, размещения</h1>
             <h2 class="list__subtitle">рассчитывается дополнительно к стоимости операции</h2>
-            <p class="list__info">
+            <p class="list__info lh200">
               1 час общей анестезии — 20 000 ₽.<br>
               Размещение в палате (питание включено) — 8 000 ₽.<br>
               Размещение в двухместной палате (питание включено) — 6 000 ₽.<br>
@@ -962,7 +962,7 @@
             <h1 class="list__title">Ответы на вопросы</h1>
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
             </h2>
-            <p class="list__info">
+            <p class="list__info lh200">
               <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
               <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
               <NuxtLink to="mailto:oleg@gordienko.doctor">oleg@gordienko.doctor</NuxtLink><br>
@@ -1223,14 +1223,14 @@
             <h1 class="list__title">Стоимость услуг</h1>
             <h2 class="list__subtitle">стандартна, но может варьироваться в зависимости от сложности вмешательства,
               которую оценивает хирург на консультации</h2>
-            <p class="list__info">Классическая подтяжка шеи (платизмопластика) — от 91 000 рублей.<br>
+            <p class="list__info lh200">Классическая подтяжка шеи (платизмопластика) — от 91 000 рублей.<br>
               Глубокая плоскостная подтяжка шеи — от 200 000 рублей.</p>
           </li>
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">15</p>
             <h1 class="list__title">Стоимость анестезии, анализов, размещения</h1>
             <h2 class="list__subtitle">рассчитывается дополнительно к стоимости операции</h2>
-            <p class="list__info">
+            <p class="list__info lh200">
               1 час общей анестезии — 20 000 ₽.<br>
               Размещение в палате (питание включено) — 8 000 ₽.<br>
               Размещение в двухместной палате (питание включено) — 6 000 ₽.<br>
@@ -1241,7 +1241,7 @@
             <h1 class="list__title">Ответы на вопросы</h1>
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
             </h2>
-            <p class="list__info">
+            <p class="list__info lh200">
               <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
               <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
               <NuxtLink to="mailto:oleg@gordienko.doctor">oleg@gordienko.doctor</NuxtLink><br>
@@ -1505,14 +1505,14 @@
             <h1 class="list__title">Стоимость услуг</h1>
             <h2 class="list__subtitle">стандартна, но может варьироваться в зависимости от сложности вмешательства,
               которую оценивает хирург на консультации</h2>
-            <p class="list__info">Блефаропластика (верхние веки) — от 110 000 ₽.<br>
+            <p class="list__info lh200">Блефаропластика (верхние веки) — от 110 000 ₽.<br>
               Блефаропластика (нижние веки) — от 140 000 ₽.</p>
           </li>
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">16</p>
             <h1 class="list__title">Стоимость анестезии, анализов, размещения</h1>
             <h2 class="list__subtitle">рассчитывается дополнительно к стоимости операции</h2>
-            <p class="list__info">
+            <p class="list__info lh200">
               1 час общей анестезии — 20 000 ₽.<br>
               Размещение в палате (питание включено) — 8 000 ₽.<br>
               Размещение в двухместной палате (питание включено) — 6 000 ₽.<br>
@@ -1523,7 +1523,7 @@
             <h1 class="list__title">Ответы на вопросы</h1>
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
             </h2>
-            <p class="list__info">
+            <p class="list__info lh200">
               <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
               <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
               <NuxtLink to="mailto:oleg@gordienko.doctor">oleg@gordienko.doctor</NuxtLink><br>
@@ -1793,13 +1793,13 @@
             <p class="list__num">14</p>
             <h1 class="list__title">Стоимость услуг</h1>
             <h2 class="list__subtitle">определяется количеством корректируемых областей</h2>
-            <p class="list__info">Липофилинг лица — от 50 000 рублей.</p>
+            <p class="list__info lh200">Липофилинг лица — от 50 000 рублей.</p>
           </li>
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">15</p>
             <h1 class="list__title">Стоимость анестезии, анализов, размещения</h1>
             <h2 class="list__subtitle">рассчитывается дополнительно к стоимости операции</h2>
-            <p class="list__info">
+            <p class="list__info lh200">
               1 час общей анестезии — 20 000 ₽.<br>
               Размещение в палате (питание включено) — 8 000 ₽.<br>
               Размещение в двухместной палате (питание включено) — 6 000 ₽.<br>
@@ -1810,7 +1810,7 @@
             <h1 class="list__title">Ответы на вопросы</h1>
             <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
             </h2>
-            <p class="list__info">
+            <p class="list__info lh200">
               <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
               <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
               <NuxtLink to="mailto:oleg@gordienko.doctor">oleg@gordienko.doctor</NuxtLink><br>
@@ -2463,6 +2463,8 @@ onUnmounted(() => {
         @media (max-width: 1350px) {
           font-size: 14px;
         }
+
+        &.lh200 {line-height: 200%;}
       }
 
       &.animate {
