@@ -6,8 +6,8 @@
       <NuxtPage />
     </NuxtLayout>
     <Footer />
-    <Cookies />
   </div>
+  <Cookies />
 </template>
 
 <script setup>
