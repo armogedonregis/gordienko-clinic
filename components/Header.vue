@@ -81,6 +81,10 @@ function getItemColor(path) {
         justify-content: center;
         min-height: 48px;
 
+        @media (max-width: 1450px) {
+          font-size: 8px;
+        }
+
         @media (max-width: 800px) {
           opacity: 0;
         }
