@@ -312,6 +312,11 @@ function handleMouseLeave() {
 
             &.title__grey {color: #fff;}
           }
+
+          li:nth-child(4) {margin-bottom: 35px;}
+          li:nth-child(8) {margin-bottom: 35px;}
+          li:nth-child(13) {margin-bottom: 35px;}
+          li:nth-child(16) {margin-bottom: 0;}
         }
       }
 
