@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div ref="scrollbarContainer" class="app scrollbar-container">
     <NuxtRouteAnnouncer />
     <Header />
     <NuxtLayout>
@@ -11,9 +11,36 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
 import Header from "./components/Header";
 import Footer from "./components/Footer.vue";
 import Cookies from "./components/Cookies.vue";
+import Scrollbar from 'smooth-scrollbar';
+
+const scrollbarContainer = ref(null)
+let scrollbarInstance = null
+function checkScrollable() {
+  if (scrollbarInstance) {
+    const isScrollable = scrollbarContainer.value.scrollHeight > window.innerHeight
+    scrollbarInstance.options.showScrollbar = isScrollable
+    scrollbarInstance.update()
+  }
+}
+onMounted(() => {
+  scrollbarInstance = Scrollbar.init(scrollbarContainer.value, {
+    damping: 0.1,
+    alwaysShowTracks: false,
+    showScrollbar: false,
+  })
+  window.addEventListener('resize', checkScrollable)
+  checkScrollable()
+})
+onUnmounted(() => {
+  if (scrollbarInstance) {
+    scrollbarInstance.destroy()
+  }
+  window.removeEventListener('resize', checkScrollable)
+})
 </script>
 
 <style>
@@ -42,22 +69,30 @@ import Cookies from "./components/Cookies.vue";
   align-items: center;
 }
 
-body {
-  --scrollbar-background: #f9fbfc;
-  --scrollbar-thumb: #d4d4d4;
+.scrollbar-container {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+}
+
+.scrollbar-container .scrollbar-track-x,
+.scrollbar-container .scrollbar-track-y {
+  background-color: #f9fbfc;
+  width: 4px;
+}
+
+.scrollbar-container .scrollbar-thumb-x,
+.scrollbar-container .scrollbar-thumb-y {
+  background-color: #d4d4d4;
+  border-radius: 4px;
+  width: 4px;
+}
+
+.scrollbar-container .scrollbar-thumb-y:hover {
+  background-color: #d4d4d4;
 }
 
 body::-webkit-scrollbar {
-  width: 3px;
-  background-color: var(--scrollbar-background);
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb);
-  border-radius: 4px;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-  background-color: var(--scrollbar-thumb);
+  width: 0;
 }
 </style>
