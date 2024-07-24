@@ -159,7 +159,7 @@ function closeFaqPopup() {
 }
 
 .faq__popup::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
   background-color: var(--scrollbar-background);
 }
 
