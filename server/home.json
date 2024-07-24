@@ -3,57 +3,57 @@
     {
       "title": "Полюбите свое отражение вновь",
       "videoDesktop": "/assets/video/homepage1.mp4",
-      "videoPad": "",
-      "videoMobile": "",
+      "videoPad": "/assets/video/homepage1.mp4",
+      "videoMobile": "/assets/video/homepage1.mp4",
       "href": "/"
     },
     {
       "title": "Доктор Гордиенко",
       "videoDesktop": "/assets/video/homepage2.mp4",
-      "videoPad": "",
-      "videoMobile": "",
+      "videoPad": "/assets/video/homepage1.mp4",
+      "videoMobile": "/assets/video/homepage1.mp4",
       "href": "/profile"
     },
     {
       "title": "Deep plane facelift",
       "videoDesktop": "/assets/video/homepage3.mp4",
-      "videoPad": "",
-      "videoMobile": "",
+      "videoPad": "/assets/video/homepage1.mp4",
+      "videoMobile": "/assets/video/homepage1.mp4",
       "href": "/profile#deep-plane-faceLift"
     },
     {
       "title": "Губы",
       "videoDesktop": "/assets/video/homepage4.mp4",
-      "videoPad": "",
-      "videoMobile": "",
+      "videoPad": "/assets/video/homepage1.mp4",
+      "videoMobile": "/assets/video/homepage1.mp4",
       "href": "/profile#lips"
     },
     {
       "title": "Лоб и брови",
       "videoDesktop": "/assets/video/homepage5.mp4",
-      "videoPad": "",
-      "videoMobile": "",
+      "videoPad": "/assets/video/homepage1.mp4",
+      "videoMobile": "/assets/video/homepage1.mp4",
       "href": "/profile#forehead-n-eyebrows"
     },
     {
       "title": "Шея",
       "videoDesktop": "/assets/video/homepage6.mp4",
-      "videoPad": "",
-      "videoMobile": "",
+      "videoPad": "/assets/video/homepage1.mp4",
+      "videoMobile": "/assets/video/homepage1.mp4",
       "href": "/profile#neck"
     },
     {
       "title": "Глаза",
       "videoDesktop": "/assets/video/homepage7.mp4",
-      "videoPad": "",
-      "videoMobile": "",
+      "videoPad": "/assets/video/homepage1.mp4",
+      "videoMobile": "/assets/video/homepage1.mp4",
       "href": "/profile#eyes"
     },
     {
       "title": "Липофилинг",
       "videoDesktop": "/assets/video/homepage8.mp4",
-      "videoPad": "",
-      "videoMobile": "",
+      "videoPad": "/assets/video/homepage1.mp4",
+      "videoMobile": "/assets/video/homepage1.mp4",
       "href": "/profile#lipofilling"
     }
   ]
