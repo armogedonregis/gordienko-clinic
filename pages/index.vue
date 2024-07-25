@@ -3,13 +3,13 @@
     <NuxtLink :to="block.href" class="main__content" v-for="block in home.home" :key="block">
       <div class="content__overlay"></div>
       <h1 class="content__title">{{ block.title }}</h1>
-      <video class="content__video desktop" loop autoplay muted playsinline ref="mobileAutoplay">
+      <video class="content__video desktop" loop autoplay muted playsinline ref="mobileAutoplay" v-lazy-src="block.videoDesktop" v-observe-visibility="handleVisibilityChange(block)">
         <source :src="block.videoDesktop" type="video/mp4">
       </video>
-      <video class="content__video pad" loop autoplay muted playsinline ref="mobileAutoplay">
+      <video class="content__video pad" loop autoplay muted playsinline ref="mobileAutoplay" v-lazy-src="block.videoPad" v-observe-visibility="handleVisibilityChange(block)">
         <source :src="block.videoPad" type="video/mp4">
       </video>
-      <video class="content__video mobile" loop autoplay muted playsinline ref="mobileAutoplay">
+      <video class="content__video mobile" loop autoplay muted playsinline ref="mobileAutoplay" v-lazy-src="block.videoMobile" v-observe-visibility="handleVisibilityChange(block)">
         <source :src="block.videoMobile" type="video/mp4">
       </video>
     </NuxtLink>
@@ -21,6 +21,17 @@ import { ref, onMounted } from "vue";
 import home from "/server/home.json";
 
 const mobileAutoplay = ref([])
+function handleVisibilityChange(block) {
+  return (isVisible, entry) => {
+    if (isVisible) {
+      const video = entry.target
+      if (!video.played.length) {
+        video.play()
+      }
+    }
+  }
+}
+
 onMounted(() => {
   mobileAutoplay.value.forEach(video => {
     if(video) {

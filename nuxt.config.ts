@@ -16,7 +16,9 @@ export default defineNuxtConfig({
     transpile: ['vuetify'],
   },
   plugins: [
-    '~/plugins/vuetify.js'
+    '~/plugins/vuetify.js',
+    '~/plugins/vue-lazyload.js',
+    '~/plugins/vue-observe-visibility.js'
   ],
   css: [
     'vuetify/lib/styles/main.sass',
