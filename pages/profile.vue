@@ -1,23 +1,10 @@
 <template>
   <div class="landing">
-    <section class="landing__video-content title-video-block">
+    <section class="landing__video-content title-video-block" ref="videoSections">
       <h1 class="content__title mobile">доктор гордиенко</h1>
-      <video ref="videoPlayer" class="content__video" loop autoplay :muted="isMuted">
+      <video class="content__video" loop muted playsinline controls="false" :ref="el => videoRefs[0] = el" v-lazy-src="'/assets/video/homepage2.mp4'">
         <source src="/assets/video/homepage2.mp4" type="video/mp4">
       </video>
-      <div class="content-video__control">
-        <button class="control__btn" @click="togglePlay">
-          <img src="/assets/icons/play.png">
-        </button>
-        <div class="control__buttons-wrapper">
-          <button class="control__btn" @click="toggleMute">
-            <img src="/assets/icons/volume.png">
-          </button>
-          <button class="control__btn" @click="toggleFullscreen">
-            <img src="/assets/icons/fullscreen.png">
-          </button>
-        </div>
-      </div>
     </section>
     <section class="landing__description-content">
       <h1 class="description__title">ОЛЕГ <br> ВИКТОРОВИЧ <br> ГОРДИЕНКО</h1>
@@ -73,8 +60,8 @@
         <li>Коррекция рубцов на лице и теле после операций, травм, ожогов и т.д.</li>
       </ul>
     </section>
-    <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+    <section class="landing__video-content" ref="videoSections">
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[1] = el" v-lazy-src="'/assets/video/profilepage1.mp4'">
         <source src="/assets/video/profilepage1.mp4" type="video/mp4">
       </video>
     </section>
@@ -93,8 +80,8 @@
         </div>
       </div>
     </section>
-    <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+    <section class="landing__video-content" ref="videoSections">
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[2] = el" v-lazy-src="'/assets/video/profilepage2.mp4'">
         <source src="/assets/video/profilepage2.mp4" type="video/mp4">
       </video>
     </section>
@@ -112,9 +99,9 @@
         </div>
       </div>
     </section>
-    <section class="landing__video-content title-video-block" id="deep-plane-faceLift">
+    <section class="landing__video-content title-video-block" id="deep-plane-faceLift" ref="videoSections">
       <h1 class="content__title">Deep plane facelift</h1>
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[3] = el" v-lazy-src="'/assets/video/homepage3.mp4'">
         <source src="/assets/video/homepage3.mp4" type="video/mp4">
       </video>
     </section>
@@ -210,8 +197,8 @@
         </li>
       </ul>
     </section>
-    <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+    <section class="landing__video-content" ref="videoSections">
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[4] = el" v-lazy-src="'/assets/video/profilepage3.mp4'">
         <source src="/assets/video/profilepage3.mp4" type="video/mp4">
       </video>
     </section>
@@ -427,9 +414,9 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content title-video-block" id="lips">
+    <section class="landing__video-content title-video-block" id="lips" ref="videoSections">
       <h1 class="content__title">Губы</h1>
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[5] = el" v-lazy-src="'/assets/video/homepage8.mp4'">
         <source src="/assets/video/homepage8.mp4" type="video/mp4">
       </video>
     </section>
@@ -491,8 +478,8 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+    <section class="landing__video-content" ref="videoSections">
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[6] = el" v-lazy-src="'/assets/video/profilepage4.mp4'">
         <source src="/assets/video/profilepage4.mp4" type="video/mp4">
       </video>
     </section>
@@ -583,8 +570,8 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+    <section class="landing__video-content" ref="videoSections">
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[7] = el" v-lazy-src="'/assets/video/profilepage5.mp4'">
         <source src="/assets/video/profilepage5.mp4" type="video/mp4">
       </video>
     </section>
@@ -703,9 +690,9 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content title-video-block" id="forehead-n-eyebrows">
+    <section class="landing__video-content title-video-block" id="forehead-n-eyebrows" ref="videoSections">
       <h1 class="content__title">Лоб и брови</h1>
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[8] = el" v-lazy-src="'/assets/video/homepage5.mp4'">
         <source src="/assets/video/homepage5.mp4" type="video/mp4">
       </video>
     </section>
@@ -765,8 +752,8 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+    <section class="landing__video-content" ref="videoSections">
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[9] = el" v-lazy-src="'/assets/video/profilepage6.mp4'">
         <source src="/assets/video/profilepage6.mp4" type="video/mp4">
       </video>
     </section>
@@ -984,9 +971,9 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content title-video-block" id="neck">
+    <section class="landing__video-content title-video-block" id="neck" ref="videoSections">
       <h1 class="content__title">Шея</h1>
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[10] = el" v-lazy-src="'/assets/video/homepage6.mp4'">
         <source src="/assets/video/homepage6.mp4" type="video/mp4">
       </video>
     </section>
@@ -1046,8 +1033,8 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+    <section class="landing__video-content" ref="videoSections">
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[11] = el" v-lazy-src="'/assets/video/profilepage7.mp4'">
         <source src="/assets/video/profilepage7.mp4" type="video/mp4">
       </video>
     </section>
@@ -1145,8 +1132,8 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+    <section class="landing__video-content" ref="videoSections">
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[12] = el" v-lazy-src="'/assets/video/profilepage8.mp4'">
         <source src="/assets/video/profilepage8.mp4" type="video/mp4">
       </video>
     </section>
@@ -1263,9 +1250,9 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content title-video-block" id="eyes">
+    <section class="landing__video-content title-video-block" id="eyes" ref="videoSections">
       <h1 class="content__title">Глаза</h1>
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[13] = el" v-lazy-src="'/assets/video/profilepage9.mp4'">
         <source src="/assets/video/profilepage9.mp4" type="video/mp4">
       </video>
     </section>
@@ -1429,8 +1416,8 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+    <section class="landing__video-content" ref="videoSections">
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[14] = el" v-lazy-src="'/assets/video/profilepage10.mp4'">
         <source src="/assets/video/profilepage10.mp4" type="video/mp4">
       </video>
     </section>
@@ -1545,9 +1532,9 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content title-video-block" id="lipofilling">
+    <section class="landing__video-content title-video-block" id="lipofilling" ref="videoSections">
       <h1 class="content__title">ЛИПОФИЛИНГ</h1>
-      <video class="content__video" loop autoplay muted>
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[15] = el" v-lazy-src="'/assets/video/homepage8.mp4'">
         <source src="/assets/video/homepage8.mp4" type="video/mp4">
       </video>
     </section>
@@ -1620,8 +1607,8 @@
         </ul>
       </div>
     </section>
-    <section class="landing__video-content">
-      <video class="content__video" loop autoplay muted>
+    <section class="landing__video-content" ref="videoSections">
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[16] = el" v-lazy-src="'/assets/video/profilepage11.mp4'">
         <source src="/assets/video/profilepage11.mp4" type="video/mp4">
       </video>
     </section>
@@ -1837,34 +1824,26 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import { useIntersectionObserver } from '@vueuse/core'
 
-const videoPlayer = ref(null)
-const isPlaying = ref(false)
-const isMuted = ref(true)
-function togglePlay() {
-  if (videoPlayer.value.paused || videoPlayer.value.ended) {
-    videoPlayer.value.play()
-    isPlaying.value = true
-  } else {
-    videoPlayer.value.pause()
-    isPlaying.value = false
-  }
+const videoRefs = ref([])
+function handleVisibilityChange(entries) {
+  entries.forEach(entry => {
+    const video = entry.target
+    if (entry.isIntersecting) {
+      video.play().catch(error => {
+        console.error('Error attempting to play', video, error)
+      })
+    } else {
+      video.pause()
+    }
+  })
 }
-function toggleMute() {
-  videoPlayer.value.muted = !videoPlayer.value.muted
-  isMuted.value = videoPlayer.value.muted
-}
-function toggleFullscreen() {
-  if (videoPlayer.value.requestFullscreen) {
-    videoPlayer.value.requestFullscreen()
-  } else if (videoPlayer.value.mozRequestFullScreen) {
-    videoPlayer.value.mozRequestFullScreen()
-  } else if (videoPlayer.value.webkitRequestFullscreen) {
-    videoPlayer.value.webkitRequestFullscreen()
-  } else if (videoPlayer.value.msRequestFullscreen) {
-    videoPlayer.value.msRequestFullscreen()
-  }
-}
+const { stop } = useIntersectionObserver(
+  videoRefs,
+  handleVisibilityChange,
+  { threshold: 0.5 }
+)
 
 const isPopupOpen = ref(false)
 function togglePopup() {
@@ -1975,6 +1954,7 @@ onMounted(() => {
 })
 onUnmounted(() => {
   intervals.forEach(interval => clearInterval(interval))
+  stop()
 })
 </script>
 
