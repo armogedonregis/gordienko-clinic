@@ -1,15 +1,15 @@
 <template>
   <main class="home">
-    <NuxtLink :to="block.href" class="main__content" v-for="block in home.home" :key="block">
+    <NuxtLink :to="block.href" class="main__content" v-for="(block, index) in home.home" :key="index">
       <div class="content__overlay"></div>
       <h1 class="content__title">{{ block.title }}</h1>
-      <video class="content__video desktop" loop autoplay muted playsinline ref="mobileAutoplay" v-lazy-src="block.videoDesktop" v-observe-visibility="handleVisibilityChange(block)">
+      <video class="content__video desktop" loop muted playsinline :ref="el => videoRefs[index] = el" v-lazy-src="block.videoDesktop" v-observe-visibility="handleVisibilityChange(block)">
         <source :src="block.videoDesktop" type="video/mp4">
       </video>
-      <video class="content__video pad" loop autoplay muted playsinline ref="mobileAutoplay" v-lazy-src="block.videoPad" v-observe-visibility="handleVisibilityChange(block)">
+      <video class="content__video pad" loop muted playsinline :ref="el => videoRefs[index] = el" v-lazy-src="block.videoPad" v-observe-visibility="handleVisibilityChange(block)">
         <source :src="block.videoPad" type="video/mp4">
       </video>
-      <video class="content__video mobile" loop autoplay muted playsinline ref="mobileAutoplay" v-lazy-src="block.videoMobile" v-observe-visibility="handleVisibilityChange(block)">
+      <video class="content__video mobile" loop muted playsinline :ref="el => videoRefs[index] = el" v-lazy-src="block.videoMobile" v-observe-visibility="handleVisibilityChange(block)">
         <source :src="block.videoMobile" type="video/mp4">
       </video>
     </NuxtLink>
@@ -17,10 +17,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onUnmounted } from "vue";
+import { useIntersectionObserver } from '@vueuse/core'
 import home from "/server/home.json";
 
-const mobileAutoplay = ref([])
+const videoRefs = ref([])
 function handleVisibilityChange(block) {
   return (isVisible, entry) => {
     if (isVisible) {
@@ -28,17 +29,19 @@ function handleVisibilityChange(block) {
       if (!video.played.length) {
         video.play()
       }
+    } else {
+      video.pause()
     }
   }
 }
+const { stop } = useIntersectionObserver(
+  videoRefs,
+  handleVisibilityChange,
+  { threshold: 0.5 }
+)
 
-onMounted(() => {
-  mobileAutoplay.value.forEach(video => {
-    if(video) {
-      video.addEventListener('canplaythrough', video.play())
-      video.removeAttribute('controls')
-    }
-  })
+onUnmounted(() => {
+  stop()
 })
 </script>
 
