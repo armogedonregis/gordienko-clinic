@@ -7,7 +7,7 @@
         <NuxtLink to="/profile" :class="getItemColor('/profile')" class="nav__link profile">Доктор Гордиенко</NuxtLink>
         <NuxtLink to="/" class="nav__logo-link"><img src="/assets/images/logo.png" class="nav__logo"></NuxtLink>
         <NuxtLink :to="{ path: '/results', query: { view: 'read' } }" :class="getItemColor('/results')" class="nav__link results">Результаты</NuxtLink>
-        <NuxtLink to="https://t.me/+79111224888" target="_blank" :class="getItemColor('https://t.me/79111224888')" class="nav__link tg" data-title="Telegram" data-number="@Oleg Gordienko"></NuxtLink>
+        <NuxtLink to="https://t.me/+79111224888" target="_blank" :class="getItemColor('https://t.me/@doctor_gordienko')" class="nav__link tg" data-title="Telegram" data-number="@doctor_gordienko"></NuxtLink>
         <NuxtLink to="tel:79111224888" :class="getItemColor('tel:79111224888')" class="nav__link phone" data-title="Телефон" data-number="+7 (911) 122-48-88"></NuxtLink>
       </nav>
       <BaseDropdown class="header__nav-mobile"/>
