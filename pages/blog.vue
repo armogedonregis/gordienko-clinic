@@ -19,14 +19,14 @@
           <p class="titles__title link__author">АВТОР</p>
           <p class="titles__title link__article">ТЕМА</p>
         </div>
-        <div class="table__link-wrapper" v-for="article in articles.articles" >
+        <div class="table__link-wrapper" v-for="article in articles.articles" :key="article.id">
           <button class="table__link" @click="togglePost(article.id)">
             <p class="link link__date">{{ article.date }}</p>
             <p class="link link__author">{{ article.author }}</p>
             <p class="link link__article">{{ article.article }}</p>
           </button>
-          <Transition name="slide-fade">
-            <div class="blog__titles last-titles" v-if="isPostOpen[article.id] && article.articleContent">
+          <div class="accordion-content" :class="{'open': isPostOpen[article.id]}">
+            <div v-if="article.articleContent" class="blog__titles last-titles">
               <div class="titles__text last-titles-section">
                 <p class="text__description">{{ article.previewText }}</p>
                 <NuxtLink :to="`/article/${article.id}`" class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
@@ -35,8 +35,8 @@
                 <img src="/assets/images/blogpage1.png" class="titles__photo">
               </div>
             </div>
-            <p class="text__description margin-block" v-else-if="isPostOpen[article.id]">Статья еще не опубликована</p>
-          </Transition>
+            <p class="text__description margin-block" v-else>Статья еще не опубликована</p>
+          </div>
         </div>
       </div>
     </div>
@@ -499,20 +499,15 @@ onUnmounted(() => {
   }
 }
 
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: all 0.5s ease;
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateY(-100%);
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
   opacity: 0;
-}
+  transition: max-height 0.5s ease, opacity 0.5s ease;
 
-.slide-fade-enter-to,
-.slide-fade-leave-from {
-  transform: translateY(0);
-  opacity: 1;
+  &.open {
+    max-height: 1000px;
+    opacity: 1;
+  }
 }
 </style>
