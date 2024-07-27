@@ -19,29 +19,25 @@
           <p class="titles__title link__author">АВТОР</p>
           <p class="titles__title link__article">ТЕМА</p>
         </div>
-        <NuxtLink :to="`/article/${article.id}`" class="table__link" v-for="article in articles.articles.slice(0, 9)">
-          <p class="link link__date">{{ article.date }}</p>
-          <p class="link link__author">{{ article.author }}</p>
-          <p class="link link__article">{{ article.article }}</p>
-        </NuxtLink>
-      </div>
-    </div>
-    <div class="blog__titles last-titles">
-      <div class="titles__text last-titles-section">
-        <p class="text__description">Омолаживающая операция – это таинственное и даже магическое событие, которое проходит за закрытыми дверями операционной. Я c удовольствием приоткрою для вас эти двери и приглашу в удивительное путешествие.</p>
-        <NuxtLink to="/article/9" class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
-      </div>
-      <div class="titles__photo-wrapper">
-        <img src="/assets/images/blogpage1.png" class="titles__photo">
-      </div>
-    </div>
-    <div class="blog__description">
-      <div class="description__table">
-        <NuxtLink :to="`/article/${article.id}`" class="table__link" v-for="article in articles.articles.slice(9)">
-          <p class="link link__date">{{ article.date }}</p>
-          <p class="link link__author">{{ article.author }}</p>
-          <p class="link link__article">{{ article.article }}</p>
-        </NuxtLink>
+        <div class="table__link-wrapper" v-for="article in articles.articles" >
+          <button class="table__link" @click="togglePost(article.id)">
+            <p class="link link__date">{{ article.date }}</p>
+            <p class="link link__author">{{ article.author }}</p>
+            <p class="link link__article">{{ article.article }}</p>
+          </button>
+          <Transition name="slide-fade">
+            <div class="blog__titles last-titles" v-if="isPostOpen[article.id] && article.articleContent">
+              <div class="titles__text last-titles-section">
+                <p class="text__description">{{ article.previewText }}</p>
+                <NuxtLink :to="`/article/${article.id}`" class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
+              </div>
+              <div class="titles__photo-wrapper">
+                <img src="/assets/images/blogpage1.png" class="titles__photo">
+              </div>
+            </div>
+            <p class="text__description margin-block" v-else-if="isPostOpen[article.id]">Статья еще не опубликована</p>
+          </Transition>
+        </div>
       </div>
     </div>
   </div>
@@ -86,6 +82,14 @@ function stopTypingAnimation(index) {
   intervals[index] = null
 }
 
+const isPostOpen = ref({})
+function togglePost(articleId) {
+  isPostOpen.value = {
+    ...isPostOpen.value,
+    [articleId]: !isPostOpen.value[articleId]
+  }
+}
+
 onMounted(() => {
   startTypingAnimation(0)
 })
@@ -114,6 +118,7 @@ onUnmounted(() => {
     }
 
     &.last-titles {
+      margin: 100px 0 100px;
       align-items: flex-start;
       
       @media (max-width: 1700px) {
@@ -245,35 +250,6 @@ onUnmounted(() => {
         }
       }
 
-      .text__description {
-        color: #393939;
-        font-family: Accademico;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 130%;
-        max-width: 600px;
-        margin-right: auto;
-        padding-right: 40px;
-
-        @media (max-width: 1350px) {
-          font-size: 14px;
-          max-width: 400px;
-        }
-
-        @media (max-width: 1050px) {
-          font-size: 14px;
-          max-width: 300px;
-          padding-right: 0;
-        }
-
-        @media (max-width: 700px) {
-          font-size: 30px;
-          text-align: center;
-          max-width: 100%;
-        }
-      }
-
       .text__more-btn {
         cursor: pointer;
         display: flex;
@@ -319,6 +295,37 @@ onUnmounted(() => {
 
     .titles__photo {
       width: 100%;
+    }
+  }
+
+  .text__description {
+    color: #393939;
+    font-family: Accademico;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    max-width: 600px;
+    margin-right: auto;
+    padding-right: 40px;
+
+    &.margin-block {margin: 100px;}
+
+    @media (max-width: 1350px) {
+      font-size: 14px;
+      max-width: 400px;
+    }
+
+    @media (max-width: 1050px) {
+      font-size: 14px;
+      max-width: 300px;
+      padding-right: 0;
+    }
+
+    @media (max-width: 700px) {
+      font-size: 30px;
+      text-align: center;
+      max-width: 100%;
     }
   }
 
@@ -394,58 +401,64 @@ onUnmounted(() => {
         }
       }
 
-      .table__link {
+      .table__link-wrapper {
         display: flex;
-        align-items: center;
-        height: 85px;
-        width: 100%;
+        flex-direction: column;
         border-bottom: 1px solid rgba(57, 57, 57, 0.60);
+        width: 100%;
 
-        @media (max-width: 1700px) {
-          min-height: 85px;
-          padding: 10px;
-        }
-
-        @media (max-width: 700px) {
-          flex-direction: column;
-          align-items: flex-start;
-          padding: 25px 40px;
-          gap: 20px;
-          height: auto;
-        }
-
-        &:last-child {
-          border-bottom: none;
-        }
-
-        .link {
+        .table__link {
           display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          color: #393939;
-          font-family: Accademico;
-          font-size: 19px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 98%;
-          text-align: left;
+          align-items: center;
+          height: 85px;
+          width: 100%;
 
           @media (max-width: 1700px) {
-            padding-right: 50px;
-          }
-        
-          @media (max-width: 1350px) {
-            font-size: 12px;
-            line-height: 130%;
-          }
-
-          @media (max-width: 1050px) {
-            padding-right: 30px;
+            min-height: 85px;
+            padding: 10px;
           }
 
           @media (max-width: 700px) {
-            padding: 0;
-            width: 100%;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 25px 40px;
+            gap: 20px;
+            height: auto;
+          }
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          .link {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            color: #393939;
+            font-family: Accademico;
+            font-size: 19px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 98%;
+            text-align: left;
+
+            @media (max-width: 1700px) {
+              padding-right: 50px;
+            }
+          
+            @media (max-width: 1350px) {
+              font-size: 12px;
+              line-height: 130%;
+            }
+
+            @media (max-width: 1050px) {
+              padding-right: 30px;
+            }
+
+            @media (max-width: 700px) {
+              padding: 0;
+              width: 100%;
+            }
           }
         }
       }
@@ -484,5 +497,22 @@ onUnmounted(() => {
       }
     }
   }
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.5s ease;
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.slide-fade-enter-to,
+.slide-fade-leave-from {
+  transform: translateY(0);
+  opacity: 1;
 }
 </style>
