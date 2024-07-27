@@ -2519,6 +2519,8 @@ onUnmounted(() => {
       height: 520px;
       width: 100%;
       border: 1px solid rgba(138, 138, 138, 0.50);
+      border-right: none;
+      border-top: none;
 
       @media (max-width: 1720px) {
         width: 100%;

@@ -203,6 +203,8 @@ onUnmounted(() => {
         max-height: 850px;
         overflow: hidden;
         border: 1px solid rgba(138, 138, 138, 0.50);
+        border-right: none;
+        border-top: none;
 
         @media (max-width: 700px) {
           width: 100%;
@@ -254,6 +256,7 @@ onUnmounted(() => {
         width: 100%;
         height: 100%;
         border: 1px solid rgba(138, 138, 138, 0.50);
+        border-right: none;
         border-top: none;
         overflow: hidden;
 

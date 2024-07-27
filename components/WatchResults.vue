@@ -48,6 +48,7 @@ function handleMouseLeave() {
     height: 469px;
     overflow: hidden;
     border: 1px solid rgba(138, 138, 138, 0.50);
+    border-right: none;
 
     @media (max-width: 1728px) {
       height: auto;
