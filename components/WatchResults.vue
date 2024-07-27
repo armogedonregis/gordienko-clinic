@@ -1,9 +1,9 @@
 <template>
-  <div class="watch__results" v-for="(caseItem, index) in casesData.cases" :key="index">
+  <NuxtLink :to="`/case/${caseItem.id}`" class="watch__results" v-for="(caseItem, index) in casesData.cases" :key="index">
     <div class="results__item" v-for="(photo, photoIndex) in caseItem.images" :key="photoIndex" @mouseenter="handleMouseEnter(index, photoIndex)" @mouseleave="handleMouseLeave">
       <img :src="photo" class="results__photo" :class="{'grayscale': activeRow === index}">
     </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <script setup>
