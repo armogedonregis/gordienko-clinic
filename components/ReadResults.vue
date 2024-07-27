@@ -183,6 +183,14 @@ onMounted(() => {
           width: 300px;
           height: 40px;
         }
+
+        @media (hover: hover) {
+          &:hover {
+            background: #fff;
+            color: #000;
+            transition: .8s;
+          }
+        }
       }
     }
   }
