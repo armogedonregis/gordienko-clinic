@@ -122,6 +122,7 @@ onUnmounted(() => {
       align-items: flex-start;
       
       @media (max-width: 1700px) {
+        margin: 50px 0 50px;
         padding-left: 50px;
       }
 
@@ -309,7 +310,17 @@ onUnmounted(() => {
     margin-right: auto;
     padding-right: 40px;
 
-    &.margin-block {margin: 100px;}
+    &.margin-block {
+      margin: 100px;
+    
+      @media (max-width: 1700px) {
+        margin: 50px 150px;
+      }
+
+      @media (max-width: 1350px) {
+        margin: 50px 70px;
+      }
+    }
 
     @media (max-width: 1350px) {
       font-size: 14px;
@@ -508,6 +519,10 @@ onUnmounted(() => {
   &.open {
     max-height: 1000px;
     opacity: 1;
+
+    @media (max-width: 700px) {
+      max-height: 2000px;
+    }
   }
 }
 </style>
