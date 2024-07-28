@@ -396,6 +396,7 @@ onUnmounted(() => {
         margin-top: 28px;
         text-align: justify;
         width: 100%;
+        white-space: pre-line;
       }
 
       &.animate {

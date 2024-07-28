@@ -98,7 +98,7 @@ const lists = ref([
   },
   {
     title: 'истории преображений',
-    link: '/results'
+    link: '/results?view=read'
   },
   {
     title: 'вопросы и ответы',
@@ -106,7 +106,7 @@ const lists = ref([
   },
   {
     title: 'доктор гордиенко',
-    link: 'profile'
+    link: '/profile'
   },
   {
     title: 'блог',
