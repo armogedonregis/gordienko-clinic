@@ -96,7 +96,7 @@ function getItemColor(path) {
           position: absolute;
           width: 100%;
           text-align: center;
-          transition: transform 0.8s ease, opacity 0.8s ease;
+          transition: transform 1.5s ease, opacity 1.5s ease;
         }
 
         &::before {
@@ -107,7 +107,7 @@ function getItemColor(path) {
 
         &::after {
           content: attr(data-number);
-          transform: translateY(-100%);
+          transform: translateY(-200%);
           opacity: 0;
         }
 
