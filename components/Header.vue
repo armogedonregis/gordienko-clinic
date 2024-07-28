@@ -2,13 +2,13 @@
   <div class="header-wrapper">
     <header class="header">
       <nav class="header__nav">
-        <NuxtLink to="/profile#deep-plane-faceLift" :class="getItemColor('/deep-plane-facelift')" class="nav__link dp">Deep plane facelift</NuxtLink>
-        <NuxtLink to="/blog" :class="getItemColor('/blog')" class="nav__link blog">Блог</NuxtLink>
-        <NuxtLink to="/profile" :class="getItemColor('/profile')" class="nav__link profile">Доктор Гордиенко</NuxtLink>
+        <NuxtLink to="/profile#deep-plane-faceLift" class="nav__link dp">Deep plane facelift</NuxtLink>
+        <NuxtLink to="/blog" class="nav__link blog">Блог</NuxtLink>
+        <NuxtLink to="/profile" class="nav__link profile">Доктор Гордиенко</NuxtLink>
         <NuxtLink to="/" class="nav__logo-link"><img src="/assets/images/logo.png" class="nav__logo"></NuxtLink>
-        <NuxtLink :to="{ path: '/results', query: { view: 'read' } }" :class="getItemColor('/results')" class="nav__link results">Результаты</NuxtLink>
-        <NuxtLink to="https://t.me/+79111224888" target="_blank" :class="getItemColor('https://t.me/@doctor_gordienko')" class="nav__link tg" data-title="Telegram" data-number="@doctor_gordienko"></NuxtLink>
-        <NuxtLink to="tel:79111224888" :class="getItemColor('tel:79111224888')" class="nav__link phone" data-title="Телефон" data-number="+7 (911) 122-48-88"></NuxtLink>
+        <NuxtLink :to="{ path: '/results', query: { view: 'read' } }" class="nav__link results">Результаты</NuxtLink>
+        <NuxtLink to="https://t.me/+79111224888" target="_blank" class="nav__link tg" data-title="Telegram" data-number="@doctor_gordienko"></NuxtLink>
+        <NuxtLink to="tel:79111224888" class="nav__link phone" data-title="Телефон" data-number="+7 (911) 122-48-88"></NuxtLink>
       </nav>
       <BaseDropdown class="header__nav-mobile"/>
     </header>
@@ -16,20 +16,7 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router';
 import BaseDropdown from './BaseDropdown.vue';
-
-const route = useRoute()
-
-function getItemColor(path) {
-  if (route.path === '/') {
-    return 'link__white'
-  } else if (route.path.includes('/article') || route.path.includes('/blog')) {
-    return path === '/deep-plane-facelift' || path === '/blog' || path === '/profile' ? 'link__black' : 'link__white'
-  } else {
-    return 'link__white'
-  }
-}
 </script>
 
 <style lang="scss" scoped>
@@ -81,6 +68,7 @@ function getItemColor(path) {
         align-items: center;
         justify-content: center;
         min-height: 48px;
+        color: #fff;
 
         @media (max-width: 1450px) {
           font-size: 8px;
