@@ -388,9 +388,10 @@
           </li>
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">17</p>
-            <h1 class="list__title">ответы на вопросы</h1>
-            <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
-            </h2>
+            <button class="question__popup-btn" @click="openFaqPopup">
+              <h1 class="list__title">ответы на вопросы</h1>
+              <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ</h2>
+            </button>
             <p class="list__info lh200">
               <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
               <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
@@ -665,9 +666,10 @@
           </li>
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">14</p>
-            <h1 class="list__title">Ответы на вопросы</h1>
-            <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
-            </h2>
+            <button class="question__popup-btn" @click="openFaqPopup">
+              <h1 class="list__title">Ответы на вопросы</h1>
+              <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ</h2>
+            </button>
             <p class="list__info lh200">
               <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
               <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
@@ -946,9 +948,10 @@
           </li>
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">17</p>
-            <h1 class="list__title">Ответы на вопросы</h1>
-            <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
-            </h2>
+            <button class="question__popup-btn" @click="openFaqPopup">
+              <h1 class="list__title">Ответы на вопросы</h1>
+              <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ</h2>
+            </button>
             <p class="list__info lh200">
               <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
               <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
@@ -1225,9 +1228,10 @@
           </li>
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">16</p>
-            <h1 class="list__title">Ответы на вопросы</h1>
-            <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
-            </h2>
+            <button class="question__popup-btn" @click="openFaqPopup">
+              <h1 class="list__title">Ответы на вопросы</h1>
+              <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ</h2>
+            </button>
             <p class="list__info lh200">
               <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
               <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
@@ -1507,9 +1511,10 @@
           </li>
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">17</p>
-            <h1 class="list__title">Ответы на вопросы</h1>
-            <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
-            </h2>
+            <button class="question__popup-btn" @click="openFaqPopup">
+              <h1 class="list__title">Ответы на вопросы</h1>
+              <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ</h2>
+            </button>
             <p class="list__info lh200">
               <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
               <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
@@ -1794,9 +1799,10 @@
           </li>
           <li class="list__lists" :class="{ 'animate': isVisible }">
             <p class="list__num">16</p>
-            <h1 class="list__title">Ответы на вопросы</h1>
-            <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ
-            </h2>
+            <button class="question__popup-btn" @click="openFaqPopup">
+              <h1 class="list__title">Ответы на вопросы</h1>
+              <h2 class="list__subtitle">которые часто появляются в процессе принятия решения, вы найдете в разделе FAQ</h2>
+            </button>
             <p class="list__info lh200">
               <span>Если ответа на ваш вопрос там нет, смело пишите/звоните.</span><br>
               <NuxtLink to="tel:79111224888">7 911 122 48 88</NuxtLink><br>
@@ -1824,7 +1830,8 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import { useIntersectionObserver } from '@vueuse/core'
+import { useIntersectionObserver } from '@vueuse/core';
+import store from '/store/index.js';
 
 const videoRefs = ref([])
 function handleVisibilityChange(entries) {
@@ -1895,6 +1902,11 @@ function stopTypingAnimation(index) {
 }
 function createObserver(callback, options) {
   return new IntersectionObserver(callback, options)
+}
+
+const isFaqPopupOpen = computed(() => store.state.isFaqPopupOpen)
+function openFaqPopup() {
+  store.commit('openFaqPopup')
 }
 
 onMounted(() => {
@@ -2621,6 +2633,13 @@ onUnmounted(() => {
         }
       }
     }
+  }
+
+  .question__popup-btn {
+    display: flex;
+    flex-direction: column;
+    background: none;
+    border: none;
   }
 }
 </style>
