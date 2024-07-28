@@ -164,6 +164,7 @@ function handleMouseLeave() {
   justify-content: space-between;
   padding: 250px 0 17px 40px;
   width: 100%;
+  background: #fff;
 
   @media (max-width: 700px) {
     padding: 150px 0 17px 40px;

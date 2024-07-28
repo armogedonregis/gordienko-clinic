@@ -34,10 +34,11 @@ function getItemColor(path) {
 
 <style lang="scss" scoped>
 .header-wrapper {
-  position: absolute;
+  position: fixed;
   padding: 33px 33px 0 33px;
   z-index: 999;
   width: 100%;
+  mix-blend-mode: difference;
 
   @media (max-width: 480px) {
     padding: 17px 17px 0 17px;
