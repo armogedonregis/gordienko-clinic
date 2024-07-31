@@ -1,7 +1,6 @@
 <template>
   <div class="landing">
     <section class="landing__video-content title-video-block" ref="videoSections">
-      <h1 class="content__title mobile">доктор гордиенко</h1>
       <video class="content__video" loop muted playsinline controls="false" :ref="el => videoRefs[0] = el" v-lazy-src="'/assets/video/homepage2.mp4'">
         <source src="/assets/video/homepage2.mp4" type="video/mp4">
       </video>
@@ -100,7 +99,7 @@
       </div>
     </section>
     <section class="landing__video-content title-video-block" id="deep-plane-faceLift" ref="videoSections">
-      <h1 class="content__title">Deep plane facelift</h1>
+      <h1 class="content__title" id="first-video-title">Deep plane facelift</h1>
       <video class="content__video" loop muted playsinline :ref="el => videoRefs[3] = el" v-lazy-src="'/assets/video/homepage3.mp4'">
         <source src="/assets/video/homepage3.mp4" type="video/mp4">
       </video>
@@ -410,13 +409,13 @@
             <h2 class="list__subtitle" style="color: #393939;">Deep Plane Facelift – новый метод подтяжки лица и шеи.
               Почему это лучше обычной SMAS-подтяжки?</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <NuxtLink to="/article/1" class="show__more-btn blue">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
+            <NuxtLink to="/article/1" class="show__more-btn blue" id="first-post-link">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
           </li>
         </ul>
       </div>
     </section>
     <section class="landing__video-content title-video-block" id="lips" ref="videoSections">
-      <h1 class="content__title">Губы</h1>
+      <h1 class="content__title" id="second-video-title">Губы</h1>
       <video class="content__video" loop muted playsinline :ref="el => videoRefs[5] = el" v-lazy-src="'/assets/video/homepage8.mp4'">
         <source src="/assets/video/homepage8.mp4" type="video/mp4">
       </video>
@@ -687,13 +686,13 @@
             <p class="list__date">28.01.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Подтяжка верхней губы LipLift</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <NuxtLink to="/article/8" class="show__more-btn blue">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
+            <NuxtLink to="/article/8" class="show__more-btn blue" id="second-post-link">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
           </li>
         </ul>
       </div>
     </section>
     <section class="landing__video-content title-video-block" id="forehead-n-eyebrows" ref="videoSections">
-      <h1 class="content__title">Лоб и брови</h1>
+      <h1 class="content__title" id="third-video-title">Лоб и брови</h1>
       <video class="content__video" loop muted playsinline :ref="el => videoRefs[8] = el" v-lazy-src="'/assets/video/homepage5.mp4'">
         <source src="/assets/video/homepage5.mp4" type="video/mp4">
       </video>
@@ -969,13 +968,13 @@
             <p class="list__date">09.03.24</p>
             <h2 class="list__subtitle" style="color: #393939;">Лифтинг лба и бровей</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <NuxtLink to="/article/2" class="show__more-btn blue">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
+            <NuxtLink to="/article/2" class="show__more-btn blue" id="third-post-link">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
           </li>
         </ul>
       </div>
     </section>
     <section class="landing__video-content title-video-block" id="neck" ref="videoSections">
-      <h1 class="content__title">Шея</h1>
+      <h1 class="content__title" id="fourth-video-title">Шея</h1>
       <video class="content__video" loop muted playsinline :ref="el => videoRefs[10] = el" v-lazy-src="'/assets/video/homepage6.mp4'">
         <source src="/assets/video/homepage6.mp4" type="video/mp4">
       </video>
@@ -1249,13 +1248,13 @@
             <p class="list__date">28.01.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Омоложение и подтяжка шеи</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <NuxtLink to="/article/7" class="show__more-btn blue">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
+            <NuxtLink to="/article/7" class="show__more-btn blue" id="fourth-post-link">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
           </li>
         </ul>
       </div>
     </section>
     <section class="landing__video-content title-video-block" id="eyes" ref="videoSections">
-      <h1 class="content__title">Глаза</h1>
+      <h1 class="content__title" id="fifth-video-title">Глаза</h1>
       <video class="content__video" loop muted playsinline :ref="el => videoRefs[13] = el" v-lazy-src="'/assets/video/profilepage9.mp4'">
         <source src="/assets/video/profilepage9.mp4" type="video/mp4">
       </video>
@@ -1532,13 +1531,13 @@
             <p class="list__date">03.02.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Блефаропластика</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <NuxtLink to="/article/6" class="show__more-btn blue">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
+            <NuxtLink to="/article/6" class="show__more-btn blue" id="fifth-post-link">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
           </li>
         </ul>
       </div>
     </section>
     <section class="landing__video-content title-video-block" id="lipofilling" ref="videoSections">
-      <h1 class="content__title">ЛИПОФИЛИНГ</h1>
+      <h1 class="content__title" id="sixth-video-title">ЛИПОФИЛИНГ</h1>
       <video class="content__video" loop muted playsinline :ref="el => videoRefs[15] = el" v-lazy-src="'/assets/video/homepage8.mp4'">
         <source src="/assets/video/homepage8.mp4" type="video/mp4">
       </video>
@@ -1820,7 +1819,7 @@
             <p class="list__date">23.12.23</p>
             <h2 class="list__subtitle" style="color: #393939;">Липофилинг лица</h2>
             <p class="list__info">Олег Викторович Гордиенко</p>
-            <NuxtLink to="/article/4" class="show__more-btn blue">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
+            <NuxtLink to="/article/4" class="show__more-btn blue" id="sixth-post-link">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
           </li>
         </ul>
       </div>
@@ -1904,9 +1903,93 @@ function createObserver(callback, options) {
   return new IntersectionObserver(callback, options)
 }
 
-const isFaqPopupOpen = computed(() => store.state.isFaqPopupOpen)
 function openFaqPopup() {
   store.commit('openFaqPopup')
+}
+
+const headerHeight = ref(0)
+const activeTitle = ref(null)
+const h1Elements = [
+  {
+    id: 'first-video-title',
+    linkId: 'first-post-link'
+  },
+  {
+    id: 'second-video-title',
+    linkId: 'second-post-link'
+  },
+  {
+    id: 'third-video-title',
+    linkId: 'third-post-link'
+  },
+  {
+    id: 'fourth-video-title',
+    linkId: 'fourth-post-link'
+  },
+  {
+    id: 'fifth-video-title',
+    linkId: 'fifth-post-link'
+  },
+  {
+    id: 'sixth-video-title',
+    linkId: 'sixth-post-link'
+  }
+]
+function handleScroll() {
+  const headerWrapper = document.querySelector('.header-wrapper')
+  headerHeight.value = headerWrapper.offsetHeight
+  
+  h1Elements.forEach(item => {
+    const h1Element = document.getElementById(item.id)
+    const linkElement = document.getElementById(item.linkId)
+
+    if (h1Element && linkElement) {
+      const h1Rect = h1Element.getBoundingClientRect()
+      const linkRect = linkElement.getBoundingClientRect()
+
+      if (h1Rect.top <= headerHeight.value + 100 && h1Rect.bottom > headerHeight.value + 100) {
+        if (activeTitle.value !== h1Element) {
+          activeTitle.value = h1Element
+          h1Element.style.position = 'fixed'
+          h1Element.style.top = `${headerHeight.value + 100}px`
+          h1Element.style.zIndex = 1
+        }
+      }
+
+      if (linkRect.top <= headerHeight.value + h1Element.offsetHeight) {
+        activeTitle.value = null
+        h1Element.style.position = 'relative'
+        h1Element.style.top = '0px'
+        h1Element.style.zIndex = 0
+      }
+    }
+  })
+
+  h1Elements.forEach(item => {
+    const h1Element = document.getElementById(item.id)
+    const linkElement = document.getElementById(item.linkId)
+
+    if (h1Element && linkElement) {
+      const h1Rect = h1Element.getBoundingClientRect()
+      const linkRect = linkElement.getBoundingClientRect()
+
+      if (h1Rect.top > headerHeight.value + 100 && activeTitle.value === h1Element) {
+        activeTitle.value = null
+        h1Element.style.position = 'relative'
+        h1Element.style.top = '0px'
+        h1Element.style.zIndex = 0
+      }
+
+      if (linkRect.bottom >= headerHeight.value + h1Element.offsetHeight && h1Rect.top > linkRect.top) {
+        if (activeTitle.value !== h1Element) {
+          activeTitle.value = h1Element
+          h1Element.style.position = 'fixed'
+          h1Element.style.top = `${headerHeight.value + 100}px`
+          h1Element.style.zIndex = 1
+        }
+      }
+    }
+  })
 }
 
 onMounted(() => {
@@ -1963,10 +2046,12 @@ onMounted(() => {
       observerMap[className].observe(el)
     })
   })
+  window.addEventListener('scroll', handleScroll)
 })
 onUnmounted(() => {
   intervals.forEach(interval => clearInterval(interval))
   stop()
+  window.removeEventListener('scroll', handleScroll)
 })
 </script>
 
@@ -1975,6 +2060,7 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   width: 100%;
+  background: #fff;
   
   .landing__video-content {
     display: flex;

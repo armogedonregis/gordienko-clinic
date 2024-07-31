@@ -119,6 +119,7 @@ onUnmounted(() => {
   align-items: center;
   width: 100%;
   gap: 200px;
+  background: #FFF;
 
   @media (max-width: 1350px) {
     gap: 127px;

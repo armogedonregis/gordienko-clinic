@@ -106,6 +106,7 @@ onUnmounted(() => {
   align-items: center;
   width: 100%;
   gap: 97px;
+  background: #FFF;
 
   .blog__titles {
     display: flex;
