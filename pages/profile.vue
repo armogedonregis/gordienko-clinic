@@ -2093,6 +2093,7 @@ onUnmounted(() => {
       line-height: 120%;
       text-transform: uppercase;
       z-index: 2;
+      mix-blend-mode: difference;
 
       @media (max-width: 1350px) {
         font-size: 30px;
