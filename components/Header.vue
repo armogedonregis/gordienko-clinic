@@ -2,21 +2,34 @@
   <div class="header-wrapper">
     <header class="header">
       <nav class="header__nav">
+        <button class="nav__link" @click="toggleDropdown">меню</button>
         <NuxtLink to="/profile#deep-plane-faceLift" class="nav__link dp">Deep plane facelift</NuxtLink>
         <NuxtLink to="/blog" class="nav__link blog">Блог</NuxtLink>
         <NuxtLink to="/profile" class="nav__link profile">Доктор Гордиенко</NuxtLink>
-        <NuxtLink to="/" class="nav__logo-link"><img src="/assets/images/logo.png" class="nav__logo"></NuxtLink>
         <NuxtLink :to="{ path: '/results', query: { view: 'read' } }" class="nav__link results">Результаты</NuxtLink>
         <NuxtLink to="https://t.me/+79111224888" target="_blank" class="nav__link tg" data-title="Telegram" data-number="@doctor_gordienko"></NuxtLink>
         <NuxtLink to="tel:79111224888" class="nav__link phone" data-title="Телефон" data-number="+7 (911) 122-48-88"></NuxtLink>
       </nav>
-      <BaseDropdown class="header__nav-mobile"/>
     </header>
   </div>
+  <Transition name="slide-fade">
+    <div v-if="isDropdownOpen" class="dropdown__menu-wrapper" @click="toggleDropdown">
+      <div class="dropdown__overlay"></div>
+      <div class="dropdown__menu">
+        <NuxtLink :to="link.href" class="menu__item" v-for="link in home.home" :key="link">{{ link.title }}</NuxtLink>
+      </div>
+    </div>
+  </Transition>
 </template>
 
 <script setup>
-import BaseDropdown from './BaseDropdown.vue';
+import { ref } from 'vue';
+import home from '/server/home.json';
+
+const isDropdownOpen = ref(false)
+function toggleDropdown() {
+  isDropdownOpen.value = !isDropdownOpen.value
+}
 </script>
 
 <style lang="scss" scoped>
@@ -125,43 +138,78 @@ import BaseDropdown from './BaseDropdown.vue';
 
       .link__white {color: #FFF;}
       .link__black {color: #393939;}
-
-      .nav__logo-link {
-        text-align: center;
-        width: 200px;
-
-        @media (max-width: 1350px) {
-          width: 100px;
-        }
-
-        @media (max-width: 1200px) {
-          width: 50px;
-        }
-
-        @media (max-width: 1100px) {
-          order: 3;
-        }
-
-        .nav__logo {
-          width: 48px;
-          height: 48px;
-        }
-      }
     }
 
-    .header__nav-mobile {
-      display: none;
+    
+  }
+}
 
-      @media (max-width: 800px) {
-        display: block;
-        position: absolute;
-        left: 30px;
+.dropdown__menu-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(12px);
+
+  .dropdown__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .dropdown__menu {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 80px;
+
+    @media (max-width: 600px) {
+      font-size: 55px;
+    }
+
+    .menu__item {
+      color: #FFF;
+      text-align: center;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 98%;
+      text-transform: uppercase;
+
+      @media (max-width: 600px) {
+        font-size: 20px;
       }
 
-      @media (max-width: 480px) {
-        left: 17px;
+      @media (max-width: 400px) {
+        font-size: 17px;
       }
     }
   }
+}
+
+.slide-fade-enter-active, .slide-fade-leave-active {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.slide-fade-enter-from, .slide-fade-leave-to {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.slide-fade-enter-to, .slide-fade-leave-from {
+  transform: translateY(0);
+  opacity: 1;
 }
 </style>
