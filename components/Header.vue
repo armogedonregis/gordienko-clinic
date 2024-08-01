@@ -1,5 +1,5 @@
 <template>
-  <div class="header-wrapper" :class="{ 'header-wrapper--difference': !isOverContent }">
+  <div class="header-wrapper">
     <header class="header">
       <nav class="header__nav">
         <NuxtLink to="/profile#deep-plane-faceLift" class="nav__link dp">Deep plane facelift</NuxtLink>
@@ -16,32 +16,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
 import BaseDropdown from './BaseDropdown.vue';
-
-const isOverContent = ref(false)
-function handleScroll() {
-  const headerWrapper = document.querySelector('.header-wrapper')
-  const mainContents = document.querySelectorAll('.main__content')
-
-  let isOver = false
-  mainContents.forEach(content => {
-    const rect = content.getBoundingClientRect()
-    if (rect.top < headerWrapper.offsetHeight && rect.bottom > 0) {
-      isOver = true
-    }
-  })
-
-  isOverContent.value = isOver
-}
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-  handleScroll()
-})
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
 </script>
 
 <style lang="scss" scoped>
@@ -50,13 +25,10 @@ onUnmounted(() => {
   padding: 33px 33px 0 33px;
   z-index: 999;
   width: 100%;
+  mix-blend-mode: difference;
 
   @media (max-width: 480px) {
     padding: 17px 17px 0 17px;
-  }
-
-  &--difference {
-    mix-blend-mode: difference;
   }
 
   .header {
