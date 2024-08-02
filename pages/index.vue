@@ -1,16 +1,10 @@
 <template>
   <main class="home">
-    <NuxtLink :to="block.href" class="main__content" v-for="(block, index) in home.home" :key="index">
+    <NuxtLink :to="block.href" class="main__content" v-for="(block, index) in homePagesData" :key="index">
       <div class="content__overlay"></div>
       <h1 class="content__title">{{ block.title }}</h1>
       <video class="content__video desktop" loop muted playsinline :ref="el => videoRefs[index] = el" v-lazy-src="block.videoDesktop" v-observe-visibility="handleVisibilityChange(block)">
-        <source :src="block.videoDesktop" type="video/mp4">
-      </video>
-      <video class="content__video pad" loop muted playsinline :ref="el => videoRefs[index] = el" v-lazy-src="block.videoPad" v-observe-visibility="handleVisibilityChange(block)">
-        <source :src="block.videoPad" type="video/mp4">
-      </video>
-      <video class="content__video mobile" loop muted playsinline :ref="el => videoRefs[index] = el" v-lazy-src="block.videoMobile" v-observe-visibility="handleVisibilityChange(block)">
-        <source :src="block.videoMobile" type="video/mp4">
+        <source :src="block.main_video" type="video/mp4">
       </video>
     </NuxtLink>
   </main>
@@ -18,8 +12,8 @@
 
 <script setup>
 import { ref, onUnmounted } from "vue";
-import { useIntersectionObserver } from '@vueuse/core'
-import home from "/server/home.json";
+import { useIntersectionObserver } from '@vueuse/core';
+import store from "/store/index.js";
 
 const videoRefs = ref([])
 function handleVisibilityChange(block) {
@@ -39,7 +33,11 @@ const { stop } = useIntersectionObserver(
   handleVisibilityChange,
   { threshold: 0.5 }
 )
+const homePagesData = computed(() => store.state.homePagesData)
 
+onMounted(async () => {
+  await store.dispatch('fetchHomePagesData')
+})
 onUnmounted(() => {
   stop()
 })
