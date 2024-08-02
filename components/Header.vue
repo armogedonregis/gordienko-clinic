@@ -2,7 +2,7 @@
   <div class="header-wrapper">
     <header class="header">
       <nav class="header__nav">
-        <button class="nav__link" @click="toggleDropdown">меню</button>
+        <button class="nav__link menu" @click="toggleDropdown">меню</button>
         <NuxtLink to="/profile#deep-plane-faceLift" class="nav__link dp">Deep plane facelift</NuxtLink>
         <NuxtLink to="/blog" class="nav__link blog">Блог</NuxtLink>
         <NuxtLink to="/profile" class="nav__link profile">Доктор Гордиенко</NuxtLink>
@@ -12,14 +12,16 @@
       </nav>
     </header>
   </div>
-  <Transition name="slide-fade">
-    <div v-if="isDropdownOpen" class="dropdown__menu-wrapper" @click="toggleDropdown">
-      <div class="dropdown__overlay"></div>
-      <div class="dropdown__menu">
-        <NuxtLink :to="link.href" class="menu__item" v-for="link in home.home" :key="link">{{ link.title }}</NuxtLink>
+  <div class="header__dropdown-wrapper">
+    <div v-if="isDropdownOpen" class="dropdown__overlay"></div>
+    <Transition name="slide-fade">
+      <div v-if="isDropdownOpen" class="dropdown__menu-wrapper" @click="closeDropdown">
+        <div class="dropdown__menu">
+          <NuxtLink :to="link.href" class="menu__item" v-for="link in home.home" :key="link">{{ link.title }}</NuxtLink>
+        </div>
       </div>
-    </div>
-  </Transition>
+    </Transition>
+  </div>
 </template>
 
 <script setup>
@@ -28,7 +30,10 @@ import home from '/server/home.json';
 
 const isDropdownOpen = ref(false)
 function toggleDropdown() {
-  isDropdownOpen.value = !isDropdownOpen.value
+  isDropdownOpen.value = true
+}
+function closeDropdown() {
+  isDropdownOpen.value = false
 }
 </script>
 
@@ -63,7 +68,7 @@ function toggleDropdown() {
       width: 100%;
 
       @media (max-width: 800px) {
-        justify-content: center;
+        justify-content: flex-start;
       }
 
       .nav__link {
@@ -88,10 +93,11 @@ function toggleDropdown() {
         }
 
         @media (max-width: 800px) {
-          opacity: 0;
+          display: none;
         }
 
-        &::before, &::after {
+        &::before,
+        &::after {
           display: flex;
           justify-content: flex-end;
           content: '';
@@ -113,14 +119,42 @@ function toggleDropdown() {
           opacity: 0;
         }
 
+        &.menu {
+          display: flex;
+          align-items: flex-start;
+        }
+
         @media (max-width: 1100px) {
-          &.dp { order: 1; }
-          &.blog { display: none; }
-          &.profile { order: 5; }
-          &.results { display: none; }
-          &.tg { order: 2; }
-          &.phone { order: 4; }
-          &.tg::before, &.tg::after, &.phone::before, &.phone::after { justify-content: center; }
+          &.dp {
+            order: 1;
+          }
+
+          &.blog {
+            display: none;
+          }
+
+          &.profile {
+            order: 5;
+          }
+
+          &.results {
+            display: none;
+          }
+
+          &.tg {
+            order: 2;
+          }
+
+          &.phone {
+            order: 4;
+          }
+
+          &.tg::before,
+          &.tg::after,
+          &.phone::before,
+          &.phone::after {
+            justify-content: center;
+          }
         }
 
         @media (hover: hover) {
@@ -135,81 +169,79 @@ function toggleDropdown() {
           }
         }
       }
-
-      .link__white {color: #FFF;}
-      .link__black {color: #393939;}
     }
-
-    
   }
 }
 
-.dropdown__menu-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(12px);
-
+.header__dropdown-wrapper {
+  
   .dropdown__overlay {
-    position: absolute;
+    position: fixed;
+    z-index: 999;
     width: 100%;
     height: 100%;
+    backdrop-filter: blur(12px);
     top: 0;
     left: 0;
-    z-index: 1;
   }
 
-  .dropdown__menu {
+  .dropdown__menu-wrapper {
+    position: fixed;
     display: flex;
-    flex-direction: column;
-    position: relative;
-    z-index: 2;
-    align-items: center;
     justify-content: center;
+    width: 100%;
     height: 100%;
-    gap: 80px;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    padding: 100px 0;
 
-    @media (max-width: 600px) {
-      font-size: 55px;
-    }
-
-    .menu__item {
-      color: #FFF;
-      text-align: center;
-      font-size: 25px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 98%;
-      text-transform: uppercase;
+    .dropdown__menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
 
       @media (max-width: 600px) {
-        font-size: 20px;
+        font-size: 55px;
       }
 
-      @media (max-width: 400px) {
-        font-size: 17px;
+      .menu__item {
+        color: #FFF;
+        text-align: center;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 98%;
+        text-transform: uppercase;
+
+        @media (max-width: 600px) {
+          font-size: 20px;
+        }
+
+        @media (max-width: 400px) {
+          font-size: 17px;
+        }
       }
     }
   }
-}
 
-.slide-fade-enter-active, .slide-fade-leave-active {
-  transition: transform 0.5s ease, opacity 0.5s ease;
-}
+  .slide-fade-enter-active,
+  .slide-fade-leave-active {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
 
-.slide-fade-enter-from, .slide-fade-leave-to {
-  transform: translateY(100%);
-  opacity: 0;
-}
+  .slide-fade-enter-from,
+  .slide-fade-leave-to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
 
-.slide-fade-enter-to, .slide-fade-leave-from {
-  transform: translateY(0);
-  opacity: 1;
+  .slide-fade-enter-to,
+  .slide-fade-leave-from {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 </style>
