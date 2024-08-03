@@ -1927,50 +1927,72 @@ function openFaqPopup() {
 
 const headerHeight = ref(0)
 const activeTitle = ref(null)
+let lastScrollTop = 0
 const h1Elements = [
   {
     id: 'first-video-title',
-    linkId: 'first-post-link'
+    linkId: 'first-post-link',
+    parentId: 'dpf-block'
   },
   {
     id: 'second-video-title',
-    linkId: 'second-post-link'
+    linkId: 'second-post-link',
+    parentId: 'lips-block'
   },
   {
     id: 'third-video-title',
-    linkId: 'third-post-link'
+    linkId: 'third-post-link',
+    parentId: 'fne-block'
   },
   {
     id: 'fourth-video-title',
-    linkId: 'fourth-post-link'
+    linkId: 'fourth-post-link',
+    parentId: 'neck-block'
   },
   {
     id: 'fifth-video-title',
-    linkId: 'fifth-post-link'
+    linkId: 'fifth-post-link',
+    parentId: 'eyes-block'
   },
   {
     id: 'sixth-video-title',
-    linkId: 'sixth-post-link'
+    linkId: 'sixth-post-link',
+    parentId: 'lipofilling-block'
   }
 ]
 function handleScroll() {
   const headerWrapper = document.querySelector('.header-wrapper')
   headerHeight.value = headerWrapper.offsetHeight
   
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+  const isScrollingDown = scrollTop > lastScrollTop
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop
+
   h1Elements.forEach(item => {
     const h1Element = document.getElementById(item.id)
     const linkElement = document.getElementById(item.linkId)
+    const parentElement = document.getElementById(item.parentId)
 
-    if (h1Element && linkElement) {
+    if (h1Element && linkElement && parentElement) {
       const h1Rect = h1Element.getBoundingClientRect()
       const linkRect = linkElement.getBoundingClientRect()
+      const parentRect = parentElement.getBoundingClientRect()
 
-      if (h1Rect.top <= headerHeight.value + 100 && h1Rect.bottom > headerHeight.value + 100) {
-        if (activeTitle.value !== h1Element) {
-          activeTitle.value = h1Element
-          h1Element.style.position = 'fixed'
-          h1Element.style.top = `${headerHeight.value + 100}px`
-          h1Element.style.zIndex = 1
+      if (isScrollingDown) {
+        if (h1Rect.top <= headerHeight.value + 100 && h1Rect.bottom > headerHeight.value + 100) {
+          if (activeTitle.value !== h1Element) {
+            activeTitle.value = h1Element
+            h1Element.style.position = 'fixed'
+            h1Element.style.top = `${headerHeight.value + 100}px`
+            h1Element.style.zIndex = 1
+          }
+        }
+      } else {
+        if (activeTitle.value === h1Element) {
+          activeTitle.value = null
+          h1Element.style.position = 'relative'
+          h1Element.style.top = '0px'
+          h1Element.style.zIndex = 0
         }
       }
 
@@ -1980,31 +2002,12 @@ function handleScroll() {
         h1Element.style.top = '0px'
         h1Element.style.zIndex = 0
       }
-    }
-  })
 
-  h1Elements.forEach(item => {
-    const h1Element = document.getElementById(item.id)
-    const linkElement = document.getElementById(item.linkId)
-
-    if (h1Element && linkElement) {
-      const h1Rect = h1Element.getBoundingClientRect()
-      const linkRect = linkElement.getBoundingClientRect()
-
-      if (h1Rect.top > headerHeight.value + 100 && activeTitle.value === h1Element) {
+      if (h1Rect.top < parentRect.top || h1Rect.bottom > parentRect.bottom) {
         activeTitle.value = null
         h1Element.style.position = 'relative'
         h1Element.style.top = '0px'
         h1Element.style.zIndex = 0
-      }
-
-      if (linkRect.bottom >= headerHeight.value + h1Element.offsetHeight && h1Rect.top > linkRect.top) {
-        if (activeTitle.value !== h1Element) {
-          activeTitle.value = h1Element
-          h1Element.style.position = 'fixed'
-          h1Element.style.top = `${headerHeight.value + 100}px`
-          h1Element.style.zIndex = 1
-        }
       }
     }
   })
