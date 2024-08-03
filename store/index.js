@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import axios from 'axios'
 
 export default createStore({
 	state() {
@@ -6,6 +7,7 @@ export default createStore({
 			isFaqPopupOpen: false,
 			isOverlayOpen: false,
 			homePagesData: null,
+			profilePagesData: null,
 		}
 	},
 	mutations: {
@@ -22,13 +24,23 @@ export default createStore({
 		setHomePagesData(state, data) {
 			state.homePagesData = data
 		},
+		setProfilePagesData(state, data) {
+			state.profilePagesData = data
+		},
 	},
 	actions: {
 		async fetchHomePagesData({ commit }) {
 			try {
-				const response = await fetch('http://79.174.83.185:5000/api/home-pages/all')
-				const data = await response.json()
-				commit('setHomePagesData', data)
+				const response = await axios.get('http://176.9.146.233:5151/api/home-pages/all')
+				commit('setHomePagesData', response.data)
+			} catch (error) {
+				console.error('Ошибка: ', error)
+			}
+		},
+		async fetchProfilePagesData({ commit }) {
+			try {
+				const response = await axios.get('http://176.9.146.233:5151/api/profile-pages/all')
+				commit('setProfilePagesData', response.data)
 			} catch (error) {
 				console.error('Ошибка: ', error)
 			}

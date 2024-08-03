@@ -1,100 +1,64 @@
 <template>
-  <div class="landing">
-    <section class="landing__video-content title-video-block" ref="videoSections">
-      <video class="content__video" loop muted playsinline controls="false" :ref="el => videoRefs[0] = el" v-lazy-src="'/assets/video/homepage2.mp4'">
-        <source src="/assets/video/homepage2.mp4" type="video/mp4">
-      </video>
-    </section>
-    <section class="landing__description-content">
-      <h1 class="description__title">ОЛЕГ <br> ВИКТОРОВИЧ <br> ГОРДИЕНКО</h1>
-      <ul class="description__list list__gap">
-        <li>Сертифицированный пластический хирург, эксперт в области омолаживающей хирургии лица</li>
-        <li>Один из немногих пластических хирургов в России, успешно практикующих глубокую плоскостную подтяжку <br>
-          лица по новой в России методике - Deep Plane FaceLift</li>
-        <li>Выпускник Первого Санкт-Петербургского Государственного Медицинского Университета имени академика <br> И. П.
-          Павлова</li>
-        <li>Член Российского Общества Пластических, Реконструктивных и Эстетических хирургов (РОПРЭХ)</li>
-        <li>Клиника Высшей Категории GRANDMED г. Санкт-Петербург</li>
-      </ul>
-      <div class="content-block">
-        <div class="content-wrapper">
+  <div class="landing" v-if="profilePagesData">
+    <section>
+      <div class="landing__video-content title-video-block" ref="videoSections">
+        <video class="content__video" loop muted playsinline controls="false" :ref="el => videoRefs[0] = el" :v-lazy-src="profilePagesData.banner_video">
+          <source :src="profilePagesData.banner_video" type="video/mp4">
+        </video>
+      </div>
+      <div class="landing__description-content">
+        <h1 class="description__title">{{ profilePagesData.banner_author }}</h1>
+        <ul class="description__list list__gap">
+          <li v-for="list in profilePagesData.list_text">{{ list }}</li>
+        </ul>
+        <div class="content-block">
           <div class="content-wrapper">
-            <div class="description__logo">
-              <img src="/assets/images/logo1.png">
-              <img src="/assets/images/logo2.png">
-              <img src="/assets/images/logo3.png">
-              <img src="/assets/images/logo4.png">
+            <div class="content-wrapper">
+              <div class="description__logo">
+                <img src="/assets/images/logo1.png">
+                <img src="/assets/images/logo2.png">
+                <img src="/assets/images/logo3.png">
+                <img src="/assets/images/logo4.png">
+              </div>
             </div>
+            <h2 class="description__subtitle">{{ profilePagesData.quote_subtitle }}</h2>
+            <p class="description__text" :class="{ 'animate': isVisible }">{{ profilePagesData.description_subtitle }}</p>
           </div>
-          <h2 class="description__subtitle" id="0" v-html="animatedTitles[0].value"></h2>
-          <p class="description__text" :class="{ 'animate': isVisible }">Экспертная эстетическая хирургия лица — это удивительный синтез науки и
-          искусства. Здесь законы художественной композиции не менее важны, чем в живописи, музыке или скульптуре. Я
-          убежден, что пластический хирург должен обладать высоким эстетическим интеллектом, который он должен
-          тренировать всю свою профессиональную жизнь, как тренирует свое тело спортсмен. Также важно иметь
-          художественный взгляд и безупречное эстетическое чутье. Я оттачиваю свое мастерство не только в
-          операционной: работая в студии со скульптурной глиной, я тренирую “чувство меры” и учусь видеть пропорции.
-          Только у меня, в отличие от скульптора, нет права на ошибку. Я не имею морального права творить на лице как
-          мне вздумается и делать с лицом то, чего никогда у человека не было. Я - не “скульптор”. Я -
-          “художник-реставратор”. Тот, кто работает с редкими и очень дорогими произведениями искусства. Я не являюсь
-          “арбитром” красоты, но ее дух безусловно руководит мной, когда я работаю в операционной с лицами людей.
-          Таким образом, я становлюсь лишь соавтором вашей красоты.</p>
         </div>
       </div>
-    </section>
-    <section class="landing__fullscreen-content">
-      <img src="/assets/images/piano.png" class="fullscreen__image">
-    </section>
-    <section class="landing__description-content">
-      <h1 class="description__title-min">Омолаживающие операции на лице, которые я выполняю, чтобы <br> вы могли
-        вдохновлять и вдохновляться своим отражением:</h1>
-      <ul class="description__list list-margin" :class="{ 'animate': isVisible }">
-        <li>Deep Plane FaceLift (инновационная подтяжка лица и шеи)</li>
-        <li>Все виды подтяжек лба и бровей</li>
-        <li>Блефаропластика</li>
-        <li>Глубокая подтяжка шеи и платизмопластика</li>
-        <li>Липофилинг лица</li>
-        <li>Хейлопластика (подтяжка верхней губы)</li>
-        <li>Установка лицевых имплантов</li>
-        <li>Коррекция мочек ушей</li>
-        <li>Коррекция рубцов на лице и теле после операций, травм, ожогов и т.д.</li>
-      </ul>
-    </section>
-    <section class="landing__video-content" ref="videoSections">
-      <video class="content__video" loop muted playsinline :ref="el => videoRefs[1] = el" v-lazy-src="'/assets/video/profilepage1.mp4'">
-        <source src="/assets/video/profilepage1.mp4" type="video/mp4">
-      </video>
-    </section>
-    <section class="landing__description-content">
-      <div class="content-block">
-        <div class="content-wrapper">
-          <p class="description__text" :class="{ 'animate': isVisible }">Омолаживающая операция — это таинственное и даже магическое событие. Наша
-            операционная бригада, как актерская труппа перед спектаклем, заперта в своем герметичном маленьком мире —
-            операционной. Каждый готовится к своей роли, но главное действующее лицо здесь — вы. Мне важно создать в
-            операционной условия для комфорта пациента и спокойного сосредоточенного внимания всей команды.
-            Расслабляющая фоновая музыка способствует этому, но лишь до наступления ключевого момента операции: здесь
-            уже ничто не должно отвлекать меня. Я знаю анатомию лица досконально и всегда помню, что, оперируя, ступаю
-            на глубоко личную территорию. Но все эти усилия окупаются сполна, когда я вижу, как счастливы мои пациенты.
-            Потому что каждая женщина прекрасна. Каждое лицо достойно чутких и талантливых рук мастера.</p>
-          <h2 class="description__subtitle" id="1" v-html="animatedTitles[1].value"></h2>
+      <div class="landing__fullscreen-content">
+        <img :src="profilePagesData.subtitle_img" class="fullscreen__image">
+      </div>
+      <div class="landing__description-content">
+        <h1 class="description__title-min">{{ profilePagesData.title }}</h1>
+        <ul class="description__list list-margin" :class="{ 'animate': isVisible }">
+          <li v-for="list in profilePagesData.list_title">{{ list }}</li>
+        </ul>
+      </div>
+      <div class="landing__video-content" ref="videoSections">
+        <video class="content__video" loop muted playsinline :ref="el => videoRefs[1] = el" :v-lazy-src="profilePagesData.post_title_video">
+          <source :src="profilePagesData.post_title_video" type="video/mp4">
+        </video>
+      </div>
+      <div class="landing__description-content">
+        <div class="content-block">
+          <div class="content-wrapper">
+            <p class="description__text" :class="{ 'animate': isVisible }">{{ profilePagesData.text_post_title }}</p>
+            <h2 class="description__subtitle">{{ profilePagesData.quote_post_title }}</h2>
+          </div>
         </div>
       </div>
-    </section>
-    <section class="landing__video-content" ref="videoSections">
-      <video class="content__video" loop muted playsinline :ref="el => videoRefs[2] = el" v-lazy-src="'/assets/video/profilepage2.mp4'">
-        <source src="/assets/video/profilepage2.mp4" type="video/mp4">
-      </video>
-    </section>
-    <section class="landing__description-content">
-      <div class="content-block">
-        <div class="content-wrapper">
-          <p class="description__text" :class="{ 'animate': isVisible }">Я вижу, как часто старение лица лишает женщину радости и эмоциональной
-            стабильности. Современная эстетическая хирургия лица способна изменить качество вашей жизни и ваше отношение
-            к себе. Здесь не может быть компромиссов: только правильная хирургическая техника и филигранно выполненная
-            операция смогут обеспечить естественный внешний вид и замедлить старение на долгие годы. Я знаю, что
-            эстетическая хирургия лица — это не простое решение. Это путешествие. Личное и важное. Каждый мой пациент
-            нуждается в эмоциональной поддержке и заботе на всех этапах этого пути. Именно это бережно обеспечиваем я и
-            моя команда.</p>
-          <h2 class="description__subtitle" id="2" v-html="animatedTitles[2].value"></h2>
+      <div class="landing__video-content" ref="videoSections">
+        <video class="content__video" loop muted playsinline :ref="el => videoRefs[2] = el" :v-lazy-src="profilePagesData.video">
+          <source :src="profilePagesData.video" type="video/mp4">
+        </video>
+      </div>
+      <div class="landing__description-content">
+        <div class="content-block">
+          <div class="content-wrapper">
+            <p class="description__text" :class="{ 'animate': isVisible }">{{ profilePagesData.description }}</p>
+            <h2 class="description__subtitle">{{ profilePagesData.quote }}</h2>
+          </div>
         </div>
       </div>
     </section>
@@ -1843,12 +1807,16 @@
       </div>
     </section>
   </div>
+  <p class="page__loading" v-else>Загрузка</p>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { useIntersectionObserver } from '@vueuse/core';
 import store from '/store/index.js';
+
+const profilePagesData = computed(() => store.state.profilePagesData)
+console.log(profilePagesData.value)
 
 const videoRefs = ref([])
 function handleVisibilityChange(entries) {
@@ -2013,7 +1981,7 @@ function handleScroll() {
   })
 }
 
-onMounted(() => {
+onMounted(async() => {
   const subtitleOptions = {
     root: null,
     rootMargin: '0px',
@@ -2068,6 +2036,7 @@ onMounted(() => {
     })
   })
   window.addEventListener('scroll', handleScroll)
+  await store.dispatch('fetchProfilePagesData')
 })
 onUnmounted(() => {
   intervals.forEach(interval => clearInterval(interval))
@@ -2749,5 +2718,21 @@ onUnmounted(() => {
     background: none;
     border: none;
   }
+}
+
+.page__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #393939;
+  font-family: Accademico;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  height: 100vh;
+  width: 100%;
+  background: #fff;
 }
 </style>

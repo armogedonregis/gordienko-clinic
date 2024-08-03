@@ -16,6 +16,8 @@ import { ref, onUnmounted } from "vue";
 import { useIntersectionObserver } from '@vueuse/core';
 import store from "/store/index.js";
 
+const homePagesData = computed(() => store.state.homePagesData)
+
 const videoRefs = ref([])
 function handleVisibilityChange(block) {
   return (isVisible, entry) => {
@@ -35,9 +37,7 @@ const { stop } = useIntersectionObserver(
   { threshold: 0.5 }
 )
 
-const homePagesData = computed(() => store.state.homePagesData)
-
-onMounted(async () => {
+onMounted(async() => {
   await store.dispatch('fetchHomePagesData')
 })
 onUnmounted(() => {
