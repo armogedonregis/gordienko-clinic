@@ -1,5 +1,5 @@
 <template>
-  <div class="header-wrapper">
+  <div class="header-wrapper" ref="headerWrapper">
     <header class="header">
       <nav class="header__nav">
         <button class="nav__link menu" @click="toggleDropdown">меню</button>
@@ -28,12 +28,15 @@
 import { ref } from 'vue';
 import home from '/server/home.json';
 
+const headerWrapper = ref(null)
 const isDropdownOpen = ref(false)
 function toggleDropdown() {
   isDropdownOpen.value = true
+  headerWrapper.value.style.mixBlendMode = 'normal'
 }
 function closeDropdown() {
   isDropdownOpen.value = false
+  headerWrapper.value.style.mixBlendMode = 'difference'
 }
 </script>
 
