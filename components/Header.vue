@@ -180,7 +180,8 @@ function closeDropdown() {
     z-index: 999;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(15px);
+    background: rgba(0, 0, 0, 0.5);
     top: 0;
     left: 0;
   }

@@ -1,5 +1,5 @@
 <template>
-  <main class="home">
+  <main class="home" v-if="homePagesData">
     <NuxtLink :to="block.href" class="main__content" v-for="(block, index) in homePagesData" :key="index">
       <div class="content__overlay"></div>
       <h1 class="content__title">{{ block.title }}</h1>
@@ -8,6 +8,7 @@
       </video>
     </NuxtLink>
   </main>
+  <p class="page__loading" v-else>Загрузка</p>
 </template>
 
 <script setup>
@@ -33,6 +34,7 @@ const { stop } = useIntersectionObserver(
   handleVisibilityChange,
   { threshold: 0.5 }
 )
+
 const homePagesData = computed(() => store.state.homePagesData)
 
 onMounted(async () => {
@@ -133,5 +135,21 @@ onUnmounted(() => {
       .mobile {display: flex;}
     }
   }
+}
+
+.page__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #393939;
+  font-family: Accademico;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  height: 100vh;
+  width: 100%;
+  background: #fff;
 }
 </style>
