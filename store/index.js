@@ -8,6 +8,7 @@ export default createStore({
 			isOverlayOpen: false,
 			homePagesData: null,
 			profilePagesData: null,
+			articlesBlocksData: null,
 		}
 	},
 	mutations: {
@@ -27,11 +28,14 @@ export default createStore({
 		setProfilePagesData(state, data) {
 			state.profilePagesData = data
 		},
+		setArticlesBlocksData(state, data) {
+			state.articlesBlocksData = data
+		},
 	},
 	actions: {
 		async fetchHomePagesData({ commit }) {
 			try {
-				const response = await axios.get('http://176.9.146.233:5151/api/home-pages/all')
+				const response = await axios.get('https://gordienko.doctor/api/home-pages/all')
 				commit('setHomePagesData', response.data)
 			} catch (error) {
 				console.error('Ошибка: ', error)
@@ -39,8 +43,16 @@ export default createStore({
 		},
 		async fetchProfilePagesData({ commit }) {
 			try {
-				const response = await axios.get('http://176.9.146.233:5151/api/profile-pages/all')
+				const response = await axios.get('https://gordienko.doctor/api/profile-pages/all')
 				commit('setProfilePagesData', response.data)
+			} catch (error) {
+				console.error('Ошибка: ', error)
+			}
+		},
+		async fetchArticlesBlocksData({ commit }) {
+			try {
+				const response = await axios.get('https://gordienko.doctor/api/article/all')
+				commit('setArticlesBlocksData', response.data)
 			} catch (error) {
 				console.error('Ошибка: ', error)
 			}
