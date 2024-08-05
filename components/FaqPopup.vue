@@ -146,6 +146,7 @@ function closeFaqPopup() {
       background: #fff;
       border-bottom-left-radius: 30px;
       border-bottom-right-radius: 30px;
+      width: 100%;
 
       @media (max-width: 1350px) {
         padding: 36px;

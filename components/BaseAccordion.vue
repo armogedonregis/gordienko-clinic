@@ -2,7 +2,7 @@
   <div>
     <v-expansion-panels style="width: 100%;" v-model="openPanel">
       <v-expansion-panel
-        v-for="(item, index) in faq.faq"
+        v-for="(item, index) in questionPagesData"
         :key="index"
         :value="index"
       >
@@ -33,11 +33,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import faq from '/server/faq.json';
+import { ref, computed, onMounted } from 'vue';
+import store from '/store/index.js';
+
+const questionPagesData = computed(() => store.state.questionPagesData)
 
 const openPanel = ref(null)
 const userQuestion = ref('')
+
+onMounted(async() => {
+  await store.dispatch('fetchQuestionPagesData')
+})
 </script>
 
 <style lang="scss" scoped>
