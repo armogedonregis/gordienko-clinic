@@ -23,7 +23,7 @@
                 <img src="/assets/images/logo4.png">
               </div>
             </div>
-            <h2 class="description__subtitle">{{ profilePagesData.quote_subtitle }}</h2>
+            <BaseAnimateText :text="profilePagesData.quote_subtitle"/>
             <p class="description__text" >{{ profilePagesData.description_subtitle }}</p>
           </div>
         </div>
@@ -50,7 +50,7 @@
                 <BaseAnimateOnVisible>
                   <p class="description__text">{{ profilePagesData.text_post_title }}</p>
                 </BaseAnimateOnVisible>
-                <h2 class="description__subtitle">{{ profilePagesData.quote_post_title }}</h2>
+                <BaseAnimateText :text="profilePagesData.quote_post_title"/>
             </div>
         </div>
       </div>
@@ -65,7 +65,7 @@
               <BaseAnimateOnVisible>
                 <p class="description__text">{{ profilePagesData.description }}</p>
               </BaseAnimateOnVisible>
-              <h2 class="description__subtitle">{{ profilePagesData.quote }}</h2>
+              <BaseAnimateText :text="profilePagesData.quote"/>
             </div>
         </div>
       </div>
@@ -134,6 +134,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { useIntersectionObserver } from '@vueuse/core';
 import BaseAnimateOnVisible from '/components/BaseAnimateOnVisible';
+import BaseAnimateText from '/components/BaseAnimateText';
 import store from '/store/index.js';
 
 const profilePagesData = computed(() => store.state.profilePagesData)
