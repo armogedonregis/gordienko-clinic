@@ -1,6 +1,6 @@
 <template>
   <div class="article">
-    <div class="article__titles">
+    <!-- <div class="article__titles">
       <div class="titles__text">
         <div class="text-wrapper">
           <h1 class="text__title">{{ displayedTitle }}</h1>
@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="article__content" v-if="article.articleContent !== null">
+    <div class="article__content" v-if="article">
       <p class="content__wide" :class="{ 'animate': isVisible }">
         <span class="titular">{{ article.articleContent.articleDescription.fstSpan }}</span>
         <span>{{ article.articleContent.articleDescription.secSpan }}</span>
@@ -40,7 +40,7 @@
         </div>
       </div>
     </div>
-    <h1 v-else class="article__warning">Статья ещё не опубликована</h1>
+    <h1 v-else class="article__warning">Статья ещё не опубликована</h1> -->
     <NuxtLink to="/blog" class="article__more">полный список статей</NuxtLink>
   </div>
 </template>
@@ -48,33 +48,46 @@
 <script setup>
 import { computed, ref, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
-import articlesData from '/server/articles.json';
+import store from '/store/index.js';
 
 const route = useRoute()
+const articleId = route.params.id
+
+const articlesBlocksData = computed(() => store.state.articlesBlocksData)
+
+const allArticles = computed(() => {
+  if (!articlesBlocksData.value) return []
+  return articlesBlocksData.value.flatMap(block => {
+    return block.content ? block.content.filter(item => item.type === "ARTICLE") : []
+  })
+})
+
 const article = computed(() => {
-  const articleId = parseInt(route.params.id)
-  return articlesData.articles.find(a => a.id === articleId)
+  return allArticles.value ? allArticles.value.find(a => a.id === articleId) : null
 })
 
 const displayedTitle = ref('')
 let typingInterval = null
 let textObserver = null
 const startTypingAnimation = () => {
-  let index = 0
-  const title = article.value.capitalBlock.title
-  typingInterval = setInterval(() => {
-    if (index < title.length) {
-      displayedTitle.value += title[index]
-      index++
-    } else {
-      clearInterval(typingInterval)
-      setTimeout(() => {
-        document.querySelector(".text__sign").classList.remove("hidden")
-        document.querySelector(".text__sign").classList.add("visible")
-      }, 300)
-    }
-  }, 50)
+  if (article.value && article.value.capitalBlock && article.value.capitalBlock.title) {
+    let index = 0
+    const title = article.value.capitalBlock.title
+    typingInterval = setInterval(() => {
+      if (index < title.length) {
+        displayedTitle.value += title[index]
+        index++
+      } else {
+        clearInterval(typingInterval)
+        setTimeout(() => {
+          document.querySelector(".text__sign").classList.remove("hidden")
+          document.querySelector(".text__sign").classList.add("visible")
+        }, 300)
+      }
+    }, 50)
+  }
 }
+
 const handleTextIntersect = (entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -85,7 +98,11 @@ const handleTextIntersect = (entries) => {
   })
 }
 
-onMounted(() => {
+onMounted(async() => {
+  await store.dispatch('fetchArticlesBlocksData')
+  console.log('All articles data:', allArticles.value)
+  console.log('Article data:', article.value)
+
   startTypingAnimation()
   const textOptions = {
     root: null,
@@ -103,6 +120,7 @@ onMounted(() => {
     textObserver.observe(el)
   })
 })
+
 onUnmounted(() => {
   clearInterval(typingInterval)
   if (textObserver) {

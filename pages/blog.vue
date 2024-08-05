@@ -11,7 +11,7 @@
         <img src="/assets/images/photo-blog-grey.png" class="titles__photo">
       </div>
     </div>
-    <div class="blog__description" v-if="filteredArticlesBlocksData.length">
+    <div class="blog__description" v-if="blogPagesData">
       <h1 class="description__title">Блог</h1>
       <div class="description__table">
         <div class="table__titles">
@@ -19,25 +19,23 @@
           <p class="titles__title link__author">АВТОР</p>
           <p class="titles__title link__article">ТЕМА</p>
         </div>
-        <div v-for="block in filteredArticlesBlocksData" :key="block.id">
-          <div class="table__link-wrapper" v-for="article in block.filteredContent" :key="article.id">
-            <button class="table__link" @click="togglePost(article.id)">
-              <p class="link link__date">{{ formatDate(article.created_at) }}</p>
-              <p class="link link__author">Олег Викторович Гордиенко</p>
-              <p class="link link__article">{{ article.article_title }}</p>
-            </button>
-            <div class="accordion-content" :class="{'open': isPostOpen[article.id]}">
-              <div v-if="article.article_description" class="blog__titles last-titles">
-                <div class="titles__text last-titles-section">
-                  <p class="text__description">{{ article.article_description }}</p>
-                  <NuxtLink :to="`/article/${article.id}`" class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
-                </div>
-                <div class="titles__photo-wrapper">
-                  <img src="/assets/images/blogpage1.png" class="titles__photo">
-                </div>
+        <div class="table__link-wrapper" v-for="post in blogPagesData" :key="post.id">
+          <button class="table__link" @click="togglePost(post.id)">
+            <p class="link link__date">{{ formatDate(post.date) }}</p>
+            <p class="link link__author">Олег Викторович Гордиенко</p>
+            <p class="link link__article">{{ post.title }}</p>
+          </button>
+          <div class="accordion-content" :class="{'open': isPostOpen[post.id]}">
+            <div v-if="post.section_title" class="blog__titles last-titles">
+              <div class="titles__text last-titles-section">
+                <p class="text__description">{{ post.section_title }}</p>
+                <NuxtLink :to="`/article/${post.short_link}`" class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
               </div>
-              <p class="text__description margin-block" v-else>Статья еще не опубликована</p>
+              <div class="titles__photo-wrapper">
+                <img :src="post.section_img" class="titles__photo">
+              </div>
             </div>
+            <p class="text__description margin-block" v-else>Статья еще не опубликована</p>
           </div>
         </div>
       </div>
@@ -50,16 +48,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import store from '/store/index.js';
 
-const articlesBlocksData = computed(() => store.state.articlesBlocksData)
-const filteredArticlesBlocksData = computed(() => {
-  if (!articlesBlocksData.value) return []
-  return articlesBlocksData.value.map(block => {
-    return {
-      ...block,
-      filteredContent: block.content ? block.content.filter(item => item.type === "ARTICLE") : []
-    }
-  })
-})
+const blogPagesData = computed(() => store.state.blogPagesData)
 function formatDate(dateString) {
   const date = new Date(dateString)
   return date.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' })
@@ -109,7 +98,7 @@ function togglePost(articleId) {
 
 onMounted(async() => {
   startTypingAnimation(0)
-  await store.dispatch('fetchArticlesBlocksData')
+  await store.dispatch('fetchBlogPagesData')
 })
 onUnmounted(() => {
   intervals.forEach(interval => clearInterval(interval))
@@ -515,14 +504,33 @@ onUnmounted(() => {
       }
 
       .link__article {
-        width: auto;
+        width: 100%;
+        max-width: 1150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         @media (max-width: 1700px) {
-          width: 1300px;
+          max-width: 800px;
         }
 
-        @media (max-width: 1350px) {
-          width: 500px;
+        @media (max-width: 1450px) {
+          max-width: 700px;
+        }
+
+        @media (max-width: 1150px) {
+          max-width: 550px;
+        }
+
+        @media (max-width: 1000px) {
+          max-width: 500px;
+        }
+
+        @media (max-width: 900px) {
+          max-width: 330px;
+        }
+
+        @media (max-width: 700px) {
+          max-width: 100%;
         }
       }
     }
@@ -552,12 +560,8 @@ onUnmounted(() => {
   transition: max-height 0.5s ease, opacity 0.5s ease;
 
   &.open {
-    max-height: 1000px;
+    max-height: 2000px;
     opacity: 1;
-
-    @media (max-width: 700px) {
-      max-height: 2000px;
-    }
   }
 }
 </style>
