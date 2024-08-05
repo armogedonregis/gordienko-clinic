@@ -428,8 +428,8 @@ onUnmounted(() => {
           @media (max-width: 700px) {
             display: flex;
             flex-direction: column;
-            padding: 25px 40px;
             gap: 20px;
+            margin: 25px 0;
           }
 
           td {
@@ -462,7 +462,7 @@ onUnmounted(() => {
         }
 
         @media (max-width: 700px) {
-          padding-left: 0;
+          padding-left: 40px;
           width: 100%;
         }
       }
@@ -474,6 +474,7 @@ onUnmounted(() => {
         }
 
         @media (max-width: 700px) {
+          padding-left: 40px;
           width: 100%;
         }
       }
@@ -485,6 +486,7 @@ onUnmounted(() => {
         }
 
         @media (max-width: 700px) {
+          padding-left: 40px;
           width: 100%;
         }
       }
