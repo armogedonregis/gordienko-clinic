@@ -11,7 +11,7 @@
         <img src="/assets/images/photo-blog-grey.png" class="titles__photo">
       </div>
     </div>
-    <div class="blog__description">
+    <div class="blog__description" v-if="filteredArticlesBlocksData.length">
       <h1 class="description__title">Блог</h1>
       <div class="description__table">
         <div class="table__titles">
@@ -19,33 +19,51 @@
           <p class="titles__title link__author">АВТОР</p>
           <p class="titles__title link__article">ТЕМА</p>
         </div>
-        <div class="table__link-wrapper" v-for="article in articles.articles" :key="article.id">
-          <button class="table__link" @click="togglePost(article.id)">
-            <p class="link link__date">{{ article.date }}</p>
-            <p class="link link__author">{{ article.author }}</p>
-            <p class="link link__article">{{ article.article }}</p>
-          </button>
-          <div class="accordion-content" :class="{'open': isPostOpen[article.id]}">
-            <div v-if="article.articleContent" class="blog__titles last-titles">
-              <div class="titles__text last-titles-section">
-                <p class="text__description">{{ article.previewText }}</p>
-                <NuxtLink :to="`/article/${article.id}`" class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
+        <div v-for="block in filteredArticlesBlocksData" :key="block.id">
+          <div class="table__link-wrapper" v-for="article in block.filteredContent" :key="article.id">
+            <button class="table__link" @click="togglePost(article.id)">
+              <p class="link link__date">{{ formatDate(article.created_at) }}</p>
+              <p class="link link__author">Олег Викторович Гордиенко</p>
+              <p class="link link__article">{{ article.article_title }}</p>
+            </button>
+            <div class="accordion-content" :class="{'open': isPostOpen[article.id]}">
+              <div v-if="article.article_description" class="blog__titles last-titles">
+                <div class="titles__text last-titles-section">
+                  <p class="text__description">{{ article.article_description }}</p>
+                  <NuxtLink :to="`/article/${article.id}`" class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
+                </div>
+                <div class="titles__photo-wrapper">
+                  <img src="/assets/images/blogpage1.png" class="titles__photo">
+                </div>
               </div>
-              <div class="titles__photo-wrapper">
-                <img src="/assets/images/blogpage1.png" class="titles__photo">
-              </div>
+              <p class="text__description margin-block" v-else>Статья еще не опубликована</p>
             </div>
-            <p class="text__description margin-block" v-else>Статья еще не опубликована</p>
           </div>
         </div>
       </div>
     </div>
+    <p class="page__loading" v-else>Загрузка</p>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-import articles from '/server/articles.json';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
+import store from '/store/index.js';
+
+const articlesBlocksData = computed(() => store.state.articlesBlocksData)
+const filteredArticlesBlocksData = computed(() => {
+  if (!articlesBlocksData.value) return []
+  return articlesBlocksData.value.map(block => {
+    return {
+      ...block,
+      filteredContent: block.content ? block.content.filter(item => item.type === "ARTICLE") : []
+    }
+  })
+})
+function formatDate(dateString) {
+  const date = new Date(dateString)
+  return date.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' })
+}
 
 const titles = [
   '«В данном разделе вы найдете мои полные статьи и новости об омолаживающей хиругии»'
@@ -54,7 +72,6 @@ const animatedTitles = titles.map(() => ref(''))
 const currentCharIndices = titles.map(() => ref(0))
 const intervals = []
 const hasAnimated = ref(false)
-
 function typeTitle(index) {
   if (currentCharIndices[index].value < titles[index].length) {
     const char = titles[index][currentCharIndices[index].value]
@@ -90,8 +107,9 @@ function togglePost(articleId) {
   }
 }
 
-onMounted(() => {
+onMounted(async() => {
   startTypingAnimation(0)
+  await store.dispatch('fetchArticlesBlocksData')
 })
 onUnmounted(() => {
   intervals.forEach(interval => clearInterval(interval))
@@ -508,6 +526,22 @@ onUnmounted(() => {
         }
       }
     }
+  }
+
+  .page__loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #393939;
+    font-family: Accademico;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    height: 100vh;
+    width: 100%;
+    background: #fff;
   }
 }
 

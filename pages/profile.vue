@@ -261,7 +261,6 @@ function handleScroll() {
 
 onMounted(async() => {
   window.addEventListener('scroll', handleScroll)
-  
   await store.dispatch('fetchProfilePagesData')
   await store.dispatch('fetchArticlesBlocksData')
 })
