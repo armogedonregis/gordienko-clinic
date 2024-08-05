@@ -97,6 +97,7 @@ function closeDropdown() {
 
         @media (max-width: 800px) {
           display: none;
+          font-size: 12px;
         }
 
         &::before,

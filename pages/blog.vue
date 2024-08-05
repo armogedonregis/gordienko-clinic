@@ -13,32 +13,38 @@
     </div>
     <div class="blog__description" v-if="blogPagesData">
       <h1 class="description__title">Блог</h1>
-      <div class="description__table">
-        <div class="table__titles">
-          <p class="titles__title link__date">ДАТА</p>
-          <p class="titles__title link__author">АВТОР</p>
-          <p class="titles__title link__article">ТЕМА</p>
-        </div>
-        <div class="table__link-wrapper" v-for="post in blogPagesData" :key="post.id">
-          <button class="table__link" @click="togglePost(post.id)">
-            <p class="link link__date">{{ formatDate(post.date) }}</p>
-            <p class="link link__author">Олег Викторович Гордиенко</p>
-            <p class="link link__article">{{ post.title }}</p>
-          </button>
-          <div class="accordion-content" :class="{'open': isPostOpen[post.id]}">
-            <div v-if="post.section_title" class="blog__titles last-titles">
-              <div class="titles__text last-titles-section">
-                <p class="text__description">{{ post.section_title }}</p>
-                <NuxtLink :to="`/article/${post.short_link}`" class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
+      <table class="description__table">
+        <thead>
+          <tr>
+            <th class="table__titles table__data">ДАТА</th>
+            <th class="table__titles table__author">АВТОР</th>
+            <th class="table__titles table__theme">ТЕМА</th>
+          </tr>
+        </thead>
+        <tbody v-for="post in blogPagesData" :key="post.id" @click="togglePost(post.id)">
+          <tr>
+            <td class="table__items table__data">{{ formatDate(post.date) }}</td>
+            <td class="table__items table__author">Олег Викторович Гордиенко</td>
+            <td class="table__items table__theme">{{ post.title }}</td>
+          </tr>
+          <tr v-if="isPostOpen[post.id]">
+            <td colspan="3" style="width: 100%;">
+              <div class="accordion-content" :class="{'open': isPostOpen[post.id]}">
+                <div v-if="post.section_title" class="blog__titles last-titles">
+                  <div class="titles__text last-titles-section">
+                    <p class="text__description">{{ post.section_title }}</p>
+                    <NuxtLink :to="`/article/${post.short_link}`" class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
+                  </div>
+                  <div class="titles__photo-wrapper">
+                    <img :src="post.section_img" class="titles__photo">
+                  </div>
+                </div>
+                <p class="text__description margin-block" v-else>Статья еще не опубликована</p>
               </div>
-              <div class="titles__photo-wrapper">
-                <img :src="post.section_img" class="titles__photo">
-              </div>
-            </div>
-            <p class="text__description margin-block" v-else>Статья еще не опубликована</p>
-          </div>
-        </div>
-      </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <p class="page__loading" v-else>Загрузка</p>
   </div>
@@ -126,11 +132,10 @@ onUnmounted(() => {
     }
 
     &.last-titles {
-      margin: 100px 0 100px;
       align-items: flex-start;
+      margin: 0 0 30px;
       
-      @media (max-width: 1700px) {
-        margin: 50px 0 50px;
+      @media (max-width: 1600px) {
         padding-left: 50px;
       }
 
@@ -160,8 +165,8 @@ onUnmounted(() => {
       &.last-titles-section {
         padding-left: 97px;
 
-        @media (max-width: 1350px) {
-          padding-left: 20px;
+        @media (max-width: 1600px) {
+          padding-left: 0;
         }
 
         @media (max-width: 1050px) {
@@ -276,7 +281,7 @@ onUnmounted(() => {
         text-transform: uppercase;
         margin-right: auto;
 
-        @media (max-width: 1700px) {
+        @media (max-width: 1600px) {
           width: 300px;
         }
 
@@ -373,8 +378,8 @@ onUnmounted(() => {
       margin-left: 144px;
       text-transform: uppercase;
 
-      @media (max-width: 1350px) {
-        margin-left: 63px;
+      @media (max-width: 1600px) {
+        margin-left: 50px;
         font-size: 45px;
       }
 
@@ -385,152 +390,102 @@ onUnmounted(() => {
     }
 
     .description__table {
-      display: flex;
-      flex-direction: column;
       width: 100%;
+      border-collapse: collapse;
 
-      .table__titles {
-        display: flex;
-        align-items: center;
-
-        @media (max-width: 1700px) {
-          padding: 10px;
-        }
-
+      thead {
         @media (max-width: 700px) {
           display: none;
         }
 
-        .titles__title {
-          color: #5493D1;
-          font-size: 10px;
-          font-style: normal;
-          font-weight: 500;
-          line-height: 98%;
-          letter-spacing: 2px;
-          text-transform: uppercase;
+        tr {
 
-          @media (max-width: 1700px) {
-            padding-right: 50px;
-          }
+          th {
+            text-align: left; 
+            color: #5493D1;
+            font-family: Grafitello;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 98%;
+            text-transform: uppercase;
+            padding: 25px 0;
 
-          @media (max-width: 1050px) {
-            padding-right: 30px;
+            @media (max-width: 1350px) {
+              font-size: 10px;
+            }
           }
         }
       }
 
-      .table__link-wrapper {
-        display: flex;
-        flex-direction: column;
+      tbody {
+        cursor: pointer;
         border-bottom: 1px solid rgba(57, 57, 57, 0.60);
-        width: 100%;
 
-        .table__link {
-          display: flex;
-          align-items: center;
-          height: 85px;
-          width: 100%;
+        &:last-child {border-bottom: none;}
 
-          @media (max-width: 1700px) {
-            min-height: 85px;
-            padding: 10px;
-          }
-
+        tr {
           @media (max-width: 700px) {
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 25px 40px;
-            gap: 20px;
-            height: auto;
-          }
-
-          &:last-child {
-            border-bottom: none;
-          }
-
-          .link {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            padding: 25px 40px;
+            gap: 20px;
+          }
+
+          td {
             color: #393939;
             font-family: Accademico;
             font-size: 19px;
             font-style: normal;
             font-weight: 400;
             line-height: 98%;
-            text-align: left;
+            padding: 30px 0;
 
-            @media (max-width: 1700px) {
-              padding-right: 50px;
-            }
-          
             @media (max-width: 1350px) {
               font-size: 12px;
-              line-height: 130%;
-            }
-
-            @media (max-width: 1050px) {
-              padding-right: 30px;
             }
 
             @media (max-width: 700px) {
               padding: 0;
-              width: 100%;
+              font-size: 14px;
             }
           }
         }
       }
 
-      .link__date {
-        padding-left: 144px; 
-        width: 310px;
-
-        @media (max-width: 1350px) {
-          padding-left: 63px;
-          width: 170px;
-        }
-      }
-      .link__author {
-        width: 440px;
-      
-        @media (max-width: 1700px) {
-          width: 300px;
-        }
-
-        @media (max-width: 1350px) {
-          width: 250px;
-        }
-      }
-
-      .link__article {
-        width: 100%;
-        max-width: 1150px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        @media (max-width: 1700px) {
-          max-width: 800px;
-        }
-
-        @media (max-width: 1450px) {
-          max-width: 700px;
-        }
-
-        @media (max-width: 1150px) {
-          max-width: 550px;
-        }
-
-        @media (max-width: 1000px) {
-          max-width: 500px;
-        }
-
-        @media (max-width: 900px) {
-          max-width: 330px;
+      .table__data {
+        padding-left: 144px; width: 17%;
+        
+        @media (max-width: 1600px) {
+          width: 20%;
+          padding-left: 50px;
         }
 
         @media (max-width: 700px) {
-          max-width: 100%;
+          padding-left: 0;
+          width: 100%;
+        }
+      }
+      .table__author {
+        width: 25%;
+
+        @media (max-width: 1600px) {
+          width: 30%;
+        }
+
+        @media (max-width: 700px) {
+          width: 100%;
+        }
+      }
+      .table__theme {
+        padding-right: 57px; width: 58%;
+      
+        @media (max-width: 1600px) {
+          width: 55%;
+        }
+
+        @media (max-width: 700px) {
+          width: 100%;
         }
       }
     }
