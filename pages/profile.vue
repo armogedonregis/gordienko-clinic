@@ -9,7 +9,7 @@
       <div class="landing__description-content">
         <h1 class="description__title">{{ profilePagesData.banner_author }}</h1>
         <BaseAnimateOnVisible>
-          <ul class="description__list list__gap" ref="targetElement">
+          <ul class="description__list list__gap">
             <li v-for="list in profilePagesData.list_text" :key="list">{{ list }}</li>
           </ul>
         </BaseAnimateOnVisible>
@@ -24,7 +24,9 @@
               </div>
             </div>
             <BaseAnimateText :text="profilePagesData.quote_subtitle"/>
-            <p class="description__text" >{{ profilePagesData.description_subtitle }}</p>
+            <BaseAnimateOnVisible>
+              <p class="description__text" >{{ profilePagesData.description_subtitle }}</p>          
+            </BaseAnimateOnVisible>
           </div>
         </div>
       </div>
@@ -46,12 +48,12 @@
       </div>
       <div class="landing__description-content">
         <div class="content-block">
-            <div class="content-wrapper">
-                <BaseAnimateOnVisible>
-                  <p class="description__text">{{ profilePagesData.text_post_title }}</p>
-                </BaseAnimateOnVisible>
-                <BaseAnimateText :text="profilePagesData.quote_post_title"/>
-            </div>
+          <div class="content-wrapper">
+            <BaseAnimateOnVisible>
+              <p class="description__text">{{ profilePagesData.text_post_title }}</p>
+            </BaseAnimateOnVisible>
+            <BaseAnimateText :text="profilePagesData.quote_post_title"/>
+          </div>
         </div>
       </div>
       <div class="landing__video-content" ref="videoSections">
@@ -359,7 +361,8 @@ onUnmounted(() => {
   .landing__description-content {
     display: flex;
     flex-direction: column;
-    padding: 200px 146px;
+    padding: 0 200px;
+    margin: 200px 0;
     gap: 20px;
 
     @media (max-width: 1350px) {
