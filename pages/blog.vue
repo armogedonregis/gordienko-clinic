@@ -27,22 +27,20 @@
             <td class="table__items table__author">Олег Викторович Гордиенко</td>
             <td class="table__items table__theme">{{ post.title }}</td>
           </tr>
-          <tr v-if="isPostOpen[post.id]">
-            <td colspan="3" style="width: 100%;">
-              <div class="accordion-content" :class="{'open': isPostOpen[post.id]}">
-                <div v-if="post.section_title" class="blog__titles last-titles">
-                  <div class="titles__text last-titles-section">
-                    <p class="text__description">{{ post.section_title }}</p>
-                    <NuxtLink :to="`/article/${post.short_link}`" class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
-                  </div>
-                  <div class="titles__photo-wrapper">
-                    <img :src="post.section_img" class="titles__photo">
-                  </div>
+          <td colspan="3">
+            <div class="accordion-content" :class="{'open': isPostOpen[post.id]}">
+              <div v-if="post.section_title" class="blog__titles last-titles">
+                <div class="titles__text last-titles-section">
+                  <p class="text__description">{{ post.section_title }}</p>
+                  <NuxtLink :to="`/article/${post.short_link}`" class="text__more-btn">ЧИТАТЬ ПОЛНУЮ СТАТЬЮ</NuxtLink>
                 </div>
-                <p class="text__description margin-block" v-else>Статья еще не опубликована</p>
+                <div class="titles__photo-wrapper">
+                  <img :src="post.section_img" class="titles__photo">
+                </div>
               </div>
-            </td>
-          </tr>
+              <p class="text__description margin-block" v-else>Статья еще не опубликована</p>
+            </div>
+          </td>
         </tbody>
       </table>
     </div>
@@ -422,9 +420,17 @@ onUnmounted(() => {
         cursor: pointer;
         border-bottom: 1px solid rgba(57, 57, 57, 0.60);
 
+        @media (max-width: 700px) {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          margin: 25px 0;
+        }
+
         &:last-child {border-bottom: none;}
 
         tr {
+
           @media (max-width: 700px) {
             display: flex;
             flex-direction: column;
@@ -511,12 +517,14 @@ onUnmounted(() => {
 }
 
 .accordion-content {
+  width: 100%;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   transition: max-height 0.5s ease, opacity 0.5s ease;
 
   &.open {
+    width: 100%;
     max-height: 2000px;
     opacity: 1;
   }
