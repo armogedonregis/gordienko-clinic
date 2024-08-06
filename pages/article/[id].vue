@@ -1,131 +1,68 @@
 <template>
-  <div class="article">
-    <!-- <div class="article__titles">
+  <div class="article" v-if="blogItemData">
+    <div class="article__titles">
       <div class="titles__text">
         <div class="text-wrapper">
-          <h1 class="text__title">{{ displayedTitle }}</h1>
-          <p class="text__sign hidden">{{ article.capitalBlock.sign }}</p>
+          <h1 class="text__title">{{ blogItemData.quote_text }}</h1>
+          <p class="text__sign hidden">— Олег Викторович Гордиенко, <br> пластический хирург</p>
         </div>
       </div>
       <div class="titles__photo-wrapper">
-        <img :src="article.capitalBlock.image" class="titles__photo">
+        <img :src="blogItemData.section_img" class="titles__photo">
       </div>
     </div>
-    <div class="article__description">
-      <div class="description__table">
-        <div class="table__titles">
-          <p class="titles__title link__date">ДАТА</p>
-          <p class="titles__title link__author">АВТОР</p>
-          <p class="titles__title link__article">ТЕМА</p>
-        </div>
-        <div class="table__link">
-          <p class="link link__date">{{ article.date }}</p>
-          <p class="link link__author">{{ article.author }}</p>
-          <p class="link link__article">{{ article.article }}</p>
+    <table class="description__table">
+      <thead>
+        <tr>
+          <th class="table__titles table__data">ДАТА</th>
+          <th class="table__titles table__author">АВТОР</th>
+          <th class="table__titles table__theme">ТЕМА</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="table__items table__data">{{ formatDate(blogItemData.date) }}</td>
+          <td class="table__items table__author">Олег Викторович Гордиенко</td>
+          <td class="table__items table__theme">{{ blogItemData.title }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="article__content">
+      <div v-for="(posts, index) in blogItemData.content" :key="index">
+        <p class="content__wide" v-if="posts.type === 'TITLE'">
+          <span class="titular" v-if="posts.titular">{{ posts.titular }}</span>
+          <span>{{ posts.pre_text_title }}</span>
+          {{ posts.description }}
+        </p>
+        <h1 class="posts__title" v-else-if="posts.type === 'QUOTE'">{{ posts.quote }}</h1>
+        <img v-else-if="posts.type === 'IMAGE'" v-if="posts.img" :src="posts.img">
+        <div class="content__posts" v-else-if="posts.type === 'TEXT'">
+          <div class="posts__tight">
+            <span v-if="posts.title">{{ posts.title }}</span>
+            <p v-if="posts.text">{{ posts.text }}</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="article__content" v-if="article">
-      <p class="content__wide" :class="{ 'animate': isVisible }">
-        <span class="titular">{{ article.articleContent.articleDescription.fstSpan }}</span>
-        <span>{{ article.articleContent.articleDescription.secSpan }}</span>
-        {{ article.articleContent.articleDescription.otherText }}
-      </p>
-      <div class="content__posts" v-for="(posts, index) in article.articleContent.contentBlocks" :key="index">
-        <h1 class="posts__title" v-if="posts.title">{{ posts.title }}</h1>
-        <div class="posts__tight" :class="{ 'animate': isVisible }" v-for="(point, pointIndex) in posts.points" :key="pointIndex">
-          <span v-if="point.subtitle">{{ point.subtitle }}</span>
-          <p v-if="point.blockText">{{ point.blockText }}</p>
-          <img v-if="point.image" :src="point.image">
-        </div>
-      </div>
-    </div>
-    <h1 v-else class="article__warning">Статья ещё не опубликована</h1> -->
     <NuxtLink to="/blog" class="article__more">полный список статей</NuxtLink>
   </div>
 </template>
 
 <script setup>
-import { computed, ref, onMounted, onUnmounted } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import store from '/store/index.js';
 
 const route = useRoute()
-const articleId = route.params.id
-
-const articlesBlocksData = computed(() => store.state.articlesBlocksData)
-
-const allArticles = computed(() => {
-  if (!articlesBlocksData.value) return []
-  return articlesBlocksData.value.flatMap(block => {
-    return block.content ? block.content.filter(item => item.type === "ARTICLE") : []
-  })
-})
-
-const article = computed(() => {
-  return allArticles.value ? allArticles.value.find(a => a.id === articleId) : null
-})
-
-const displayedTitle = ref('')
-let typingInterval = null
-let textObserver = null
-const startTypingAnimation = () => {
-  if (article.value && article.value.capitalBlock && article.value.capitalBlock.title) {
-    let index = 0
-    const title = article.value.capitalBlock.title
-    typingInterval = setInterval(() => {
-      if (index < title.length) {
-        displayedTitle.value += title[index]
-        index++
-      } else {
-        clearInterval(typingInterval)
-        setTimeout(() => {
-          document.querySelector(".text__sign").classList.remove("hidden")
-          document.querySelector(".text__sign").classList.add("visible")
-        }, 300)
-      }
-    }, 50)
-  }
-}
-
-const handleTextIntersect = (entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animate')
-    } else {
-      entry.target.classList.remove('animate')
-    }
-  })
+const blogItemData = computed(() => store.state.blogItemData)
+function formatDate(dateString) {
+  const date = new Date(dateString)
+  return date.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' })
 }
 
 onMounted(async() => {
-  await store.dispatch('fetchArticlesBlocksData')
-  console.log('All articles data:', allArticles.value)
-  console.log('Article data:', article.value)
-
-  startTypingAnimation()
-  const textOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0
-  }
-  textObserver = new IntersectionObserver(handleTextIntersect, textOptions)
-
-  const blockElements = document.querySelectorAll('.posts__tight')
-  blockElements.forEach(el => {
-    textObserver.observe(el)
-  })
-  const textElements = document.querySelectorAll('.content__wide')
-  textElements.forEach(el => {
-    textObserver.observe(el)
-  })
-})
-
-onUnmounted(() => {
-  clearInterval(typingInterval)
-  if (textObserver) {
-    textObserver.disconnect()
-  }
+  await store.dispatch('fetchBlogItemData', route.params.id)
+  console.log(blogItemData.value.content)
 })
 </script>
 
@@ -243,9 +180,6 @@ onUnmounted(() => {
         line-height: 130%;
         white-space: pre-wrap;
         margin-left: auto;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.5s ease, transform 0.5s ease;
 
         @media (max-width: 1050px) {
           font-size: 12px;
@@ -256,16 +190,7 @@ onUnmounted(() => {
           order: 3;
         }
 
-        &.text__sign.hidden {
-          opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        &.text__sign.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        
       }
 
       .text__description {
@@ -469,9 +394,6 @@ onUnmounted(() => {
       float: right;
       width: 1171px;
       text-align: justify;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 
       @media (max-width: 1350px) {
         width: 100%;
@@ -501,13 +423,32 @@ onUnmounted(() => {
       }
 
       span {color: #5493D1; font-family: Accademico;}
-
-      &.animate {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
+    .posts__title {
+      color: #5493D1;
+      text-align: center;
+      font-family: Accademico;
+      font-size: 60px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+      text-transform: uppercase;
+      width: 1265px;
+      white-space: pre-wrap;
+
+      @media (max-width: 1350px) {
+        width: 100%;
+        white-space: normal;
+        font-size: 40px;
+      }
+
+      @media (max-width: 700px) {
+        font-size: 30px;
+        white-space: normal;
+      }
+    }
+      
     .content__posts {
       display: flex;
       flex-direction: column;
@@ -520,38 +461,11 @@ onUnmounted(() => {
         gap: 127px;
       }
 
-      .posts__title {
-        color: #5493D1;
-        text-align: center;
-        font-family: Accademico;
-        font-size: 60px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 130%;
-        text-transform: uppercase;
-        width: 1265px;
-        white-space: pre-wrap;
-
-        @media (max-width: 1350px) {
-          width: 100%;
-          white-space: normal;
-          font-size: 40px;
-        }
-
-        @media (max-width: 700px) {
-          font-size: 30px;
-          white-space: normal;
-        }
-      }
-
       .posts__tight {
         display: flex;
         flex-direction: column;
         gap: 20px;
         width: 756px;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 
         @media (max-width: 900px) {
           width: 660px;
@@ -601,11 +515,6 @@ onUnmounted(() => {
             object-fit: cover;
           }
         }
-
-        &.animate {
-          opacity: 1;
-          transform: translateY(0);
-        }
       }
     }
   }
@@ -647,6 +556,117 @@ onUnmounted(() => {
         background: #5493D1;
         color: #FFF;
         transition: .8s;
+      }
+    }
+  }
+
+  .description__table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      @media (max-width: 700px) {
+        display: none;
+      }
+
+      tr {
+
+        th {
+          text-align: left; 
+          color: #5493D1;
+          font-family: Grafitello;
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 98%;
+          text-transform: uppercase;
+          padding: 25px 0;
+
+          @media (max-width: 1350px) {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+
+    tbody {
+      cursor: pointer;
+      border-bottom: 1px solid rgba(57, 57, 57, 0.60);
+
+      @media (max-width: 700px) {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin: 25px 0;
+      }
+
+      &:last-child {border-bottom: none;}
+
+      tr {
+
+        @media (max-width: 700px) {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          margin: 25px 0;
+        }
+
+        td {
+          color: #393939;
+          font-family: Accademico;
+          font-size: 19px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 98%;
+          padding: 30px 0;
+
+          @media (max-width: 1350px) {
+            font-size: 12px;
+          }
+
+          @media (max-width: 700px) {
+            padding: 0;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .table__data {
+      padding-left: 144px; width: 17%;
+      
+      @media (max-width: 1600px) {
+        width: 20%;
+        padding-left: 50px;
+      }
+
+      @media (max-width: 700px) {
+        padding-left: 40px;
+        width: 100%;
+      }
+    }
+    .table__author {
+      width: 25%;
+
+      @media (max-width: 1600px) {
+        width: 30%;
+      }
+
+      @media (max-width: 700px) {
+        padding-left: 40px;
+        width: 100%;
+      }
+    }
+    .table__theme {
+      padding-right: 57px; width: 58%;
+    
+      @media (max-width: 1600px) {
+        width: 55%;
+      }
+
+      @media (max-width: 700px) {
+        padding-left: 40px;
+        width: 100%;
       }
     }
   }

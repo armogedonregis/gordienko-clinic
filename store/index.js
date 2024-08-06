@@ -10,6 +10,7 @@ export default createStore({
 			profilePagesData: null,
 			articlesBlocksData: null,
 			blogPagesData: null,
+			blogItemData: null,
 			questionPagesData: null,
 			resultsPagesData: null,
 		}
@@ -36,6 +37,9 @@ export default createStore({
 		},
 		setBlogPagesData(state, data) {
 			state.blogPagesData = data
+		},
+		setBlogItemData(state, data) {
+			state.blogItemData = data
 		},
 		setQuestionPagesData(state, data) {
 			state.questionPagesData = data
@@ -73,6 +77,14 @@ export default createStore({
 			try {
 				const response = await axios.get('https://gordienko.doctor/api/blog/all')
 				commit('setBlogPagesData', response.data)
+			} catch (error) {
+				console.error('Ошибка: ', error)
+			}
+		},
+		async fetchBlogItemData({ commit }, routeId) {
+			try {
+				const response = await axios.get(`https://gordienko.doctor/api/blog/get-by-link/${routeId}`)
+				commit('setBlogItemData', response.data)
 			} catch (error) {
 				console.error('Ошибка: ', error)
 			}
