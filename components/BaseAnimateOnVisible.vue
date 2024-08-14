@@ -9,13 +9,18 @@ import { ref, onMounted, onUnmounted } from 'vue';
 
 const element = ref(null)
 const isVisible = ref(false)
+const inTransitionZone = ref(false)
 let observer = null
 function handleIntersect(entries) {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    if (entry.intersectionRatio > 0.5) {
       isVisible.value = true
+      inTransitionZone.value = false
+    } else if (entry.intersectionRatio > 0.1) {
+      inTransitionZone.value = true
     } else {
       isVisible.value = false
+      inTransitionZone.value = false
     }
   })
 }
@@ -23,7 +28,8 @@ function handleIntersect(entries) {
 onMounted(() => {
   observer = new IntersectionObserver(handleIntersect, {
     root: null,
-    threshold: 0.3,
+    threshold: [0, 0.1, 0.5],
+    rootMargin: '-100px 0px'
   })
   if (element.value) {
     observer.observe(element.value)

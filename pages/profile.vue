@@ -96,10 +96,10 @@
               <ul class="description__list-numbered">
                 <li class="list__lists">
                   <BaseAnimateOnVisible>
-                    <p class="list__num">0{{ blockIndex + 1 }}</p>
-                    <h1 class="list__title">{{ block.article_title }}</h1>
-                    <h2 class="list__subtitle">{{ block.article_quote }}</h2>
-                    <p class="list__info">{{ block.article_description }}</p>
+                      <p class="list__num">0{{ blockIndex + 1 }}</p>
+                      <h1 class="list__title">{{ block.article_title }}</h1>
+                      <h2 class="list__subtitle">{{ block.article_quote }}</h2>
+                      <p class="list__info">{{ block.article_description }}</p>
                   </BaseAnimateOnVisible>
                 </li>
               </ul>
@@ -584,6 +584,10 @@ onUnmounted(() => {
     flex-direction: column;
     padding: 0 200px;
     margin: 100px 0;
+    @media (max-width: 700px) {
+      padding: 0 20px;
+      margin: 100px 0;
+    }
   }
 
   .description__list-numbered {
@@ -746,9 +750,13 @@ onUnmounted(() => {
     gap: 30px;
   }
 
-  .content-padding {
+    .content-padding {
     padding: 200px;
-  }
+    @media (max-width: 700px) {
+        padding: 120px 20px;
+      }
+   }
+
 
   .content-margin {
     margin: 200px 0;

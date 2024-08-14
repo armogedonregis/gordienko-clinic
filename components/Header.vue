@@ -14,10 +14,14 @@
   </div>
   <div class="header__dropdown-wrapper">
     <div v-if="isDropdownOpen" class="dropdown__overlay"></div>
-    <Transition name="slide-fade">
+    <Transition name="menu-fade">
       <div v-if="isDropdownOpen" class="dropdown__menu-wrapper" @click="closeDropdown">
         <div class="dropdown__menu">
-          <NuxtLink :to="link.href" class="menu__item" v-for="link in home.home" :key="link">{{ link.title }}</NuxtLink>
+          <Transition name="text-blur" appear>
+            <div v-if="!isClosing" class="menu__items-wrapper">
+              <NuxtLink :to="link.href" class="menu__item" v-for="link in home.home" :key="link">{{ link.title }}</NuxtLink>
+            </div>
+          </Transition>
         </div>
       </div>
     </Transition>
@@ -30,13 +34,18 @@ import home from '/server/home.json';
 
 const headerWrapper = ref(null)
 const isDropdownOpen = ref(false)
+const isClosing = ref(false)
 function toggleDropdown() {
   isDropdownOpen.value = true
+  isClosing.value = false
   headerWrapper.value.style.mixBlendMode = 'normal'
 }
 function closeDropdown() {
-  isDropdownOpen.value = false
-  headerWrapper.value.style.mixBlendMode = 'difference'
+  isClosing.value = true
+  setTimeout(() => {
+    isDropdownOpen.value = false
+    headerWrapper.value.style.mixBlendMode = 'difference'
+  }, 500)
 }
 </script>
 
@@ -201,6 +210,19 @@ function closeDropdown() {
     left: 0;
     padding: 100px 0;
 
+    .menu-fade-enter-active {
+        transition: opacity 0.5s ease;
+      }
+
+      .menu-fade-leave-active {
+        transition: opacity 0.5s ease 0.5s;
+      }
+
+      .menu-fade-enter-from,
+      .menu-fade-leave-to {
+        opacity: 0;
+      }
+
     .dropdown__menu {
       display: flex;
       flex-direction: column;
@@ -221,6 +243,8 @@ function closeDropdown() {
         line-height: 98%;
         text-transform: uppercase;
 
+        transition: filter 0.5s ease;
+
         @media (max-width: 600px) {
           font-size: 20px;
         }
@@ -230,23 +254,29 @@ function closeDropdown() {
         }
       }
     }
+
+    .menu__items-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
   }
 
-  .slide-fade-enter-active,
-  .slide-fade-leave-active {
-    transition: transform 0.5s ease, opacity 0.5s ease;
-  }
+    .text-blur-enter-active,
+    .text-blur-leave-active {
+      transition: filter 0.5s ease;
+    }
 
-  .slide-fade-enter-from,
-  .slide-fade-leave-to {
-    transform: translateY(100%);
-    opacity: 0;
-  }
+    .text-blur-enter-from,
+    .text-blur-leave-to {
+      filter: blur(10px);
+    }
 
-  .slide-fade-enter-to,
-  .slide-fade-leave-from {
-    transform: translateY(0);
-    opacity: 1;
-  }
+    .text-blur-enter-to,
+    .text-blur-leave-from {
+      filter: blur(0);
+    }
+    }
 }
 </style>

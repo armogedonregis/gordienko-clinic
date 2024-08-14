@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     pageTransition: {
       name: 'page',
       mode: 'out-in',
-      duration: 500
+      duration: 1000
     },
   },
   target: 'static',

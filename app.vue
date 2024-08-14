@@ -72,7 +72,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .page-enter-active,
 .page-leave-active {
-  transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 1s cubic-bezier(0.86, 0, 0.07, 1);
   position: absolute;
   width: 100%;
   top: 0;
@@ -81,11 +81,11 @@ body::-webkit-scrollbar-thumb:hover {
 
 .page-enter-from {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(100px);
 }
 
 .page-leave-to {
   opacity: 0;
-  transform: translateY(-30px);
+  transform: translateY(-100px);
 }
 </style>
