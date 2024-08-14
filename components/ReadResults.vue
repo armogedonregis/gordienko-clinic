@@ -1,6 +1,6 @@
 <template>
   <div class="read__results">
-    <div class="results__item" v-for="(story, index) in resultsPagesData" :key="index">
+    <div class="results__item" v-for="(story, index) in casesData.cases" :key="index">
       <div class="item__container" :class="{ animate: isVisible[index] }" ref="items">
         <h1 class="item__title">{{ story.title }}</h1>
         <h2 class="item__subtitle">{{ story.subtitle }}</h2>
@@ -14,7 +14,7 @@
 <script setup>
 import casesData from '/server/cases.json';
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-
+import store from "/store/index.js";
 const resultsPagesData = computed(() => store.state.resultsPagesData)
 
 const items = ref([])

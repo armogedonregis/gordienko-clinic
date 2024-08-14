@@ -2,9 +2,11 @@
   <div class="app">
     <NuxtRouteAnnouncer />
     <Header />
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <div class="page-container">
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </div>
     <Footer />
     <Cookies />
   </div>
@@ -39,7 +41,6 @@ import Cookies from "./components/Cookies.vue";
 .app {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 body {
@@ -59,5 +60,32 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-thumb:hover {
   background-color: var(--scrollbar-thumb);
+}
+
+
+.page-container {
+  flex: 1;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
 }
 </style>

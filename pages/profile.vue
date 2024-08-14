@@ -2,7 +2,7 @@
   <div class="landing" v-if="profilePagesData" :key="profilePagesData.id">
     <section>
       <div class="landing__video-content title-video-block" ref="videoSections">
-        <video class="content__video" loop muted playsinline controls="false" :ref="el => videoRefs[0] = el" :v-lazy-src="profilePagesData.banner_video">
+        <video class="content__video" loop muted playsinline :ref="el => videoRefs[0] = el" :v-lazy-src="profilePagesData.banner_video">
           <source :src="profilePagesData.banner_video" type="video/mp4">
         </video>
       </div>
@@ -84,7 +84,10 @@
         <div class="article__content-wrapper">
           <BaseAnimateOnVisible>
             <div class="content-wrapper content-padding">
-              <h2 class="description__title-min">{{ article.title }}</h2>
+              <h2 class="description__title-min">
+                {{ article.post_title }}
+                <span>{{ article.title }}</span>
+              </h2>
               <p class="post__sign">— Олег Викторович Гордиенко, <br> пластический хирург</p>
             </div>
           </BaseAnimateOnVisible>

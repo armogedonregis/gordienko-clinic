@@ -3,7 +3,7 @@
     <NuxtLink :to="block.href" class="main__content" v-for="(block, index) in homePagesData" :key="index">
       <div class="content__overlay"></div>
       <h1 class="content__title">{{ block.title }}</h1>
-      <video class="content__video desktop" loop muted playsinline :ref="el => videoRefs[index] = el" v-lazy-src="block.videoDesktop" v-observe-visibility="handleVisibilityChange(block)">
+      <video class="content__video" loop muted playsinline :ref="el => videoRefs[index] = el" v-lazy-src="block.videoDesktop" v-observe-visibility="handleVisibilityChange(block)">
         <source :src="block.main_video" type="video/mp4">
       </video>
     </NuxtLink>

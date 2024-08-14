@@ -43,13 +43,13 @@ function closeDropdown() {
 <style lang="scss" scoped>
 .header-wrapper {
   position: fixed;
-  padding: 33px 33px 0 33px;
+  padding: 33px 33px 0 40px;
   z-index: 999;
   width: 100%;
   mix-blend-mode: difference;
 
   @media (max-width: 480px) {
-    padding: 17px 17px 0 17px;
+    padding: 17px 17px 0 50px;
   }
 
   .header {
@@ -97,7 +97,7 @@ function closeDropdown() {
 
         @media (max-width: 800px) {
           display: none;
-          font-size: 12px;
+          font-size: 17px;
         }
 
         &::before,

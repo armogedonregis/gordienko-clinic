@@ -303,6 +303,7 @@ onUnmounted(() => {
     .titles__photo-wrapper {
       overflow: hidden;
       width: 100%;
+      margin-bottom: 40px;
     }
 
     .titles__photo {

@@ -38,6 +38,12 @@ function handleMouseLeave() {
     }
   }
 
+  &:first-of-type {
+    .results__item {
+      border-top: none;
+    }
+  }
+
   .results__item {
     cursor: pointer;
     display: flex;
