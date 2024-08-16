@@ -111,11 +111,11 @@
             </div>
             <div class="landing__video-content content-margin" ref="videoSections" v-if="block.type === 'VIDEO'">
               <video class="content__video" loop muted playsinline :src="block.media_assets.url">
-                <source :src="block.media_assets.url" type="video/mp4">
+                <source :src="block.media_assets[0].url" type="video/mp4">
               </video>
             </div>
             <div class="landing__fullscreen-content" v-if="block.type === 'IMG'">
-              <img :src="block.media_assets.url" class="fullscreen__image" />
+              <img :src="block.media_assets[0].url" class="fullscreen__image" />
             </div>
             <div class="fullscreen-wrapper" v-if="block.type === 'MANY_IMG'">
               <div class="grid__photos">
